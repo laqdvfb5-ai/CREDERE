@@ -1,0 +1,102 @@
+{
+  "date": "2026-09-29",
+  "fx_vnd_per_usd": 27000,
+  "fx_is_budget_assumption": true,
+  "api_standard_short_context_per_million": {
+    "gpt-6-sol": {
+      "input": 2,
+      "output": 10
+    },
+    "gpt-6-luna": {
+      "input": 0.1,
+      "output": 0.5
+    }
+  },
+  "hypothetical_run": {
+    "master_input": 20000,
+    "master_output": 2000,
+    "worker_input": 30000,
+    "worker_output": 2000
+  },
+  "api_cost_per_run_usd": 0.064,
+  "api_cost_per_run_vnd": 1728,
+  "monthly_scenarios": [
+    {
+      "requests": 1000,
+      "api_vnd": 1728000,
+      "local_vnd": null,
+      "local_reason": "No matched-quality throughput/cost benchmark."
+    },
+    {
+      "requests": 5000,
+      "api_vnd": 8640000,
+      "local_vnd": null,
+      "local_reason": "No matched-quality throughput/cost benchmark."
+    },
+    {
+      "requests": 20000,
+      "api_vnd": 34560000,
+      "local_vnd": null,
+      "local_reason": "No matched-quality throughput/cost benchmark."
+    }
+  ],
+  "price_source": "https://developers.openai.com/api/docs/pricing",
+  "local_large_model_candidate": {
+    "model": "Qwen3-235B-A22B-Instruct-2507-FP8",
+    "model_source": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+    "total_parameters_billion": 235,
+    "active_parameters_billion": 22,
+    "fp8_weight_only_decimal_gb_approx": 235,
+    "bf16_weight_only_decimal_gb_approx": 470,
+    "gpu": "RTX PRO 6000 Blackwell Max-Q 96GB",
+    "gpu_count": 4,
+    "aggregate_gpu_memory_advertised_gb": 384,
+    "gpu_unit_price_vnd_including_vat": 499990000,
+    "gpu_subtotal_vnd_including_vat": 1999960000,
+    "gpu_price_source": "https://sicomp.vn/card-man-hinh-leadtek-nvidia-rtx-pro-6000-blackwell-max-q-workstation-edition-96gb",
+    "hardware_source": "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-family/",
+    "seller_condition": "Price listed with complete PC build only; no binding four-GPU system quotation obtained.",
+    "qualification": "Sizing candidate only. Checkpoint overhead, KV cache, software support, PCIe topology and concurrency require a measured acceptance test. Not proved equivalent to API model quality or enough for the whole school.",
+    "other_acquisition_costs": {
+      "cpu_ram_ssd_chassis_psu_network": null,
+      "ups_cooling_backup_setup": null,
+      "redundant_model_node": null
+    },
+    "complete_capex_vnd": null,
+    "complete_first_year_cost_vnd": null
+  },
+  "larger_reference": {
+    "model": "DeepSeek-V3 main671B",
+    "fp8_weight_only_decimal_gb_approx": 671,
+    "reference_topology": "8 x H200 in vLLM FP8 recipe",
+    "source": "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V3",
+    "purchase_price_vnd": null
+  },
+  "annual_opex_scenario_not_quote": {
+    "average_it_kw": 2,
+    "power_cooling_multiplier": 1.4,
+    "hours_per_year": 8760,
+    "assumed_vnd_per_kwh": 3000,
+    "electricity_cooling_vnd": 73584000.0,
+    "operations_fte": 0.5,
+    "assumed_full_time_monthly_vnd": 30000000,
+    "labor_vnd": 180000000.0,
+    "maintenance_reserve_vnd": 80000000,
+    "backup_monitoring_reserve_vnd": 20000000,
+    "total_vnd": 353584000.0,
+    "includes_depreciation": false,
+    "scope": "Operating-budget illustration for one candidate node; not measured power, salary quotation or complete school operating cost."
+  },
+  "excluded_costs": [
+    "application development",
+    "data integration and validation",
+    "fine-tuning or training",
+    "additional replicas/HA node",
+    "extra API calls in hybrid mode",
+    "financing",
+    "taxes on unquoted services"
+  ],
+  "comparable_local_per_request_cost": null,
+  "proven_breakeven_requests": null,
+  "decision": "Obtain a full configuration quote and run equal-quality/end-to-end latency tests before an acquisition decision."
+}

@@ -1,0 +1,47 @@
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+vps.txt
+VPS.txt
+settings-auth.json
+providers.json
+demo-access.txt
+*.pem
+*.key
+*.p12
+*.pfx
+.credere/
+.ssh/
+
+# Python / tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+node_modules/
+
+# Runtime data stays outside source control
+credere-data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.log
+deployment_review_*.json
+
+# Editor and office temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+.~lock.*#
+~$*
+*.tmp
+*.swp

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Credere — thành phần mã nguồn mở, tự viết và bên ngoài</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.viz-root {
+  color-scheme: light;
+  --page:           #f9f9f7;
+  --surface-1:      #fcfcfb;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #6f6e69;
+  --hairline:       #e1e0d9;
+  --axis:           #c3c2b7;
+  --chip-border:    #c3c2b7;
+  --oss:            #2a78d6;   /* slot 1 — mã nguồn mở dùng lại */
+  --self:           #eb6834;   /* slot 2 — nhóm tự viết */
+  --ext:            #1baf7a;   /* slot 3 — dịch vụ, dữ liệu bên ngoài */
+  --rejected-bg:    #f0efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) .viz-root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface-1: #1a1a19; --text-primary: #ffffff; --text-secondary: #c3c2b7;
+    --text-muted: #898781; --hairline: #2c2c2a; --axis: #383835; --chip-border: #5c5b56;
+    --oss: #3987e5; --self: #d95926; --ext: #199e70; --rejected-bg: #2c2c2a;
+  }
+}
+:root[data-theme="dark"] .viz-root {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface-1: #1a1a19; --text-primary: #ffffff; --text-secondary: #c3c2b7;
+  --text-muted: #898781; --hairline: #2c2c2a; --axis: #383835; --chip-border: #5c5b56;
+  --oss: #3987e5; --self: #d95926; --ext: #199e70; --rejected-bg: #2c2c2a;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #f9f9f7; }
+@media (prefers-color-scheme: dark) { :root:where(:not([data-theme="light"])) body { background: #0d0d0d; } }
+:root[data-theme="dark"] body { background: #0d0d0d; }
+.viz-root {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text-primary); background: var(--page);
+  width: 1440px; margin: 0 auto; padding: 28px 32px 36px;
+}
+h1 { font-size: 26px; margin: 0 0 4px; }
+.sub { color: var(--text-secondary); font-size: 14px; margin: 0 0 18px; }
+.png-only { display: none; }
+body.png .png-only { display: inline; }
+body.png .interactive-only { display: none; }
+
+/* Tóm tắt */
+.summary { display: grid; grid-template-columns: repeat(3, 1fr) 2.2fr 1fr; gap: 12px; margin-bottom: 14px; }
+.tile { background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 10px; padding: 12px 14px; }
+.tile .num { font-size: 34px; font-weight: 700; line-height: 1.1; }
+.tile .lbl { font-size: 14px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+.tile .extra { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.tile.muted { background: transparent; border-style: dashed; border-color: var(--chip-border); }
+.tile.muted .num { color: var(--text-muted); }
+.dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }
+.bar-tile .lbl { margin-bottom: 8px; }
+.bar { display: flex; gap: 2px; height: 26px; }
+.bar div { border-radius: 4px; }
+.bar-legend { display: flex; justify-content: flex-start; gap: 18px; font-size: 12.5px; color: var(--text-secondary); margin-top: 8px; }
+.bar-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.bar-legend .dot { width: 10px; height: 10px; }
+
+/* Chú giải */
+.legend { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; column-gap: 26px; row-gap: 8px;
+  font-size: 13px; color: var(--text-secondary);
+  background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; }
+.legend .item { display: flex; align-items: center; gap: 7px; }
+.sw { width: 30px; height: 18px; border-radius: 4px; border: 1px solid var(--chip-border); flex: none; }
+.sw.dashed { border: 1.5px dashed var(--text-muted); border-left: 5px solid var(--text-muted); background: transparent; }
+.sw.core { border: 2px solid var(--text-secondary); background: transparent; }
+.sw.rej { background: var(--rejected-bg); display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; line-height: 1; color: var(--text-secondary); text-decoration: line-through; }
+.legend .arr { width: 30px; text-align: center; color: var(--text-muted); font-weight: 700; }
+
+/* Sơ đồ */
+.user-pill { width: max-content; margin: 0 auto; padding: 8px 18px; border-radius: 999px; border: 1px solid var(--axis);
+  background: var(--surface-1); font-weight: 600; font-size: 15px; }
+.arrow { text-align: center; color: var(--text-muted); font-size: 13px; line-height: 1; margin: 3px 0; }
+.arrow b { display: block; font-size: 16px; }
+.arrows3 { display: grid; grid-template-columns: 0.85fr 1.1fr 1.1fr; gap: 12px; margin-top: 3px; }
+.arrows3 .arrow { margin: 0; }
+.sep { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 13px; margin: 10px 0 8px; }
+.sep::before, .sep::after { content: ""; flex: 1; border-top: 1px dashed var(--chip-border); }
+.band { display: grid; grid-template-columns: 190px 1fr; gap: 12px; align-content: start; background: var(--surface-1);
+  border: 1px solid var(--hairline); border-radius: 12px; padding: 12px; }
+.band.core { border: 2px solid var(--text-secondary); }
+.band-title { font-weight: 700; font-size: 15px; }
+.band-title small { display: block; font-weight: 400; font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.35; }
+.cards { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+#diagram > .band > .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.cols { display: grid; gap: 12px; }
+.cols.three { grid-template-columns: 0.85fr 1.1fr 1.1fr; }
+.cols.three > .band:first-child .card { flex-basis: 100%; }
+.cols.two { grid-template-columns: 1.35fr 1fr; }
+.cols.two > .band:first-child .card { flex-basis: calc(50% - 4px); }
+.cols .band { grid-template-columns: 1fr; gap: 8px; }
+
+.card { --c: var(--text-muted); position: relative; min-width: 150px; flex: 1 1 180px;
+  background: color-mix(in srgb, var(--c) 9%, var(--surface-1));
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); border-left: 6px solid var(--c);
+  border-radius: 8px; padding: 7px 9px 8px; }
+.card.oss { --c: var(--oss); }
+.card.self { --c: var(--self); }
+.card.external { --c: var(--ext); }
+.card.optional { border: 1.5px dashed color-mix(in srgb, var(--c) 75%, transparent); border-left: 6px solid var(--c); }
+.card .name { font-weight: 600; font-size: 13.5px; line-height: 1.3; text-wrap: pretty; }
+.card .meta { font-size: 11.5px; color: var(--text-secondary); margin-top: 3px; line-height: 1.3; text-wrap: pretty; }
+.card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag { font-size: 10.5px; line-height: 1.2; padding: 2px 6px; border-radius: 999px; color: var(--text-secondary);
+  border: 1px solid var(--chip-border); background: var(--surface-1); display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.tag .dot { width: 8px; height: 8px; border-radius: 2px; }
+.tag.opt { border-style: dashed; border-color: var(--text-muted); }
+.tag.cut { border-color: var(--text-secondary); color: var(--text-primary); }
+
+.refs { font-size: 12px; color: var(--text-secondary); margin-top: 8px; grid-column: 2; }
+.refs b { color: var(--text-primary); font-weight: 600; }
+
+.rejected { margin-top: 16px; }
+.rej-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.rej { background: var(--rejected-bg); border: 1px solid var(--chip-border); border-radius: 6px; padding: 4px 8px; font-size: 12px; }
+.rej s { color: var(--text-primary); font-weight: 600; }
+.rej span { color: var(--text-secondary); }
+
+.foot { font-size: 12px; color: var(--text-muted); margin-top: 14px; line-height: 1.5; }
+
+/* Bảng chi tiết */
+details { margin-top: 20px; background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 10px; padding: 10px 14px; }
+summary { font-weight: 600; cursor: pointer; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; margin-top: 10px; }
+th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+th { color: var(--text-secondary); font-weight: 600; }
+body.png details { display: none; }
+</style>
+</head>
+<body>
+<div class="viz-root" id="root">
+  <h1>Credere — phần nào dùng mã nguồn mở</h1>
+  <p class="sub">Theo PLAN.md bản 3 và OSS_REVIEW.md (kiểm tra 25/09/2026).
+    <span class="interactive-only">Rê chuột lên từng ô để xem đầy đủ ghi chú; bảng chi tiết ở cuối trang.</span>
+    <span class="png-only">Giấy phép và ghi chú in ngay trên từng ô; bảng chi tiết có trong OSS_MAP.html.</span></p>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="legend">
+    <span class="item"><span class="sw" style="background:color-mix(in srgb,var(--oss) 9%,var(--surface-1));border-left:5px solid var(--oss)"></span>Mã nguồn mở dùng lại</span>
+    <span class="item"><span class="sw" style="background:color-mix(in srgb,var(--self) 9%,var(--surface-1));border-left:5px solid var(--self)"></span>Nhóm tự viết</span>
+    <span class="item"><span class="sw" style="background:color-mix(in srgb,var(--ext) 9%,var(--surface-1));border-left:5px solid var(--ext)"></span>Dịch vụ, dữ liệu bên ngoài</span>
+    <span class="item"><span class="sw dashed"></span>Viền nét đứt: tùy chọn, dự phòng hoặc làm sau</span>
+    <span class="item"><span class="tag cut">✂ đề xuất lược bỏ</span>bắt buộc theo PLAN; đề xuất lược bỏ khi thu gọn phạm vi còn 3 tháng</span>
+    <span class="item"><span class="sw core"></span>Khung đậm: phần lõi theo yêu cầu đề bài</span>
+    <span class="item"><span class="arr">▼</span>Thứ tự xử lý một yêu cầu, từ người dùng xuống</span>
+    <span class="item"><span class="sw rej">abc</span>Đã xem xét, không dùng</span>
+  </div>
+
+  <div id="diagram"></div>
+
+  <div class="rejected band" style="grid-template-columns:190px 1fr">
+    <div class="band-title">Đã xem xét, không dùng<small>Tiêu biểu; các lựa chọn khác ghi trong PLAN.md và OSS_REVIEW.md</small></div>
+    <div class="rej-list" id="rejected"></div>
+  </div>
+
+  <p class="foot">Đếm theo số thành phần, không theo lượng mã. PostgreSQL chỉ đếm một lần dù dùng cho nhiều tầng (checkpoint, Aegra, schema nghiệp vụ, RLS, tìm toàn văn). Loại “Dịch vụ, dữ liệu bên ngoài” gồm API trả phí, nguồn dữ liệu mở, tài liệu nội bộ do các phòng cung cấp và máy chủ thuê; đây không phải phần mềm mã nguồn mở do nhóm tự chạy. Khi PLAN.md và OSS_REVIEW.md khác nhau, sơ đồ theo PLAN.md.</p>
+
+  <details open>
+    <summary>Bảng chi tiết</summary>
+    <table id="table"><thead><tr><th>Tầng</th><th>Thành phần</th><th>Loại</th><th>Giấy phép</th><th>Ghi chú</th></tr></thead><tbody></tbody></table>
+  </details>
+</div>
+
+<script>
+const CUT = 'Bắt buộc theo PLAN; đề xuất lược bỏ khi thu gọn phạm vi còn 3 tháng (đề xuất này chưa ghi vào PLAN)';
+const DATA = [
+  { layer: 'Giao diện & báo cáo', note: 'Người dùng thao tác ở đây', items: [
+    { n: 'React, Vite, TypeScript', c: 'oss', l: 'MIT (React, Vite) / Apache-2.0 (TypeScript)' },
+    { n: 'assistant-ui + react-langgraph', c: 'oss', l: 'MIT', d: 'Thành phần chat, nối với LangGraph' },
+    { n: 'shadcn/ui', c: 'oss', l: 'MIT' },
+    { n: 'agent-chat-ui', c: 'oss', l: 'MIT', opt: 'chỉ để thử nhanh API' },
+    { n: 'pandoc', c: 'oss', l: 'GPL-2.0+, gọi qua tiến trình ngoài', opt: 'xuất DOCX về sau' },
+    { n: 'Màn hình kế hoạch, tiến độ, bằng chứng, báo cáo, kho tài liệu, quản trị', c: 'self' },
+    { n: 'Mẫu báo cáo; xuất Markdown/CSV', c: 'self', d: 'Dùng thư viện chuẩn' },
+  ]},
+  { layer: 'Đăng nhập & phân quyền', items: [
+    { n: 'Keycloak', c: 'oss', l: 'Apache-2.0', d: 'OIDC, vai trò mẫu cho demo, về sau tích hợp đăng nhập một lần (SSO) của trường', cut: true },
+    { n: 'Auth handler: kiểm tra JWT, ánh xạ vai trò, đơn vị', c: 'self' },
+    { n: 'Bảng ACL, nguồn gốc dữ liệu (lineage), quy tắc quyền xem báo cáo', c: 'self', d: 'Dựa trên Row-Level Security của PostgreSQL' },
+  ]},
+  { layer: 'API & quản lý lượt chạy', items: [
+    { n: 'Aegra', c: 'oss', l: 'Apache-2.0', d: 'Luồng hội thoại (thread), lượt chạy nền, hủy và chờ kết quả, SSE nối lại bằng Last-Event-ID, lọc quyền; bản 0.x, cần chạy thử kiểm chứng ở M-1' },
+    { n: 'FastAPI', c: 'oss', l: 'MIT', d: 'Nền của Aegra và các route tự viết' },
+    { n: 'Route tài liệu, bằng chứng, báo cáo, quản trị', c: 'self' },
+    { n: 'Procrastinate', c: 'oss', l: 'MIT', opt: 'dự phòng nếu Aegra không đạt (kèm SSE tự viết)' },
+  ]},
+  { layer: 'Điều phối', core: true, note: 'Phần lõi theo yêu cầu đề bài', items: [
+    { n: 'LangGraph 1.x + checkpoint-postgres', c: 'oss', l: 'MIT', d: 'Engine duy nhất quản lý nhiệm vụ, phụ thuộc, lưu trạng thái' },
+    { n: 'Tác tử điều phối (Master): lập kế hoạch DAG, kiểm tra kế hoạch, đánh giá kết quả với tối đa 2 lượt sửa, tổng hợp', c: 'self' },
+    { n: 'Hợp đồng dữ liệu FR2 (JSON Schema) và bảng phản chiếu có phiên bản', c: 'self', d: 'Thực thể: Run, Task, WorkerResult, Review, Source, Evidence, Event' },
+    { n: 'Danh mục tác tử (registry)', c: 'self', d: 'Thêm tác tử mới không sửa tác tử điều phối (NFR1)' },
+  ], refs: 'mẫu LLMCompiler, plan-and-execute; open_deep_research, deepagents; agent-service-toolkit, full-stack-fastapi-template.' },
+  { layer: 'Tác tử thực thi', items: [
+    { n: 'Tác tử chuyên môn (Worker) Đào tạo, NCKH, HTQT', c: 'self' },
+    { n: 'Tác tử hỗ trợ Tìm kiếm, Phân tích', c: 'self', d: 'Search, Analysis trong PLAN; hàm tính có schema, không chạy mã do mô hình sinh' },
+    { n: 'Tác tử Tuyển sinh, Nhân sự, Hành chính', c: 'self', opt: 'sau MVP (M6), ngoài đề tài 3 tháng' },
+  ]},
+  { group: 'three', bands: [
+    { layer: 'Mô hình AI', items: [
+      { n: 'LangChain init_chat_model', c: 'oss', l: 'MIT', d: 'Cấu hình mô hình riêng cho từng tác tử' },
+      { n: 'LiteLLM: dữ liệu giá mô hình', c: 'oss', l: 'MIT (trừ thư mục enterprise)', d: 'Khóa phiên bản kèm mã băm; chỉ dùng SDK khi cần chuyển sang mô hình dự phòng; không chạy proxy' },
+      { n: 'Mô hình ngôn ngữ lớn qua API trả phí', c: 'external', d: 'Dự toán theo Claude Opus 5 / Sonnet 5 / Haiku 4.5; PLAN chưa chốt nhà cung cấp' },
+      { n: 'Bảng giá có ngày hiệu lực, ghi lượng token đã dùng, ngân sách mỗi lượt chạy', c: 'self' },
+    ]},
+    { layer: 'Tài liệu & truy xuất', items: [
+      { n: 'Docling', c: 'oss', l: 'MIT', d: 'Đọc PDF, DOCX; OCR khi cần' },
+      { n: 'pypdf, python-docx', c: 'oss', l: 'BSD-3 / MIT', opt: 'dự phòng' },
+      { n: 'underthesea', c: 'oss', l: 'Apache-2.0', d: 'Tách từ tiếng Việt cho tìm từ khóa' },
+      { n: 'pgvector', c: 'oss', l: 'PostgreSQL License', d: 'Tìm theo vector embedding; tìm toàn văn (simple + unaccent) là phần có sẵn của PostgreSQL' },
+      { n: 'Embedding và reranker của AITeamVN', c: 'oss', l: 'Apache-2.0 (mô hình mở)', d: 'Ứng viên chính; chốt sau khi đo trên 50–100 câu hỏi có nhãn' },
+      { n: 'multilingual-e5-large-instruct, Qwen3-Embedding-0.6B', c: 'oss', l: 'MIT / Apache-2.0 (mô hình mở)', opt: 'ứng viên so sánh ở M-1' },
+      { n: 'Chia đoạn; tìm kiếm lai từ khóa + vector, gộp bằng RRF; lọc quyền ngay trong truy vấn; bộ câu hỏi có nhãn để chọn mô hình', c: 'self' },
+    ]},
+    { layer: 'Nguồn dữ liệu ngoài', items: [
+      { n: 'Công cụ có schema gọi nguồn ngoài', c: 'self', d: 'Lưu URL, thời điểm truy xuất, bản trích, phản hồi gốc' },
+      { n: 'pyalex', c: 'oss', l: 'MIT' },
+      { n: 'trafilatura', c: 'oss', l: 'Apache-2.0', d: 'Trích nội dung trang web' },
+      { n: 'SearXNG', c: 'oss', l: 'AGPL-3.0', d: 'Tự host, chạy nguyên bản trong container riêng', cut: true },
+      { n: 'crawl4ai', c: 'oss', l: 'Apache-2.0', opt: 'chỉ khi trang cần JS' },
+      { n: 'OpenAlex, Crossref, arXiv', c: 'external', d: 'API dữ liệu học thuật mở, miễn phí trong hạn mức' },
+      { n: 'Nguồn công khai tự thu thập', c: 'external', d: 'nau.edu.vn, văn bản pháp luật công khai' },
+      { n: 'Tài liệu các phòng ban cung cấp', c: 'external', d: 'Theo phiếu đề nghị trong DATA_PLAN.md' },
+    ]},
+  ]},
+  { group: 'two', bands: [
+    { layer: 'Vận hành & đánh giá', items: [
+      { n: 'Langfuse', c: 'oss', l: 'MIT (phần lõi); thư mục ee có giấy phép riêng', d: 'Theo dõi vết (trace) cho nhóm phát triển; kéo theo ClickHouse, Redis/Valkey, S3 (~5 container); chưa rà soát giấy phép của các thành phần này', cut: true },
+      { n: 'DeepEval', c: 'oss', l: 'Apache-2.0', d: 'Chấm theo tiêu chí trong pytest' },
+      { n: 'promptfoo', c: 'oss', l: 'MIT', d: 'Kiểm thử rò rỉ dữ liệu vượt quyền và tấn công chèn lệnh (prompt injection)' },
+      { n: 'Bộ đánh giá: 60 tình huống, 20 câu PoC, rubric, fixture, tài khoản và mô hình giả lập; kiểm tra truy vết theo NFR3', c: 'self' },
+    ]},
+    { layer: 'Hạ tầng', items: [
+      { n: 'PostgreSQL', c: 'oss', l: 'PostgreSQL License', d: 'Cơ sở dữ liệu duy nhất: checkpoint, Aegra, schema nghiệp vụ, RLS, tìm toàn văn' },
+      { n: 'Alembic', c: 'oss', l: 'MIT', d: 'Migration cho schema nghiệp vụ' },
+      { n: 'Docker (Engine hoặc Desktop) + Compose trong WSL2', c: 'oss', l: 'Engine, Compose: Apache-2.0', d: 'PLAN thử Docker Desktop trước (không phải mã nguồn mở); chỉ tính là mã nguồn mở khi dùng Docker Engine' },
+      { n: 'Python 3.13, Node.js 24 LTS', c: 'oss', l: 'PSF / MIT' },
+      { n: 'VPS hoặc máy chủ Linux', c: 'external', opt: 'chỉ khi cần chạy liên tục cho demo; pilot về sau' },
+    ]},
+  ]},
+];
+const REJECTED = [
+  ['Dify', 'giấy phép Apache-2.0 sửa đổi'], ['Open WebUI', 'giấy phép riêng'], ['Onyx', 'SSO/RBAC thuộc bản Enterprise'],
+  ['langgraph-api tự host', 'Elastic-2.0, cần khóa bản quyền'], ['langgraph-supervisor', 'đã ngừng phát triển (archive)'],
+  ['Celery + Redis', 'không hỗ trợ Windows, phải chạy thêm broker'], ['BackgroundTasks của FastAPI', 'mất việc đang chạy khi tiến trình dừng'],
+  ['PyMuPDF', 'AGPL-3.0'], ['VnCoreNLP', 'GPL-3.0, cần Java'],
+  ['ParadeDB', 'AGPL-3.0, không hỗ trợ Windows — hoãn'], ['VectorChord', 'AGPL-3.0 hoặc Elastic-2.0 — hoãn'],
+  ['llm-guard', 'chưa hỗ trợ Python 3.13'], ['Arize Phoenix', 'Elastic-2.0'], ['LangSmith', 'không phải mã nguồn mở'],
+];
+const CAT = { oss: 'Mã nguồn mở', self: 'Tự viết', external: 'Bên ngoài' };
+const CATLONG = { oss: 'Thành phần mã nguồn mở', self: 'Phần nhóm tự viết', external: 'Dịch vụ, dữ liệu bên ngoài' };
+const CATVAR = { oss: 'var(--oss)', self: 'var(--self)', external: 'var(--ext)' };
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+const noteOf = it => [it.d, it.opt ? 'Phạm vi: ' + it.opt : '', it.cut ? CUT : ''].filter(Boolean);
+
+function card(it) {
+  const cls = ['card', it.c, it.opt ? 'optional' : ''].join(' ');
+  const tip = [it.n, CAT[it.c], it.l, ...noteOf(it)].filter(Boolean).join('\n');
+  const tags = [`<span class="tag"><span class="dot" style="background:${CATVAR[it.c]}"></span>${CAT[it.c]}</span>`];
+  if (it.opt) tags.push(`<span class="tag opt">${esc(it.opt)}</span>`);
+  if (it.cut) tags.push(`<span class="tag cut">✂ đề xuất lược bỏ</span>`);
+  const meta = [it.l, it.d].filter(Boolean).map(esc).join(' · ');
+  return `<div class="${cls}" title="${esc(tip)}"><div class="name">${esc(it.n)}</div>${meta ? `<div class="meta">${meta}</div>` : ''}<div class="tags">${tags.join('')}</div></div>`;
+}
+function band(b) {
+  return `<div class="band${b.core ? ' core' : ''}"><div class="band-title">${esc(b.layer)}${b.note ? `<small>${esc(b.note)}</small>` : ''}</div>`
+    + `<div class="cards">${b.items.map(card).join('')}</div>${b.refs ? `<div class="refs"><b>Tham khảo thiết kế, không đưa vào hệ thống:</b> ${esc(b.refs)}</div>` : ''}</div>`;
+}
+const arrow = () => `<div class="arrow"><b>▼</b></div>`;
+
+let html = `<div class="user-pill">Người dùng theo vai trò: Ban Giám hiệu, phòng ban, giảng viên, sinh viên</div>` + arrow();
+DATA.forEach((row, i) => {
+  if (row.group) html += `<div class="cols ${row.group}">${row.bands.map(band).join('')}</div>`;
+  else html += band(row);
+  const next = DATA[i + 1];
+  if (!next) return;
+  if (next.group === 'three') html += `<div class="arrows3">${arrow()}${arrow()}${arrow()}</div><div class="arrow" style="margin-bottom:5px">tác tử thực thi gọi mô hình, dữ liệu và nguồn ngoài</div>`;
+  else if (next.group === 'two') html += `<div class="sep">Nền tảng chung cho mọi tầng ở trên</div>`;
+  else html += arrow();
+});
+document.getElementById('diagram').innerHTML = html;
+document.getElementById('rejected').innerHTML = REJECTED.map(([n, r]) => `<span class="rej"><s>${esc(n)}</s> <span>${esc(r)}</span></span>`).join('');
+
+// Đếm và bảng chi tiết từ cùng một nguồn dữ liệu
+const all = [];
+DATA.forEach(row => (row.bands || [row]).forEach(b => b.items.forEach(it => all.push({ ...it, layer: b.layer }))));
+const cnt = { oss: 0, self: 0, external: 0 }, opt = { oss: 0, self: 0, external: 0 };
+let cut = 0;
+all.forEach(it => { cnt[it.c]++; if (it.opt) opt[it.c]++; if (it.cut) cut++; });
+const total = cnt.oss + cnt.self + cnt.external;
+const pct = k => Math.round(cnt[k] / total * 100);
+const tile = (k, extra) => `<div class="tile"><div class="num">${cnt[k]}</div><div class="lbl"><span class="dot" style="background:${CATVAR[k]}"></span>${CATLONG[k]}</div><div class="extra">${extra}</div></div>`;
+document.getElementById('summary').innerHTML =
+  tile('oss', `trong đó ${opt.oss} tùy chọn hoặc dự phòng, ${cut} đề xuất lược bỏ`) +
+  tile('self', `trong đó ${opt.self} làm sau MVP`) +
+  tile('external', `trong đó ${opt.external} tùy chọn`) +
+  `<div class="tile bar-tile"><div class="lbl">Tỷ lệ theo số thành phần (${total} thành phần)</div>` +
+  `<div class="bar">${['oss', 'self', 'external'].map(k => `<div title="${CAT[k]}: ${cnt[k]} (${pct(k)}%)" style="flex:${cnt[k]};background:${CATVAR[k]}"></div>`).join('')}</div>` +
+  `<div class="bar-legend">${['oss', 'self', 'external'].map(k => `<span><span class="dot" style="background:${CATVAR[k]}"></span>${CAT[k]} ${pct(k)}%</span>`).join('')}</div></div>` +
+  `<div class="tile muted"><div class="num">${REJECTED.length}</div><div class="lbl">Đã xem xét, không dùng</div><div class="extra">không tính vào ${total} thành phần</div></div>`;
+document.querySelector('#table tbody').innerHTML = all.map(it =>
+  `<tr><td>${esc(it.layer)}</td><td>${esc(it.n)}</td><td>${CAT[it.c]}</td><td>${esc(it.l || '—')}</td><td>${esc(noteOf(it).join('; ') || '—')}</td></tr>`).join('');
+
+const q = new URLSearchParams(location.search);
+if (q.has('png')) document.body.classList.add('png');
+if (q.has('theme')) document.documentElement.dataset.theme = q.get('theme');
+</script>
+</body>
+</html>

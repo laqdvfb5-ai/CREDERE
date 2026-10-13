@@ -1,0 +1,362 @@
+[
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3]",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 38,
+  "latency": 3.78,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 47,
+  "latency": 3.89,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Nếu sinh viên thuộc khóa tuyển sinh từ năm 2025, lệ phí phúc khảo là **20.000 đồng/học phần**; 3 học phần phải nộp **60.000 đồng**. [QĐ-620, Điều 3; QĐ-712, Điều 1]\n\nNếu sinh viên thuộc khóa trước năm 2025, tài liệu chưa nêu rõ quy định chuyển tiếp; theo QĐ-105, tổng lệ phí là **66.000 đồng**. [QĐ-105, Điều 3]",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 484,
+  "latency": 36.54,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ chính quy nộp 3 học phần: **3 × 20.000 = 60.000 đồng**. [QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 191,
+  "latency": 34.02,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao hiện nay là **6 năm**. [QĐ-620, Điều 5; QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 104,
+  "latency": 7.89,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Đối với sinh viên hệ chất lượng cao tuyển sinh từ khóa 2025, thời gian đào tạo tối đa là **6 năm**. [QĐ-620, Điều 5]\n\nNếu sinh viên thuộc khóa trước 2025, tài liệu cho biết QĐ-105 quy định thời hạn là **9 năm**; cần xác định khóa tuyển sinh để áp dụng chính xác. [QĐ-105, Điều 5]",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 310,
+  "latency": 26.52,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Đối với sinh viên hệ liên thông thuộc phạm vi áp dụng của QĐ-620, lệ phí phúc khảo là **25.000 đồng mỗi học phần**. QĐ-712 chỉ sửa mức phí của hệ chính quy; các hệ khác giữ nguyên. [QĐ-620, Điều 3; QĐ-712, Điều 1 và Điều 3]",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 208,
+  "latency": 10.35,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông hiện nay là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3; QĐ-712, Điều 1, Điều 3]",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 112,
+  "latency": 7.6,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo hiện hành đối với sinh viên hệ chính quy là **20.000 đồng/học phần**; 3 học phần phải nộp:\n\n**3 × 20.000 = 60.000 đồng.** [QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 149,
+  "latency": 6.82,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ chính quy nộp **20.000 đồng/học phần**; 3 học phần là:\n\n**3 × 20.000 = 60.000 đồng.** [QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 150,
+  "latency": 11.11,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao từ khóa 2025 là **6 năm** [QĐ-620, Điều 5; QĐ-712, Điều 3].",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 48,
+  "latency": 4.72,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-6-sol",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao là **6 năm**; QĐ-712 không sửa đổi mức này. [QĐ-620, Điều 5] [QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 81,
+  "latency": 4.85,
+  "reported_model": "gpt-6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông hiện nay là **25.000 đồng/học phần**. QĐ-712 chỉ sửa mức phí của hệ chính quy, các hệ khác giữ nguyên [QĐ-620, Điều 3; QĐ-712, Điều 1].",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 67,
+  "latency": 4.55,
+  "reported_model": "gpt-5.6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "sua_doi_bay",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông hiện nay là **25.000 đồng/học phần** [QĐ-620, Điều 3]. QĐ-712 chỉ sửa mức phí của hệ chính quy; các hệ khác giữ nguyên [QĐ-712, Điều 1].",
+  "error": null,
+  "in_tokens": 52198,
+  "out_tokens": 67,
+  "latency": 4.34,
+  "reported_model": "gpt-5.6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Tổng lệ phí là **60.000 đồng** (3 học phần × 20.000 đồng/học phần) theo mức áp dụng cho sinh viên hệ chính quy từ ngày 01/01/2026 [QĐ-712, Điều 1].",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 259,
+  "latency": 21.74,
+  "reported_model": "gpt-5.6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "nhan_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí hiện hành đối với sinh viên hệ chính quy là **20.000 đồng/học phần** [QĐ-712, Điều 1].\n\nTổng lệ phí cho 3 học phần: **20.000 × 3 = 60.000 đồng**.",
+  "error": null,
+  "in_tokens": 52207,
+  "out_tokens": 226,
+  "latency": 18.65,
+  "reported_model": "gpt-5.6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao là **6 năm** [QĐ-620, Điều 5; QĐ-712, Điều 3].",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 43,
+  "latency": 13.37,
+  "reported_model": "gpt-5.6-sol"
+ },
+ {
+  "model": "gpt-5.6-sol",
+  "size": 165000,
+  "q": "nam_khac",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao là **6 năm** [QĐ-620, Điều 5; QĐ-712, Điều 3].",
+  "error": null,
+  "in_tokens": 52195,
+  "out_tokens": 43,
+  "latency": 9.72,
+  "reported_model": "gpt-5.6-sol"
+ }
+]

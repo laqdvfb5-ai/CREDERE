@@ -1,0 +1,225 @@
+{
+  "generated_at": "2026-09-29T07:58:57+07:00",
+  "base_url": "http://127.0.0.1:8001",
+  "dimensions": {
+    "width": 1440,
+    "height": 900
+  },
+  "capture_policy": {
+    "live_model_requests_allowed": false,
+    "writes_allowed": false,
+    "settings_api_allowed": false,
+    "external_requests_allowed": false,
+    "answer_source": "existing local recordings, replayed through the real server and labeled by the real UI",
+    "personal_data_tables_included": false,
+    "synthetic_data_notice_preserved": true
+  },
+  "blocked_requests": [],
+  "browser_errors": [],
+  "screenshots": [
+    {
+      "file": "welcome-admissions.png",
+      "kind": "welcome",
+      "app": "tuyen_sinh",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:27+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=tuyen_sinh",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": false
+    },
+    {
+      "file": "welcome-academic.png",
+      "kind": "welcome",
+      "app": "dao_tao",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:28+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=dao_tao",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": false
+    },
+    {
+      "file": "welcome-principal.png",
+      "kind": "welcome",
+      "app": "hieu_truong",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:29+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=hieu_truong",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": false
+    },
+    {
+      "file": "answer-admissions.png",
+      "kind": "recorded_answer",
+      "app": "tuyen_sinh",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:35+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=tuyen_sinh&mode=replay&q=%C4%90%E1%BA%BFn+gi%E1%BB%9D+c%C3%B3+bao+nhi%C3%AAu+th%C3%AD+sinh+%C4%91%C3%A3+x%C3%A1c+nh%E1%BA%ADn+nh%E1%BA%ADp+h%E1%BB%8Dc%2C+theo+t%E1%BB%ABng+ng%C3%A0nh%3F+Ng%C3%A0nh+n%C3%A0o+c%C3%B2n+thi%E1%BA%BFu+nhi%E1%BB%81u+ch%E1%BB%89+ti%C3%AAu+nh%E1%BA%A5t%3F",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": true,
+      "question": "Đến giờ có bao nhiêu thí sinh đã xác nhận nhập học, theo từng ngành? Ngành nào còn thiếu nhiều chỉ tiêu nhất?",
+      "recorded_at": "2026-09-29T00:07:56",
+      "recording_file": "C:\\Users\\laqdv\\.credere\\runs\\demo-tuyen-sinh\\den-gio-co-bao-nhieu-thi-sinh-da-xac-nhan-nhap-hoc-theo-tung-nganh-nganh-nao-con-thieu-nhieu-chi-tieu-nhat.json",
+      "recording_sha256": "269ec3182f41f6c344584b5f0f05c656d1f52075bf53d09ee9ea620a1b79baaa",
+      "task_status": {
+        "T1": "accepted",
+        "T2": "accepted"
+      },
+      "event_count": 9,
+      "original_elapsed_s": 97.9,
+      "original_run_used_synthetic_data": true,
+      "delegates": [],
+      "replay_label": "Phát lại xong",
+      "recorded_time_banner": "Phát lại · chạy thật lúc 00:07 ngày 29/09/2026",
+      "view_detail": "Top of the original recorded answer; viewport excerpt, with replay banner and synthetic-data label."
+    },
+    {
+      "file": "answer-academic.png",
+      "kind": "recorded_answer",
+      "app": "dao_tao",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:39+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=dao_tao&mode=replay&q=H%E1%BB%8Dc+k%E1%BB%B3+2+n%C4%83m+h%E1%BB%8Dc+2025%E2%80%932026+c%C3%B3+bao+nhi%C3%AAu+sinh+vi%C3%AAn+b%E1%BB%8B+c%E1%BA%A3nh+b%C3%A1o+h%E1%BB%8Dc+v%E1%BB%A5%2C+theo+t%E1%BB%ABng+ng%C3%A0nh%3F+L%C3%BD+do+ph%E1%BB%95+bi%E1%BA%BFn+nh%E1%BA%A5t+l%C3%A0+g%C3%AC%3F",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": true,
+      "question": "Học kỳ 2 năm học 2025–2026 có bao nhiêu sinh viên bị cảnh báo học vụ, theo từng ngành? Lý do phổ biến nhất là gì?",
+      "recorded_at": "2026-09-29T02:47:45",
+      "recording_file": "C:\\Users\\laqdv\\.credere\\runs\\demo-tuyen-sinh\\dao_tao--hoc-ky-2-nam-hoc-2025-2026-co-bao-nhieu-sinh-vien-bi-canh-bao-hoc-vu-theo-tung-nganh-ly-do-pho-bien-nhat-la-gi.json",
+      "recording_sha256": "f971d4fbbb51d0aaece76e1756ea924829ac15fe003094726562d0c6b7a4b664",
+      "task_status": {
+        "T1": "accepted"
+      },
+      "event_count": 6,
+      "original_elapsed_s": 85.4,
+      "original_run_used_synthetic_data": true,
+      "delegates": [],
+      "replay_label": "Phát lại xong",
+      "recorded_time_banner": "Phát lại · chạy thật lúc 02:47 ngày 29/09/2026",
+      "view_detail": "Top of the original recorded answer; viewport excerpt, with replay banner and synthetic-data label."
+    },
+    {
+      "file": "answer-principal.png",
+      "kind": "recorded_answer",
+      "app": "hieu_truong",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:56+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=hieu_truong&mode=replay&q=Ng%C3%A0nh+n%C3%A0o+%C4%91ang+thi%E1%BA%BFu+nhi%E1%BB%81u+ch%E1%BB%89+ti%C3%AAu+tuy%E1%BB%83n+sinh+n%C4%83m+2026+nh%E1%BA%A5t%3F+V%E1%BB%9Bi+c%C3%A1c+ng%C3%A0nh+%C4%91%C3%B3%2C+t%E1%BB%B7+l%E1%BB%87+sinh+vi%C3%AAn+b%E1%BB%8B+c%E1%BA%A3nh+b%C3%A1o+h%E1%BB%8Dc+v%E1%BB%A5+v%C3%A0+r%E1%BB%9Di+tr%C6%B0%E1%BB%9Dng+%E1%BB%9F+c%C3%A1c+kh%C3%B3a+tr%C6%B0%E1%BB%9Bc+ra+sao%3F",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": true,
+      "question": "Ngành nào đang thiếu nhiều chỉ tiêu tuyển sinh năm 2026 nhất? Với các ngành đó, tỷ lệ sinh viên bị cảnh báo học vụ và rời trường ở các khóa trước ra sao?",
+      "recorded_at": "2026-09-29T02:51:07",
+      "recording_file": "C:\\Users\\laqdv\\.credere\\runs\\demo-tuyen-sinh\\hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+      "recording_sha256": "0287f50c95b30526a6b09883314445411f4b8fc4499cf3b59cb0f129502a17bf",
+      "task_status": {
+        "T1": "accepted",
+        "T2": "accepted",
+        "T3": "accepted"
+      },
+      "event_count": 28,
+      "original_elapsed_s": 287.2,
+      "original_run_used_synthetic_data": true,
+      "delegates": [
+        "dao_tao",
+        "tuyen_sinh"
+      ],
+      "replay_label": "Phát lại xong",
+      "recorded_time_banner": "Phát lại · chạy thật lúc 02:51 ngày 29/09/2026",
+      "view_detail": "Top of the original recorded answer; viewport excerpt, with replay banner and synthetic-data label."
+    },
+    {
+      "file": "process-principal.png",
+      "kind": "nested_agent_process",
+      "app": "hieu_truong",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:56+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=hieu_truong&mode=replay&q=Ng%C3%A0nh+n%C3%A0o+%C4%91ang+thi%E1%BA%BFu+nhi%E1%BB%81u+ch%E1%BB%89+ti%C3%AAu+tuy%E1%BB%83n+sinh+n%C4%83m+2026+nh%E1%BA%A5t%3F+V%E1%BB%9Bi+c%C3%A1c+ng%C3%A0nh+%C4%91%C3%B3%2C+t%E1%BB%B7+l%E1%BB%87+sinh+vi%C3%AAn+b%E1%BB%8B+c%E1%BA%A3nh+b%C3%A1o+h%E1%BB%8Dc+v%E1%BB%A5+v%C3%A0+r%E1%BB%9Di+tr%C6%B0%E1%BB%9Dng+%E1%BB%9F+c%C3%A1c+kh%C3%B3a+tr%C6%B0%E1%BB%9Bc+ra+sao%3F",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": true,
+      "question": "Ngành nào đang thiếu nhiều chỉ tiêu tuyển sinh năm 2026 nhất? Với các ngành đó, tỷ lệ sinh viên bị cảnh báo học vụ và rời trường ở các khóa trước ra sao?",
+      "recorded_at": "2026-09-29T02:51:07",
+      "recording_file": "C:\\Users\\laqdv\\.credere\\runs\\demo-tuyen-sinh\\hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+      "recording_sha256": "0287f50c95b30526a6b09883314445411f4b8fc4499cf3b59cb0f129502a17bf",
+      "task_status": {
+        "T1": "accepted",
+        "T2": "accepted",
+        "T3": "accepted"
+      },
+      "event_count": 28,
+      "original_elapsed_s": 287.2,
+      "original_run_used_synthetic_data": true,
+      "delegates": [
+        "dao_tao",
+        "tuyen_sinh"
+      ],
+      "replay_label": "Phát lại xong",
+      "recorded_time_banner": "Phát lại · chạy thật lúc 02:51 ngày 29/09/2026",
+      "view_detail": "Activity panel scrolled naturally to the dao_tao child-agent lane; recorded events unchanged."
+    },
+    {
+      "file": "process-principal-admissions.png",
+      "kind": "nested_agent_process",
+      "app": "hieu_truong",
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:56+07:00",
+      "page_url": "http://127.0.0.1:8001/?app=hieu_truong&mode=replay&q=Ng%C3%A0nh+n%C3%A0o+%C4%91ang+thi%E1%BA%BFu+nhi%E1%BB%81u+ch%E1%BB%89+ti%C3%AAu+tuy%E1%BB%83n+sinh+n%C4%83m+2026+nh%E1%BA%A5t%3F+V%E1%BB%9Bi+c%C3%A1c+ng%C3%A0nh+%C4%91%C3%B3%2C+t%E1%BB%B7+l%E1%BB%87+sinh+vi%C3%AAn+b%E1%BB%8B+c%E1%BA%A3nh+b%C3%A1o+h%E1%BB%8Dc+v%E1%BB%A5+v%C3%A0+r%E1%BB%9Di+tr%C6%B0%E1%BB%9Dng+%E1%BB%9F+c%C3%A1c+kh%C3%B3a+tr%C6%B0%E1%BB%9Bc+ra+sao%3F",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": true,
+      "question": "Ngành nào đang thiếu nhiều chỉ tiêu tuyển sinh năm 2026 nhất? Với các ngành đó, tỷ lệ sinh viên bị cảnh báo học vụ và rời trường ở các khóa trước ra sao?",
+      "recorded_at": "2026-09-29T02:51:07",
+      "recording_file": "C:\\Users\\laqdv\\.credere\\runs\\demo-tuyen-sinh\\hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+      "recording_sha256": "0287f50c95b30526a6b09883314445411f4b8fc4499cf3b59cb0f129502a17bf",
+      "task_status": {
+        "T1": "accepted",
+        "T2": "accepted",
+        "T3": "accepted"
+      },
+      "event_count": 28,
+      "original_elapsed_s": 287.2,
+      "original_run_used_synthetic_data": true,
+      "delegates": [
+        "dao_tao",
+        "tuyen_sinh"
+      ],
+      "replay_label": "Phát lại xong",
+      "recorded_time_banner": "Phát lại · chạy thật lúc 02:51 ngày 29/09/2026",
+      "view_detail": "Activity panel scrolled naturally to the tuyen_sinh child-agent lane; recorded events unchanged."
+    },
+    {
+      "file": "settings-locked.png",
+      "kind": "password_gate",
+      "app": null,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "captured_at": "2026-09-29T07:58:57+07:00",
+      "page_url": "http://127.0.0.1:8001/cai-dat",
+      "provenance": "current local application rendered by Chromium; no DOM content replaced",
+      "replay": false,
+      "view_detail": "Locked settings page in a fresh unauthenticated browser context; no passwords entered."
+    }
+  ]
+}

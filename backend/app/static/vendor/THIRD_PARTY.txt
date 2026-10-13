@@ -1,0 +1,26 @@
+THÀNH PHẦN BÊN THỨ BA TRONG app/static/vendor (lưu cục bộ, trang chạy không cần mạng)
+
+1. Tabler 1.6.0 (@tabler/core, phát hành 25/09/2026) - bộ giao diện dashboard, CSS thuần (Bootstrap 5.3 gộp sẵn)
+   Thư mục: tabler-1.6.0/  (tabler.min.css nguyên bản, không sửa; không dùng tabler.min.js)
+   Nguồn:   https://cdn.jsdelivr.net/npm/@tabler/core@1.6.0/dist/css/tabler.min.css
+   Giấy phép: MIT - tabler-1.6.0/LICENSE
+            (https://raw.githubusercontent.com/tabler/tabler/%40tabler/core%401.6.0/LICENSE)
+   Trang chủ: https://tabler.io - https://github.com/tabler/tabler
+
+2. Tabler Icons 3.48.0 (@tabler/icons, 22/09/2026) - biểu tượng nét (outline)
+   Thư mục: tabler-icons-3.48.0/  (sprite.svg gộp từ icons/outline/<tên>.svg; danh sách ở icons.txt)
+   Nguồn:   https://cdn.jsdelivr.net/npm/@tabler/icons@3.48.0/icons/outline/
+   Giấy phép: MIT - tabler-icons-3.48.0/LICENSE
+   Trang chủ: https://tabler.io/icons - https://github.com/tabler/tabler-icons
+   Thêm icon: tải SVG cùng phiên bản, bỏ path nền <path stroke="none" d="M0 0h24v24H0z" fill="none"/>,
+   bọc bằng <symbol id="i-<tên>" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+   stroke-linecap="round" stroke-linejoin="round"> (thuộc tính phải nằm trên từng symbol).
+
+3. Be Vietnam Pro v12 - font chữ, độ đậm 400/500/600/700, bộ ký tự latin + latin-ext + vietnamese
+   Thư mục: be-vietnam-pro/  (be-vietnam-pro-400.woff2 ... be-vietnam-pro-700.woff2)
+   Nguồn:   https://gwfh.mranftl.com/api/fonts/be-vietnam-pro?download=zip&subsets=latin,latin-ext,vietnamese&variants=regular,500,600,700&formats=woff2
+            (bản Google Fonts v12, đổi tên tệp theo độ đậm)
+   Giấy phép: SIL Open Font License 1.1 - be-vietnam-pro/OFL.txt
+            (https://raw.githubusercontent.com/google/fonts/main/ofl/bevietnampro/OFL.txt)
+
+Logo Trường Đại học Nghệ An nằm ở app/static/brand/ (không phải phần mềm mở; xem brand/NOTICE.txt).

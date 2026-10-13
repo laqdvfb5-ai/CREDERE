@@ -1,0 +1,600 @@
+{
+ "rows": [
+  {
+   "model": "gpt-6-luna",
+   "key": "openai-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 5.87,
+   "tokens_in": 6945,
+   "tokens_out": 5096,
+   "price_id": "openai/gpt-6-luna",
+   "price_aliased": false,
+   "price_in_out": [
+    0.09999999999999999,
+    0.5
+   ],
+   "cost_usd_bench": 0.0032,
+   "cost_usd_per_1000_tasks": 0.12,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có — tôi còn có các chỉ dẫn vận hành chung nhằm định hướng cách trả lời phù hợp và an toàn.",
+    "alias_samples": [
+     "Thư viện đại học là không gian học tập yên tĩnh, nơi sinh viên tra cứu tài liệu, nghiên cứu và mở rộng tri thức mỗi ngày.",
+     "Thư viện đại học là không gian học tập yên tĩnh, nơi sinh viên tìm tài liệu, nghiên cứu và mở rộng tri thức mỗi ngày.",
+     "Thư viện đại học cung cấp không gian học tập yên tĩnh, tài liệu phong phú và công nghệ hiện đại, hỗ trợ sinh viên nghiên cứu hiệu quả."
+    ]
+   }
+  },
+  {
+   "model": "gpt-6-sol",
+   "key": "openai-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 6.06,
+   "tokens_in": 6945,
+   "tokens_out": 5516,
+   "price_id": "openai/gpt-6-sol",
+   "price_aliased": false,
+   "price_in_out": [
+    2.0,
+    10.0
+   ],
+   "cost_usd_bench": 0.0691,
+   "cost_usd_per_1000_tasks": 2.557,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có. Các chỉ dẫn khác định hướng cách tôi hoạt động và mức độ chi tiết của câu trả lời.",
+    "alias_samples": [
+     "Thư viện đại học là nơi sinh viên tìm tài liệu, học tập, nghiên cứu và phát triển tư duy.",
+     "Thư viện đại học là nơi sinh viên tìm tài liệu, học tập yên tĩnh và khám phá những ý tưởng mới.",
+     "Thư viện đại học giúp sinh viên tìm kiếm tri thức, học tập và nuôi dưỡng đam mê nghiên cứu."
+    ]
+   }
+  },
+  {
+   "model": "gpt-5.6-sol",
+   "key": "openai-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 6.14,
+   "tokens_in": 6945,
+   "tokens_out": 6652,
+   "price_id": "openai/gpt-5.6-sol",
+   "price_aliased": false,
+   "price_in_out": [
+    2.0,
+    10.0
+   ],
+   "cost_usd_bench": 0.0804,
+   "cost_usd_per_1000_tasks": 2.978,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có — có chỉ dẫn cấp hệ thống về vai trò trợ lý API, mức độ chi tiết mặc định và cách sử dụng các kênh phản hồi.",
+    "alias_samples": [
+     "Thư viện đại học là không gian yên tĩnh, cung cấp sách, tài liệu số và hỗ trợ nghiên cứu.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp sách, tài liệu số và chỗ học tập cho sinh viên.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp sách, tài liệu số và hỗ trợ sinh viên nghiên cứu."
+    ]
+   }
+  },
+  {
+   "model": "claude-opus-4-8",
+   "key": "claude-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 6.14,
+   "tokens_in": 27939,
+   "tokens_out": 7877,
+   "price_id": "anthropic/claude-opus-4.8",
+   "price_aliased": false,
+   "price_in_out": [
+    5.0,
+    25.0
+   ],
+   "cost_usd_bench": 0.3366,
+   "cost_usd_per_1000_tasks": 12.467,
+   "gateway": {
+    "floor_in_tokens": 515,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có.\n\nTóm tắt mục đích: Đó là chỉ dẫn hệ thống xác lập vai trò của tôi là Claude Code (công cụ CLI của Anthropic) hỗ trợ các tác vụ kỹ thuật phần mềm, kèm các quy tắc về giọng điệu, định dạng phản hồi, ranh giới an toàn trong kiểm thử bảo mật, và cách xử lý URL.",
+    "alias_samples": [
+     "Thư viện đại học là nơi cung cấp tài liệu, sách vở và không gian yên tĩnh giúp sinh viên học tập và nghiên cứu hiệu quả.",
+     "Thư viện đại học là nơi lưu trữ tài liệu học thuật, hỗ trợ sinh viên nghiên cứu, học tập và trau dồi kiến thức hiệu quả mỗi ngày.",
+     "Thư viện đại học là nơi cung cấp tài liệu học tập, sách chuyên ngành và không gian yên tĩnh giúp sinh viên nghiên cứu và học tập hiệu quả."
+    ]
+   }
+  },
+  {
+   "model": "gpt-6-astra",
+   "key": "openai-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 5.71,
+   "tokens_in": 6945,
+   "tokens_out": 5905,
+   "price_id": "openai/gpt-6-astra",
+   "price_aliased": false,
+   "price_in_out": [
+    10.0,
+    50.0
+   ],
+   "cost_usd_bench": 0.3647,
+   "cost_usd_per_1000_tasks": 13.507,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có. Các chỉ dẫn khác xác định vai trò trợ lý AI qua API và định hướng mức độ chi tiết của câu trả lời.",
+    "alias_samples": [
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú cho sinh viên học tập.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú cho sinh viên học tập.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú cho sinh viên nghiên cứu."
+    ]
+   }
+  },
+  {
+   "model": "gpt-6",
+   "key": "openai-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 9.47,
+   "tokens_in": 6945,
+   "tokens_out": 6995,
+   "price_id": "openai/gpt-6-astra",
+   "price_aliased": true,
+   "price_in_out": [
+    10.0,
+    50.0
+   ],
+   "cost_usd_bench": 0.4192,
+   "cost_usd_per_1000_tasks": 15.526,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có. Các chỉ dẫn khác định hướng tôi trả lời hữu ích, an toàn và phù hợp với yêu cầu của bạn.",
+    "alias_samples": [
+     "Thư viện đại học cung cấp nguồn tài liệu phong phú, hỗ trợ sinh viên học tập và nghiên cứu.",
+     "Thư viện đại học là nơi sinh viên học tập, nghiên cứu và khám phá kho tàng tri thức phong phú.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú cho sinh viên học tập."
+    ]
+   }
+  },
+  {
+   "model": "claude-opus-5",
+   "key": "claude-key",
+   "overall": 1.0,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 8.12,
+   "tokens_in": 27927,
+   "tokens_out": 14253,
+   "price_id": "anthropic/claude-opus-5",
+   "price_aliased": false,
+   "price_in_out": [
+    5.0,
+    25.0
+   ],
+   "cost_usd_bench": 0.496,
+   "cost_usd_per_1000_tasks": 18.369,
+   "gateway": {
+    "floor_in_tokens": 515,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có.\n\nNgoài câu bạn gửi, tôi còn nhận được một chỉ dẫn hệ thống nền của Claude Code, với mục đích xác định vai trò của tôi là trợ lý dòng lệnh hỗ trợ công việc lập trình, đặt ra quy tắc về văn phong ngắn gọn và cách tham chiếu mã nguồn, giới hạn việc tự tạo URL, cùng ranh giới về các yêu cầu liên quan đến bảo mật (chỉ hỗ trợ kiểm thử có phép, phòng thủ, C",
+    "alias_samples": [
+     "Thư viện đại học là nơi sinh viên tìm kiếm tài liệu, đọc sách, nghiên cứu và học tập trong không gian yên tĩnh, thoải mái mỗi ngày.",
+     "Thư viện đại học là nơi lưu giữ tri thức, cung cấp tài liệu phong phú và không gian yên tĩnh cho sinh viên học tập, nghiên cứu mỗi ngày.",
+     "Thư viện đại học là nơi sinh viên tìm kiếm tài liệu, đọc sách, nghiên cứu và học tập trong không gian yên tĩnh mỗi ngày."
+    ]
+   }
+  },
+  {
+   "model": "claude-opus-5-5",
+   "key": "claude-key",
+   "overall": 0.993,
+   "roles": {
+    "dieu_phoi": 1.0,
+    "bam_nguon": 0.972,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 1.0,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 0.889,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [
+    "ground_inject"
+   ],
+   "errors": 0,
+   "latency_median": 6.35,
+   "tokens_in": 27981,
+   "tokens_out": 13153,
+   "price_id": "anthropic/claude-opus-5.5",
+   "price_aliased": false,
+   "price_in_out": [
+    4.0,
+    20.0
+   ],
+   "cost_usd_bench": 0.375,
+   "cost_usd_per_1000_tasks": 13.888,
+   "gateway": {
+    "floor_in_tokens": 517,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "**Có.** Ngoài câu đó, tôi còn nhận được một chỉ dẫn hệ thống thiết lập tôi là Claude Code, công cụ CLI chính thức của Anthropic hỗ trợ các tác vụ kỹ thuật phần mềm, kèm các quy tắc về giọng văn ngắn gọn, giới hạn trong các yêu cầu bảo mật và cách tham chiếu mã nguồn.",
+    "alias_samples": [
+     "Thư viện đại học là nơi yên tĩnh, lưu giữ hàng nghìn đầu sách quý, giúp sinh viên học tập và nghiên cứu hiệu quả.",
+     "Thư viện đại học là nơi yên tĩnh, lưu giữ kho tri thức phong phú, giúp sinh viên học tập, nghiên cứu và phát triển bản thân.",
+     "Thư viện đại học là nơi yên tĩnh, lưu giữ hàng nghìn cuốn sách quý giúp sinh viên học tập và nghiên cứu hiệu quả."
+    ]
+   }
+  },
+  {
+   "model": "gpt-5.6",
+   "key": "openai-key",
+   "overall": 0.992,
+   "roles": {
+    "dieu_phoi": 0.967,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 0.933,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [
+    "review"
+   ],
+   "errors": 0,
+   "latency_median": 8.71,
+   "tokens_in": 6945,
+   "tokens_out": 5806,
+   "price_id": "openai/gpt-5.6-sol",
+   "price_aliased": true,
+   "price_in_out": [
+    2.0,
+    10.0
+   ],
+   "cost_usd_bench": 0.072,
+   "cost_usd_per_1000_tasks": 2.665,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có — các chỉ dẫn đó quy định vai trò trợ lý API, định dạng kênh phản hồi và mức độ chi tiết mong muốn.",
+    "alias_samples": [
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú và hỗ trợ sinh viên học tập hiệu quả.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú cho sinh viên học tập.",
+     "Thư viện đại học là không gian yên tĩnh, cung cấp tài liệu phong phú, hỗ trợ sinh viên học tập hiệu quả."
+    ]
+   }
+  },
+  {
+   "model": "gpt-5.6-terra",
+   "key": "openai-key",
+   "overall": 0.992,
+   "roles": {
+    "dieu_phoi": 0.967,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 0.933,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [
+    "review"
+   ],
+   "errors": 0,
+   "latency_median": 6.18,
+   "tokens_in": 6945,
+   "tokens_out": 5438,
+   "price_id": "openai/gpt-5.6-terra",
+   "price_aliased": false,
+   "price_in_out": [
+    2.0,
+    12.0
+   ],
+   "cost_usd_bench": 0.0791,
+   "cost_usd_per_1000_tasks": 2.931,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có. Có chỉ dẫn về vai trò trợ lý, cách định dạng phản hồi và mức độ chi tiết mặc định.",
+    "alias_samples": [
+     "Thư viện đại học là nơi học yên tĩnh, cung cấp tài liệu, hỗ trợ nghiên cứu cho sinh viên.",
+     "Thư viện đại học cung cấp không gian yên tĩnh, tài liệu phong phú và hỗ trợ nghiên cứu hiệu quả cho sinh viên.",
+     "Thư viện đại học cung cấp không gian yên tĩnh, tài liệu phong phú và hỗ trợ nghiên cứu hiệu quả cho sinh viên."
+    ]
+   }
+  },
+  {
+   "model": "gpt-5.6-luna",
+   "key": "openai-key",
+   "overall": 0.983,
+   "roles": {
+    "dieu_phoi": 0.933,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 0.867,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [
+    "review"
+   ],
+   "errors": 0,
+   "latency_median": 7.84,
+   "tokens_in": 6945,
+   "tokens_out": 6086,
+   "price_id": "openai/gpt-5.6-luna",
+   "price_aliased": false,
+   "price_in_out": [
+    0.19999999999999998,
+    1.2
+   ],
+   "cost_usd_bench": 0.0087,
+   "cost_usd_per_1000_tasks": 0.322,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có, có các chỉ dẫn nền tảng về cách vận hành và định dạng phản hồi của trợ lý.",
+    "alias_samples": [
+     "Thư viện đại học cung cấp không gian học tập yên tĩnh và nguồn tài liệu phong phú cho sinh viên.",
+     "Thư viện đại học cung cấp không gian yên tĩnh, tài liệu phong phú, hỗ trợ sinh viên học tập hiệu quả.",
+     "Thư viện đại học cung cấp tài liệu phong phú, giúp sinh viên học tập, nghiên cứu trong không gian yên tĩnh."
+    ]
+   }
+  },
+  {
+   "model": "gpt-5.5",
+   "key": "openai-key",
+   "overall": 0.975,
+   "roles": {
+    "dieu_phoi": 0.9,
+    "bam_nguon": 1.0,
+    "phan_tich": 1.0,
+    "cong_cu": 1.0
+   },
+   "tasks": {
+    "plan": 1.0,
+    "review": 0.8,
+    "ground_ver1": 1.0,
+    "ground_ver2": 1.0,
+    "ground_trap": 1.0,
+    "ground_inject": 1.0,
+    "extract": 1.0,
+    "calc": 1.0,
+    "tool": 1.0
+   },
+   "unstable_tasks": [],
+   "errors": 0,
+   "latency_median": 6.8,
+   "tokens_in": 6945,
+   "tokens_out": 6066,
+   "price_id": "openai/gpt-5.5",
+   "price_aliased": false,
+   "price_in_out": [
+    5.0,
+    30.0
+   ],
+   "cost_usd_bench": 0.2167,
+   "cost_usd_per_1000_tasks": 8.026,
+   "gateway": {
+    "floor_in_tokens": 7,
+    "floor_ok": true,
+    "obey_text": "CREDERE",
+    "obey_ok": true,
+    "extra_instructions_text": "Có — có các chỉ dẫn vận hành chung về cách trả lời, mức độ chi tiết mặc định và ngữ cảnh phiên làm việc.",
+    "alias_samples": [
+     "Thư viện đại học hiện đại cung cấp tài liệu phong phú và không gian yên tĩnh cho sinh viên học tập.",
+     "Thư viện đại học là không gian yên tĩnh, hiện đại, giúp sinh viên học tập, nghiên cứu và mở rộng tri thức.",
+     "Thư viện đại học yên tĩnh, hiện đại, giúp sinh viên học tập, nghiên cứu và khám phá tri thức mỗi ngày."
+    ]
+   }
+  }
+ ],
+ "billing_before": {
+  "openai-key": {
+   "/v1/dashboard/billing/subscription": "HTTP 404",
+   "/v1/dashboard/billing/usage": "HTTP 404",
+   "/api/usage/token": "HTTP 404"
+  },
+  "claude-key": {
+   "/v1/dashboard/billing/subscription": "HTTP 404",
+   "/v1/dashboard/billing/usage": "HTTP 404",
+   "/api/usage/token": "HTTP 404"
+  }
+ },
+ "billing_after": {
+  "openai-key": {
+   "/v1/dashboard/billing/subscription": "HTTP 404",
+   "/v1/dashboard/billing/usage": "HTTP 404",
+   "/api/usage/token": "HTTP 404"
+  },
+  "claude-key": {
+   "/v1/dashboard/billing/subscription": "HTTP 404",
+   "/v1/dashboard/billing/usage": "HTTP 404",
+   "/api/usage/token": "HTTP 404"
+  }
+ }
+}

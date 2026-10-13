@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cài đặt nhà cung cấp AI — Credere</title>
+<link rel="icon" type="image/png" href="/static/brand/favicon.png">
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/vendor/tabler-1.6.0/tabler.min.css">
+<link rel="stylesheet" href="/static/credere.css">
+<link rel="stylesheet" href="/static/settings.css">
+<script>
+document.documentElement.toggleAttribute("data-trinh-chieu", new URLSearchParams(location.search).has("trinh-chieu"));
+</script>
+</head>
+<body class="cr-settings">
+<a class="st-skip" href="#main-content">Đến nội dung cài đặt</a>
+<aside class="st-sidebar" aria-label="Thanh điều hướng">
+  <a class="st-brand" href="/" aria-label="Credere — về trang hỏi đáp">
+    <span class="st-brand-symbol"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-stack-2"/></svg></span>
+    <span><strong>credere<span class="st-brand-period">.</span></strong><small>TRỢ LÝ ĐẠI HỌC</small></span>
+  </a>
+  <div class="st-workspace"><span class="st-workspace-dot" aria-hidden="true"></span>Không gian quản trị</div>
+  <nav class="st-nav" aria-label="Điều hướng chính">
+    <div class="st-nav-label">Không gian làm việc</div>
+    <a href="/"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-message-chatbot"/></svg>Trợ lý AI</a>
+    <a href="/cai-dat" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-settings"/></svg>Cài đặt hệ thống</a>
+  </nav>
+  <div class="st-side-bottom">
+    <div class="st-side-note"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-shield-lock"/></svg><span>Cấu hình chung cho các trợ lý AI của nhà trường.</span></div>
+    <div class="st-side-foot"><img src="/static/brand/nau-logo-tron.png" alt="Logo NAU"><span>Trường Đại học Nghệ An<small>Không gian quản trị nội bộ</small></span></div>
+  </div>
+</aside>
+<div class="st-workarea">
+  <header class="st-header">
+    <nav class="st-breadcrumb" aria-label="Đường dẫn">
+      <a href="/">Không gian làm việc</a><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-chevron-right"/></svg>
+      <strong aria-current="page">Cài đặt hệ thống</strong>
+    </nav>
+    <button class="btn btn-outline-primary" id="settings-lock" type="button" title="Kết thúc phiên truy cập cài đặt">
+      <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-lock"/></svg>Khóa cài đặt
+    </button>
+  </header>
+  <main class="st-main" id="main-content" tabindex="-1">
+    <div class="st-title-row">
+      <div class="st-title-mark" aria-hidden="true"><svg class="icon"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-adjustments-horizontal"/></svg></div>
+      <div>
+        <div class="st-eyebrow">Cấu hình hệ thống</div>
+        <h1>Nhà cung cấp AI</h1>
+        <p id="apps-line">Quản lý kết nối và model dùng chung cho các trợ lý AI.</p>
+        <span id="top-sub" hidden>Nhà cung cấp AI dùng chung cho mọi AI</span>
+      </div>
+    </div>
+    <div class="st-overview" id="summary" aria-label="Tổng quan nhà cung cấp"></div>
+    <div class="st-grid">
+      <section class="st-providers" aria-labelledby="provider-heading">
+        <div class="cr-section-head">
+          <div><h2 id="provider-heading">Kết nối của bạn</h2><p>Sắp xếp theo thứ tự ưu tiên sử dụng.</p></div>
+          <button class="btn btn-outline-primary ms-auto" id="add" type="button">
+            <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-plus"/></svg>Thêm nhà cung cấp
+          </button>
+        </div>
+        <div id="list" aria-label="Danh sách nhà cung cấp"></div>
+      </section>
+      <aside class="st-aside" aria-label="Tùy chọn kết nối và hướng dẫn">
+        <section class="card" id="health-panel" hidden>
+          <div class="card-status-top bg-yellow"></div>
+          <div class="card-header"><h2 class="card-title d-flex align-items-center gap-2">
+            <svg class="icon text-yellow" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-alert-triangle"/></svg>Kết nối đang tạm ngắt
+          </h2></div>
+          <div class="list-group list-group-flush" id="health"></div>
+          <div class="card-footer"><button class="btn w-100" id="reset-health" type="button">
+            <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-refresh"/></svg>Bỏ tạm ngắt, thử lại
+          </button></div>
+        </section>
+        <section class="card">
+          <div class="card-header"><h2 class="card-title d-flex align-items-center gap-2">
+            <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-route"/></svg>Cách chọn nhà cung cấp
+          </h2></div>
+          <div class="card-body">
+            <div class="form-selectgroup form-selectgroup-boxes d-flex flex-column cr-strategy" id="strategy"></div>
+            <p class="st-strategy-note">Hệ thống ưu tiên thử cùng model ở nhà cung cấp khác trước khi chuyển sang model dự phòng. Kết nối lỗi được tạm ngắt 2 phút; sai khóa được tạm ngắt 15 phút.</p>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-header"><h2 class="card-title d-flex align-items-center gap-2">
+            <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-book"/></svg>Hướng dẫn nhanh
+          </h2></div>
+          <div class="card-body">
+            <ul class="cr-notes">
+              <li><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-key"/></svg>
+                <span><strong>Giữ kín khóa API</strong>Khóa đã lưu không hiển thị lại. Để trống ô khóa nếu bạn không muốn thay đổi.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-building-bank"/></svg>
+                <span><strong>Tài khoản chính thức</strong>Chỉ đánh dấu cho tài khoản do Trường đứng tên. Dữ liệu thật chỉ được gửi qua các tài khoản này.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-stack-2"/></svg>
+                <span><strong>Model và chi phí</strong>Để trống tên model để ngừng sử dụng tại nhà cung cấp đó. Giá để trống sẽ dùng bảng giá chung.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-plug-connected"/></svg>
+                <span><strong>Kiểm tra trước khi dùng</strong>“Kiểm tra” lấy danh sách model, không tốn phí. “Gọi thử” gửi yêu cầu thật và có thể phát sinh một ít phí.</span></li>
+            </ul>
+          </div>
+        </section>
+        <div class="st-apply-note"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-circle-check"/></svg>
+          <span><strong>Áp dụng ngay sau khi lưu</strong>Câu hỏi tiếp theo sẽ dùng cấu hình mới. Bạn không cần khởi động lại hệ thống.</span>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <div class="cr-savebar" id="savebar"><div class="cr-savebar-inner">
+    <span class="cr-msg" id="msg" role="status" aria-live="polite"></span>
+    <div class="btn-list ms-auto">
+      <button class="btn" id="reload" type="button"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-arrow-back-up"/></svg>Hủy thay đổi</button>
+      <button class="btn btn-primary" id="save" type="button"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-check"/></svg>Lưu cài đặt</button>
+    </div>
+  </div></div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const HEADERS = { "Content-Type": "application/json", "X-Credere-Admin": "1" };
+const SPRITE = "/static/vendor/tabler-icons-3.48.0/sprite.svg";
+const ic = (name, cls = "icon") => `<svg class="${cls}" aria-hidden="true"><use href="${SPRITE}#i-${name}"/></svg>`;
+let state = { strategy: "failover", providers: [], system_models: [] }, dirty = false, leaving = false;
+
+function returnToUnlock() {
+  if (leaving) return;
+  leaving = true;
+  dirty = false;  // khóa hoặc hết phiên: không để cảnh báo bản nháp giữ lại trang cài đặt
+  state.providers = [];
+  $("list").replaceChildren();
+  $("summary").replaceChildren();
+  $("main-content").hidden = true;
+  $("savebar").hidden = true;
+  window.location.replace("/cai-dat");
+}
+
+async function api(path, method = "GET", body) {
+  const r = await fetch(path, { method, headers: HEADERS, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 401) {
+    returnToUnlock();
+    throw new Error("Phiên cài đặt đã hết hạn. Vui lòng mở khóa lại.");
+  }
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.detail || `HTTP ${r.status}`);
+  return data;
+}
+
+// Dòng thông báo ở thanh Lưu/Hủy: cls là "" (bình thường), "warn" (chưa lưu), "busy" (đang lưu), "ok", "err"
+const SAY_ICON = { ok: "circle-check", err: "alert-triangle", warn: "alert-circle" };
+function say(text, cls = "") {
+  const m = $("msg");
+  m.className = "cr-msg" + (cls ? " cr-msg--" + cls : "");
+  m.innerHTML = text ? (cls === "busy" ? `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>` : SAY_ICON[cls] ? ic(SAY_ICON[cls]) : "") + esc(text)
+                     : ic("circle-check") + "Chưa có thay đổi.";
+  $("savebar").classList.toggle("is-dirty", dirty);
+}
+function touch() { dirty = true; say("Có thay đổi chưa lưu.", "warn"); }
+
+function renderStrategy() {
+  const opts = [["failover", "Ưu tiên & dự phòng", "stack-2", "Dùng kết nối ưu tiên. Tự chuyển sang nhà cung cấp kế tiếp nếu có lỗi."],
+                ["round_robin", "Chia tải luân phiên", "repeat", "Luân phiên nhà cung cấp cho mỗi lượt gọi. Vẫn tự chuyển khi gặp lỗi."]];
+  $("strategy").innerHTML = opts.map(([v, t, i, d]) => `<label class="form-selectgroup-item">
+      <input type="radio" name="st" value="${v}" class="form-selectgroup-input" ${state.strategy === v ? "checked" : ""}>
+      <span class="form-selectgroup-label d-flex align-items-start gap-3">
+        <span class="form-selectgroup-check mt-1"></span>
+        <span><span class="cr-strategy-title">${ic(i)}${t}</span><span class="cr-strategy-desc d-block">${d}</span></span></span></label>`).join("");
+  document.querySelectorAll("input[name=st]").forEach(r => r.onchange = () => {
+    state.strategy = r.value; touch(); renderStrategy();
+    $("strategy").querySelector("input:checked")?.focus({ preventScroll: true });
+  });
+  renderSummary();
+}
+
+// Tóm tắt ở đầu trang: số nhà, số nhà đang dùng (theo cấu hình đã lưu), cách chọn
+function renderSummary() {
+  const ps = state.providers, on = ps.filter(p => p.active && p.enabled).length;
+  $("summary").innerHTML = `<div class="st-stat"><span class="st-stat-icon">${ic("server")}</span><span><small>Kết nối đã thêm</small><strong>${ps.length} nhà cung cấp</strong></span></div>`
+    + `<div class="st-stat"><span class="st-stat-icon${on ? " is-green" : ""}">${ic(on ? "circle-check" : "circle-dashed")}</span><span><small>Cấu hình đang sử dụng</small><strong${on ? "" : ' class="st-stat-empty"'}>${on ? on + " kết nối đang bật" : "Chưa có kết nối"}</strong></span></div>`
+    + `<div class="st-stat"><span class="st-stat-icon">${ic("route")}</span><span><small>Cách phân phối yêu cầu</small><strong>${state.strategy === "round_robin" ? "Chia tải luân phiên" : "Ưu tiên & dự phòng"}</strong></span></div>`;
+}
+
+function status(p) {
+  if (!p.enabled) return `<span class="cr-pill cr-pill--muted">${ic("player-stop")}Đã tắt</span>`;
+  if (!p.has_key && !p.key) return `<span class="cr-pill cr-pill--muted">${ic("key")}Chưa có khóa</span>`;
+  if (p.active) return `<span class="cr-pill cr-pill--ok">${ic("circle-check")}Đang dùng</span>`;
+  return `<span class="cr-pill cr-pill--run">${ic("clock")}Chưa lưu</span>`;
+}
+const trustedPill = p => p.trusted ? `<span class="cr-pill cr-pill--internal">${ic("building-bank")}Tài khoản chính thức</span>` : "";
+
+// Chỉ báo khóa: chỉ nói có hay chưa và tên biến trong .env, KHÔNG BAO GIỜ hiện giá trị khóa
+function keyState(p) {
+  if (p.key) return `<span class="cr-pill cr-pill--run">${ic("key")}${p.has_key ? "sẽ thay khóa khi lưu" : "đã nhập, chưa lưu"}</span>`;
+  if (p.has_key) return `<span class="cr-pill cr-pill--ok">${ic("key")}đã có khóa${p.key_env ? " · " + esc(p.key_env) : ""}</span>`;
+  return `<span class="cr-pill cr-pill--muted">${ic("key")}chưa có khóa</span>`;
+}
+
+function renderList() {
+  if (leaving) return;
+  const models = state.system_models, n = state.providers.length;
+  $("list").innerHTML = state.providers.map((p, i) => {
+    const mapped = m => p.models == null ? m : (p.models[m] ?? "");
+    const price = (m, k) => (p.prices?.[m] || [])[k] ?? "";
+    const used = models.filter(m => mapped(m)).length;
+    const head = `<div class="card-header">
+        <span class="avatar avatar-sm cr-order" title="Thứ tự ưu tiên">${i + 1}</span>
+        <input class="form-control cr-name" type="text" value="${esc(p.name)}" data-k="name" autocomplete="off" spellcheck="false" aria-label="Tên nhà cung cấp"
+          ${p.saved ? `readonly title="Tên đã lưu không đổi được (khóa trong .env gắn với tên)"` : ""} placeholder="ten-nha-cung-cap">
+        <span class="cr-status">${status(p)}${trustedPill(p)}</span>
+        <div class="card-actions btn-list">
+          <button class="btn btn-icon" type="button" data-act="up" ${i === 0 ? "disabled" : ""} title="Ưu tiên hơn" aria-label="Ưu tiên hơn">${ic("arrow-up")}</button>
+          <button class="btn btn-icon" type="button" data-act="down" ${i === n - 1 ? "disabled" : ""} title="Ưu tiên kém hơn" aria-label="Ưu tiên kém hơn">${ic("arrow-down")}</button>
+          <button class="btn btn-ghost-danger btn-icon" type="button" data-act="del" aria-label="Xóa nhà cung cấp ${esc(p.name || "mới")}" title="Xóa khỏi danh sách (khóa trong .env giữ nguyên)">${ic("trash")}</button>
+          <button class="btn btn-ghost-secondary" type="button" data-act="toggle" aria-expanded="${p.open ? "true" : "false"}">${ic(p.open ? "chevron-up" : "chevron-down")}${p.open ? "Thu gọn" : "Mở chi tiết"}</button>
+        </div></div>`;
+    // Thẻ thu gọn: chỉ một dòng tóm tắt, bấm "Mở chi tiết" để sửa
+    const summary = `<div class="card-body cr-prov-sum">
+        <span>${ic("server")} ${p.base_url ? `<code>${esc(p.base_url)}</code>` : "chưa có địa chỉ API"}</span><span aria-hidden="true">·</span>
+        <span>dùng ${used}/${models.length} model</span>${!p.has_key && !p.key ? `<span aria-hidden="true">·</span><span>mở chi tiết để nhập khóa</span>` : ""}</div>`;
+    const body = `<div class="card-body cr-prov-body"><div class="row g-3">
+        <div class="col-md-6"><label class="form-label" for="u-${i}">Địa chỉ API (base URL)</label>
+          <input class="form-control" id="u-${i}" type="text" data-k="base_url" value="${esc(p.base_url)}" placeholder="https://.../v1" spellcheck="false" autocomplete="off">
+          ${p.base_url_env ? `<div class="form-hint">Lưu trong .env: <code>${esc(p.base_url_env)}</code></div>` : ""}</div>
+        <div class="col-md-6"><label class="form-label cr-key-label" for="k-${i}">Khóa API <span class="cr-keystate">${keyState(p)}</span></label>
+          <input class="form-control" id="k-${i}" type="password" data-k="key" value="${esc(p.key || "")}" autocomplete="off" spellcheck="false"
+            placeholder="${p.has_key ? "Để trống nếu không đổi" : "Dán khóa vào đây"}">
+          <div class="form-hint">Khóa chỉ ghi vào .env, không hiện lại ở trang này.</div></div>
+      </div></div>
+      <div class="table-responsive border-top cr-prov-body">
+        <table class="table table-vcenter card-table cr-models">
+          <thead><tr><th>Model của hệ thống</th><th>Tên model ở nhà cung cấp</th>
+            <th class="text-end">Giá vào<small>USD / 1 triệu token</small></th><th class="text-end">Giá ra<small>USD / 1 triệu token</small></th></tr></thead>
+          <tbody>${models.map(m => `<tr><td><code>${esc(m)}</code></td>
+            <td><input class="form-control" type="text" data-model="${esc(m)}" value="${esc(mapped(m))}" placeholder="để trống: không dùng" spellcheck="false" aria-label="Tên model ở nhà cung cấp cho ${esc(m)}"></td>
+            <td class="text-end"><input class="form-control cr-price" type="number" step="0.01" min="0" data-price="${esc(m)}" data-pk="0" value="${esc(price(m, 0))}" placeholder="chung" aria-label="Giá vào của ${esc(m)}"></td>
+            <td class="text-end"><input class="form-control cr-price" type="number" step="0.01" min="0" data-price="${esc(m)}" data-pk="1" value="${esc(price(m, 1))}" placeholder="chung" aria-label="Giá ra của ${esc(m)}"></td></tr>`).join("")}</tbody>
+        </table></div>
+      <div class="card-footer d-flex flex-wrap align-items-center gap-3">
+        <label class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" data-k="enabled" ${p.enabled ? "checked" : ""}><span class="form-check-label">Đang bật</span></label>
+        <label class="form-check form-switch m-0"><input class="form-check-input" type="checkbox" data-k="trusted" ${p.trusted ? "checked" : ""}><span class="form-check-label">Tài khoản chính thức (do Trường đứng tên)</span></label>
+        <div class="btn-list ms-auto">
+          <button class="btn" type="button" data-act="test" title="Liệt kê model của nhà này (không tốn tiền)">${ic("plug-connected")}Kiểm tra</button>
+          <button class="btn" type="button" data-act="ping" title="Gọi thử mỗi model vài token (tốn một ít phí)">${ic("player-play")}Gọi thử</button>
+        </div></div>`;
+    // p.test là HTML ghép từ các phần đã esc() (xem testHtml), hoặc chuỗi cố định lúc đang chờ
+    const test = p.test ? `<div class="card-body border-top cr-test" role="status">
+        <div class="d-flex align-items-center"><strong class="cr-test-title">${ic("clipboard-check")}Kết quả kiểm tra</strong>
+          <button class="btn btn-sm btn-ghost-secondary btn-icon ms-auto" type="button" data-act="clear" title="Ẩn kết quả" aria-label="Ẩn kết quả">${ic("x")}</button></div>
+        <div class="mt-1">${p.test}</div></div>` : "";
+    return `<div class="card cr-prov ${p.enabled ? "" : "is-off"}" data-i="${i}">${head}${p.open ? body : summary}${test}</div>`;
+  }).join("") || `<div class="card"><div class="empty"><div class="empty-icon">${ic("server")}</div>
+      <p class="empty-title">Chưa có nhà cung cấp nào.</p><p class="empty-subtitle text-secondary">Bấm “Thêm nhà cung cấp” để bắt đầu.</p></div></div>`;
+  bind();
+  renderSummary();
+}
+
+// Sửa ô chữ thì chỉ vẽ lại các huy hiệu của thẻ (giữ con trỏ trong ô); đổi ô chọn thì vẽ lại cả danh sách
+function refreshPills(card, p) {
+  card.querySelector(".cr-status").innerHTML = status(p) + trustedPill(p);
+  const k = card.querySelector(".cr-keystate");
+  if (k) k.innerHTML = keyState(p);
+}
+
+function bind() {
+  document.querySelectorAll(".cr-prov").forEach(card => {
+    const p = state.providers[+card.dataset.i];
+    card.querySelectorAll("[data-k]").forEach(el => el.oninput = el.onchange = () => {
+      p[el.dataset.k] = el.type === "checkbox" ? el.checked : el.value;
+      touch();
+      if (el.type === "checkbox") {
+        const i = card.dataset.i, field = el.dataset.k;
+        renderList();
+        document.querySelector(`.cr-prov[data-i="${i}"] [data-k="${field}"]`)?.focus({ preventScroll: true });
+      } else refreshPills(card, p);
+    });
+    card.querySelectorAll("[data-model]").forEach(el => el.oninput = () => {
+      if (p.models == null) p.models = Object.fromEntries(state.system_models.map(m => [m, m]));
+      p.models[el.dataset.model] = el.value; touch();
+    });
+    card.querySelectorAll("[data-price]").forEach(el => el.oninput = () => {
+      p.prices = p.prices || {};
+      const pair = p.prices[el.dataset.price] || ["", ""];
+      pair[+el.dataset.pk] = el.value;
+      p.prices[el.dataset.price] = pair; touch();
+    });
+    card.querySelectorAll("[data-act]").forEach(b => b.onclick = () => act(b.dataset.act, +card.dataset.i));
+  });
+}
+
+// Kết quả POST /api/providers/test thành HTML; mọi giá trị từ máy chủ đều qua esc()
+function testHtml(r) {
+  const rows = (r.checks || []).map(c => {
+    const listed = c.listed === true ? `<span class="cr-pill cr-pill--ok">có trong danh sách</span>`
+                 : c.listed === false ? `<span class="cr-pill cr-pill--warn">không thấy trong danh sách</span>` : "";
+    const ping = c.ping ? (c.ping.status === 200 ? `<span class="cr-pill cr-pill--ok">${ic("circle-check")}gọi thử OK ${esc(c.ping.seconds)} s</span>`
+                                                 : `<span class="cr-pill cr-pill--bad">${ic("circle-x")}gọi thử ${esc(c.ping.status ?? "lỗi")}</span> <span class="text-secondary">${esc(c.ping.detail)}</span>`) : "";
+    return `<li><code>${esc(c.model)}</code> → ${c.provider_model ? `<code>${esc(c.provider_model)}</code> ${listed} ${ping}` : `<span class="text-secondary">không dùng</span>`}</li>`;
+  }).join("");
+  return `<div><strong>Danh sách model:</strong> ${esc(r.listing)}</div><ul class="cr-test-list">${rows}</ul>`
+    + (r.similar?.length ? `<div class="text-secondary mt-1">Model có tên gần giống: ${r.similar.map(esc).join(", ")}</div>` : "");
+}
+
+async function act(what, i) {
+  const list = state.providers;
+  if (what === "toggle") {
+    list[i].open = !list[i].open; renderList();
+    document.querySelector(`.cr-prov[data-i="${i}"] [data-act="toggle"]`)?.focus({ preventScroll: true });
+    return;
+  }
+  if (what === "clear") { list[i].test = ""; renderList(); return; }
+  if (what === "up" || what === "down") {
+    const j = what === "up" ? i - 1 : i + 1;
+    [list[i], list[j]] = [list[j], list[i]]; touch(); renderList(); return;
+  }
+  if (what === "del") {
+    if (!confirm(`Xóa ${list[i].name || "nhà cung cấp này"} khỏi danh sách? Khóa trong .env vẫn giữ nguyên.`)) return;
+    list.splice(i, 1); touch(); renderList(); return;
+  }
+  const p = list[i];
+  if (dirty) { say("Hãy lưu cài đặt trước khi kiểm tra.", "err"); return; }
+  p.test = `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>`
+         + (what === "ping" ? "Đang gọi thử từng model…" : "Đang lấy danh sách model…");
+  renderList();
+  try { p.test = testHtml(await api("/api/providers/test", "POST", { name: p.name, ping: what === "ping" })); }
+  catch (e) { p.test = `<span class="text-danger d-inline-flex align-items-center gap-2">${ic("alert-triangle")}${esc(e.message)}</span>`; }
+  renderList();
+}
+
+const KIND = { transient: ["lỗi tạm thời", "warn"], auth: ["sai khóa hoặc hết quyền", "bad"], no_model: ["không có model", "muted"] };
+function renderHealth(h) {
+  const items = Object.entries(h || {});
+  $("health-panel").hidden = !items.length;
+  $("health").innerHTML = items.map(([k, v]) => {
+    const [label, tone] = KIND[v.kind] || [v.kind, "muted"];
+    return `<div class="list-group-item"><div class="d-flex align-items-center flex-wrap gap-2">
+        <strong>${esc(k.replace("/*", ""))}</strong><span class="cr-pill cr-pill--${tone}">${esc(label)}</span>
+        <span class="ms-auto text-secondary cr-num">còn ${esc(v.con_giay)} giây</span></div>
+      <div class="text-secondary small mt-1">${esc(v.reason)}</div></div>`;
+  }).join("");
+}
+
+function load(data) {
+  if (leaving) return;
+  // key luôn để trống khi nạp: trang không bao giờ nhận hay hiện lại khóa; thẻ chưa có khóa thu gọn cho gọn trang
+  state = { strategy: data.strategy, system_models: data.system_models,
+            providers: data.providers.map(p => ({ ...p, saved: true, key: "", open: !!p.has_key })) };
+  dirty = false; renderStrategy(); renderList(); renderHealth(data.health);
+}
+
+async function reload() {
+  try { load(await api("/api/providers")); say(""); } catch (e) { say(e.message, "err"); }
+}
+
+// Tên các AI dùng chung cấu hình này (chỉ để hiển thị)
+async function showApps() {
+  try {
+    const names = (await api("/api/apps")).map(a => a.ten).filter(Boolean);
+    if (!names.length) return;
+    const joined = names.length > 1 ? names.slice(0, -1).join(", ") + " và " + names.at(-1) : names[0];
+    $("apps-line").textContent = `Quản lý kết nối và model dùng chung cho ${joined}.`;
+    $("top-sub").textContent = `dùng chung cho ${joined}`;
+  } catch (e) { /* giữ dòng mặc định */ }
+}
+
+$("add").onclick = () => {
+  state.providers.push({ name: "", base_url: "", key: "", has_key: false, enabled: true, trusted: false, models: null, prices: {}, saved: false, open: true });
+  touch(); renderList();
+  document.querySelector(".cr-prov:last-child input[data-k=name]")?.focus();
+};
+$("reload").onclick = reload;
+$("settings-lock").onclick = async () => {
+  if (dirty && !confirm("Khóa cài đặt và bỏ các thay đổi chưa lưu?")) return;
+  $("settings-lock").disabled = true;
+  try {
+    await api("/api/settings/logout", "POST");
+    returnToUnlock();
+  } catch (e) {
+    if (!leaving) { say("Chưa khóa được cài đặt: " + e.message, "err"); $("settings-lock").disabled = false; }
+  }
+};
+$("reset-health").onclick = async () => { try { renderHealth((await api("/api/providers/reset-health", "POST")).health); } catch (e) { say(e.message, "err"); } };
+$("save").onclick = async () => {
+  $("save").disabled = true; say("Đang lưu…", "busy");
+  const body = { strategy: state.strategy, providers: state.providers.map(p => ({
+    name: p.name.trim(), base_url: p.base_url, key: p.key || undefined, trusted: !!p.trusted, enabled: !!p.enabled,
+    models: p.models == null ? null : p.models, prices: p.prices || {} })) };
+  try { load(await api("/api/providers", "PUT", body)); say("Đã lưu. Câu hỏi tiếp theo dùng cài đặt mới.", "ok"); }
+  catch (e) { say("Chưa lưu: " + e.message, "err"); }
+  $("save").disabled = false;
+};
+window.addEventListener("beforeunload", e => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("pageshow", e => {
+  if (!e.persisted) return;
+  dirty = false;
+  $("main-content").hidden = true;
+  $("savebar").hidden = true;
+  window.location.reload();  // trở lại từ bộ nhớ trình duyệt: kiểm tra lại phiên ở máy chủ
+});
+if (document.documentElement.hasAttribute("data-trinh-chieu")) document.querySelectorAll('a[href="/"]').forEach(a => a.href = "/?trinh-chieu=1");
+say("");
+reload();
+showApps();
+</script>
+</body>
+</html>

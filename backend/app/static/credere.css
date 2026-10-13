@@ -1,0 +1,243 @@
+/* Credere: lớp giao diện riêng đặt trên Tabler 1.6.0, dùng chung cho trang hỏi đáp (/) và trang Cài đặt (/cai-dat).
+   Nạp SAU tabler.min.css. Không cần bước build, không gọi mạng: font, icon, logo đều nằm trong /static.
+   Lớp riêng có tiền tố cr- để không trùng lớp của Tabler/Bootstrap; biến --nau-* là màu nhận diện của Trường,
+   biến --cr-* là biến thiết kế của Credere, biến --tblr-* là biến của Tabler được ghi đè ở mục 3. */
+
+/* ===== 1. Font Be Vietnam Pro (SIL OFL 1.1; latin + latin-ext + vietnamese; 4 độ đậm) ===== */
+@font-face { font-family:'Be Vietnam Pro'; font-style:normal; font-weight:400; font-display:swap;
+             src:url(/static/vendor/be-vietnam-pro/be-vietnam-pro-400.woff2) format('woff2'); }
+@font-face { font-family:'Be Vietnam Pro'; font-style:normal; font-weight:500; font-display:swap;
+             src:url(/static/vendor/be-vietnam-pro/be-vietnam-pro-500.woff2) format('woff2'); }
+@font-face { font-family:'Be Vietnam Pro'; font-style:normal; font-weight:600; font-display:swap;
+             src:url(/static/vendor/be-vietnam-pro/be-vietnam-pro-600.woff2) format('woff2'); }
+@font-face { font-family:'Be Vietnam Pro'; font-style:normal; font-weight:700; font-display:swap;
+             src:url(/static/vendor/be-vietnam-pro/be-vietnam-pro-700.woff2) format('woff2'); }
+
+/* ===== 2. Màu nhận diện Trường Đại học Nghệ An (lấy từ logo và nau.edu.vn) ===== */
+:root {
+  --nau-blue:#17479B;         /* xanh NAU: chữ N, U của logo; màu chính (chữ trắng trên nền này 8,7:1) */
+  --nau-blue-deep:#0E3272;    /* xanh pha tối: đầu dải màu thanh trên */
+  --nau-blue-soft:#E8EEF7;    /* nền nhạt của màu chính */
+  --nau-navy:#011D3B;         /* xanh đậm chân trang nau.edu.vn */
+  --nau-red:#AE1F24;          /* đỏ NAU: chữ A, cánh sen; điểm nhấn, nhận diện AI Tổng hợp (6,95:1) */
+  --nau-red-bright:#BE2025;   /* đỏ tươi cánh sen: nhấn nhỏ */
+  --nau-red-soft:#F7E9EA;
+
+  /* Kích thước chữ: 1rem = 17px (106,25% của 16px mặc định); chế độ trình chiếu phóng lên 19px, xem mục 4 */
+  --cr-root-size:106.25%;
+  --cr-page-max:1560px;       /* bề rộng tối đa của nội dung; thanh trên dùng cùng giá trị để logo thẳng mép */
+  --cr-topbar-h:4rem;
+
+  /* Chữ và nền (đạt AA khi chiếu: chữ chính 15,6:1, chữ phụ 7,6:1 trên nền trắng) */
+  --cr-ink:#1B2433;
+  --cr-ink-2:#374151;
+  --cr-muted:#4B5563;
+  --cr-bg:#F2F5F9;
+  --cr-line:#DDE3EC;
+
+  /* Màu từng tác tử: chữ màu trên nền nhạt 10% vẫn ≥ 5:1; nền nhạt và viền suy ra ở mục 7 */
+  --cr-c-master:var(--nau-blue);       /* Điều phối (tác tử điều phối của một AI) */
+  --cr-c-tong_hop:var(--nau-red);      /* AI Tổng hợp của Hiệu trưởng (cấp 0 trong mô hình chủ – tớ) */
+  --cr-c-tuyen_sinh:#15733A;           /* Tác tử Tuyển sinh; AI Tuyển sinh khi là AI con */
+  --cr-c-dao_tao:#9D4B08;              /* Tác tử Đào tạo; AI Đào tạo khi là AI con */
+  --cr-c-analysis:#6D28D9;             /* Tác tử Phân tích (tính toán bằng máy) */
+  --cr-c-du_lieu:#0D6B63;              /* Tác tử Dữ liệu (truy vấn cơ sở dữ liệu) */
+  --cr-c-sys:#475569;                  /* Hệ thống (tạm dừng, chạm trần chi phí, lỗi kết nối) */
+  --cr-c-replay:#4338CA;               /* Phát lại bản ghi */
+}
+
+/* ===== 3. Ánh xạ lên biến của Tabler =====
+   Bảng màu Tabler mặc định quá sáng khi dùng làm chữ (bg-green-lt khoảng 2,6:1, bg-yellow-lt khoảng 2:1),
+   nên đổi sang tông đậm hơn: mọi lớp bg-*-lt, text-*, btn-*, alert-* đều đọc được trên máy chiếu (≥ 5:1).
+   Màu dạng light-dark(sáng, tối) để vùng có data-bs-theme="dark" vẫn đúng màu. */
+:root, [data-bs-theme=light] {
+  --tblr-primary:var(--nau-blue);
+  --tblr-primary-rgb:23,71,155;
+  --tblr-brand:var(--nau-blue);
+  --tblr-blue:#1D4ED8;   --tblr-azure:#0369A1;  --tblr-indigo:#4338CA; --tblr-purple:#7E22CE;
+  --tblr-pink:#BE185D;   --tblr-red:#B91C1C;    --tblr-orange:#AD3E0B; --tblr-yellow:#8A5A06;
+  --tblr-lime:#3F6212;   --tblr-green:#15733A;  --tblr-teal:#0D6B63;   --tblr-cyan:#0B6A82;
+  --tblr-success:var(--tblr-green); --tblr-info:var(--tblr-azure);
+  --tblr-warning:var(--tblr-yellow); --tblr-danger:var(--tblr-red);
+  --tblr-secondary:light-dark(#4B5563, var(--tblr-gray-400));
+  --tblr-muted:var(--tblr-secondary);
+
+  /* Chữ */
+  --tblr-font-sans-serif:'Be Vietnam Pro', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --tblr-body-font-family:var(--tblr-font-sans-serif);
+  --tblr-body-font-size:1rem;          /* 17px */
+  --tblr-body-line-height:1.55;
+  --tblr-body-color:light-dark(var(--cr-ink), var(--tblr-gray-200));
+  --tblr-heading-color:light-dark(#0F2A5F, var(--tblr-white));
+  --tblr-font-size-h1:1.625rem;  --tblr-line-height-h1:2.125rem;
+  --tblr-font-size-h2:1.375rem;  --tblr-line-height-h2:1.875rem;
+  --tblr-font-size-h3:1.0625rem; --tblr-line-height-h3:1.5rem;
+  --tblr-font-size-h4:0.9375rem; --tblr-line-height-h4:1.375rem;
+
+  /* Nền, viền, bo góc, bóng */
+  --tblr-body-bg:light-dark(var(--cr-bg), var(--tblr-gray-900));
+  --tblr-bg-surface-secondary:light-dark(#F6F8FB, var(--tblr-gray-900));
+  --tblr-bg-surface-tertiary:light-dark(#F6F8FB, var(--tblr-gray-800));
+  --tblr-border-color:light-dark(var(--cr-line), var(--tblr-gray-700));
+  --tblr-border-color-translucent:light-dark(rgba(15, 42, 95, .12), var(--tblr-dark-mode-border-color-translucent));
+  --tblr-border-radius-scale:1.34;     /* 6px thành 8px, 8px thành 11px */
+  --tblr-shadow-color:light-dark(rgba(1, 29, 59, .5), #000);
+  --tblr-shadow-card:0 1px 2px 0 color-mix(in oklab, var(--tblr-shadow-color) 10%, transparent),
+                     0 4px 14px -4px color-mix(in oklab, var(--tblr-shadow-color) 14%, transparent);
+}
+
+/* ===== 4. Nền tảng: cỡ chữ gốc, chế độ trình chiếu, chữ số, tiêu đề bảng ===== */
+html { font-size:var(--cr-root-size); }
+/* Chế độ trình chiếu: đặt <html data-trinh-chieu> (ví dụ khi URL có ?trinh-chieu=1) để phóng toàn trang lên 19px */
+html[data-trinh-chieu] { --cr-root-size:118.75%; }
+body { -webkit-font-smoothing:antialiased; }
+::selection { background:color-mix(in srgb, var(--nau-blue) 22%, transparent); }
+.icon use { pointer-events:none; }                    /* bấm vào icon vẫn tính là bấm vào nút chứa nó */
+.cr-num, .table td.text-end, .table th.text-end { font-variant-numeric:tabular-nums; }
+/* Tiêu đề cột: bỏ chữ in hoa của Tabler (chữ hoa có dấu cỡ nhỏ khó đọc trên máy chiếu), tối thiểu 13px */
+.table thead th, .markdown>table thead th { text-transform:none; letter-spacing:0; font-size:.8125rem; font-weight:600; }
+.subheader { font-size:.8125rem; }
+.cr-container { width:100%; max-width:var(--cr-page-max); margin-inline:auto; padding-inline:1.25rem; }
+
+/* ===== 5. Thanh trên: logo, tên Trường, tên AI, trạng thái, nút ===== */
+.cr-topbar { position:relative; z-index:20; flex:none; color:#fff;
+             background:linear-gradient(100deg, var(--nau-blue-deep) 0%, var(--nau-blue) 58%, #1D57B8 100%);
+             box-shadow:0 2px 10px rgba(1, 29, 59, .28); }
+.cr-topbar::after { content:""; position:absolute; inset:auto 0 0 0; height:3px;            /* vạch đỏ cánh sen */
+                    background:linear-gradient(90deg, var(--nau-red) 0%, var(--nau-red-bright) 45%, var(--nau-red) 100%); }
+.cr-topbar-inner { display:flex; align-items:center; gap:1rem; min-height:var(--cr-topbar-h); padding-block:.5rem calc(.5rem + 3px);
+                   width:100%; max-width:var(--cr-page-max); margin-inline:auto; padding-inline:1.25rem; }
+.cr-brand { flex:0 1 auto; display:flex; align-items:center; gap:.75rem; min-width:0; color:inherit; text-decoration:none; }
+.cr-brand:hover { color:inherit; text-decoration:none; }
+.cr-brand-logo { flex:none; width:2.75rem; height:2.75rem; border-radius:50%; background:#fff;
+                 box-shadow:0 0 0 2px rgba(255, 255, 255, .85), 0 2px 6px rgba(0, 0, 0, .25); }
+.cr-brand-text { display:flex; flex-direction:column; min-width:0; line-height:1.2; }
+.cr-brand-school { font-size:.75rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:rgba(255, 255, 255, .86);
+                   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cr-brand-title { display:flex; align-items:baseline; gap:.5rem; min-width:0; }
+.cr-brand-app { font-size:1.1875rem; font-weight:700; white-space:nowrap; }
+.cr-brand-sub { font-size:.875rem; color:rgba(255, 255, 255, .84); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cr-brand-sub::before { content:"·"; margin-right:.5rem; opacity:.7; }
+.cr-topbar-center { flex:1 0 auto; display:flex; justify-content:center; }   /* không co nhỏ hơn tab; phần tên AI co lại trước */
+.cr-topbar-actions { display:flex; align-items:center; gap:.5rem; margin-inline-start:auto; flex:none; }
+
+/* Nút trên nền xanh: .cr-btn-glass (nút phụ trong suốt), .btn-light của Tabler cho nút chính (nền trắng chữ xanh) */
+.cr-btn-glass { display:inline-flex; align-items:center; gap:.375rem; height:2.25rem; padding:0 .875rem; border-radius:var(--tblr-border-radius-pill);
+                border:1px solid rgba(255, 255, 255, .28); background:rgba(255, 255, 255, .1); color:#fff; font:inherit; font-size:.875rem;
+                font-weight:500; text-decoration:none; white-space:nowrap; cursor:pointer; transition:background .15s, border-color .15s; }
+.cr-btn-glass:hover { background:rgba(255, 255, 255, .2); border-color:rgba(255, 255, 255, .45); color:#fff; text-decoration:none; }
+.cr-btn-glass:disabled { opacity:.55; cursor:not-allowed; }
+.cr-btn-glass .icon { --tblr-icon-size:1.125rem; }
+.cr-btn-glass.cr-btn-icon { width:2.25rem; padding:0; justify-content:center; }
+.cr-topbar .btn-light { --tblr-btn-color:var(--nau-blue); --tblr-btn-hover-color:var(--nau-blue-deep); font-weight:600; }
+.cr-topbar :focus-visible { outline:2px solid #fff; outline-offset:2px; }   /* vòng focus xanh của Tabler không thấy trên nền xanh */
+
+/* Tab vai trò (nav.nav.nav-segmented của Tabler + .cr-roles): trên nền sáng giữ kiểu Tabler, trong thanh trên đổi sang nền kính.
+   Mỗi tab có thể hai tầng: <span class="cr-role-name">AI Tuyển sinh</span><span class="cr-role-who">Cán bộ Tuyển sinh</span>.
+   Khi đang chạy (disabled): tab đang chọn giữ nguyên màu, các tab khác mờ đi, con trỏ not-allowed. */
+.cr-roles { --tblr-nav-height:2.625rem; --tblr-nav-radius:10px; flex-wrap:nowrap; }
+.cr-roles .nav-link { gap:.5rem; font-weight:500; }
+.cr-roles .nav-link .icon { --tblr-icon-size:1.125rem; }
+.cr-role-text { display:flex; flex-direction:column; align-items:flex-start; line-height:1.15; text-align:left; }
+.cr-role-name { font-weight:600; }
+.cr-role-who { font-size:.75rem; font-weight:400; opacity:.85; }
+.cr-roles .nav-link:disabled:not(.active) { opacity:.5; }
+.cr-topbar .cr-roles { --tblr-nav-bg:rgba(255, 255, 255, .1); border-color:rgba(255, 255, 255, .18); }
+.cr-topbar .cr-roles .nav-link { color:rgba(255, 255, 255, .88); border-color:transparent; }
+.cr-topbar .cr-roles .nav-link:hover:not(:disabled) { color:#fff; background:rgba(255, 255, 255, .14); }
+.cr-topbar .cr-roles .nav-link.active { color:var(--nau-blue); background:#fff; border-color:#fff; box-shadow:0 1px 3px rgba(0, 0, 0, .2); }
+
+/* ===== 6. Huy hiệu trạng thái (.cr-pill) =====
+   Dùng cho: Đang hoạt động, Dùng nội bộ, Dữ liệu giả lập (thanh trên); Chờ câu hỏi / Đang xử lý / Phát lại bản ghi /
+   Hoàn tất / Lỗi (khung quy trình); Đang dùng / Chưa có khóa / Chưa lưu / Đã tắt (trang Cài đặt).
+   Mẫu: <span class="cr-pill cr-pill--ok"><svg class="icon"><use href="…#i-circle-check"/></svg>Hoàn tất</span> */
+.cr-pill { --cr-pill:var(--cr-muted); display:inline-flex; align-items:center; gap:.375rem; padding:.25rem .625rem; border-radius:var(--tblr-border-radius-pill);
+           border:1px solid color-mix(in srgb, var(--cr-pill) 22%, transparent); background:color-mix(in srgb, var(--cr-pill) 10%, #fff);
+           color:var(--cr-pill); font-size:.8125rem; font-weight:600; line-height:1.25; white-space:nowrap; vertical-align:middle; }
+.cr-pill .icon { --tblr-icon-size:1em; stroke-width:2.2; }
+.cr-pill--ok { --cr-pill:var(--tblr-green); }
+.cr-pill--warn { --cr-pill:var(--tblr-yellow); }
+.cr-pill--bad { --cr-pill:var(--tblr-red); }
+.cr-pill--run { --cr-pill:var(--nau-blue); }
+.cr-pill--replay { --cr-pill:var(--cr-c-replay); }
+.cr-pill--muted { --cr-pill:var(--cr-muted); }
+.cr-pill--live { --cr-pill:var(--tblr-green); }
+.cr-pill--internal { --cr-pill:var(--nau-blue); }
+/* Dữ liệu giả lập: nền vàng đặc ở mọi nơi, cảnh báo trung thực phải luôn thấy rõ (chữ 9,4:1) */
+.cr-pill--synthetic { --cr-pill:#3F2A00; background:#FCD34D; border-color:#F2B90F; }
+.cr-pill-lg { font-size:.9375rem; padding:.375rem .875rem; }
+
+/* Chấm trạng thái; .cr-dot--pulse nhấp nháy (tắt khi hệ điều hành bật giảm chuyển động) */
+.cr-dot { flex:none; width:.5rem; height:.5rem; border-radius:50%; background:currentColor; }
+.cr-dot--pulse { box-shadow:0 0 0 0 currentColor; animation:cr-pulse 1.8s ease-out infinite; }
+@keyframes cr-pulse { 0% { box-shadow:0 0 0 0 color-mix(in srgb, currentColor 55%, transparent); }
+                      100% { box-shadow:0 0 0 .45rem transparent; } }
+
+/* Trong thanh trên: nền kính, chữ trắng; riêng Dữ liệu giả lập giữ nền vàng */
+.cr-topbar .cr-pill:not(.cr-pill--synthetic) { background:rgba(255, 255, 255, .12); border-color:rgba(255, 255, 255, .22); color:#fff; }
+.cr-topbar .cr-pill--live .cr-dot { color:#4ADE80; }
+.cr-topbar .cr-pill--synthetic { box-shadow:0 1px 4px rgba(0, 0, 0, .25); }
+
+/* ===== 7. Nhận diện tác tử theo màu =====
+   .cr-agent--<loại> chỉ đặt biến màu (--cr-agent, --cr-agent-soft, --cr-agent-line); các lớp hiển thị đọc biến đó:
+     .cr-mark  ô vuông nền đặc, chữ viết tắt hoặc icon (dòng thời gian, chú giải, đầu thẻ)
+     .cr-chip  nhãn nền nhạt có chấm màu (kế hoạch, chú giải, tên tác tử trong bước)
+     .cr-tint  nền nhạt + chữ màu cho phần tử bất kỳ (ví dụ .timeline-event-icon, .avatar của Tabler)
+     .cr-accent vạch màu bên trái (làn của AI con, thẻ nhiệm vụ)
+   AI con (ai_tuyen_sinh, ai_dao_tao) cùng màu lĩnh vực nhưng có viền kép để phân biệt với tác tử bên trong một AI.
+   Loại không có trong danh sách tự lấy màu Hệ thống. */
+.cr-agent--master { --cr-agent:var(--cr-c-master); }
+.cr-agent--tong_hop, .cr-agent--hieu_truong { --cr-agent:var(--cr-c-tong_hop); }
+.cr-agent--tuyen_sinh, .cr-agent--ai_tuyen_sinh { --cr-agent:var(--cr-c-tuyen_sinh); }
+.cr-agent--dao_tao, .cr-agent--ai_dao_tao { --cr-agent:var(--cr-c-dao_tao); }
+.cr-agent--analysis { --cr-agent:var(--cr-c-analysis); }
+.cr-agent--du_lieu { --cr-agent:var(--cr-c-du_lieu); }
+.cr-agent--sys { --cr-agent:var(--cr-c-sys); }
+[class*="cr-agent--"] { --cr-agent-soft:color-mix(in srgb, var(--cr-agent, var(--cr-c-sys)) 10%, #fff);
+                        --cr-agent-line:color-mix(in srgb, var(--cr-agent, var(--cr-c-sys)) 30%, #fff); }
+
+.cr-mark { --cr-mark-size:1.75rem; flex:none; display:inline-grid; place-items:center; width:var(--cr-mark-size); height:var(--cr-mark-size);
+           border-radius:8px; background:var(--cr-agent, var(--cr-c-sys)); color:#fff; font-size:.6875rem; font-weight:700;
+           font-style:normal; letter-spacing:.02em; line-height:1; }
+.cr-mark .icon { --tblr-icon-size:calc(var(--cr-mark-size) * .6); stroke-width:2; }
+.cr-mark-sm { --cr-mark-size:1.375rem; border-radius:6px; font-size:.625rem; }
+.cr-mark-lg { --cr-mark-size:2.5rem; border-radius:11px; font-size:.875rem; }
+.cr-mark.cr-agent--ai_tuyen_sinh, .cr-mark.cr-agent--ai_dao_tao, .cr-mark.cr-agent--tong_hop, .cr-mark.cr-agent--hieu_truong {
+  box-shadow:0 0 0 2px #fff, 0 0 0 3.5px var(--cr-agent); }
+
+.cr-chip { display:inline-flex; align-items:center; gap:.375rem; padding:.125rem .5rem; border-radius:6px; vertical-align:middle;
+           background:var(--cr-agent-soft, #F1F3F6); color:var(--cr-agent, var(--cr-c-sys)); border:1px solid var(--cr-agent-line, var(--cr-line));
+           font-size:.8125rem; font-weight:600; line-height:1.35; white-space:nowrap; }
+.cr-chip::before { content:""; flex:none; width:.5rem; height:.5rem; border-radius:2px; background:currentColor; }
+.cr-chip.cr-agent--ai_tuyen_sinh, .cr-chip.cr-agent--ai_dao_tao, .cr-chip.cr-agent--tong_hop, .cr-chip.cr-agent--hieu_truong {
+  border:1.5px solid var(--cr-agent); }
+.cr-chip.cr-agent--ai_tuyen_sinh::before, .cr-chip.cr-agent--ai_dao_tao::before { border-radius:50%; }
+
+.cr-tint { background:var(--cr-agent-soft) !important; color:var(--cr-agent, var(--cr-c-sys)) !important; }
+.cr-accent { border-inline-start:3px solid var(--cr-agent, var(--cr-c-sys)) !important; }
+
+/* Chú giải: danh sách .cr-mark + tên hoặc .cr-chip, xuống dòng khi hẹp */
+.cr-legend { display:flex; flex-wrap:wrap; align-items:center; gap:.375rem .875rem; font-size:.8125rem; color:var(--cr-ink-2); }
+.cr-legend>span { display:inline-flex; align-items:center; gap:.375rem; }
+
+/* ===== 8. Thích ứng màn hình và giảm chuyển động =====
+   Thanh trên ở 1366 px phải nằm trên một hàng: bỏ dòng phụ, thu các nhãn bọc trong span.cr-collapse-label (chỉ còn icon,
+   nên đặt title cho phần tử cha). Dưới 1100 px tab vai trò xuống hàng riêng nên nhãn hiện lại; span.cr-collapse-label-sm
+   chỉ thu khi màn hình rất hẹp (dưới 720 px). */
+@media (max-width:1500px) {
+  .cr-brand-sub { display:none; }
+}
+@media (min-width:1101px) and (max-width:1440px) {
+  .cr-topbar .cr-collapse-label { display:none; }
+  html[data-trinh-chieu] .cr-topbar .cr-role-who { display:none; }   /* chữ 19px: tab chỉ còn tên AI để vừa một hàng */
+}
+@media (max-width:1100px) {
+  .cr-topbar-inner { flex-wrap:wrap; }
+  .cr-topbar-center { order:3; flex-basis:100%; justify-content:flex-start; }
+}
+@media (max-width:720px) {
+  .cr-topbar .cr-collapse-label, .cr-topbar .cr-collapse-label-sm { display:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .cr-dot--pulse { animation:none; }
+}

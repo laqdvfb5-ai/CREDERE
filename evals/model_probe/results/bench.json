@@ -1,0 +1,1670 @@
+[
+ {
+  "key": "claude-key",
+  "model": "claude-opus-4-8",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "```json\n{\n  \"tasks\": [\n    {\n      \"id\": \"T0\",\n      \"worker_type\": \"dieu_phoi\",\n      \"task_type\": \"tra_cuu_noi_bo\",\n      \"goal\": \"Xác định phạm vi, tiêu chí đánh giá tác động AI và yêu cầu đầu ra của báo cáo NCKH\",\n      \"depends_on\": []\n    },\n    {\n      \"id\": \"T1\",\n      \"worker_type\": \"nckh\",\n      \"task_type\": \"tra_cuu_noi_bo\",\n      \"goal\": \"Tra cứu dữ liệu nội bộ về kết quả nghiên cứu khoa học 3 năm qua và các dự án có ứng dụng AI\",\n      \"depends_on\": [\"T0\"]\n    },\n    {\n      \"id\": \"T2\",\n      \"worker_type\": \"search\",\n      \"task_type\": \"tim_nguon\",\n      \"goal\": \"Tìm nguồn về 3 case study tiêu biểu ứng dụng AI trong nghiên cứu khoa học\",\n      \"depends_on\": [\"T0\"]\n    },\n    {\n      \"id\": \"T3\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"trich_bang_chung\",\n      \"goal\": \"Trích bằng chứng định lượng và định tính về tác động của AI đến kết quả nghiên cứu từ dữ liệu nội bộ và nguồn ngoài\",\n      \"depends_on\": [\"T1\", \"T2\"]\n    },\n    {\n      \"id\": \"T4\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"so_sanh\",\n      \"goal\": \"Lập bảng so sánh 3 case study tiêu biểu theo các tiêu chí đánh giá đã xác định\",\n      \"depends_on\": [\"T3\"]\n    },\n    {\n      \"id\": \"T5\",\n      \"worker_type\": \"dao_tao\",\n      \"task_type\": \"soan_thao\",\n      \"goal\": \"Đề xuất lộ trình triển khai ứng dụng AI cho kế hoạch nghiên cứu khoa học năm tới\",\n      \"depends_on\": [\"T3\"]\n    },\n    {\n      \"id\": \"T6\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"tinh_toan\",\n      \"goal\": \"Ước tính chi phí triển khai theo từng giai đoạn của lộ trình đề xuất\",\n      \"depends_on\": [\"T5\"]\n    },\n    {\n      \"id\": \"T7\",\n      \"worker_type\": \"dieu_phoi\",\n      \"task_type\": \"soan_thao\",\n      \"goal\": \"Soạn báo cáo tổng hợp gồm phân tích tác động, bảng so sánh case study, lộ trình triển khai và chi phí ước tính\",\n      \"depends_on\": [\"T4\", \"T6\"]\n    }\n  ]\n}\n```",
+    "latency": 20.14070725440979,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 967,
+    "out_tokens": 942,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "Tôi sẽ gọi công cụ để đếm số công bố.",
+    "latency": 2.2842795848846436,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 1121,
+    "out_tokens": 133,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\": \"artificial intelligence in scientific research\", \"from_year\": 2023, \"to_year\": 2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 (dưới 1,0) chỉ được đăng ký tối đa **14 tín chỉ** [QĐ-01, Điều 5].\n\nLệ phí phúc khảo là **20.000 đồng mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 2.273422956466675,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 1077,
+    "out_tokens": 120,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để trả lời. Các nguồn được cung cấp không có thông tin về học phí mỗi tín chỉ năm 2026.\n\n(Nguồn hiện có chỉ đề cập đến lệ phí phúc khảo là 20.000 đồng mỗi học phần [QĐ-01, Điều 9], không phải học phí tín chỉ.)",
+    "latency": 3.5548877716064453,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 1028,
+    "out_tokens": 134,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để trả lời cả hai câu hỏi này.\n\n- **Xem lịch học cá nhân:** Nguồn [Trang Dịch vụ số] có liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến, nhưng KHÔNG cho biết cổng nào hiển thị lịch học cá nhân [Trang Dịch vụ số]. Do đó chưa đủ căn cứ để xác định chính xác nơi xem lịch.\n\n- **Quên mật khẩu:** Nguồn [Trang Dịch vụ số] KHÔNG mô tả cách khôi phục mật khẩu [Trang Dịch vụ số], nên cũng chưa đủ căn cứ để hướng dẫn.\n\nEm nên liên hệ trực tiếp Phòng Quản lý đào tạo hoặc bộ phận hỗ trợ kỹ thuật của trường để được hướng dẫn cụ thể.",
+    "latency": 6.826477527618408,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 1039,
+    "out_tokens": 347,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "Đề tài: 3 × 12.500.000 = 37.500.000\nHội thảo: 2 × 8.750.000 = 17.500.000\nTổng: 37.500.000 + 17.500.000 = 55.000.000\nDự phòng 10%: 5.500.000\nTổng cộng: 55.000.000 + 5.500.000 = 60.500.000\n\n60.500.000",
+    "latency": 3.070289134979248,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 647,
+    "out_tokens": 134,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Dẫn nguồn giúp tăng độ tin cậy và tính minh bạch cho báo cáo khoa học.\n- Tôn trọng quyền tác giả, tránh đạo văn và các vấn đề vi phạm bản quyền.\n- Giúp người đọc tra cứu, kiểm chứng thông tin và mở rộng nghiên cứu liên quan.",
+    "latency": 10.784184455871582,
+    "reported_model": "claude-opus-4-8",
+    "in_tokens": 624,
+    "out_tokens": 133,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 3.55,
+  "tokens_in": 6503,
+  "tokens_out": 1943,
+  "reported_models": [
+   "claude-opus-4-8"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.5",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập dữ liệu nội bộ 3 năm qua về kết quả nghiên cứu khoa học: số công bố, chất lượng tạp chí, trích dẫn, đề tài, kinh phí, hợp tác, bằng sáng chế và các hoạt động có ứng dụng AI.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn bên ngoài đáng tin cậy về tác động của AI đến năng suất và chất lượng nghiên cứu khoa học trong 3 năm qua, gồm báo cáo, bài báo học thuật và dữ liệu benchmark.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm 3 case study tiêu biểu về ứng dụng AI trong nghiên cứu khoa học tại trường đại học/viện nghiên cứu/doanh nghiệp R&D, ưu tiên có số liệu định lượng và chi phí triển khai.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất bằng chứng chính từ dữ liệu nội bộ và nguồn bên ngoài: chỉ số trước-sau, mức tăng năng suất, chất lượng đầu ra, chi phí, rủi ro và điều kiện thành công.\",\"depends_on\":[\"T0\",\"T1\",\"T2\"]},{\"id\":\"T4\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo tiêu chí: bối cảnh, công nghệ AI sử dụng, quy mô triển khai, tác động đến kết quả nghiên cứu, chi phí, rủi ro và bài học áp dụng.\",\"depends_on\":[\"T2\",\"T3\"]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Ước tính chi phí cho lộ trình triển khai AI trong kế hoạch nghiên cứu khoa học năm tới, gồm hạ tầng, phần mềm, dữ liệu, đào tạo, nhân sự, thí điểm, vận hành và dự phòng.\",\"depends_on\":[\"T0\",\"T3\"]},{\"id\":\"T6\",\"worker_type\":\"nckh\",\"task_type\":\"so_sanh\",\"goal\":\"Phân tích tác động tổng hợp của AI đối với kết quả nghiên cứu khoa học của trường trong 3 năm qua, so sánh với xu hướng bên ngoài và xác định khoảng trống cần cải thiện.\",\"depends_on\":[\"T3\",\"T4\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo cuối cùng gồm phân tích tác động 3 năm qua, bảng so sánh 3 case study tiêu biểu, lộ trình triển khai AI cho năm tới và chi phí ước tính.\",\"depends_on\":[\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 13.521507501602173,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 238,
+    "out_tokens": 673,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 2.1121022701263428,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\":\"artificial intelligence in scientific research\",\"from_year\":2023,\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 chỉ được đăng ký tối đa **14 tín chỉ** trong học kỳ chính [QĐ-01, Điều 5].  \n\nLệ phí phúc khảo là **20.000 đồng mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 3.031266450881958,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 285,
+    "out_tokens": 89,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để trả lời học phí mỗi tín chỉ năm 2026 là bao nhiêu, vì các nguồn được cấp chỉ có thông tin về giới hạn đăng ký tín chỉ, lệ phí phúc khảo và một số liên kết dịch vụ số, không có quy định về học phí năm 2026 [QĐ-01, Điều 5], [QĐ-01, Điều 9], [Trang Dịch vụ số].",
+    "latency": 4.536749601364136,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 262,
+    "out_tokens": 155,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định em xem **lịch học cá nhân ở cổng nào** hoặc **cách khôi phục mật khẩu**. Trang Dịch vụ số chỉ liệt kê liên kết đến cổng thông tin sinh viên và hệ thống học trực tuyến, nhưng không cho biết cổng nào hiển thị lịch học cá nhân và không mô tả cách khôi phục mật khẩu. [Trang Dịch vụ số]",
+    "latency": 15.41233229637146,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 266,
+    "out_tokens": 181,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "Chi phí 3 đề tài: 37.500.000 đồng  \nChi phí 2 hội thảo: 17.500.000 đồng  \nTổng trước dự phòng: 55.000.000 đồng  \nDự phòng 10%: 5.500.000 đồng  \n\n60.500.000",
+    "latency": 6.935903310775757,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 77,
+    "out_tokens": 142,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và tính minh bạch của báo cáo khoa học.\n- Ghi nhận công lao tác giả và tránh đạo văn.\n- Giúp người đọc kiểm chứng thông tin và tìm hiểu sâu hơn.",
+    "latency": 4.05042028427124,
+    "reported_model": "gpt-5.5",
+    "in_tokens": 56,
+    "out_tokens": 92,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 4.54,
+  "tokens_in": 1324,
+  "tokens_out": 1368,
+  "reported_models": [
+   "gpt-5.5"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-sol",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập số liệu kết quả nghiên cứu khoa học của trường giai đoạn 2023–2025: công bố, trích dẫn, đề tài, kinh phí, thời gian thực hiện và chất lượng đầu ra.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập dữ liệu ứng dụng AI trong nghiên cứu giai đoạn 2023–2025: công cụ, nhóm sử dụng, mức độ sử dụng, chi phí và các yếu tố khác có thể ảnh hưởng đến kết quả.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn đáng tin cậy cho 3 case study tiêu biểu về ứng dụng AI trong nghiên cứu khoa học, ưu tiên trường đại học hoặc tổ chức nghiên cứu có số liệu trước–sau.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích dẫn số liệu, bối cảnh, cách triển khai, kết quả, chi phí và hạn chế của từng case study; ghi rõ nguồn và độ tin cậy.\",\"depends_on\":[\"T2\"]},{\"id\":\"T4\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Phân tích tác động của AI đến kết quả nghiên cứu của trường trong 2023–2025; đối chiếu nhóm hoặc giai đoạn phù hợp và phân biệt tương quan với quan hệ nhân quả.\",\"depends_on\":[\"T0\",\"T1\"]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo mục tiêu, ứng dụng AI, kết quả định lượng, chi phí, hạn chế và khả năng áp dụng tại trường.\",\"depends_on\":[\"T3\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Đề xuất lộ trình triển khai AI cho kế hoạch nghiên cứu năm 2027 theo giai đoạn, kèm dự toán chi phí theo hạng mục, giả định tính toán, KPI và phương án kiểm soát rủi ro.\",\"depends_on\":[\"T4\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo tổng hợp gồm phân tích tác động 2023–2025, bảng so sánh 3 case study và lộ trình năm 2027 kèm chi phí ước tính; nêu nguồn, giả định và giới hạn dữ liệu.\",\"depends_on\":[\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 18.2460777759552,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 238,
+    "out_tokens": 828,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 2.556874990463257,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\":\"artificial intelligence in scientific research\",\"from_year\":2023,\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa **14 tín chỉ** trong học kỳ chính [QĐ-01, Điều 5]. Lệ phí phúc khảo là **20.000 đồng mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 3.754143238067627,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 285,
+    "out_tokens": 68,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Các nguồn được cung cấp không nêu mức học phí mỗi tín chỉ năm 2026, nên tôi chưa đủ căn cứ để trả lời. [QĐ-01, Điều 5; QĐ-01, Điều 9; Trang Dịch vụ số]",
+    "latency": 9.585430383682251,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 262,
+    "out_tokens": 58,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định em xem lịch học cá nhân ở đâu hoặc cách khôi phục mật khẩu. Trang Dịch vụ số chỉ liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến, không nêu cổng nào hiển thị lịch học cá nhân hay hướng dẫn khôi phục mật khẩu. [Trang Dịch vụ số]",
+    "latency": 3.7680718898773193,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 266,
+    "out_tokens": 82,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "Chi phí trước dự phòng: 55.000.000 đồng. Dự phòng 10%: 5.500.000 đồng.\n\n60.500.000 đồng",
+    "latency": 9.525539875030518,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 77,
+    "out_tokens": 89,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Dẫn nguồn giúp xác minh thông tin và tăng độ tin cậy của báo cáo.\n- Ghi nhận đóng góp của tác giả và tránh đạo văn.\n- Giúp người đọc tìm tài liệu gốc để kiểm chứng và nghiên cứu sâu hơn.",
+    "latency": 4.751349449157715,
+    "reported_model": "gpt-6-sol",
+    "in_tokens": 56,
+    "out_tokens": 148,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 4.75,
+  "tokens_in": 1324,
+  "tokens_out": 1309,
+  "reported_models": [
+   "gpt-6-sol"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập số liệu nội bộ trong 3 năm gần nhất có dữ liệu đầy đủ về công bố, trích dẫn, thời gian thực hiện, kinh phí, chất lượng đầu ra và mức độ ứng dụng AI trong nghiên cứu khoa học; xác lập đường cơ sở cho kế hoạch năm tới.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm các báo cáo, bài báo và dữ liệu tin cậy công bố trong 3 năm gần nhất về tác động của AI đến năng suất, chất lượng, tốc độ, chi phí, tính liêm chính và rủi ro của hoạt động nghiên cứu khoa học.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Lựa chọn và thu thập nguồn cho 3 case study tiêu biểu, có bằng chứng định lượng và đại diện cho các mô hình ứng dụng AI khác nhau trong nghiên cứu tại trường đại học hoặc tổ chức nghiên cứu.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất, chuẩn hóa và đối chiếu bằng chứng từ dữ liệu nội bộ và nguồn bên ngoài; lượng hóa tác động của AI theo các chỉ số năng suất, chất lượng, thời gian, chi phí, hợp tác, trích dẫn và rủi ro trong 3 năm qua.\",\"depends_on\":[\"T0\",\"T1\"]},{\"id\":\"T4\",\"worker_type\":\"nckh\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo bối cảnh, công cụ AI, quy mô, cách triển khai, chi phí, kết quả định lượng, hạn chế, rủi ro và bài học có thể áp dụng cho trường.\",\"depends_on\":[\"T2\"]},{\"id\":\"T5\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng lộ trình triển khai AI cho kế hoạch nghiên cứu khoa học năm tới theo các giai đoạn, hạng mục nhân sự, hạ tầng, phần mềm, dữ liệu, đào tạo, quản trị và đánh giá; ước tính chi phí theo các kịch bản tối thiểu, cơ sở và mở rộng, kèm giả định và dự phòng.\",\"depends_on\":[\"T0\",\"T3\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo hoàn chỉnh gồm phương pháp và phạm vi 3 năm, phân tích tác động có dẫn chứng, bảng so sánh 3 case study, nhận định cơ hội và rủi ro, lộ trình triển khai năm tới, ngân sách ước tính, KPI và khuyến nghị quản trị.\",\"depends_on\":[\"T3\",\"T4\",\"T5\"]}]}",
+    "latency": 26.20126247406006,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 238,
+    "out_tokens": 859,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 5.942131757736206,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"from_year\":2023,\"query\":\"artificial intelligence in scientific research\",\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa **14 tín chỉ** [QĐ-01, Điều 5]. Lệ phí phúc khảo là **20.000 đồng cho mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 5.045480966567993,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 285,
+    "out_tokens": 65,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026 vì các nguồn được cung cấp không có thông tin này.",
+    "latency": 8.471477270126343,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 262,
+    "out_tokens": 33,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Trang Dịch vụ số có liên kết tới **cổng thông tin sinh viên** và **hệ thống học trực tuyến**, nhưng không cho biết hệ thống nào hiển thị lịch học cá nhân. [Trang Dịch vụ số]\n\nNguồn cũng không mô tả cách khôi phục mật khẩu, nên chưa đủ căn cứ để hướng dẫn cụ thể. [Trang Dịch vụ số]",
+    "latency": 4.0822107791900635,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 266,
+    "out_tokens": 126,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "- 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng  \n- 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng  \n- Tổng trước dự phòng: 55.000.000 đồng  \n- Dự phòng 10%: 5.500.000 đồng  \n\n**60.500.000 đồng**",
+    "latency": 11.230296611785889,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 77,
+    "out_tokens": 151,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và tính minh bạch của báo cáo.\n- Ghi nhận đóng góp của các tác giả, tránh đạo văn.\n- Giúp người đọc kiểm chứng thông tin và tìm hiểu sâu hơn.",
+    "latency": 2.702686071395874,
+    "reported_model": "gpt-5.6",
+    "in_tokens": 56,
+    "out_tokens": 69,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 5.94,
+  "tokens_in": 1324,
+  "tokens_out": 1339,
+  "reported_models": [
+   "gpt-5.6"
+  ]
+ },
+ {
+  "key": "claude-key",
+  "model": "claude-opus-5-5",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Tra cứu dữ liệu nội bộ về kết quả NCKH 3 năm qua (số công bố, đề tài, trích dẫn, kinh phí) và các dự án/nhóm đã ứng dụng AI\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn bên ngoài (báo cáo, bài báo, đại học trong và ngoài nước) về tác động của AI tới năng suất và chất lượng NCKH trong 3 năm qua, chọn 3 case study tiêu biểu\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm thông tin chi phí triển khai AI cho nghiên cứu: hạ tầng tính toán, bản quyền công cụ, đào tạo nhân lực, nhân sự hỗ trợ\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Tính toán, phân tích tác động của AI lên các chỉ số NCKH nội bộ 3 năm qua (so sánh nhóm có và không dùng AI, xu hướng theo năm)\",\"depends_on\":[\"T0\"]},{\"id\":\"T4\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích bằng chứng từ 3 case study: bối cảnh, công cụ AI, cách triển khai, kết quả định lượng, chi phí, bài học\",\"depends_on\":[\"T1\"]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo các tiêu chí thống nhất và đối chiếu với thực trạng nội bộ của trường\",\"depends_on\":[\"T3\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng lộ trình triển khai AI cho kế hoạch NCKH năm tới theo giai đoạn/quý và ước tính chi phí chi tiết từng hạng mục\",\"depends_on\":[\"T2\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo tổng hợp: phân tích tác động AI tới NCKH 3 năm qua, bảng so sánh 3 case study, lộ trình triển khai và dự toán chi phí năm tới, kèm khuyến nghị\",\"depends_on\":[\"T3\",\"T5\",\"T6\"]}]}",
+    "latency": 19.059620141983032,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 969,
+    "out_tokens": 947,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 13.36416220664978,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 1119,
+    "out_tokens": 108,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\": \"artificial intelligence in scientific research\", \"from_year\": 2023, \"to_year\": 2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "- **Số tín chỉ tối đa:** Điểm trung bình học kỳ trước là 0,8 (dưới 1,0), nên sinh viên chỉ được đăng ký **tối đa 14 tín chỉ** trong học kỳ [QĐ-01, Điều 5].\n- **Lệ phí phúc khảo:** **20.000 đồng mỗi học phần** [QĐ-01, Điều 9]. Đơn phúc khảo nộp tại Phòng Quản lý đào tạo trong vòng 7 ngày kể từ ngày công bố điểm [QĐ-01, Điều 9].",
+    "latency": 3.7127749919891357,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 1079,
+    "out_tokens": 286,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Hiện chưa đủ căn cứ để trả lời câu hỏi này. Các nguồn được cung cấp không có thông tin về mức học phí mỗi tín chỉ năm 2026.\n\nCác nguồn hiện có chỉ nêu:\n- Số tín chỉ tối đa được đăng ký mỗi học kỳ [QĐ-01, Điều 5]\n- Lệ phí phúc khảo là 20.000 đồng mỗi học phần, không phải học phí [QĐ-01, Điều 9]\n\nBạn nên liên hệ Phòng Kế hoạch – Tài chính hoặc Phòng Quản lý đào tạo, hoặc xem thông báo học phí chính thức của trường năm 2026.",
+    "latency": 11.811241626739502,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 1030,
+    "out_tokens": 288,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "**Chưa đủ căn cứ để trả lời cả hai câu hỏi.**\n\n1. **Xem lịch học cá nhân:** Trang Dịch vụ số chỉ liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến. Trang này không cho biết cổng nào hiển thị lịch học cá nhân [Trang Dịch vụ số].\n\n2. **Khôi phục mật khẩu:** Nguồn hiện có không mô tả cách khôi phục mật khẩu [Trang Dịch vụ số].\n\nEm nên hỏi trực tiếp đơn vị phụ trách của trường để có hướng dẫn chính xác. Lưu ý: đây là gợi ý chung, không lấy từ nguồn được cung cấp.",
+    "latency": 5.951537132263184,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 1041,
+    "out_tokens": 410,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "**Tính toán:**\n\n- Đề tài: 3 × 12.500.000 = 37.500.000 đồng\n- Hội thảo: 2 × 8.750.000 = 17.500.000 đồng\n- Tổng trước dự phòng: 37.500.000 + 17.500.000 = 55.000.000 đồng\n- Dự phòng 10%: 55.000.000 × 10% = 5.500.000 đồng\n- Tổng chi phí: 55.000.000 + 5.500.000 = 60.500.000 đồng\n\n60.500.000 đồng",
+    "latency": 5.863209247589111,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 649,
+    "out_tokens": 255,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Giúp người đọc kiểm chứng thông tin và đánh giá độ tin cậy của các kết quả nghiên cứu.\n- Thể hiện sự tôn trọng công sức tác giả gốc, tránh vi phạm đạo văn và bản quyền.\n- Tạo nền tảng lý luận vững chắc, giúp người đọc tìm hiểu sâu hơn về chủ đề.",
+    "latency": 3.1044561862945557,
+    "reported_model": "claude-opus-5-5",
+    "in_tokens": 626,
+    "out_tokens": 144,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 5.95,
+  "tokens_in": 6513,
+  "tokens_out": 2438,
+  "reported_models": [
+   "claude-opus-5-5"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-luna",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm kiếm các nghiên cứu, báo cáo và số liệu đáng tin cậy trong 3 năm qua về tác động của việc ứng dụng AI đến kết quả nghiên cứu khoa học, bao gồm năng suất, chất lượng, tốc độ công bố, khả năng tái lập và rủi ro đạo đức.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm và chọn 3 case study tiêu biểu về ứng dụng AI trong nghiên cứu khoa học trong 3 năm qua, ưu tiên các lĩnh vực khác nhau và có dữ liệu định lượng về đầu vào, quy trình và kết quả.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"nckh\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất bằng chứng, chỉ số và kết quả định lượng từ các nguồn về tác động của AI đối với hoạt động nghiên cứu khoa học; phân loại thành tác động tích cực, hạn chế và rủi ro.\",\"depends_on\":[\"T1\"]},{\"id\":\"T4\",\"worker_type\":\"nckh\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Lập hồ sơ bằng chứng cho từng case study, gồm bối cảnh, công cụ AI, mục tiêu, quy trình ứng dụng, kết quả, chi phí hoặc nguồn lực, điều kiện thành công và bài học có thể áp dụng cho trường đại học.\",\"depends_on\":[\"T2\"]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Phân tích và lập bảng so sánh 3 case study theo các tiêu chí: lĩnh vực, mức độ ứng dụng AI, thời gian, nguồn lực, sản phẩm đầu ra, tác động đến chất lượng và năng suất, rủi ro, khả năng nhân rộng.\",\"depends_on\":[\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Tổng hợp và đánh giá tác động của AI đến kết quả nghiên cứu khoa học trong 3 năm qua, đối chiếu bằng chứng giữa các nguồn và xác định các yếu tố ảnh hưởng, khoảng trống dữ liệu तथा điều kiện áp dụng phù hợp với trường đại học.\",\"depends_on\":[\"T3\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng lộ trình triển khai AI cho kế hoạch nghiên cứu khoa học năm tới theo các giai đoạn, hạng mục, nhân sự, hạ tầng, đào tạo, quản trị dữ liệu và kiểm soát rủi ro; ước tính chi phí theo kịch bản tối thiểu, cơ sở và mở rộng.\",\"depends_on\":[\"T6\"]},{\"id\":\"T8\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo hoàn chỉnh bằng tiếng Việt gồm tóm tắt điều hành, phân tích tác động trong 3 năm qua, bảng so sánh 3 case study, lộ trình triển khai năm tới, chi phí ước tính, chỉ số đánh giá, rủi ro và khuyến nghị; nêu rõ nguồn và giả định tính toán.\",\"depends_on\":[\"T5\",\"T6\",\"T7\"]}]}",
+    "latency": 25.224297523498535,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 238,
+    "out_tokens": 796,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 6.881315469741821,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"from_year\":2023,\"query\":\"artificial intelligence in scientific research\",\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa **14 tín chỉ** [QĐ-01, Điều 5].  \n\nLệ phí phúc khảo là **20.000 đồng mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 2.6461329460144043,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 285,
+    "out_tokens": 65,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026. Các nguồn được cung cấp không đề cập mức học phí này.",
+    "latency": 4.102834463119507,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 262,
+    "out_tokens": 35,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Nguồn hiện có chưa đủ căn cứ để xác định **cổng nào hiển thị lịch học cá nhân** hoặc **cách khôi phục mật khẩu**. [Trang Dịch vụ số]\n\nTrang Dịch vụ số chỉ liệt kê liên kết đến **cổng thông tin sinh viên** và **hệ thống học trực tuyến**. [Trang Dịch vụ số]",
+    "latency": 8.834521532058716,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 266,
+    "out_tokens": 141,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "- 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng  \n- 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng  \n- Tổng trước dự phòng: 55.000.000 đồng  \n- Dự phòng 10%: 5.500.000 đồng  \n\n60.500.000 đồng",
+    "latency": 4.972855806350708,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 77,
+    "out_tokens": 159,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và minh bạch cho các lập luận trong báo cáo khoa học.\n- Giúp người đọc kiểm chứng thông tin và truy tìm tài liệu liên quan dễ dàng.\n- Tôn trọng công sức tác giả, tránh đạo văn và xây dựng nền tảng nghiên cứu vững chắc.",
+    "latency": 9.52356243133545,
+    "reported_model": "gpt-5.6-luna",
+    "in_tokens": 56,
+    "out_tokens": 178,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 6.88,
+  "tokens_in": 1324,
+  "tokens_out": 1410,
+  "reported_models": [
+   "gpt-5.6-luna"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-sol",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm các nguồn học thuật, báo cáo ngành và dữ liệu đáng tin cậy công bố trong 3 năm gần nhất về tác động của AI đến năng suất, chất lượng, tốc độ, chi phí, tính liêm chính và kết quả nghiên cứu khoa học.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập dữ liệu nền nội bộ về hoạt động nghiên cứu khoa học hiện tại, hạ tầng AI, nhân lực, quy trình, ngân sách, sản lượng công bố và mục tiêu kế hoạch năm tới; nêu rõ dữ liệu còn thiếu cần giả định.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm 3 case study tiêu biểu, có bằng chứng định lượng và thuộc các bối cảnh hoặc lĩnh vực khác nhau, về ứng dụng AI trong nghiên cứu khoa học; đồng thời thu thập mức chi phí tham chiếu cho phần mềm, dữ liệu, hạ tầng tính toán, đào tạo và quản trị.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất và chuẩn hóa bằng chứng từ các nguồn về tác động của AI trong 3 năm gần nhất, bao gồm chỉ số trước-sau, quy mô mẫu, thời gian, phương pháp, hạn chế và mức độ tin cậy.\",\"depends_on\":[\"T0\"]},{\"id\":\"T4\",\"worker_type\":\"nckh\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo bài toán nghiên cứu, công nghệ AI, cách triển khai, nguồn lực, chi phí, kết quả định lượng, rủi ro, hạn chế và khả năng áp dụng cho trường đại học.\",\"depends_on\":[\"T2\"]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Phân tích tổng hợp tác động tích cực, tiêu cực và điều kiện thành công của AI đối với kết quả nghiên cứu khoa học; đối chiếu bằng chứng bên ngoài với hiện trạng và mục tiêu nội bộ.\",\"depends_on\":[\"T1\",\"T3\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng lộ trình triển khai AI cho kế hoạch nghiên cứu khoa học năm tới theo giai đoạn, hạng mục, đầu ra, KPI, nhân sự và rủi ro; ước tính chi phí theo các kịch bản tối thiểu, cơ sở và mở rộng, kèm giả định và dự phòng.\",\"depends_on\":[\"T1\",\"T2\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo cuối cùng gồm tóm tắt điều hành, phân tích tác động trong 3 năm qua, bảng so sánh 3 case study, khuyến nghị, lộ trình triển khai năm tới, dự toán chi phí, KPI, rủi ro, giả định và danh mục nguồn trích dẫn.\",\"depends_on\":[\"T3\",\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 25.94234561920166,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 238,
+    "out_tokens": 925,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 3.8308231830596924,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"from_year\":2023,\"query\":\"artificial intelligence in scientific research\",\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa **14 tín chỉ** trong học kỳ chính [QĐ-01, Điều 5].\n\nLệ phí phúc khảo là **20.000 đồng cho mỗi học phần** [QĐ-01, Điều 9].",
+    "latency": 15.028873205184937,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 285,
+    "out_tokens": 69,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026 vì các nguồn được cung cấp không có thông tin này.",
+    "latency": 3.7793822288513184,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 262,
+    "out_tokens": 33,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định cổng nào hiển thị lịch học cá nhân hoặc hướng dẫn cách khôi phục mật khẩu. Trang Dịch vụ số chỉ liệt kê liên kết đến cổng thông tin sinh viên và hệ thống học trực tuyến, không cung cấp hai thông tin này. [Trang Dịch vụ số]",
+    "latency": 9.287670612335205,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 266,
+    "out_tokens": 72,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "- 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng  \n- 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng  \n- Tổng trước dự phòng: 55.000.000 đồng  \n- Dự phòng 10%: 5.500.000 đồng  \n\n**60.500.000 đồng**",
+    "latency": 4.477198839187622,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 77,
+    "out_tokens": 163,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và tính minh bạch của báo cáo.\n- Ghi nhận đóng góp trí tuệ, tránh đạo văn.\n- Giúp người đọc kiểm chứng và tìm hiểu nguồn tài liệu.",
+    "latency": 9.280046463012695,
+    "reported_model": "gpt-5.6-sol",
+    "in_tokens": 56,
+    "out_tokens": 72,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 1.0,
+  "errors": 0,
+  "latency_median": 9.28,
+  "tokens_in": 1324,
+  "tokens_out": 1370,
+  "reported_models": [
+   "gpt-5.6-sol"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-luna",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn đáng tin cậy về tác động của AI đến năng suất, chất lượng, khả năng tái lập và kết quả nghiên cứu khoa học trong ba năm gần đây; ưu tiên nghiên cứu thực nghiệm và báo cáo có phương pháp rõ ràng.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm và trích bằng chứng cho case study về AI trong nghiên cứu sinh học hoặc y sinh, gồm ứng dụng, kết quả đo được, giới hạn và nguồn tham khảo.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm và trích bằng chứng cho case study về AI trong khoa học vật liệu, hóa học hoặc khám phá thuốc, gồm ứng dụng, kết quả đo được, giới hạn và nguồn tham khảo.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm và trích bằng chứng cho case study về AI trong một lĩnh vực nghiên cứu khác, chẳng hạn khí hậu, vật lý hoặc khoa học xã hội; nêu ứng dụng, kết quả đo được, giới hạn và nguồn tham khảo.\",\"depends_on\":[]},{\"id\":\"T4\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Tra cứu định hướng, quy định đạo đức và liêm chính nghiên cứu, cơ chế cấp kinh phí, hạ tầng và các mức chi phí tham chiếu nội bộ có liên quan đến kế hoạch nghiên cứu khoa học năm tới.\",\"depends_on\":[]},{\"id\":\"T5\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Tổng hợp và so sánh ba case study theo vấn đề nghiên cứu, cách ứng dụng AI, kết quả, mức độ bằng chứng, khả năng chuyển giao và rủi ro; rút ra tác động chung trong ba năm gần đây.\",\"depends_on\":[\"T0\",\"T1\",\"T2\",\"T3\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng lộ trình triển khai AI cho nghiên cứu khoa học năm tới theo giai đoạn, hoạt động, nhân lực, hạ tầng và chỉ số đánh giá; lập các kịch bản chi phí ước tính, nêu giả định và căn cứ.\",\"depends_on\":[\"T4\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo hoàn chỉnh về tác động của AI đến kết quả nghiên cứu khoa học trong ba năm qua, bảng so sánh ba case study tiêu biểu và lộ trình triển khai kèm chi phí ước tính cho kế hoạch năm tới; dẫn nguồn, nêu giả định, hạn chế và khuyến nghị.\",\"depends_on\":[\"T0\",\"T1\",\"T2\",\"T3\",\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 28.672709226608276,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 238,
+    "out_tokens": 986,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 3.4949703216552734,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\":\"artificial intelligence in scientific research\",\"from_year\":2023,\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa 14 tín chỉ mỗi học kỳ chính. [QĐ-01, Điều 5]  \nLệ phí phúc khảo là 20.000 đồng mỗi học phần. [QĐ-01, Điều 9]",
+    "latency": 10.190219640731812,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 285,
+    "out_tokens": 69,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026; các nguồn được cung cấp không nêu mức học phí.",
+    "latency": 3.3236143589019775,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 262,
+    "out_tokens": 34,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định cổng nào hiển thị lịch học cá nhân hoặc cách khôi phục mật khẩu. Trang Dịch vụ số chỉ liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến. [Trang Dịch vụ số]",
+    "latency": 2.461928606033325,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 266,
+    "out_tokens": 62,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "Chi phí 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng.  \nChi phí 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng.  \nTổng trước dự phòng: 55.000.000 đồng.  \nDự phòng 10%: 5.500.000 đồng.  \n\n60.500.000 đồng",
+    "latency": 5.19462776184082,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 77,
+    "out_tokens": 156,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và tính minh bạch của báo cáo khoa học.\n- Ghi nhận đóng góp của tác giả và tránh đạo văn.\n- Giúp độc giả kiểm chứng thông tin và tìm hiểu sâu hơn.",
+    "latency": 6.268650054931641,
+    "reported_model": "gpt-6-luna",
+    "in_tokens": 56,
+    "out_tokens": 80,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 0.875,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": false,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 0.969,
+  "errors": 0,
+  "latency_median": 5.19,
+  "tokens_in": 1324,
+  "tokens_out": 1423,
+  "reported_models": [
+   "gpt-6-luna"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-astra",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập dữ liệu nghiên cứu khoa học của trường trong 3 năm gần nhất có dữ liệu: mức độ ứng dụng AI, công bố, trích dẫn, đề tài, kinh phí, thời gian thực hiện, sở hữu trí tuệ và chuyển giao; thu thập mục tiêu, nguồn lực và ngân sách dự kiến cho năm tới. Ghi rõ kỳ dữ liệu, dữ liệu thiếu và quyền truy cập; không tự tạo số liệu.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn đáng tin cậy về tác động của AI đến kết quả nghiên cứu khoa học trong 3 năm tính đến thời điểm lập báo cáo; ưu tiên nghiên cứu thực nghiệm, báo cáo đại học và tài liệu gốc. Xác định các ứng viên case study có số liệu trước–sau hoặc nhóm đối chứng, phù hợp bối cảnh đại học và có khả năng kiểm chứng.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm giá tham khảo cập nhật cho triển khai AI phục vụ nghiên cứu: phần mềm/API, điện toán đám mây hoặc GPU, lưu trữ và quản trị dữ liệu, tích hợp, nhân sự, đào tạo, bảo mật và đánh giá. Ghi nguồn, ngày báo giá, đơn vị tính, điều kiện cấp phép học thuật, thuế và giả định tỷ giá để quy đổi sang VND.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất bằng chứng từ dữ liệu nội bộ và nguồn bên ngoài; chọn đúng 3 case study tiêu biểu dựa trên chất lượng bằng chứng, tính đa dạng và khả năng áp dụng. Với mỗi case, ghi bối cảnh, ứng dụng AI, thời gian, đường cơ sở/đối chứng, chỉ số kết quả, chi phí nếu có, nguồn dẫn và hạn chế; phân biệt số liệu quan sát với ước tính.\",\"depends_on\":[\"T0\",\"T1\"]},{\"id\":\"T4\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo cùng tiêu chí và phân tích tác động AI trong 3 năm qua đến năng suất, chất lượng, tốc độ, chi phí, hợp tác và chuyển giao nghiên cứu. Đánh giá rủi ro sai lệch, độ tái lập, liêm chính học thuật, sở hữu trí tuệ và bảo mật; phân biệt tương quan với quan hệ nhân quả, nêu yếu tố nhiễu và mức độ có thể áp dụng cho trường.\",\"depends_on\":[\"T3\"]},{\"id\":\"T5\",\"worker_type\":\"nckh\",\"task_type\":\"soan_thao\",\"goal\":\"Đề xuất lộ trình ứng dụng AI cho kế hoạch nghiên cứu khoa học năm tới theo từng quý, từ chuẩn bị dữ liệu và quản trị đến thí điểm, đánh giá và mở rộng. Xác định bài toán ưu tiên, đầu mối phụ trách, nguồn lực, sản phẩm bàn giao, KPI gắn với đường cơ sở, cơ chế giám sát con người và tiêu chí tiếp tục/dừng; nếu thiếu thông tin nội bộ, trình bày phương án có điều kiện với giả định rõ ràng.\",\"depends_on\":[\"T0\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Ước tính chi phí lộ trình theo 3 kịch bản tối thiểu, cơ sở và mở rộng, bằng VND; tính theo khối lượng sử dụng và đơn giá có nguồn, tách đầu tư ban đầu và vận hành, phân bổ theo quý, bổ sung dự phòng và phân tích độ nhạy. Nêu tổng chi phí năm tới, giả định quy mô, hạng mục chưa đủ dữ liệu và lợi ích kỳ vọng; chỉ tính ROI khi có cơ sở định lượng đáng tin cậy.\",\"depends_on\":[\"T2\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo tổng hợp gồm phạm vi thời gian và phương pháp, phân tích tác động AI đến kết quả nghiên cứu khoa học trong 3 năm qua, bảng so sánh đúng 3 case study, bài học cho trường, lộ trình năm tới và bảng chi phí ước tính theo kịch bản. Kèm nguồn dẫn, giả định, hạn chế dữ liệu, rủi ro và khuyến nghị ưu tiên để ra quyết định.\",\"depends_on\":[\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 32.16895151138306,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 238,
+    "out_tokens": 1005,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 15.137821197509766,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"from_year\":2023,\"query\":\"artificial intelligence in scientific research\",\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "- Sinh viên có điểm trung bình học kỳ trước là **0,8** (dưới 1,0) được đăng ký tối đa **14 tín chỉ** trong học kỳ chính. [QĐ-01, Điều 5]\n- Lệ phí phúc khảo là **20.000 đồng mỗi học phần**. [QĐ-01, Điều 9]",
+    "latency": 11.439931154251099,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 285,
+    "out_tokens": 82,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026. Các nguồn được cung cấp chỉ nêu giới hạn đăng ký tín chỉ, lệ phí phúc khảo và liên kết dịch vụ số, không có thông tin về mức học phí này. [QĐ-01, Điều 5; QĐ-01, Điều 9; Trang Dịch vụ số]",
+    "latency": 5.457244396209717,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 262,
+    "out_tokens": 84,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định cổng nào hiển thị lịch học cá nhân hoặc hướng dẫn khôi phục mật khẩu. Trang Dịch vụ số chỉ liệt kê liên kết đến cổng thông tin sinh viên và hệ thống học trực tuyến, không nêu chức năng lịch học cá nhân hay cách lấy lại mật khẩu. [Trang Dịch vụ số]",
+    "latency": 12.49490761756897,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 266,
+    "out_tokens": 145,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "- 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng.\n- 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng.\n- Tổng trước dự phòng: 55.000.000 đồng.\n- Dự phòng 10%: 5.500.000 đồng.\n\nTổng chi phí (đồng):\n60.500.000",
+    "latency": 5.681469440460205,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 77,
+    "out_tokens": 128,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy của báo cáo bằng cách cung cấp bằng chứng từ các nguồn uy tín.\n- Giúp người đọc kiểm chứng thông tin và tìm hiểu sâu hơn về vấn đề nghiên cứu.\n- Tôn trọng quyền tác giả, tránh đạo văn và thể hiện tính minh bạch trong nghiên cứu.",
+    "latency": 3.575957775115967,
+    "reported_model": "gpt-6-astra",
+    "in_tokens": 56,
+    "out_tokens": 68,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 0.875,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": false,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 0.969,
+  "errors": 0,
+  "latency_median": 11.44,
+  "tokens_in": 1324,
+  "tokens_out": 1548,
+  "reported_models": [
+   "gpt-6-astra"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"nckh\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Thu thập dữ liệu nghiên cứu khoa học của trường trong 3 năm gần nhất có dữ liệu: mức độ ứng dụng AI, công bố, trích dẫn, đề tài, kinh phí, thời gian thực hiện, sở hữu trí tuệ và chuyển giao; thu thập mục tiêu nghiên cứu năm tới. Ghi rõ kỳ dữ liệu, nguồn, dữ liệu thiếu và quyền truy cập; không tự tạo số liệu.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm nguồn đáng tin cậy về tác động của AI đến kết quả nghiên cứu khoa học trong 3 năm qua; chọn 3 case study tiêu biểu, có bằng chứng định lượng, khác biệt về lĩnh vực hoặc cách ứng dụng và phù hợp bối cảnh đại học. Ưu tiên bài báo gốc, đánh giá độc lập và báo cáo chính thức; ghi ngày, liên kết và giới hạn bằng chứng.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Rà soát mức sẵn sàng triển khai AI của trường: nhân lực, hạ tầng tính toán, dữ liệu, giấy phép, bảo mật, đạo đức nghiên cứu, quy định sử dụng AI và ngân sách dự kiến năm tới. Ghi rõ thông tin đã xác minh, khoảng trống và các giả định cần được phê duyệt.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Thu thập đơn giá tham khảo có nguồn và thời điểm cho hạ tầng AI, GPU hoặc đám mây, phần mềm/API, lưu trữ, quản trị dữ liệu, đào tạo, nhân sự kỹ thuật, bảo mật và đánh giá; nêu điều kiện sử dụng, thuế, tỷ giá và khả năng áp dụng tại Việt Nam để phục vụ dự toán bằng VND.\",\"depends_on\":[]},{\"id\":\"T4\",\"worker_type\":\"analysis\",\"task_type\":\"so_sanh\",\"goal\":\"Phân tích tác động của AI trong 3 năm qua dựa trên dữ liệu trường và bằng chứng bên ngoài; đánh giá năng suất, chất lượng, tốc độ, chi phí, tính tái lập và rủi ro liêm chính. Lập bảng so sánh đúng 3 case study theo bối cảnh, ứng dụng AI, thiết kế đánh giá, đối chứng hoặc đường cơ sở, kết quả định lượng, chi phí nếu có, hạn chế và khả năng áp dụng. Phân biệt tương quan với quan hệ nhân quả, kiểm soát khác biệt kỳ quan sát và độ trễ trích dẫn; không suy rộng kết quả bên ngoài thành kết quả của trường.\",\"depends_on\":[\"T0\",\"T1\"]},{\"id\":\"T5\",\"worker_type\":\"nckh\",\"task_type\":\"soan_thao\",\"goal\":\"Đề xuất lộ trình ứng dụng AI cho kế hoạch nghiên cứu khoa học năm tới theo quý, dựa trên tác động và mức sẵn sàng: ưu tiên bài toán, thí điểm, đánh giá và mở rộng. Xác định đơn vị phụ trách, nguồn lực, sản phẩm bàn giao, KPI gắn đường cơ sở, ngưỡng tiếp tục hoặc dừng, quản trị dữ liệu, sở hữu trí tuệ và kiểm chứng của con người; mô tả quy mô nguồn lực theo các kịch bản tối thiểu, cơ sở và mở rộng.\",\"depends_on\":[\"T2\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Ước tính chi phí triển khai lộ trình theo 3 kịch bản tối thiểu, cơ sở và mở rộng bằng VND; trình bày khối lượng × đơn giá, chi phí đầu tư và vận hành, nhân sự, đào tạo, tuân thủ, dự phòng và tổng ngân sách năm tới theo quý. Nêu giả định, nguồn giá, thời điểm, thuế, tỷ giá, mức bất định và phân tích độ nhạy; tránh tính trùng và phân biệt nguồn lực hiện hữu với chi phí tăng thêm.\",\"depends_on\":[\"T3\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo tổng hợp gồm tóm tắt điều hành, phạm vi 3 năm và phương pháp, phân tích tác động, bảng so sánh 3 case study, lộ trình năm tới, dự toán theo kịch bản và khuyến nghị ưu tiên. Đính kèm nguồn kiểm chứng, giả định, hạn chế dữ liệu và các quyết định cần phê duyệt; bảo đảm lộ trình, KPI và ngân sách nhất quán, không trình bày ước tính như số liệu thực tế.\",\"depends_on\":[\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 37.440690755844116,
+    "reported_model": "gpt-6",
+    "in_tokens": 238,
+    "out_tokens": 1052,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 3.919961452484131,
+    "reported_model": "gpt-6",
+    "in_tokens": 140,
+    "out_tokens": 36,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"from_year\":2023,\"query\":\"artificial intelligence in scientific research\",\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "- Với điểm trung bình học kỳ trước là **0,8** (dưới 1,0), sinh viên được đăng ký tối đa **14 tín chỉ** trong học kỳ chính. [QĐ-01, Điều 5]\n- Lệ phí phúc khảo là **20.000 đồng mỗi học phần**. [QĐ-01, Điều 9]",
+    "latency": 10.210472822189331,
+    "reported_model": "gpt-6",
+    "in_tokens": 285,
+    "out_tokens": 82,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026.",
+    "latency": 1.730076551437378,
+    "reported_model": "gpt-6",
+    "in_tokens": 262,
+    "out_tokens": 22,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Nguồn hiện có chưa đủ căn cứ để xác định cổng nào hiển thị lịch học cá nhân hoặc cách khôi phục mật khẩu. [Trang Dịch vụ số]\n\nEm có thể truy cập Trang Dịch vụ số để xem các liên kết đến cổng thông tin sinh viên và hệ thống học trực tuyến, nhưng nguồn không hướng dẫn cụ thể hai việc trên. [Trang Dịch vụ số]",
+    "latency": 16.113935470581055,
+    "reported_model": "gpt-6",
+    "in_tokens": 266,
+    "out_tokens": 147,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "- Chi phí 3 đề tài: 3 × 12.500.000 = 37.500.000 đồng.\n- Chi phí 2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng.\n- Tổng trước dự phòng: 37.500.000 + 17.500.000 = 55.000.000 đồng.\n- Dự phòng 10%: 55.000.000 × 10% = 5.500.000 đồng.\n- Tổng chi phí gồm dự phòng: 55.000.000 + 5.500.000 = 60.500.000 đồng.\n\n60.500.000",
+    "latency": 18.899322032928467,
+    "reported_model": "gpt-6",
+    "in_tokens": 77,
+    "out_tokens": 180,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và tính minh bạch của báo cáo khoa học.\n- Ghi nhận đóng góp của tác giả khác, tránh đạo văn.\n- Giúp người đọc kiểm chứng thông tin và tìm hiểu sâu hơn.",
+    "latency": 15.95923900604248,
+    "reported_model": "gpt-6",
+    "in_tokens": 56,
+    "out_tokens": 52,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 0.875,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": false,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 0.969,
+  "errors": 0,
+  "latency_median": 15.96,
+  "tokens_in": 1324,
+  "tokens_out": 1571,
+  "reported_models": [
+   "gpt-6"
+  ]
+ },
+ {
+  "key": "claude-key",
+  "model": "claude-opus-5",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "```json\n{\n  \"tasks\": [\n    {\n      \"id\": \"T0\",\n      \"worker_type\": \"nckh\",\n      \"task_type\": \"tra_cuu_noi_bo\",\n      \"goal\": \"Truy xuất dữ liệu nội bộ về kết quả nghiên cứu khoa học của trường trong 3 năm qua: số đề tài các cấp, bài báo ISI/Scopus, trích dẫn, sản phẩm chuyển giao, kinh phí, và mức độ sử dụng công cụ AI trong từng nhóm nghiên cứu.\",\n      \"depends_on\": []\n    },\n    {\n      \"id\": \"T1\",\n      \"worker_type\": \"search\",\n      \"task_type\": \"tim_nguon\",\n      \"goal\": \"Tìm nguồn học thuật và báo cáo uy tín (2022-2025) về tác động của ứng dụng AI tới năng suất, chất lượng và tốc độ công bố nghiên cứu khoa học; ưu tiên số liệu định lượng và khảo sát quy mô lớn.\",\n      \"depends_on\": []\n    },\n    {\n      \"id\": \"T2\",\n      \"worker_type\": \"htqt\",\n      \"task_type\": \"tim_nguon\",\n      \"goal\": \"Tìm và sàng lọc 3 case study tiêu biểu về trường/viện đã triển khai AI trong hoạt động NCKH (trong nước và quốc tế), kèm thông tin về mô hình triển khai, hạ tầng, chi phí và kết quả đạt được.\",\n      \"depends_on\": []\n    },\n    {\n      \"id\": \"T3\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"trich_bang_chung\",\n      \"goal\": \"Trích xuất và chuẩn hóa bằng chứng định lượng, định tính từ kết quả T1 và T2: chỉ số năng suất, thời gian công bố, chất lượng, rủi ro liêm chính học thuật; gắn trích dẫn nguồn cho từng bằng chứng.\",\n      \"depends_on\": [\"T1\", \"T2\"]\n    },\n    {\n      \"id\": \"T4\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"tinh_toan\",\n      \"goal\": \"Tính toán mức thay đổi kết quả NCKH của trường trong 3 năm (tăng trưởng công bố, trích dẫn, tỷ lệ đề tài nghiệm thu đúng hạn) và đối chiếu với mốc chuẩn từ bằng chứng bên ngoài để ước lượng tác động quy cho việc ứng dụng AI.\",\n      \"depends_on\": [\"T0\", \"T3\"]\n    },\n    {\n      \"id\": \"T5\",\n      \"worker_type\": \"analysis\",\n      \"task_type\": \"so_sanh\",\n      \"goal\": \"Lập bảng so sánh 3 case study tiêu biểu theo các tiêu chí: bối cảnh, phạm vi ứng dụng AI, hạ tầng/công cụ, nhân lực, chi phí, kết quả đo được, rủi ro và bài học áp dụng cho trường.\",\n      \"depends_on\": [\"T3\"]\n    },\n    {\n      \"id\": \"T6\",\n      \"worker_type\": \"dao_tao\",\n      \"task_type\": \"tinh_toan\",\n      \"goal\": \"Xây dựng lộ trình triển khai AI cho kế hoạch NCKH năm tới theo 3 giai đoạn (chuẩn bị, thí điểm, mở rộng) kèm ước tính chi phí chi tiết: hạ tầng tính toán, bản quyền công cụ, đào tạo giảng viên/nghiên cứu viên, nhân sự hỗ trợ và dự phòng.\",\n      \"depends_on\": [\"T4\", \"T5\"]\n    },\n    {\n      \"id\": \"T7\",\n      \"worker_type\": \"dieu_phoi\",\n      \"task_type\": \"soan_thao\",\n      \"goal\": \"Soạn báo cáo tổng hợp gồm: phân tích tác động của AI tới kết quả NCKH 3 năm qua, bảng so sánh 3 case study, lộ trình triển khai và bảng chi phí ước tính, kèm khuyến nghị và danh mục nguồn trích dẫn.\",\n      \"depends_on\": [\"T4\", \"T5\", \"T6\"]\n    }\n  ]\n}\n```",
+    "latency": 29.594321489334106,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 967,
+    "out_tokens": 2073,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "I'll search OpenAlex for that.",
+    "latency": 4.5385260581970215,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 1117,
+    "out_tokens": 122,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\": \"artificial intelligence in scientific research\", \"from_year\": 2023, \"to_year\": 2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "**Số tín chỉ tối đa: 14 tín chỉ.** Sinh viên có điểm trung bình học kỳ trước dưới 1,0 chỉ được đăng ký tối đa 14 tín chỉ [QĐ-01, Điều 5]; điểm 0,8 thuộc trường hợp này.\n\n**Lệ phí phúc khảo: 20.000 đồng mỗi học phần** [QĐ-01, Điều 9].\n\nLưu ý thêm: đơn phúc khảo nộp tại Phòng Quản lý đào tạo trong vòng 7 ngày kể từ ngày công bố điểm [QĐ-01, Điều 9].",
+    "latency": 5.210076570510864,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 1077,
+    "out_tokens": 346,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để trả lời.\n\nCác nguồn được cấp không có thông tin về học phí mỗi tín chỉ năm 2026. Cụ thể:\n\n- [QĐ-01, Điều 5] chỉ quy định về số tín chỉ tối đa được đăng ký mỗi học kỳ (25 tín chỉ, hoặc 14 tín chỉ nếu điểm trung bình học kỳ trước dưới 1,0).\n- [QĐ-01, Điều 9] chỉ quy định lệ phí phúc khảo là 20.000 đồng mỗi học phần — đây là lệ phí phúc khảo, không phải học phí.\n- [Trang Dịch vụ số] chỉ liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến.\n\nTôi không suy đoán mức học phí. Bạn nên liên hệ Phòng Quản lý đào tạo hoặc tra cứu văn bản quy định học phí của năm học tương ứng để có thông tin chính xác.",
+    "latency": 9.487821340560913,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 1028,
+    "out_tokens": 408,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để trả lời hai câu hỏi này.\n\n**Về lịch học cá nhân:** Nguồn [Trang Dịch vụ số] có liệt kê liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến, nhưng trang này KHÔNG cho biết cổng nào hiển thị lịch học cá nhân [Trang Dịch vụ số]. Vì vậy em không thể xác định được nơi xem lịch học từ các nguồn hiện có.\n\n**Về khôi phục mật khẩu:** Nguồn [Trang Dịch vụ số] KHÔNG mô tả cách khôi phục mật khẩu, và các nguồn còn lại ([QĐ-01, Điều 5] về đăng ký tín chỉ, [QĐ-01, Điều 9] về phúc khảo) không liên quan đến nội dung này.\n\nEm nên liên hệ trực tiếp đơn vị quản lý hệ thống thông tin của trường để được hướng dẫn chính xác.",
+    "latency": 13.587927341461182,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 1039,
+    "out_tokens": 389,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "**Tính toán:**\n\n- Đề tài: 3 × 12.500.000 = 37.500.000 đồng\n- Hội thảo: 2 × 8.750.000 = 17.500.000 đồng\n- Tổng trước dự phòng: 37.500.000 + 17.500.000 = 55.000.000 đồng\n- Dự phòng 10%: 55.000.000 × 0,10 = 5.500.000 đồng\n- Tổng cộng: 55.000.000 + 5.500.000 = 60.500.000 đồng\n\n60.500.000",
+    "latency": 3.800593852996826,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 647,
+    "out_tokens": 256,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Dẫn nguồn giúp người đọc kiểm chứng dữ liệu, tăng độ tin cậy và tính minh bạch cho báo cáo khoa học.\n- Ghi nhận công lao tác giả đi trước, tránh đạo văn và các rủi ro vi phạm đạo đức nghiên cứu.\n- Cho thấy nền tảng lý thuyết vững chắc, giúp người đọc mở rộng tìm hiểu tài liệu liên quan.",
+    "latency": 4.490701675415039,
+    "reported_model": "claude-opus-5",
+    "in_tokens": 624,
+    "out_tokens": 171,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 1.0,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 1.0,
+   "tieng_viet": 0.667
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": true,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": true
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": false,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 0.95,
+  "errors": 0,
+  "latency_median": 5.21,
+  "tokens_in": 6499,
+  "tokens_out": 3765,
+  "reported_models": [
+   "claude-opus-5"
+  ]
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-terra",
+  "format": "openai",
+  "calls": [
+   {
+    "task": "plan",
+    "ok": true,
+    "text": "{\"tasks\":[{\"id\":\"T0\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"tra_cuu_noi_bo\",\"goal\":\"Xác định phạm vi kế hoạch nghiên cứu khoa học năm tới của trường, các lĩnh vực ưu tiên, quy mô nhân sự, hạ tầng hiện có, ngân sách tham chiếu và tiêu chí đánh giá kết quả nghiên cứu.\",\"depends_on\":[]},{\"id\":\"T1\",\"worker_type\":\"search\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm kiếm các nguồn học thuật, báo cáo chính sách và báo cáo ngành đáng tin cậy trong 3 năm gần đây về tác động của AI đối với năng suất, chất lượng, tốc độ, khả năng tái lập và rủi ro của nghiên cứu khoa học.\",\"depends_on\":[]},{\"id\":\"T2\",\"worker_type\":\"nckh\",\"task_type\":\"tim_nguon\",\"goal\":\"Tìm và lựa chọn 3 case study tiêu biểu trong 3 năm gần đây về ứng dụng AI tạo ra kết quả nghiên cứu khoa học đo lường được, ưu tiên các lĩnh vực khác nhau và có dữ liệu công khai.\",\"depends_on\":[]},{\"id\":\"T3\",\"worker_type\":\"analysis\",\"task_type\":\"trich_bang_chung\",\"goal\":\"Trích xuất bằng chứng định lượng và định tính từ các nguồn về tác động của AI đến đầu ra nghiên cứu, gồm thời gian thực hiện, số lượng/chất lượng công bố, phát hiện khoa học, chi phí, hạn chế và rủi ro đạo đức.\",\"depends_on\":[\"T1\"]},{\"id\":\"T4\",\"worker_type\":\"nckh\",\"task_type\":\"so_sanh\",\"goal\":\"Lập bảng so sánh 3 case study theo bối cảnh, loại AI, dữ liệu/hạ tầng, quy trình ứng dụng, kết quả đo lường được, chi phí/nguồn lực, yếu tố thành công, hạn chế và khả năng áp dụng tại trường.\",\"depends_on\":[\"T2\",\"T3\"]},{\"id\":\"T5\",\"worker_type\":\"dao_tao\",\"task_type\":\"soan_thao\",\"goal\":\"Đề xuất lộ trình triển khai AI cho hoạt động nghiên cứu khoa học năm tới theo các giai đoạn chuẩn bị, thí điểm, mở rộng và đánh giá; bao gồm quản trị dữ liệu, đào tạo năng lực, hỗ trợ nhóm nghiên cứu, đạo đức/liêm chính học thuật và chỉ số KPI.\",\"depends_on\":[\"T0\",\"T4\"]},{\"id\":\"T6\",\"worker_type\":\"analysis\",\"task_type\":\"tinh_toan\",\"goal\":\"Xây dựng chi phí ước tính cho lộ trình năm tới theo các kịch bản tối thiểu, tiêu chuẩn và mở rộng; phân tách chi phí bản quyền/mô hình AI, hạ tầng tính toán, dữ liệu, nhân sự, đào tạo, tư vấn, an toàn-bảo mật và dự phòng.\",\"depends_on\":[\"T0\",\"T5\"]},{\"id\":\"T7\",\"worker_type\":\"dieu_phoi\",\"task_type\":\"soan_thao\",\"goal\":\"Soạn báo cáo cuối cùng bằng tiếng Việt: phân tích tác động AI trong 3 năm qua có dẫn chứng, bảng so sánh 3 case study, lộ trình triển khai nghiên cứu khoa học năm tới, chi phí ước tính theo kịch bản, rủi ro và khuyến nghị ưu tiên hành động.\",\"depends_on\":[\"T3\",\"T4\",\"T5\",\"T6\"]}]}",
+    "latency": 16.766380786895752,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 238,
+    "out_tokens": 759,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "tool",
+    "ok": true,
+    "text": "",
+    "latency": 2.550773859024048,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 140,
+    "out_tokens": 49,
+    "format": "openai",
+    "tool_calls": [
+     {
+      "name": "search_openalex",
+      "arguments": "{\"query\":\"artificial intelligence in scientific research\",\"from_year\":2023,\"to_year\":2025}"
+     }
+    ]
+   },
+   {
+    "task": "ground_co_nguon",
+    "ok": true,
+    "text": "Sinh viên có điểm trung bình học kỳ trước là 0,8 được đăng ký tối đa 14 tín chỉ [QĐ-01, Điều 5].  \n\nLệ phí phúc khảo là 20.000 đồng cho mỗi học phần [QĐ-01, Điều 9].",
+    "latency": 2.879634380340576,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 285,
+    "out_tokens": 64,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_thieu_nguon",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định học phí mỗi tín chỉ năm 2026 vì các nguồn được cấp không có thông tin về mức học phí.",
+    "latency": 7.886241674423218,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 262,
+    "out_tokens": 35,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "ground_bay",
+    "ok": true,
+    "text": "Chưa đủ căn cứ để xác định cổng nào hiển thị lịch học cá nhân hoặc cách khôi phục mật khẩu. Trang Dịch vụ số chỉ cho biết có liên kết tới cổng thông tin sinh viên và hệ thống học trực tuyến, nhưng không nêu chức năng cụ thể hay hướng dẫn khôi phục mật khẩu. [Trang Dịch vụ số]",
+    "latency": 2.8675084114074707,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 266,
+    "out_tokens": 79,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "calc",
+    "ok": true,
+    "text": "3 đề tài: 3 × 12.500.000 = 37.500.000 đồng  \n2 hội thảo: 2 × 8.750.000 = 17.500.000 đồng  \nTổng trước dự phòng: 55.000.000 đồng  \nDự phòng 10%: 5.500.000 đồng  \n\n60.000.000 đồng",
+    "latency": 12.587797164916992,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 77,
+    "out_tokens": 151,
+    "format": "openai",
+    "tool_calls": []
+   },
+   {
+    "task": "vn",
+    "ok": true,
+    "text": "- Tăng độ tin cậy và minh bạch cho báo cáo khoa học.\n- Giúp người đọc kiểm chứng thông tin và nghiên cứu liên quan.\n- Tránh đạo văn, tôn trọng quyền sở hữu trí tuệ.",
+    "latency": 5.523844003677368,
+    "reported_model": "gpt-5.6-terra",
+    "in_tokens": 56,
+    "out_tokens": 52,
+    "format": "openai",
+    "tool_calls": []
+   }
+  ],
+  "scores": {
+   "lap_ke_hoach": 0.875,
+   "goi_cong_cu": 1.0,
+   "bam_nguon": 1.0,
+   "tinh_toan": 0.0,
+   "tieng_viet": 1.0
+  },
+  "checks": {
+   "lap_ke_hoach": {
+    "json_hop_le": true,
+    "so_nhiem_vu_3_8": true,
+    "du_truong": true,
+    "dung_danh_muc": true,
+    "phu_thuoc_ton_tai": true,
+    "khong_chu_trinh": true,
+    "co_nhanh_song_song": false,
+    "tong_hop_cuoi": true
+   },
+   "goi_cong_cu": {
+    "goi_cong_cu": true,
+    "dung_ten": true,
+    "tham_so_json": true,
+    "dung_nam": true
+   },
+   "bam_nguon": {
+    "co_nguon_14": true,
+    "co_nguon_20000": true,
+    "co_nguon_trich_dan": true,
+    "thieu_nguon_tu_choi": true,
+    "thieu_nguon_khong_bia_so": true,
+    "bay_neu_gioi_han": true,
+    "bay_khong_bia": true
+   },
+   "tinh_toan": {
+    "dung_60_500_000": false
+   },
+   "tieng_viet": {
+    "dung_3_dong": true,
+    "moi_dong_toi_da_20_tu": true,
+    "co_dau_tieng_viet": true
+   }
+  },
+  "total": 0.869,
+  "errors": 0,
+  "latency_median": 5.52,
+  "tokens_in": 1324,
+  "tokens_out": 1189,
+  "reported_models": [
+   "gpt-5.6-terra"
+  ]
+ }
+]

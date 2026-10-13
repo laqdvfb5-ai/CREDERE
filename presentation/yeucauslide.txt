@@ -1,0 +1,5 @@
+yêu cầu : tổng thể toàn bộ dự án
+cách nó hoạt động, ai này có lợi ích gì so với việc người làm 
+phương án và kế hoạch triển khai dự án
+các option api : qua api của openai - host models local, so sánh giá tiền, lợi ích các thứ, bất lợi các thứ
+phương án bảo mật thông tin nhà trường

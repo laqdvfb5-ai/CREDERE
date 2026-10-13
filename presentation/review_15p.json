@@ -1,0 +1,1095 @@
+{
+  "pptx": "Credere_15_phut_day_du.pptx",
+  "main": 15,
+  "appendix": 8,
+  "seconds": 900,
+  "requirement_mapping": {
+    "R1": [
+      1,
+      2,
+      3,
+      4,
+      11,
+      14,
+      15,
+      19,
+      23
+    ],
+    "R2": [
+      2,
+      4,
+      6,
+      12,
+      22,
+      23
+    ],
+    "R3": [
+      5,
+      14,
+      19,
+      23
+    ],
+    "R4": [
+      3,
+      6,
+      7,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      17,
+      19,
+      23
+    ],
+    "R5": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      15,
+      16,
+      17,
+      18,
+      20,
+      23
+    ],
+    "R6": [
+      10,
+      11,
+      12,
+      14,
+      15,
+      20,
+      21,
+      23
+    ]
+  },
+  "slides": [
+    {
+      "title": "Credere: hệ thống trợ lý AI cho toàn trường",
+      "section": "Tầm nhìn và phạm vi toàn dự án",
+      "takeaway": "Kết nối sáu lĩnh vực để hỗ trợ nghiệp vụ và quyết định có căn cứ.",
+      "notes": "Kính thưa quý thầy cô, Credere hướng tới một hệ thống trợ lý AI dùng chung cho toàn trường. Hệ thống sẽ hỗ trợ sáu lĩnh vực nghiệp vụ, phối hợp dữ liệu giữa các đơn vị và tạo báo cáo, kế hoạch có căn cứ cho người có thẩm quyền. Em sẽ trình bày toàn bộ phạm vi dự án, cách hoạt động, lợi ích, phương án triển khai và bảo mật. Bản demo chỉ là bước kiểm chứng ban đầu trong bức tranh đó.",
+      "req": [
+        "R1"
+      ],
+      "kind": "cover",
+      "items": [
+        [
+          "Phục vụ",
+          "Lãnh đạo · phòng ban · người học"
+        ],
+        [
+          "Phối hợp",
+          "Sáu AI lĩnh vực + lớp điều phối"
+        ],
+        [
+          "Tạo kết quả",
+          "Báo cáo · kế hoạch · bằng chứng"
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "PLAN.md: Mục tiêu và Phạm vi Worker",
+        "Bài toán.docx",
+        "yeucauslide.txt"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 30,
+      "backup": false,
+      "explanation": "Mục tiêu toàn dự án là xây dựng một nền tảng AI đa tác tử dùng chung cho trường đại học, hỗ trợ công việc chuyên môn của sáu lĩnh vực và tổng hợp liên đơn vị cho Ban Giám hiệu. Phạm vi hoàn chỉnh bao gồm dữ liệu có quyền và phiên bản, trợ lý theo chuyên môn, điều phối công việc nhiều bước, tra cứu và phân tích, soạn thảo báo cáo/kế hoạch, nguồn kiểm chứng, lịch sử, quản trị và vận hành. Người dùng là cán bộ, giảng viên, lãnh đạo; sinh viên/thí sinh có kênh tự phục vụ theo quyền trong phạm vi được duyệt. Đây là mô tả đích đến sẽ xây dựng. Bản demo hiện tại chỉ là một phần kiểm chứng được giới thiệu sau, không phải toàn bộ phạm vi dự án."
+    },
+    {
+      "title": "Bài toán tổng thể: từ yêu cầu đến công việc hoàn chỉnh",
+      "section": "01 / Toàn bộ dự án sẽ làm gì?",
+      "takeaway": "Tiếp nhận yêu cầu nghiệp vụ, lấy đúng dữ liệu, phối hợp xử lý và trả sản phẩm để duyệt.",
+      "notes": "Bài toán tổng thể là giải quyết một công việc từ đầu đến đầu. Lãnh đạo cần báo cáo liên phòng và phương án hành động; cán bộ cần tra quy định, xử lý số liệu và soạn thảo; giảng viên cần hỗ trợ đào tạo, nghiên cứu; người học có thể sử dụng thông tin và hồ sơ trong phạm vi được cấp quyền. Credere sẽ kết nối văn bản, CSDL nghiệp vụ và nguồn học thuật, phân công xử lý rồi trả sản phẩm: bảng đối chiếu, dự thảo, báo cáo, kế hoạch triển khai và chi phí, kèm nguồn và phần chưa đủ căn cứ. Toàn bộ nền tảng còn phải có quyền truy cập, phiên bản dữ liệu, tiến độ, lịch sử, xuất kết quả và quản trị. Người dùng vẫn kiểm tra và duyệt quyết định.",
+      "req": [
+        "R1",
+        "R2"
+      ],
+      "kind": "cards",
+      "items": [
+        [
+          "Phục vụ ai?",
+          "Lãnh đạo, phòng ban, giảng viên; người học theo quyền."
+        ],
+        [
+          "Kết nối những gì?",
+          "Quy chế, hồ sơ, CSDL nghiệp vụ và nguồn học thuật."
+        ],
+        [
+          "Xử lý việc gì?",
+          "Tra cứu, phân tích, đối chiếu, dự thảo và lập kế hoạch."
+        ],
+        [
+          "Trả lại sản phẩm gì?",
+          "Báo cáo, bảng so sánh, đề xuất, chi phí và nguồn dẫn."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "Bài toán.docx: Mục tiêu, Master, Kịch bản nghiệm thu",
+        "PLAN.md: Giao diện, Dữ liệu và quyền"
+      ],
+      "foot": "Cùng nền tảng: quyền dữ liệu, phiên bản, tiến độ, lịch sử, xuất file và quản trị.",
+      "image": null,
+      "seconds": 70,
+      "backup": false,
+      "explanation": "Bài toán xuất phát từ công việc của một trường, không phải từ việc chọn model. Một yêu cầu có thể cần nhiều đầu mối, nhiều tài liệu, phép tính và biểu mẫu. Credere sẽ tiếp nhận yêu cầu, làm rõ phạm vi và kỳ dữ liệu, chia thành công việc, kết nối nguồn được phép, phối hợp các AI chuyên môn và tạo đầu ra có căn cứ. Lãnh đạo cần báo cáo liên phòng và phương án hành động; phòng ban cần xử lý nghiệp vụ, tra quy định và soạn thảo; giảng viên cần hỗ trợ đào tạo/nghiên cứu; người học có thể tra thông tin công khai và phần hồ sơ được phép. Đầu ra không chỉ là câu trả lời chat: còn bảng đối chiếu, dự thảo văn bản, kế hoạch triển khai với chi phí, danh mục nguồn và những thông tin còn thiếu. Toàn nền tảng cần quyền truy cập, phiên bản nguồn, tiến độ, lịch sử và khả năng xuất kết quả. Người có thẩm quyền vẫn kiểm tra và phê duyệt quyết định."
+    },
+    {
+      "title": "Phạm vi nghiệp vụ hoàn chỉnh gồm sáu lĩnh vực",
+      "section": "01 / Toàn bộ dự án sẽ làm gì?",
+      "takeaway": "Mỗi AI chuyên môn có nguồn, công cụ và quyền riêng; cùng phục vụ công việc toàn trường.",
+      "notes": "Phạm vi hoàn chỉnh gồm sáu mảng. Tuyển sinh hỗ trợ chỉ tiêu, tư vấn, hồ sơ, xác nhận nhập học và báo cáo mùa tuyển sinh. Đào tạo hỗ trợ thiết kế chương trình, chuẩn đầu ra, quy chế, học vụ, tín chỉ, lớp và lịch thi. Nghiên cứu khoa học hỗ trợ đề tài, công bố, tài trợ, phân tích xu hướng và xây dựng kế hoạch nghiên cứu. Hợp tác quốc tế hỗ trợ đối tác, liên kết đào tạo, học bổng, trao đổi và nghiên cứu chung. Nhân sự hỗ trợ tra chính sách, hợp đồng, lương, KPI và nhu cầu nguồn lực theo quyền. Hành chính hỗ trợ công văn, thủ tục, cơ sở vật chất và dự thảo văn bản. Các AI dùng nguồn và công cụ chuyên môn riêng nhưng có thể phối hợp cho một yêu cầu chung. Đây là toàn bộ phạm vi sẽ xây dựng, triển khai theo giai đoạn.",
+      "req": [
+        "R1",
+        "R4"
+      ],
+      "kind": "six_domains",
+      "items": [
+        [
+          "Tuyển sinh",
+          "Chỉ tiêu, tư vấn, hồ sơ, xác nhận nhập học; báo cáo mùa tuyển sinh."
+        ],
+        [
+          "Đào tạo",
+          "Thiết kế chương trình, chuẩn đầu ra; học vụ, tín chỉ, lớp và lịch thi."
+        ],
+        [
+          "Nghiên cứu khoa học",
+          "Đề tài, công bố, tài trợ; phân tích xu hướng và đề xuất kế hoạch."
+        ],
+        [
+          "Hợp tác quốc tế",
+          "Đối tác, liên kết đào tạo, học bổng; trao đổi và hợp tác nghiên cứu."
+        ],
+        [
+          "Nhân sự",
+          "Hợp đồng, chính sách, lương, KPI; phân tích nhu cầu nhân lực."
+        ],
+        [
+          "Hành chính",
+          "Công văn, thủ tục, cơ sở vật chất; hướng dẫn và soạn thảo."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "PLAN.md: Phạm vi Worker",
+        "Bài toán.docx: Các Tác tử Tớ",
+        "2aOboR0Rm398ong6dRyFudWSqCsv9pwaaPdoY5tg.jpg"
+      ],
+      "foot": "Đích đến của toàn dự án. Triển khai theo giai đoạn, dữ liệu được duyệt và quyền của từng người.",
+      "image": null,
+      "seconds": 90,
+      "backup": false,
+      "explanation": "Tuyển sinh sẽ hỗ trợ tra chỉ tiêu/điểm chuẩn/học phí, tư vấn theo nguồn chính thức, xử lý hồ sơ và thống kê các mốc của mùa tuyển sinh. Đào tạo sẽ hỗ trợ thiết kế và rà soát chương trình, biên soạn chuẩn đầu ra, quy chế theo khóa, đăng ký học phần, cảnh báo học vụ, lớp học phần và lịch thi. Nghiên cứu khoa học sẽ quản lý/tra cứu đề tài và công bố, phân tích xu hướng, cơ hội tài trợ, so sánh nghiên cứu và phát triển kế hoạch/đề xuất đề tài. Hợp tác quốc tế sẽ hỗ trợ chiến lược đối tác, liên kết đào tạo, học bổng, trao đổi sinh viên/giảng viên và hợp tác nghiên cứu. Nhân sự sẽ tra chính sách/hợp đồng/lương, tổng hợp KPI và nguồn lực theo quyền; không tự quyết định xử lý cá nhân. Hành chính sẽ tra công văn, thủ tục và cơ sở vật chất, hướng dẫn quy trình và soạn dự thảo. Phạm vi sáu lĩnh vực lấy từ PLAN và mô hình dự án; ba lĩnh vực tối thiểu của đề bài gốc là Đào tạo, NCKH, HTQT. Tất cả mô tả này là chức năng dự án hướng tới; không tuyên bố sáu ứng dụng đã hoàn thành."
+    },
+    {
+      "title": "Điều phối một yêu cầu qua nhiều lĩnh vực",
+      "section": "02 / Hệ thống sẽ hoạt động thế nào?",
+      "takeaway": "Master lập kế hoạch → giao đúng AI → kiểm tra/sửa → tổng hợp kết quả để người dùng duyệt.",
+      "notes": "Master sẽ nhận yêu cầu, phân rã và lập kế hoạch trước khi giao cho những AI liên quan. Việc độc lập có thể song song; việc phụ thuộc đợi đầu vào đạt. Các AI chuyên môn được hỗ trợ bởi tìm kiếm, truy vấn và phân tích, rồi Master kiểm tra, yêu cầu sửa có giới hạn và tổng hợp. Ví dụ trong đề bài: phân tích ứng dụng AI vào NCKH ba năm, so sánh ba case study, đề xuất lộ trình và chi phí năm tới. NCKH phụ trách bằng chứng nghiên cứu, HTQT hay Đào tạo bổ sung khi cần đối tác hoặc kỹ năng; công cụ phân tích tính chi phí. Kết quả phải có nguồn và lịch sử truy vết. Không phải câu nào cũng gọi đủ sáu AI hoặc được đọc toàn bộ dữ liệu.",
+      "req": [
+        "R1",
+        "R2"
+      ],
+      "kind": "project_orchestration",
+      "items": [
+        [
+          "Đầu vào",
+          "Yêu cầu, mục tiêu, mốc thời gian và phạm vi được phép."
+        ],
+        [
+          "AI chuyên môn",
+          "Chọn các lĩnh vực cần thiết; chạy tuần tự hoặc song song."
+        ],
+        [
+          "Hỗ trợ dùng chung",
+          "Tìm kiếm, truy vấn dữ liệu và phân tích/tính toán."
+        ],
+        [
+          "Đầu ra",
+          "Báo cáo + bằng chứng + kế hoạch/chi phí + hạn chế."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "Bài toán.docx: FR1–FR4, NFR1–NFR3, kịch bản NCKH",
+        "PLAN.md: Luồng thực thi và Dữ liệu/quyền"
+      ],
+      "foot": "Ví dụ đề bài: phân tích AI trong NCKH 3 năm, so 3 case study, đề xuất lộ trình và chi phí.",
+      "image": null,
+      "seconds": 65,
+      "backup": false,
+      "explanation": "Ví dụ từ đề bài gốc là phân tích tác động của AI tới kết quả NCKH trong ba năm, so sánh ba case study và đề xuất lộ trình/chi phí cho năm tới. Master sẽ xác định tiêu chí, kỳ dữ liệu và lập kế hoạch trước khi giao việc. AI NCKH phụ trách nghiên cứu và công bố; AI HTQT bổ sung đối tác hoặc hợp tác khi liên quan; AI Đào tạo hỗ trợ nhu cầu kỹ năng/chương trình, các AI khác chỉ tham gia nếu cần nguồn lực/hành chính thuộc phạm vi của chúng. Worker tìm kiếm thu nguồn; Worker phân tích chuẩn hóa chỉ số và tính chi phí. Mỗi tác vụ trả dữ liệu theo hợp đồng có task_id, trạng thái và lỗi. Master nghiệm thu, yêu cầu sửa có hướng dẫn và số lượt tối đa rồi tổng hợp. Dự án sẽ lưu trạng thái trung gian và lịch sử theo quyền để truy vết và phục hồi. Không bắt buộc mọi câu hỏi gọi đủ sáu AI; không mặc định cấp Tổng hợp được đọc hết CSDL. Cán bộ kiểm tra bằng chứng và phê duyệt báo cáo cuối."
+    },
+    {
+      "title": "Con người tự làm và có Credere hỗ trợ",
+      "section": "03 / Lợi ích so với cách làm hiện nay",
+      "takeaway": "AI hỗ trợ thao tác lặp lại; con người giữ quyền hiểu bối cảnh và phê duyệt.",
+      "notes": "So với tự làm, cán bộ thường phải mở nhiều nguồn, lấy số từ các phòng, ghép bảng, tính và viết lại. Credere sẽ hỗ trợ phần lặp lại đó và cho thấy nguồn, kế hoạch, kết quả từng bước. Con người vẫn xác nhận định nghĩa chỉ số, bối cảnh và phê duyệt đầu ra. Chúng em chưa tuyên bố đã tiết kiệm một tỷ lệ cụ thể. Pilot sẽ đo cùng công việc theo hai cách, tính cả thời gian đọc lại và sửa, đến khi báo cáo được chấp nhận. Như vậy lợi ích được đánh giá bằng công sức thực sự giảm cùng chất lượng, thay vì chỉ tốc độ AI trả chữ.",
+      "req": [
+        "R3"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Công đoạn",
+        "Tự làm",
+        "Có Credere hỗ trợ"
+      ],
+      "rows": [
+        [
+          "Tìm và lấy dữ liệu",
+          "Mở văn bản, lọc bảng, hỏi đầu mối",
+          "Tra nguồn / chọn truy vấn định sẵn"
+        ],
+        [
+          "Ghép nhiều đơn vị",
+          "Chờ từng đầu mối rồi ghép",
+          "Giao AI con, kết hợp khi đầu vào đạt"
+        ],
+        [
+          "Tính và viết",
+          "Tính toán, lập bảng, soạn báo cáo",
+          "Code tính; AI viết nháp có nguồn"
+        ],
+        [
+          "Kiểm tra và quyết định",
+          "Cán bộ kiểm tra, lãnh đạo duyệt",
+          "Vẫn do cán bộ và lãnh đạo chịu trách nhiệm"
+        ]
+      ],
+      "sources": [
+        "backend/app/graph.py",
+        "backend/app/workers.py"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 50,
+      "backup": false,
+      "explanation": "Hiện cán bộ phải mở nhiều văn bản, lấy các bảng từ từng phòng, kiểm tra cùng kỳ rồi tính và viết lại. Khi có Credere, AI đề xuất kế hoạch, lựa chọn công cụ và soạn kết quả từ nguồn đã nối. Các bước độc lập có thể chạy song song. Tuy nhiên, thuật ngữ nghiệp vụ, văn bản nào áp dụng cho khóa nào và cách xử lý ngoại lệ vẫn cần cán bộ kiểm tra. Code tính đúng một biểu thức không bảo đảm model chọn đúng đầu vào. Vì vậy so sánh phải tính cả công rà soát và sửa. Chúng ta không khẳng định AI tốt hơn con người ở mọi công việc, cũng không dùng AI để thay thẩm quyền ban hành quyết định."
+    },
+    {
+      "title": "Bản demo hiện tại là bước kiểm chứng ban đầu",
+      "section": "04 / Minh chứng đã thực hiện",
+      "takeaway": "Tuyển sinh + Đào tạo + Tổng hợp đã có luồng chạy; đây là một phần trong phạm vi sáu lĩnh vực.",
+      "notes": "Bây giờ mới là phần minh chứng đã làm. Demo trên proxyllm.store có AI Tuyển sinh, AI Đào tạo và AI Tổng hợp. Hai AI con có luồng riêng; AI Tổng hợp giao việc, nhận kết quả rồi phân tích. Hồ sơ mẫu ghi 18 lượt gọi và 4 phút 47 giây. Kho văn bản công khai là thật, số liệu nghiệp vụ vẫn giả lập. Trong phần này em giới thiệu nhanh giao diện, kế hoạch và nguồn; không chờ một lượt live dài hoàn tất. Nếu dùng ảnh dự phòng, đó là kết quả đã lưu. Demo này chứng minh hướng kỹ thuật, còn phạm vi toàn dự án là sáu mảng vừa trình bày.",
+      "req": [
+        "R2",
+        "R4"
+      ],
+      "kind": "image",
+      "items": [
+        [
+          "Đã kiểm chứng",
+          "Giao việc cho hai AI con, phân tích và trả nguồn."
+        ],
+        [
+          "Phạm vi dữ liệu",
+          "Văn bản công khai; số liệu nghiệp vụ giả lập."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "CONTENT_FACTS.json",
+        "https://proxyllm.store",
+        "backend/app/apps.py"
+      ],
+      "foot": "Demo: proxyllm.store. Giới thiệu luồng trong 1 phút 20 giây; không chờ mọi yêu cầu live hoàn tất.",
+      "image": "welcome-principal.png",
+      "seconds": 80,
+      "backup": false,
+      "explanation": "Chỉ ở phần này mới chuyển từ đích đến dự án sang những gì đã làm. Bản demo có hai AI lĩnh vực Tuyển sinh/Đào tạo và AI Tổng hợp; kho hiện là 106 văn bản công khai, hai SQLite nghiệp vụ giả lập. Hồ sơ đã lưu cho thấy AI Tổng hợp thực sự gọi hai graph con, đợi kết quả rồi phân tích: 18 lượt gọi, 4 phút 47 giây cho một ví dụ. Domain HTTPS đã chạy giao diện và SSE, nhưng đó không phải bằng chứng hệ thống sản xuất đã đủ bảo mật hoặc chất lượng. Dành tối đa 80 giây giới thiệu giao diện và luồng giao việc. Nếu chạy mới chưa xong, chuyển tiếp; dùng ảnh đã lưu ở phụ lục khi cần, nói rõ là kết quả cũ. Không đồng nhất bản demo với toàn bộ sáu lĩnh vực; tiếp theo là phương án để hoàn thành phạm vi đã nêu."
+    },
+    {
+      "title": "Ba lựa chọn nơi xử lý model",
+      "section": "04 / Phương án API và local",
+      "takeaway": "Nơi đặt web/CSDL và nơi suy luận AI có thể khác nhau.",
+      "notes": "Có ba phương án nơi chạy model. API trực tiếp giúp bắt đầu nhanh, không phải mua GPU, nhưng dữ liệu prompt đi qua dịch vụ ngoài và phụ thuộc mạng, hạn mức. Local tại trường cho quyền kiểm soát nơi xử lý cao hơn, đổi lại cần máy, vận hành và kiểm chứng chất lượng. Phương án lai chọn tuyến theo chính sách dữ liệu. Việc web chạy trên VPS không có nghĩa model đang chạy local; thuê GPU cloud cũng vẫn ở ngoài trường. Lựa chọn phải dựa trên cùng yêu cầu chất lượng, dữ liệu, tải và ngân sách.",
+      "req": [
+        "R4",
+        "R5"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Tiêu chí",
+        "API trực tiếp",
+        "Local tại trường",
+        "Lai"
+      ],
+      "rows": [
+        [
+          "Vốn ban đầu",
+          "Thấp; không mua GPU",
+          "Máy/GPU, lưu trữ, dự phòng",
+          "Có phần hạ tầng local"
+        ],
+        [
+          "Vận hành model",
+          "Nhà cung cấp đảm nhận",
+          "Đội trường tự vận hành",
+          "Quản cả hai tuyến"
+        ],
+        [
+          "Dữ liệu prompt",
+          "Ra API được duyệt",
+          "Ở hạ tầng trường nếu cấu hình kín",
+          "Theo chính sách từng tác vụ"
+        ],
+        [
+          "Đánh đổi",
+          "Phụ thuộc mạng / nhà cung cấp",
+          "VRAM, tải, bảo trì, chất lượng",
+          "Chính sách và tích hợp phức tạp"
+        ]
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/models/compare",
+        "https://qwenlm.github.io/blog/qwen3/",
+        "https://docs.ollama.com/api/openai-compatibility"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 60,
+      "backup": false,
+      "explanation": "Phương án A đặt web và dữ liệu trong môi trường quản lý rồi gọi API OpenAI trực tiếp. Phương án B giữ ứng dụng, dữ liệu và model mở trong hạ tầng của trường. Phương án C là lai: dữ liệu được phép xuất gọi API, phần bắt buộc nội bộ chạy model nội bộ. Cùng một giao diện có thể dùng các tuyến này nhưng phải xây cơ chế chính sách, không chỉ đổi base URL. VPS đang chạy demo không đồng nghĩa model đang chạy local; model hiện được gọi ra gateway qua mạng. GPU cloud thuê theo giờ cũng là hạ tầng ngoài trường, dù tự quản model. Lựa chọn cần dựa trên yêu cầu dữ liệu, ngân sách, năng lực vận hành và chất lượng trên đúng tác vụ của NAU."
+    },
+    {
+      "title": "API OpenAI: giá và cách tính một yêu cầu",
+      "section": "04 / Chi phí API",
+      "takeaway": "Cộng mọi lời gọi trong một Run; API trực tiếp và giá gateway hiện tại là hai kênh khác nhau.",
+      "notes": "Giá OpenAI API tham khảo ngày 29/9, Standard short context: Sol là 2 đô đầu vào và 10 đô đầu ra trên một triệu token; Luna là 0,1 và 0,5 đô. Một yêu cầu gồm nhiều lời gọi nên phải cộng Master, AI con, review và sửa. Ví dụ tổng Master dùng 20 nghìn token vào, 2 nghìn ra; Worker 30 nghìn vào, 2 nghìn ra thì phí là 0,064 đô, khoảng 1.728 đồng theo tỷ giá dự toán 27.000. Đây là giả định, chưa thuế, tool và retry. Khi dùng API trực tiếp do Trường quản lý phải đo lại trên đúng kênh, không lấy giá gateway làm hóa đơn OpenAI.",
+      "req": [
+        "R5"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Model / vai trò dự kiến",
+        "Input / 1M",
+        "Output / 1M",
+        "Phạm vi giá"
+      ],
+      "rows": [
+        [
+          "GPT-6 Sol · Master/review",
+          "$2,00",
+          "$10,00",
+          "Standard · short context"
+        ],
+        [
+          "GPT-6 Luna · Worker",
+          "$0,10",
+          "$0,50",
+          "Standard · short context"
+        ]
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/models/compare",
+        "https://developers.openai.com/api/docs/models/gpt-6-sol",
+        "COST_MODEL.json"
+      ],
+      "foot": "Ví dụ tổng Master 20k/2k + Worker 30k/2k → $0,064 ≈ 1.728 đ/Run; tỷ giá giả định 27.000 đ/USD.",
+      "image": null,
+      "seconds": 60,
+      "backup": false,
+      "explanation": "Bảng dùng đơn vị USD trên một triệu token, Standard short context, kiểm tra tài liệu OpenAI ngày 29/9/2026. Sol định hướng làm Master/review, Luna làm Worker. Một yêu cầu người dùng gồm nhiều lời gọi nên phải cộng cả AI con và lần sửa. Minh họa Master tổng 20 nghìn token vào, 2 nghìn ra là 0,06 USD; Worker 30 nghìn vào, 2 nghìn ra là 0,004 USD. Tổng 0,064 USD, với tỷ giá dự toán 27.000 là 1.728 đồng. Đây là giả định, không phải trung bình đã đo hay giá cố định mỗi câu. Ngữ cảnh dài, cache, công cụ, thuế và retry phải tính riêng. Demo hiện gọi gateway; triển khai API OpenAI trực tiếp cần tài khoản trường, ánh xạ model và chạy lại kiểm chứng trên đúng kênh."
+    },
+    {
+      "title": "Local model lớn: riêng bốn GPU đã gần 2 tỷ",
+      "section": "04 / Chi phí local",
+      "takeaway": "Kịch bản kiểm chứng Qwen235B FP8 · 4 × RTX PRO 6000 Max-Q 96GB; chưa chốt công suất/chất lượng.",
+      "notes": "Local phải tính theo model đủ lớn và tải phục vụ, không theo một máy thử nhỏ. Ví dụ Qwen 235B ở FP8 cần khoảng 235 GB chỉ cho trọng số, còn phải cộng ngữ cảnh và bộ nhớ chạy. Một cấu hình ứng viên là bốn RTX PRO 6000 Max-Q 96 GB. Giá niêm yết gần 500 triệu mỗi card, nên riêng GPU đã gần 2 tỷ đồng. Chưa gồm máy chủ, RAM, SSD, nguồn, UPS, làm mát và người vận hành. Tổng vốn và chi năm đầu phải chờ báo giá cấu hình, không chốt một số thiếu căn cứ. Đây vẫn chưa chứng minh chất lượng ngang model API. Nếu chọn cấp DeepSeek 671B, tài liệu vLLM tham chiếu tám H200: đó là quy mô máy chủ khác, cần định giá riêng.",
+      "req": [
+        "R5"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Hạng mục",
+        "Căn cứ",
+        "Chi phí tham khảo"
+      ],
+      "rows": [
+        [
+          "Bốn GPU 96GB",
+          "4 × 499.990.000 đ, giá có VAT",
+          "1.999.960.000 đ"
+        ],
+        [
+          "CPU / RAM / SSD / nguồn",
+          "Máy tương thích bốn GPU, đủ băng thông",
+          "Chờ báo giá cấu hình"
+        ],
+        [
+          "UPS / làm mát / backup",
+          "Hạ tầng và vận hành tại trường",
+          "Chờ báo giá"
+        ],
+        [
+          "Tổng vốn và năm đầu",
+          "Phải cộng máy, hạ tầng và vận hành",
+          "Chưa đủ căn cứ chốt"
+        ]
+      ],
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+        "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-family/",
+        "https://sicomp.vn/card-man-hinh-leadtek-nvidia-rtx-pro-6000-blackwell-max-q-workstation-edition-96gb",
+        "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V3",
+        "COST_MODEL.json"
+      ],
+      "foot": "GPU là giá niêm yết kèm build PC, chưa báo giá trọn bộ. Điện/nhân sự/bảo trì tính riêng ở phụ lục A3.",
+      "image": null,
+      "seconds": 65,
+      "backup": false,
+      "explanation": "Phải định cỡ theo một model và mức phục vụ cụ thể trước khi dự toán. Qwen3-235B-A22B có 235 tỷ tham số tổng và 22 tỷ hoạt hóa mỗi token. Phép tính thô cho trọng số là khoảng 235 GB ở FP8 hoặc 470 GB BF16 (GB thập phân), chưa gồm tensor giữ precision cao, scale, KV cache, workspace, runtime và bản sao phục vụ. 22B hoạt hóa không có nghĩa chỉ lưu 22B trọng số. Ví dụ TP4 trong model card cũng không bảo đảm bốn GPU bất kỳ đều đủ. Kịch bản kiểm chứng ở đây là một node bốn RTX PRO 6000 Max-Q 96GB, tổng dung lượng GPU quảng bá 384GB; phải xác nhận topology PCIe, phần mềm và mức ngữ cảnh/đồng thời. Đây không phải cấu hình đã nghiệm thu chất lượng hay đáp ứng toàn trường. DeepSeek-V3 671B FP8 là cấp khác; recipe vLLM tham chiếu tám H200, cần báo giá máy chủ riêng. Sáu AI nghiệp vụ có thể dùng chung endpoint model; không tự nhân sáu bộ trọng số. Số người dùng/agent song song vẫn làm tăng tải và bộ nhớ. Các phương án lượng tử hóa mạnh hay offload RAM có thể thay đổi chi phí nhưng phải đo lại độ đúng và thời gian, không coi tương đương API mặc định. Giá tham khảo lấy trực tiếp trang Sicomp ngày 29/9/2026 cho đúng RTX PRO 6000 Blackwell Max-Q 96GB, 300W: 499.990.000 đồng/card, đã có VAT. Nhà bán ghi chỉ bán kèm build PC. Bốn card cộng 1.999.960.000 đồng; đây là phép cộng giá niêm yết, chưa phải báo giá giao hàng trọn bộ. Phần CPU, RAM máy chủ, SSD, chassis, nguồn, kết nối, mạng, UPS, làm mát, lưu trữ sao lưu và triển khai vẫn phải xin báo giá; tổng đầu tư chưa chốt và vượt riêng chi phí GPU. Không thể lấy giá máy thử model nhỏ để đại diện hệ thống phục vụ model hàng trăm tỷ tham số. Không đưa ra tổng năm đầu khi phần vốn trọn bộ chưa có giá. Kịch bản chi vận hành tách riêng: giả định công suất IT trung bình 2kW, hệ số điện/làm mát 1,4, chạy 8.760 giờ/năm và giá điện dự toán 3.000 đ/kWh thì điện là 73.584.000 đ/năm. Phân bổ 0,5 nhân sự ở mức toàn thời gian 30 triệu/tháng là 180 triệu/năm; dự phòng bảo trì 80 triệu, backup/giám sát 20 triệu. Tổng kịch bản 353.584.000 đ/năm, khoảng 354 triệu. Đây đều là giả định ngân sách, không phải số đo điện hay báo giá vận hành; chưa khấu hao, công phát triển/tích hợp dữ liệu và node dự phòng. Nếu cần sẵn sàng cao hoặc model lớn hơn, phải lập thêm cấu hình và dự toán, không giữ tổng chi phí cố định khi tăng tải."
+    },
+    {
+      "title": "Phương án chọn: API trước, local theo yêu cầu dữ liệu",
+      "section": "04 / Phương án đề xuất",
+      "takeaway": "Chọn tuyến theo chính sách dữ liệu; không chuyển cloud chỉ vì model local gặp lỗi.",
+      "notes": "Đề xuất là dùng API cho dữ liệu được phép và thuê cấu hình tương ứng để kiểm chứng model local trước khi mua. Phí API giả định 1.728 đồng mỗi yêu cầu không thể so thẳng với một chi phí local mỗi tháng khi chưa biết local hoàn thành được bao nhiêu việc cùng chất lượng. Phải đo độ đúng, thời gian và tải đồng thời, rồi mới so tổng chi phí. Nếu dữ liệu bắt buộc nội bộ, cả Master, AI con, review và dự phòng đều phải ở tuyến đó; model local lỗi thì dừng hoặc đổi model nội bộ, không tự gửi cloud.",
+      "req": [
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "kind": "cards",
+      "items": [
+        [
+          "Dữ liệu được phép xuất",
+          "API trực tiếp, tài khoản do Trường quản lý."
+        ],
+        [
+          "Bắt buộc giữ nội bộ",
+          "Model local + truy vấn/nguồn trong vùng kiểm soát."
+        ],
+        [
+          "Điều phối xuyên suốt",
+          "Cả Master, AI con, review và tổng hợp tuân chính sách."
+        ],
+        [
+          "Khi xảy ra lỗi",
+          "Local-only không tự fallback ra API ngoài."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+        "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V3",
+        "COST_MODEL.json",
+        "backend/app/llm.py"
+      ],
+      "foot": "Chưa có chi phí/Run local cùng chất lượng và tải; chưa kết luận hòa vốn hoặc rẻ hơn API.",
+      "image": null,
+      "seconds": 50,
+      "backup": false,
+      "explanation": "Phương án lai phải được chọn theo dữ liệu, chất lượng và ngân sách. Phải định cỡ theo một model và mức phục vụ cụ thể trước khi dự toán. Qwen3-235B-A22B có 235 tỷ tham số tổng và 22 tỷ hoạt hóa mỗi token. Phép tính thô cho trọng số là khoảng 235 GB ở FP8 hoặc 470 GB BF16 (GB thập phân), chưa gồm tensor giữ precision cao, scale, KV cache, workspace, runtime và bản sao phục vụ. 22B hoạt hóa không có nghĩa chỉ lưu 22B trọng số. Ví dụ TP4 trong model card cũng không bảo đảm bốn GPU bất kỳ đều đủ. Kịch bản kiểm chứng ở đây là một node bốn RTX PRO 6000 Max-Q 96GB, tổng dung lượng GPU quảng bá 384GB; phải xác nhận topology PCIe, phần mềm và mức ngữ cảnh/đồng thời. Đây không phải cấu hình đã nghiệm thu chất lượng hay đáp ứng toàn trường. DeepSeek-V3 671B FP8 là cấp khác; recipe vLLM tham chiếu tám H200, cần báo giá máy chủ riêng. Sáu AI nghiệp vụ có thể dùng chung endpoint model; không tự nhân sáu bộ trọng số. Số người dùng/agent song song vẫn làm tăng tải và bộ nhớ. Các phương án lượng tử hóa mạnh hay offload RAM có thể thay đổi chi phí nhưng phải đo lại độ đúng và thời gian, không coi tương đương API mặc định. Không giữ đường chi phí local phẳng cho mọi mức tải. Cần báo giá trọn máy và nghiệm thu số Run hoàn tất trước khi tính giá/Run hoặc hòa vốn. Kịch bản API đã nêu chỉ là giả định token, không phải cấu hình đối chứng model local đã đạt. Tác vụ bắt buộc nội bộ không được chuyển qua cloud khi lỗi."
+    },
+    {
+      "title": "Bảo mật bằng cổng kiểm soát dữ liệu trước AI",
+      "section": "05 / Phương án bảo mật thông minh",
+      "takeaway": "Kiểm quyền → tính/lọc dữ liệu tại trường → chọn tuyến AI → kiểm đầu ra và ghép kết quả đúng quyền.",
+      "notes": "Phương án là đặt một cổng kiểm soát dữ liệu trước mọi lời gọi AI. Backend xác thực người hỏi và chỉ lấy dữ liệu đúng quyền. Câu hỏi thống kê thì hệ thống trường tính trước; API chỉ nhận phần tổng hợp được duyệt. Định danh được giữ lại hoặc thay bằng mã tạm, bảng ánh xạ nằm tại trường. Nội dung bắt buộc giữ kín phải chạy trên model nội bộ đã duyệt, chưa có thì dừng. Quy tắc theo cả AI con, kiểm tra và AI Tổng hợp. Kết quả được kiểm lại rồi hệ thống mới ghép thông tin và hiển thị đúng người. Cổng này là phần sẽ xây, không để AI tự quyết quyền.",
+      "req": [
+        "R1",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "kind": "privacy_router",
+      "items": [
+        [
+          "Cổng quyền của trường",
+          "Xác thực người hỏi; giới hạn hàng/cột và mục đích sử dụng."
+        ],
+        [
+          "Giảm dữ liệu gửi ra",
+          "Tính thống kê tại chỗ; giữ định danh hoặc thay bằng mã tạm."
+        ],
+        [
+          "Chọn tuyến theo chính sách",
+          "API chỉ nhận phần được phép; nội dung hạn chế xử lý nội bộ hoặc dừng."
+        ],
+        [
+          "Trả kết quả đúng người",
+          "Kiểm đầu ra/quyền; ghép dữ liệu nhận dạng tại trường."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "PLAN.md: Dữ liệu và quyền",
+        "PHUONG_AN_BAO_MAT_CREDERE.md",
+        "backend/app/tools/data.py"
+      ],
+      "foot": "Phương án sẽ xây dựng. Backend giữ quyền quyết định; AI không được tự đổi quyền hoặc tuyến dữ liệu.",
+      "image": null,
+      "seconds": 45,
+      "backup": false,
+      "explanation": "Phương án bảo mật của dự án là đặt một cổng kiểm soát dữ liệu do Nhà trường quản lý giữa người dùng, kho dữ liệu và mọi lời gọi model. Cổng này thực thi bằng backend và chính sách đã duyệt; model có thể gợi ý công việc nhưng không được tự cấp quyền hoặc tự quyết dữ liệu được xuất. Bước 1 xác thực người hỏi và kiểm quyền theo vai trò, đơn vị, mục đích, hàng/cột dữ liệu. Truy vấn định sẵn chạy trong vùng dữ liệu của trường. Bước 2 tối thiểu hóa đầu vào: câu hỏi thống kê thì cơ sở dữ liệu tính số lượng/tỷ lệ trước; model chỉ nhận các giá trị tổng hợp đã được phép xuất, định nghĩa chỉ số và mốc dữ liệu cần thiết. Nếu cần liên kết một đối tượng trong bản nháp, thay định danh bằng mã ngẫu nhiên có phạm vi từng lượt hoặc phiên; bảng ánh xạ được giữ riêng trong hệ thống trường và không gửi vào prompt/log bên ngoài. Thay tên bằng mã chỉ là giảm lộ định danh, không tự làm dữ liệu ẩn danh: mức lương, điểm, lớp hiếm hoặc nội dung câu chuyện vẫn có thể tiết lộ người. Bước 3 chọn đường xử lý từ chính sách. Nguồn công khai và dữ liệu đã được phê duyệt xuất có thể đi API. Nội dung buộc giữ nội bộ phải chạy trên tuyến model nội bộ đã được duyệt; chưa có tuyến đó thì dừng/chờ xử lý. Quy tắc áp dụng trước lời gọi planner nếu câu hỏi đã chứa dữ liệu hạn chế, và đi theo AI con, reviewer, báo cáo của AI con lẫn AI Tổng hợp. Không cho nhánh local-only tự fallback sang cloud. Bước 4 đầu ra được kiểm theo schema và chính sách, kiểm lại quyền người nhận. Chỉ ghép trường định danh được cho phép vào vị trí mẫu đã duyệt ở phía trường; không thực hiện yêu cầu lấy dữ liệu thêm do model tự sinh. Log, file xuất và lịch sử cũng áp dụng cùng quyền, hạn lưu và giảm dữ liệu. Việc xử lý nhóm nhỏ/nhiều truy vấn gần nhau phải chống suy ngược từ tổng. Đây là thiết kế sẽ triển khai, không phải tuyên bố cổng này đã có đầy đủ trên VPS demo. Mật khẩu cài đặt và HTTPS không thay thế cổng quyền/ngăn xuất dữ liệu này."
+    },
+    {
+      "title": "Ví dụ: AI cần thông tin gì, trường giữ lại gì?",
+      "section": "05 / Phương án bảo mật thông minh",
+      "takeaway": "AI hỗ trợ phân tích hoặc soạn mẫu; dữ liệu gốc và quyền hiển thị vẫn do hệ thống trường kiểm soát.",
+      "notes": "Ví dụ nhắc thí sinh chưa xác nhận: cơ sở dữ liệu lấy danh sách tại trường, AI chỉ soạn mẫu từ thời hạn và hướng dẫn công khai. Hệ thống điền tên và thông tin liên hệ sau khi kiểm quyền; AI bên ngoài không cần danh sách cá nhân. Với báo cáo cảnh báo học vụ, chỉ gửi số tổng hợp đã duyệt; nhóm nhỏ có thể suy ra người thì phải gộp, ẩn hoặc chặn. Nếu buộc đọc nội dung hồ sơ nhân sự hạn chế, cả nhánh xử lý dùng nội bộ, không tự chuyển cloud khi lỗi. Code hiện đã tách danh sách khỏi đầu vào một số truy vấn; cổng quyền, mã tạm và kiểm mọi đường đi dữ liệu cần hoàn thiện.",
+      "req": [
+        "R2",
+        "R4",
+        "R6"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Yêu cầu nghiệp vụ",
+        "AI được nhận",
+        "Hệ thống trường giữ / xử lý"
+      ],
+      "rows": [
+        [
+          "Thống kê cảnh báo theo ngành",
+          "Số tổng hợp đã được duyệt",
+          "Hồ sơ và điểm từng sinh viên"
+        ],
+        [
+          "Nhắc xác nhận nhập học",
+          "Hạn công khai + yêu cầu soạn mẫu",
+          "Tên, điện thoại; điền mẫu theo quyền"
+        ],
+        [
+          "Liên kết hồ sơ trong bản nháp",
+          "Mã tạm + trường được phép xuất",
+          "Bảng ánh xạ; kiểm rồi ghép lại"
+        ],
+        [
+          "Đọc hồ sơ nhân sự hạn chế",
+          "Chỉ model nội bộ đã được duyệt",
+          "Chặn cloud cả review và tổng hợp"
+        ]
+      ],
+      "sources": [
+        "backend/app/tools/data.py:QueryResult",
+        "backend/app/workers.py:_run_data",
+        "PHUONG_AN_BAO_MAT_CREDERE.md"
+      ],
+      "foot": "Thay định danh bằng mã tạm không đồng nghĩa ẩn danh. Dữ liệu chưa đủ điều kiện xuất phải được giữ lại.",
+      "image": null,
+      "seconds": 55,
+      "backup": false,
+      "explanation": "Ví dụ cán bộ tuyển sinh cần nhắc những người chưa xác nhận nhập học. Backend kiểm quyền rồi truy vấn danh sách trong CSDL. Model bên ngoài có thể soạn một mẫu nhắc chung chỉ từ thông tin công khai như hạn xác nhận và hướng dẫn; không cần nhận tên, số điện thoại, CCCD hoặc danh sách trạng thái từng người. Hệ thống trường điền tên và thông tin đã được phép vào mẫu sau khi kiểm đầu ra và kiểm lại quyền. Danh sách liên hệ hiển thị riêng cho cán bộ có quyền; không tự động gửi tin khi chưa có phê duyệt. Với câu hỏi số sinh viên bị cảnh báo theo ngành, cơ sở dữ liệu tính tại chỗ; chỉ thống kê được duyệt mới gửi model. Nhóm nhỏ hoặc nhiều câu có thể suy ra cá nhân thì gộp/ẩn bổ sung hoặc từ chối, không chỉ xóa tên. Với một bản nháp cần giữ quan hệ giữa các hồ sơ, mã tạm có thể thay định danh nhưng mọi trường nhạy cảm còn lại vẫn phải xét quyền xuất; nếu không đáp ứng thì dùng nội bộ. Với yêu cầu phân tích hồ sơ nhân sự hạn chế mà cần đọc nội dung gốc, toàn bộ nhánh có nội dung đó gồm lập kế hoạch, đánh giá và tổng hợp phải ở tuyến nội bộ đã được phê duyệt. AI Tổng hợp không mặc nhiên có quyền nhận dữ liệu liên phòng hoặc giải mã danh tính; backend kiểm theo người dùng và nguồn tạo ra kết quả. Code hiện mới có truy vấn định sẵn, SQLite chỉ đọc và tách hàng cá nhân khỏi for_model() đối với truy vấn gắn ca_nhan. Còn thiếu xác thực nghiệp vụ, kho mã tạm, cổng kiểm dữ liệu mọi đầu vào/đầu ra, kiểm nhóm nhỏ và policy local-only."
+    },
+    {
+      "title": "Lộ trình hoàn thành toàn dự án theo từng giai đoạn",
+      "section": "06 / Kế hoạch triển khai",
+      "takeaway": "Xây lõi dùng chung, nghiệm thu lĩnh vực ưu tiên, pilot có kiểm soát rồi hoàn thiện đủ sáu lĩnh vực.",
+      "notes": "Lộ trình dẫn tới toàn bộ dự án qua bốn giai đoạn. Đầu tiên chốt công việc, nguồn, quyền và đầu ra của sáu lĩnh vực. Tiếp theo xây lõi dùng chung và MVP ưu tiên Đào tạo, NCKH, HTQT theo đề bài, kế thừa demo đã có. Sau đó pilot phạm vi nhỏ trong khung đề xuất tháng 10–12, kiểm chất lượng, API/local và vận hành. Cuối cùng hoàn thiện Tuyển sinh, Nhân sự, Hành chính và các báo cáo liên lĩnh vực, mở rộng từng phần khi có đủ nguồn và quyền. Mười hai tuần là khung giai đoạn đầu, không phải cam kết làm xong toàn trường. Mỗi bước chỉ chuyển tiếp khi đạt điều kiện nghiệm thu.",
+      "req": [
+        "R4"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Giai đoạn",
+        "Phạm vi công việc",
+        "Điều kiện chuyển bước"
+      ],
+      "rows": [
+        [
+          "1 · Chốt toàn bộ bài toán",
+          "Nguồn/quyền/đầu ra cho sáu lĩnh vực",
+          "Đầu mối và yêu cầu được duyệt"
+        ],
+        [
+          "2 · Lõi và MVP ưu tiên",
+          "Đào tạo, NCKH, HTQT theo đề bài; kế thừa demo",
+          "Điều phối, dữ liệu, quyền đạt test"
+        ],
+        [
+          "3 · Pilot có kiểm soát",
+          "Phạm vi nhỏ; API/local, backup, câu mới",
+          "Chất lượng và vận hành đạt"
+        ],
+        [
+          "4 · Đủ sáu lĩnh vực",
+          "Tuyển sinh đầy đủ; Nhân sự và Hành chính",
+          "Từng lĩnh vực có nguồn, quyền, nghiệm thu"
+        ]
+      ],
+      "sources": [
+        "PLAN.md: Phạm vi Worker, M-1 đến M6, Pilot",
+        "Bài toán.docx",
+        "DATA_PLAN.md"
+      ],
+      "foot": "12 tuần là khung đề xuất giai đoạn đầu/pilot, không cam kết hoàn thành toàn trường trong 12 tuần.",
+      "image": null,
+      "seconds": 75,
+      "backup": false,
+      "explanation": "Lộ trình phải dẫn tới phạm vi toàn dự án. Giai đoạn một khảo sát nhu cầu, vai trò, nguồn và sản phẩm đầu ra cho sáu lĩnh vực, dù chưa triển khai tất cả cùng lúc. Giai đoạn hai làm lõi điều phối, dữ liệu, quyền, lưu trạng thái và kiểm thử; ưu tiên ba lĩnh vực Đào tạo/NCKH/HTQT theo đề bài gốc, kế thừa kết quả demo Tuyển sinh/Đào tạo. Giai đoạn ba pilot giới hạn theo điều kiện dữ liệu, nhân sự và hạ tầng trong khung đề xuất tháng 10–12/2026. Giai đoạn bốn hoàn thiện Tuyển sinh, Nhân sự và Hành chính cùng báo cáo liên lĩnh vực, triển khai lần lượt khi có chủ dữ liệu và bộ nghiệm thu. Khung 12 tuần không phải lời hứa hoàn thành sáu lĩnh vực hoặc toàn trường. Mỗi bước cần người phụ trách, dữ liệu được phép và tiêu chí chất lượng/quyền. Cần chốt lịch cụ thể sau khảo sát với Nhà trường."
+    },
+    {
+      "title": "Bàn giao một hệ thống có thể sử dụng và vận hành",
+      "section": "06 / Kế hoạch triển khai",
+      "takeaway": "Không chỉ giao một chatbot: bàn giao ứng dụng, nguồn/công cụ, cơ chế quản trị và bằng chứng nghiệm thu.",
+      "notes": "Khi hoàn thành, nhóm bàn giao một hệ thống vận hành được: ứng dụng theo vai trò; nguồn và truy vấn có phiên bản/quyền; các AI lĩnh vực và cơ chế điều phối; lịch sử, bằng chứng và xuất báo cáo; cấu hình, hạn mức, backup và tài liệu chuyển giao. Nghiệm thu bằng câu mới do cán bộ chấm, kiểm quyền và lỗi, đo cả thời gian sửa và chi phí để hoàn thành công việc. Đơn vị chủ dữ liệu xác nhận nguồn, CNTT nhận vận hành, nhóm phát triển tích hợp và người có thẩm quyền duyệt. Đích đến không chỉ là một cửa sổ chat hay bản trình diễn.",
+      "req": [
+        "R1",
+        "R3",
+        "R4",
+        "R6"
+      ],
+      "kind": "cards",
+      "items": [
+        [
+          "Ứng dụng nghiệp vụ",
+          "Trợ lý theo vai trò; kế hoạch, bằng chứng, lịch sử và xuất báo cáo."
+        ],
+        [
+          "Nguồn và tích hợp",
+          "Dữ liệu có phiên bản/quyền; truy vấn, công cụ và cập nhật."
+        ],
+        [
+          "Quản trị và vận hành",
+          "Model/hạn mức, đăng nhập, backup, phục hồi và hướng dẫn."
+        ],
+        [
+          "Nghiệm thu và chuyển giao",
+          "Test từng lĩnh vực/liên phòng; đo lợi ích; đào tạo người vận hành."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "PLAN.md: Bàn giao, Giao diện, Tiêu chí kiểm tra",
+        "Bài toán.docx: FR/NFR"
+      ],
+      "foot": "Đơn vị sở hữu dữ liệu xác nhận nguồn; CNTT vận hành; nhóm phát triển tích hợp; người có thẩm quyền nghiệm thu.",
+      "image": null,
+      "seconds": 65,
+      "backup": false,
+      "explanation": "Sản phẩm bàn giao toàn dự án gồm mã nguồn và cấu hình có phiên bản; giao diện hỏi đáp, theo dõi kế hoạch/tác vụ, mở bằng chứng, lịch sử và xuất báo cáo; các AI lĩnh vực với registry, schema, công cụ và bộ câu hỏi riêng; kho tài liệu/dữ liệu có chủ sở hữu, quyền, phiên bản và cơ chế cập nhật; hệ thống đăng nhập/quản trị, hạn mức model và nhật ký; tài liệu triển khai, sao lưu/phục hồi và chuyển giao. Chất lượng kiểm bằng câu mới, người chuyên môn chấm nguồn/số/suy luận; kiểm thử sai quyền, lỗi và phục hồi. Giá trị so với người tự làm phải tính tới bản báo cáo được chấp nhận, gồm công sửa. Không mặc định mọi output do AI tạo đều được tự động ban hành hoặc ghi vào CSDL trường. Đơn vị chủ dữ liệu duyệt nguồn, CNTT nhận vận hành, nhóm phát triển sửa lỗi và người có thẩm quyền duyệt nghiệm thu."
+    },
+    {
+      "title": "Đích đến: trợ lý phối hợp cho mọi mảng công việc của trường",
+      "section": "07 / Kết luận và đề nghị",
+      "takeaway": "Phê duyệt phạm vi toàn dự án, chọn giai đoạn ưu tiên và nghiệm thu trước mỗi lần mở rộng.",
+      "notes": "Credere sẽ là hệ thống trợ lý phối hợp cho sáu lĩnh vực của toàn trường, tạo báo cáo và kế hoạch có bằng chứng. Đề nghị Nhà trường chốt phạm vi và giai đoạn ưu tiên, cử đầu mối từng mảng, duyệt dữ liệu/quyền, hạ tầng và ngân sách thử. Nhóm sẽ bàn giao từng giai đoạn, đo được giá trị rồi mở rộng. Bản demo hôm nay là bước khởi đầu của mục tiêu đó. Em xin cảm ơn quý thầy cô.",
+      "req": [
+        "R1",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "kind": "cards",
+      "items": [
+        [
+          "Phạm vi",
+          "Sáu lĩnh vực nghiệp vụ và báo cáo phối hợp cho lãnh đạo."
+        ],
+        [
+          "Dữ liệu / con người",
+          "Mỗi đơn vị có đầu mối, nguồn được duyệt và quyền rõ."
+        ],
+        [
+          "Hạ tầng / ngân sách",
+          "Chọn API/local theo chất lượng, chi phí và chính sách."
+        ],
+        [
+          "Triển khai",
+          "Bàn giao từng giai đoạn; đo giá trị rồi mở rộng."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "yeucauslide.txt",
+        "PLAN.md",
+        "COST_MODEL.json"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 40,
+      "backup": false,
+      "explanation": "Đích đến của Credere là hệ thống trợ lý dùng chung cho toàn trường với sáu lĩnh vực, có khả năng phối hợp để trả báo cáo và kế hoạch có bằng chứng. Bản demo chỉ chứng minh một phần cơ chế để tiến tới mục tiêu đó. Đề nghị Nhà trường phê duyệt phạm vi và thứ tự ưu tiên, cử đầu mối từng lĩnh vực, xác nhận dữ liệu/quyền và người vận hành; chốt ngân sách theo phương án API/local và tiêu chí nghiệm thu. Kết quả được bàn giao từng giai đoạn, chỉ mở rộng khi chất lượng, quyền và vận hành đạt điều kiện. Không thu hẹp toàn dự án thành hai AI đang có, cũng không tuyên bố toàn bộ phạm vi tương lai đã chạy."
+    },
+    {
+      "title": "A1 · So chi phí khi chưa có benchmark local",
+      "section": "04 / Quyết định đầu tư",
+      "takeaway": "API có phép tính token; local chưa có số Run/giờ và chất lượng được nghiệm thu để tính giá/Run.",
+      "notes": "Phí API trong bảng giữ giả định 0,064 USD/Run và 27.000 đ/USD, chưa thuế, tool và retry. Với local, chưa có phép đo cùng chất lượng/độ trễ nên không điền một chi phí cố định giả định cho mọi mức tải và không công bố điểm hòa vốn. Giá tham khảo lấy trực tiếp trang Sicomp ngày 29/9/2026 cho đúng RTX PRO 6000 Blackwell Max-Q 96GB, 300W: 499.990.000 đồng/card, đã có VAT. Nhà bán ghi chỉ bán kèm build PC. Bốn card cộng 1.999.960.000 đồng; đây là phép cộng giá niêm yết, chưa phải báo giá giao hàng trọn bộ. Phần CPU, RAM máy chủ, SSD, chassis, nguồn, kết nối, mạng, UPS, làm mát, lưu trữ sao lưu và triển khai vẫn phải xin báo giá; tổng đầu tư chưa chốt và vượt riêng chi phí GPU. Không thể lấy giá máy thử model nhỏ để đại diện hệ thống phục vụ model hàng trăm tỷ tham số. Không đưa ra tổng năm đầu khi phần vốn trọn bộ chưa có giá. Kịch bản chi vận hành tách riêng: giả định công suất IT trung bình 2kW, hệ số điện/làm mát 1,4, chạy 8.760 giờ/năm và giá điện dự toán 3.000 đ/kWh thì điện là 73.584.000 đ/năm. Phân bổ 0,5 nhân sự ở mức toàn thời gian 30 triệu/tháng là 180 triệu/năm; dự phòng bảo trì 80 triệu, backup/giám sát 20 triệu. Tổng kịch bản 353.584.000 đ/năm, khoảng 354 triệu. Đây đều là giả định ngân sách, không phải số đo điện hay báo giá vận hành; chưa khấu hao, công phát triển/tích hợp dữ liệu và node dự phòng. Nếu cần sẵn sàng cao hoặc model lớn hơn, phải lập thêm cấu hình và dự toán, không giữ tổng chi phí cố định khi tăng tải.",
+      "req": [
+        "R5"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Mức tải / tháng",
+        "API giả định",
+        "Local tương đương"
+      ],
+      "rows": [
+        [
+          "1.000 Run",
+          "1,728 triệu đ",
+          "Chưa đo; chưa tính giá/Run"
+        ],
+        [
+          "5.000 Run",
+          "8,640 triệu đ",
+          "Chưa đo; chưa tính giá/Run"
+        ],
+        [
+          "20.000 Run",
+          "34,560 triệu đ",
+          "Phải định cỡ/nhân node nếu cần"
+        ]
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/pricing",
+        "https://sicomp.vn/card-man-hinh-leadtek-nvidia-rtx-pro-6000-blackwell-max-q-workstation-edition-96gb",
+        "COST_MODEL.json"
+      ],
+      "foot": "Bỏ phép so chi phí cố định cho model nhỏ; lấy báo giá và đo tải local trước khi quyết định.",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A2 · Model lớn cần bao nhiêu bộ nhớ?",
+      "section": "04 / Phương án API và local",
+      "takeaway": "Bộ nhớ trọng số ≈ tổng tham số × byte/tham số; sau đó còn KV cache, runtime và nhiều phiên.",
+      "notes": "Phải định cỡ theo một model và mức phục vụ cụ thể trước khi dự toán. Qwen3-235B-A22B có 235 tỷ tham số tổng và 22 tỷ hoạt hóa mỗi token. Phép tính thô cho trọng số là khoảng 235 GB ở FP8 hoặc 470 GB BF16 (GB thập phân), chưa gồm tensor giữ precision cao, scale, KV cache, workspace, runtime và bản sao phục vụ. 22B hoạt hóa không có nghĩa chỉ lưu 22B trọng số. Ví dụ TP4 trong model card cũng không bảo đảm bốn GPU bất kỳ đều đủ. Kịch bản kiểm chứng ở đây là một node bốn RTX PRO 6000 Max-Q 96GB, tổng dung lượng GPU quảng bá 384GB; phải xác nhận topology PCIe, phần mềm và mức ngữ cảnh/đồng thời. Đây không phải cấu hình đã nghiệm thu chất lượng hay đáp ứng toàn trường. DeepSeek-V3 671B FP8 là cấp khác; recipe vLLM tham chiếu tám H200, cần báo giá máy chủ riêng. Sáu AI nghiệp vụ có thể dùng chung endpoint model; không tự nhân sáu bộ trọng số. Số người dùng/agent song song vẫn làm tăng tải và bộ nhớ. Các phương án lượng tử hóa mạnh hay offload RAM có thể thay đổi chi phí nhưng phải đo lại độ đúng và thời gian, không coi tương đương API mặc định.",
+      "req": [
+        "R5",
+        "R4"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Model / precision",
+        "Chỉ trọng số, xấp xỉ",
+        "Cấu hình cần kiểm chứng"
+      ],
+      "rows": [
+        [
+          "Qwen235B · FP8",
+          "235 GB thập phân",
+          "Bốn GPU96GB là ứng viên thử"
+        ],
+        [
+          "Qwen235B · BF16",
+          "470 GB thập phân",
+          "Cần cấu hình lớn hơn"
+        ],
+        [
+          "DeepSeek-V3 · FP8",
+          "671 GB model chính",
+          "Recipe vLLM: 8 × H200"
+        ],
+        [
+          "Sáu AI nghiệp vụ",
+          "Có thể dùng chung trọng số",
+          "Tải/ngữ cảnh vẫn tăng khi song song"
+        ]
+      ],
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+        "https://github.com/deepseek-ai/DeepSeek-V3",
+        "https://recipes.vllm.ai/deepseek-ai/DeepSeek-V3",
+        "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-family/",
+        "LARGE_MODEL_SIZING.md"
+      ],
+      "foot": "Không lấy số tham số hoạt hóa MoE làm dung lượng phải lưu. Đây chưa phải cam kết tương đương API.",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A3 · Điện, nhân sự và bảo trì phải tính riêng",
+      "section": "Phụ lục kiểm tra số liệu",
+      "takeaway": "Kịch bản chi vận hành một node khoảng 354 triệu/năm, ngoài vốn máy; mọi đầu vào dưới đây là giả định.",
+      "notes": "Giá tham khảo lấy trực tiếp trang Sicomp ngày 29/9/2026 cho đúng RTX PRO 6000 Blackwell Max-Q 96GB, 300W: 499.990.000 đồng/card, đã có VAT. Nhà bán ghi chỉ bán kèm build PC. Bốn card cộng 1.999.960.000 đồng; đây là phép cộng giá niêm yết, chưa phải báo giá giao hàng trọn bộ. Phần CPU, RAM máy chủ, SSD, chassis, nguồn, kết nối, mạng, UPS, làm mát, lưu trữ sao lưu và triển khai vẫn phải xin báo giá; tổng đầu tư chưa chốt và vượt riêng chi phí GPU. Không thể lấy giá máy thử model nhỏ để đại diện hệ thống phục vụ model hàng trăm tỷ tham số. Không đưa ra tổng năm đầu khi phần vốn trọn bộ chưa có giá. Kịch bản chi vận hành tách riêng: giả định công suất IT trung bình 2kW, hệ số điện/làm mát 1,4, chạy 8.760 giờ/năm và giá điện dự toán 3.000 đ/kWh thì điện là 73.584.000 đ/năm. Phân bổ 0,5 nhân sự ở mức toàn thời gian 30 triệu/tháng là 180 triệu/năm; dự phòng bảo trì 80 triệu, backup/giám sát 20 triệu. Tổng kịch bản 353.584.000 đ/năm, khoảng 354 triệu. Đây đều là giả định ngân sách, không phải số đo điện hay báo giá vận hành; chưa khấu hao, công phát triển/tích hợp dữ liệu và node dự phòng. Nếu cần sẵn sàng cao hoặc model lớn hơn, phải lập thêm cấu hình và dự toán, không giữ tổng chi phí cố định khi tăng tải.",
+      "req": [
+        "R5"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Hạng mục",
+        "Giả định tính toán",
+        "Chi phí năm"
+      ],
+      "rows": [
+        [
+          "Điện + làm mát",
+          "2kW × 1,4 × 8.760h × 3.000đ",
+          "73,584 triệu"
+        ],
+        [
+          "Nhân sự vận hành",
+          "0,5 người × 30 triệu × 12 tháng",
+          "180 triệu"
+        ],
+        [
+          "Bảo trì + backup/giám sát",
+          "Dự phòng 80 + 20 triệu",
+          "100 triệu"
+        ],
+        [
+          "Tổng kịch bản",
+          "Chưa khấu hao / phát triển / node dự phòng",
+          "353,584 triệu"
+        ]
+      ],
+      "sources": [
+        "https://sicomp.vn/card-man-hinh-leadtek-nvidia-rtx-pro-6000-blackwell-max-q-workstation-edition-96gb",
+        "https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-family/",
+        "COST_MODEL.json"
+      ],
+      "foot": "Đầu tư GPU/máy tính tách biệt. Các mức điện, nhân sự và dự phòng cần xác nhận theo hợp đồng/vận hành.",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A4 · Kết quả nội bộ và giới hạn bộ chấm",
+      "section": "03 / Kiểm chứng",
+      "takeaway": "Kiểm thử phần mềm và đánh giá chất lượng nghiệp vụ là hai loại bằng chứng khác nhau.",
+      "notes": "159 test phần mềm đã qua trước khi triển khai, kiểm tra điều phối, schema, lỗi, truy vấn và cổng mật khẩu. Không diễn giải thành 159 câu nghiệp vụ được model thật trả lời đúng. Các tệp đánh giá đã lưu gồm 30/30 văn bản Tuyển sinh, 14/14 dữ liệu Tuyển sinh giả lập, 10/10 Đào tạo và 4/4 Tổng hợp. Đây là bộ thử nội bộ đã sử dụng trong phát triển; bộ chấm còn thiên về sự xuất hiện của số và mã nguồn nên có thể bỏ lọt lỗi diễn giải. Cần thêm người chuyên môn chấm mù, câu mới, dữ liệu mâu thuẫn và trường hợp thiếu nguồn. Bộ đo ngữ cảnh dài trước đó bão hòa nên cũng không dùng làm chứng cứ rằng model sẽ luôn đúng.",
+      "req": [
+        "R1",
+        "R3",
+        "R4"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Bằng chứng",
+        "Kết quả ghi nhận",
+        "Ý nghĩa / giới hạn"
+      ],
+      "rows": [
+        [
+          "Test phần mềm",
+          "159 test đạt",
+          "Luồng và ràng buộc; model giả lập"
+        ],
+        [
+          "Văn bản Tuyển sinh",
+          "30/30",
+          "Bộ nội bộ có đáp án"
+        ],
+        [
+          "Dữ liệu Tuyển sinh",
+          "14/14",
+          "CSDL giả lập"
+        ],
+        [
+          "Đào tạo / Tổng hợp",
+          "10/10 và 4/4",
+          "Mẫu nhỏ, chưa nghiệm thu độc lập"
+        ]
+      ],
+      "sources": [
+        "CONTENT_FACTS.json:limited_evaluations",
+        "CONTENT_FACTS.json:software_verification"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A5 · Chính sách dữ liệu của OpenAI API",
+      "section": "05 / Bảo mật thông tin nhà trường",
+      "takeaway": "Không dùng dữ liệu để huấn luyện không đồng nghĩa không lưu giữ.",
+      "notes": "Theo tài liệu OpenAI API đã kiểm tra, dữ liệu API mặc định không dùng để huấn luyện trừ khi khách hàng chọn chia sẻ. Log giám sát lạm dụng mặc định có thể giữ tối đa 30 ngày, có ngoại lệ; trạng thái ứng dụng phụ thuộc endpoint. Zero Data Retention cần được phê duyệt và có giới hạn theo tính năng. Vì vậy Trường cần rà soát hợp đồng, nơi xử lý và điều kiện endpoint, thay vì chỉ đọc một dòng về huấn luyện. Các chính sách này áp dụng cho dịch vụ OpenAI được tài liệu mô tả, không tự mở rộng sang gateway trung gian. Nếu yêu cầu dữ liệu tuyệt đối không ra ngoài, cả chuỗi xử lý phải ở nội bộ hoặc chỉ xuất bản tổng hợp đã được cho phép.",
+      "req": [
+        "R6",
+        "R5"
+      ],
+      "kind": "cards",
+      "items": [
+        [
+          "Huấn luyện",
+          "API không dùng để huấn luyện mặc định, trừ khi opt-in."
+        ],
+        [
+          "Lưu giữ",
+          "Log mặc định có thể đến 30 ngày; endpoint có trạng thái riêng."
+        ],
+        [
+          "ZDR",
+          "Cần phê duyệt, có điều kiện và giới hạn tính năng."
+        ],
+        [
+          "Trước khi dùng",
+          "Duyệt nhà cung cấp, hợp đồng, vùng xử lý và loại dữ liệu."
+        ]
+      ],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "https://developers.openai.com/api/docs/guides/your-data"
+      ],
+      "foot": "Nguồn OpenAI API kiểm tra 29/09/2026; không áp dụng thay cho chính sách gateway khác.",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A6 · Cơ chế bảo mật: đã có gì, sẽ xây gì?",
+      "section": "05 / Bảo mật thông tin nhà trường",
+      "takeaway": "Nền tảng hiện có chưa thay thế cổng kiểm soát dữ liệu và phân quyền nghiệp vụ hoàn chỉnh.",
+      "notes": "Hiện trạng được đối chiếu từ code: DataStore dùng SQLite read-only và catalog truy vấn; QueryResult.for_model() gửi số lượng/tổng hợp thay cho các hàng cá nhân, for_screen() giữ bảng cho giao diện. web.py loại các rows khỏi bản ghi khi nhận diện CSDL thật và có trusted_only cho provider được gắn nhãn. Tuy nhiên /api/ask chưa có xác thực người dùng nghiệp vụ. trusted là cờ cấu hình, không phải kiểm chứng hợp đồng hay phân loại dữ liệu. Câu hỏi, văn bản và log chưa được kiểm/ẩn danh tổng quát; chưa có kho mã tạm, quyền theo người và tuyến model nội bộ bắt buộc. Các bước đề xuất: (1) chốt danh tính/quyền và danh mục dữ liệu được xuất; (2) triển khai cổng truy vấn, giảm dữ liệu và kiểm egress cho mọi model; (3) bảo vệ đầu ra, lịch sử và CSV; (4) kiểm nhóm nhỏ, prompt injection, thu hồi quyền và lỗi/fallback. Lớp kiểm chính là code/quy tắc được duyệt, có thể dùng nhận diện thực thể hoặc bộ phát hiện để hỗ trợ; không giao quyết định cuối về quyền cho LLM. TLS bảo vệ đường truyền và mã hóa lưu trữ bảo vệ dữ liệu nằm trên đĩa, nhưng nhà cung cấp vẫn xử lý được nội dung rõ nếu được gửi qua API. Không gọi việc thay tên bằng mã là mã hóa hoàn toàn hay bảo đảm ẩn danh. Nghiệm thu phải có ca người sai quyền, câu hỏi nhập sẵn thông tin cá nhân, nội dung tài liệu cài lệnh, nhóm nhỏ, nhiều truy vấn suy ngược, model đề nghị truy vấn ngoài danh mục và local-only khi model chính hỏng. Không bảo đảm tuyệt đối không lộ dữ liệu chỉ bằng một cơ chế; kiểm thử, quyền vận hành, log hạn chế và phản ứng sự cố là phần còn lại của phương án.",
+      "req": [
+        "R6"
+      ],
+      "kind": "table",
+      "items": [
+        [
+          "Đã có trong truy vấn",
+          "Danh sách cá nhân tách khỏi đầu vào model; CSDL chỉ đọc."
+        ],
+        [
+          "Cần thêm",
+          "Kiểm câu hỏi, nguồn, tham số, báo cáo, log và bản ghi."
+        ],
+        [
+          "Chống suy danh tính",
+          "Nhóm nhỏ, suy từ tổng và chuỗi truy vấn; ngưỡng phải duyệt."
+        ],
+        [
+          "Chống chèn chỉ dẫn",
+          "Tài liệu không được cấp quyền/công cụ; có bộ thử tấn công."
+        ]
+      ],
+      "headers": [
+        "Lớp kiểm soát",
+        "Đã có trong code",
+        "Phần sẽ triển khai"
+      ],
+      "rows": [
+        [
+          "Truy vấn / tính toán",
+          "Catalog định sẵn; SQLite chỉ đọc",
+          "Quyền từng người, hàng/cột và mục đích"
+        ],
+        [
+          "Đầu vào model",
+          "Tách hàng cá nhân trong truy vấn",
+          "Kiểm câu hỏi/nguồn; mã tạm; nhóm nhỏ"
+        ],
+        [
+          "Tuyến API / nội bộ",
+          "Provider có nhãn trusted",
+          "Chính sách egress cho toàn nhánh"
+        ],
+        [
+          "Đầu ra / lịch sử",
+          "Có sự kiện và bản ghi",
+          "Kiểm quyền, ghép mẫu, hạn lưu, CSV"
+        ]
+      ],
+      "sources": [
+        "backend/app/web.py",
+        "backend/app/tools/data.py",
+        "backend/app/llm.py",
+        "PHUONG_AN_BAO_MAT_CREDERE.md"
+      ],
+      "foot": "Kho mã tạm, phân quyền nghiệp vụ và policy local-only chưa được triển khai đầy đủ trên demo.",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A7 · Ảnh kết quả Tổng hợp để dự phòng",
+      "section": "Phụ lục demo",
+      "takeaway": "Ảnh của lượt chạy đã lưu; không phải kết quả vừa gọi AI trong buổi trình bày.",
+      "notes": "Dùng phụ lục khi mạng, model hoặc thời gian không cho phép demo live. Nói rõ ảnh chụp giao diện đang hiển thị bản ghi 29/9/2026. Câu hỏi cần hai lĩnh vực, bảng chỉ số có nguồn và phần lưu ý về mẫu số. Nhãn giả lập phải được đọc rõ. Có thể đối chiếu với slide 10 để giải thích T1/T2/T3. Không dùng con số hiển thị để nhận định tình hình thật của Trường. Nếu người nghe hỏi độ đúng, chỉ ra đây là kết quả hệ thống đã nghiệm thu và còn cần kiểm tra chuyên môn; đừng trả lời rằng 3/3 task đạt nghĩa là mọi phát biểu đã được kiểm chứng độc lập.",
+      "req": [
+        "R2"
+      ],
+      "kind": "image",
+      "items": [],
+      "headers": [],
+      "rows": [],
+      "sources": [
+        "shots/current/screenshots.json",
+        "CONTENT_FACTS.json:principal_example"
+      ],
+      "foot": "",
+      "image": "answer-principal.png",
+      "seconds": 0,
+      "backup": true
+    },
+    {
+      "title": "A8 · Đối chiếu yêu cầu và nguồn tham khảo",
+      "section": "Phụ lục bàn giao",
+      "takeaway": "Mọi ý trong yeucauslide.txt có mục riêng; lời nói chi tiết nằm trong Notes và tài liệu kèm.",
+      "notes": "Nguồn ưu tiên là code đang chạy và dữ liệu API /api/apps, sau đó hồ sơ chạy đã lưu và tài liệu chính thức nhà cung cấp. Các yêu cầu trong yeucauslide.txt được ánh xạ tự động tới slide trong DOI_CHIEU_YEU_CAU.md. Các giá OpenAI, chính sách dữ liệu, ứng viên Qwen/Ollama và giá GPU thuê có URL ở Notes và NGUON_THAM_KHAO.md, kiểm tra ngày 29/9. Dự toán được ghi trong COST_MODEL.json để thay tham số. Bộ slide chỉnh sửa được, lời nói có trong PowerPoint và bản Markdown/HTML. Không đưa mật khẩu, khóa API hoặc thông tin SSH vào bài. Bản này thay trọng tâm demo ngắn bằng cái nhìn chi tiết toàn dự án theo yêu cầu mới.",
+      "req": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "kind": "table",
+      "items": [],
+      "headers": [
+        "Nội dung bắt buộc",
+        "Căn cứ"
+      ],
+      "rows": [
+        [
+          "Tổng thể / cơ chế / lợi ích",
+          "Code, PLAN, hồ sơ chạy; cách đo đề xuất"
+        ],
+        [
+          "Triển khai / kế hoạch",
+          "VPS hiện tại + giai đoạn có điều kiện"
+        ],
+        [
+          "API / local / chi phí",
+          "Tài liệu chính thức + giả định hiển thị"
+        ],
+        [
+          "Bảo mật thông tin",
+          "Code hiện tại + phương án pilot có kiểm thử"
+        ]
+      ],
+      "sources": [
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/models/compare",
+        "https://developers.openai.com/api/docs/guides/your-data",
+        "https://qwenlm.github.io/blog/qwen3/",
+        "https://docs.ollama.com/api/openai-compatibility",
+        "https://www.runpod.io/pricing",
+        "CONTENT_FACTS.json",
+        "yeucauslide.txt"
+      ],
+      "foot": "",
+      "image": null,
+      "seconds": 0,
+      "backup": true
+    }
+  ]
+}

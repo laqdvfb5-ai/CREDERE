@@ -1,0 +1,50 @@
+{
+ "demo": [
+  [
+   "Soạn tin trả lời",
+   "Phụ huynh hỏi qua Zalo: con được 17,5 điểm A00 có đủ vào Kế toán không, học phí một năm bao nhiêu? Soạn giúp tin trả lời."
+  ],
+  [
+   "Báo cáo BGH",
+   "Soạn bản tóm tắt gửi Ban Giám hiệu: điểm chuẩn đợt 1 năm 2026 so với 2025, ngành nào tăng, ngành nào giảm."
+  ],
+  [
+   "Lập bảng",
+   "Lập bảng chỉ tiêu tuyển sinh 2026 theo từng ngành, có mã xét tuyển, và tính tổng chỉ tiêu."
+  ],
+  [
+   "Kiểm tra văn bản",
+   "Tổ hợp xét tuyển ngành Ngôn ngữ Trung Quốc năm 2026 giữa các văn bản của Trường có thống nhất không?"
+  ]
+ ],
+ "eval": {
+  "accuracy": "30/30",
+  "accuracy_label": "câu hỏi văn bản có đáp án trả lời đúng (4 lần chạy liên tiếp)",
+  "cost": "~2.000 đ",
+  "time": "~1 phút",
+  "staff": "10/10",
+  "staff_label": "tình huống công việc của cán bộ tuyển sinh đạt (chấm tay)",
+  "detail_title": "Hai bộ thử, chạy lại toàn bộ sau mỗi lần sửa",
+  "detail": [
+   "30 câu hỏi văn bản có đáp án: 10/10 tra cứu, 4/4 so sánh các năm, 5/5 tính toán, 4/4 tư vấn theo điểm, 3/3 câu bẫy lấy số năm cũ, 4/4 câu không có trong tài liệu (AI nói rõ là không có, không đoán).",
+   "10 tình huống cán bộ: soạn tin trả lời phụ huynh, lập bảng chỉ tiêu, báo cáo nhiều năm, bài đăng fanpage, rà soát văn bản, soạn nháp thông báo; khi chưa nối dữ liệu, AI nói rõ chưa có số liệu nội bộ và không đưa danh sách thí sinh.",
+   "Một nửa số yêu cầu xong trong khoảng 1 phút; soạn văn bản dài mất 3–6 phút."
+  ],
+  "notes": "Để biết hệ thống đúng đến đâu, nhóm em làm hai bộ thử. Bộ thứ nhất là 30 câu hỏi số liệu có đáp án lấy từ văn bản gốc, gồm cả câu bẫy lấy số của năm cũ và câu hỏi không có trong tài liệu; bốn lần chạy gần nhất đều đạt cả 30 câu. Bộ thứ hai là 10 tình huống công việc thật của cán bộ Trung tâm: soạn tin trả lời phụ huynh, lập bảng chỉ tiêu, báo cáo, bài đăng fanpage, rà soát văn bản, soạn nháp thông báo, và hai tình huống phải từ chối: xin số liệu chỉ có trong hệ thống nội bộ, xin danh sách thí sinh kèm số điện thoại. Lần chạy cuối đạt cả 10 tình huống, nhóm em chấm tay từng câu chứ không chỉ tin bộ chấm tự động. Đây là bộ thử, chưa phải cam kết đúng tuyệt đối; cán bộ vẫn phải đọc lại trước khi gửi. Chi phí trung bình khoảng 2.000 đồng một yêu cầu; một nửa số yêu cầu xong trong khoảng 1 phút, soạn văn bản dài thì 3 đến 6 phút. Khi đối chiếu 70 văn bản, nhóm cũng ghi nhận vài điểm chưa thống nhất giữa các văn bản công khai; nhóm xin gửi danh sách riêng để Trung tâm Tuyển sinh rà soát."
+ },
+ "cost": {
+  "per_q": "~2.000 đồng",
+  "season": "~20 triệu đồng",
+  "per_q_text": "2.000 đồng",
+  "season_text": "20 triệu đồng"
+ },
+ "asks": {
+  "docs_status": "8 câu · làm được hôm nay",
+  "agg_status": "~30 câu · bản thử (giả lập)",
+  "person_status": "~12 câu · bản thử (giả lập)",
+  "footer_bold": "Bản thử trên dữ liệu giả lập: 14/14 câu hỏi số liệu đúng. ",
+  "footer": "Dịch vụ AI chỉ nhận số tổng hợp; danh sách thí sinh chỉ hiện cho cán bộ.",
+  "backup_slide": true,
+  "notes": "Phần vừa trình diễn là giai đoạn 1: AI đọc văn bản công khai. Nhóm em nghiên cứu quy trình tuyển sinh năm 2026 và công việc của Trung tâm, rồi liệt kê 50 câu hỏi một cán bộ tuyển sinh sẽ hỏi nếu có một trợ lý nắm hết dữ liệu của Trung tâm. Chỉ 8 câu cần văn bản. Khoảng 30 câu cần số liệu tổng hợp: bao nhiêu thí sinh đã xác nhận nhập học, điểm chuẩn bao nhiêu thì đủ chỉ tiêu. Khoảng 12 câu cần tra tới từng hồ sơ, ví dụ ai trúng tuyển mà chưa xác nhận để gọi nhắc. Nhóm em đã làm bản thử giai đoạn 2 trên dữ liệu giả lập: ngành, chỉ tiêu, điểm chuẩn là số thật công khai, còn thí sinh là giả. Em xin chạy thử. [Chuyển sang trình duyệt, bấm thẻ Số liệu: xác nhận nhập học, rồi thẻ Danh sách gọi nhắc.] Quý thầy cô chú ý: AI chỉ thấy số lượng theo mã cán bộ tư vấn; bảng danh sách bên dưới lấy thẳng từ cơ sở dữ liệu tới màn hình cán bộ, không gửi cho dịch vụ AI. Trên bộ thử 14 câu hỏi số liệu, bản thử trả lời đúng cả 14 câu, khoảng 700 đồng một câu. Danh sách 50 câu này rút từ nghiên cứu tài liệu; nhóm em cần phỏng vấn cán bộ Trung tâm để xác nhận."
+ }
+}

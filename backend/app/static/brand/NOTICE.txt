@@ -1,0 +1,13 @@
+BIỂU TRƯNG (LOGO) TRƯỜNG ĐẠI HỌC NGHỆ AN
+
+Các tệp trong thư mục này là bản thu nhỏ (không chỉnh sửa hình, màu) từ biểu trưng chính thức
+của Trường Đại học Nghệ An (Nghe An University, NAU), công bố ngày 21/04/2025:
+- nau-logo.png (logo ngang 1200x600, nền trong suốt; dùng trên nền trắng hoặc sáng)
+  nguồn: https://eng.naue.edu.vn/wp-content/uploads/2025/05/logo-NAU-scaled.png
+- nau-logo-tron.png (huy hiệu tròn 512x512, trong vòng tròn nền trắng; dùng trên nền màu hoặc nền tối)
+  nguồn: https://nau.edu.vn/Images/new_layout/logo_dhktna_2022.png
+- favicon.png (64x64, thu nhỏ từ huy hiệu tròn)
+
+Bản quyền: biểu trưng thuộc quyền sở hữu của Trường Đại học Nghệ An, không phát hành theo giấy phép mở.
+Chỉ dùng để nhận diện Trường trong bản trình diễn nội bộ Credere cho Nhà trường; không dùng cho mục đích
+thương mại, không thay đổi hình dạng hay màu sắc biểu trưng. Tải về ngày 29/09/2026.

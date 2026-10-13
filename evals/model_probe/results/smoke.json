@@ -1,0 +1,122 @@
+[
+ {
+  "key": "openai-key",
+  "model": "gpt-5.5",
+  "ok": true,
+  "format": "openai",
+  "latency": 3.5,
+  "reported_model": "gpt-5.5",
+  "text": "chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.7,
+  "reported_model": "gpt-5.6",
+  "text": "xin chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-luna",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.75,
+  "reported_model": "gpt-5.6-luna",
+  "text": "Xin chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-sol",
+  "ok": true,
+  "format": "openai",
+  "latency": 3.04,
+  "reported_model": "gpt-5.6-sol",
+  "text": "xin chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-5.6-terra",
+  "ok": true,
+  "format": "openai",
+  "latency": 3.62,
+  "reported_model": "gpt-5.6-terra",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6",
+  "ok": true,
+  "format": "openai",
+  "latency": 5.22,
+  "reported_model": "gpt-6",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-astra",
+  "ok": true,
+  "format": "openai",
+  "latency": 3.93,
+  "reported_model": "gpt-6-astra",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-luna",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.47,
+  "reported_model": "gpt-6-luna",
+  "text": "xin chào",
+  "error": ""
+ },
+ {
+  "key": "openai-key",
+  "model": "gpt-6-sol",
+  "ok": true,
+  "format": "openai",
+  "latency": 3.31,
+  "reported_model": "gpt-6-sol",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "claude-key",
+  "model": "claude-opus-4-8",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.34,
+  "reported_model": "claude-opus-4-8",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "claude-key",
+  "model": "claude-opus-5",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.42,
+  "reported_model": "claude-opus-5",
+  "text": "Chào",
+  "error": ""
+ },
+ {
+  "key": "claude-key",
+  "model": "claude-opus-5-5",
+  "ok": true,
+  "format": "openai",
+  "latency": 2.17,
+  "reported_model": "claude-opus-5-5",
+  "text": "Chào",
+  "error": ""
+ }
+]

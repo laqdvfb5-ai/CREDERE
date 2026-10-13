@@ -1,0 +1,18 @@
+{
+ "_ghi_chu": [
+  "Chép tệp này thành ~/.credere/providers.json. KHÔNG ghi khóa ở đây: khóa nằm trong ~/.credere/.env, tên biến kết thúc bằng _KEY.",
+  "Thứ tự trong danh sách là thứ tự ưu tiên. Nhà chưa có khóa trong .env thì tự bỏ qua.",
+  "strategy: failover (dùng nhà đầu tiên còn sống, lỗi thì chuyển) hoặc round_robin (xoay vòng để chia tải).",
+  "models: tên model của hệ thống -> tên ở nhà cung cấp. Bỏ trống models nghĩa là dùng cùng tên (gpt-6-sol, gpt-5.6-sol, gpt-6-luna).",
+  "prices: giá riêng của nhà đó (USD cho 1 triệu token vào, ra); thiếu thì dùng bảng giá trong app/config.py.",
+  "trusted: true chỉ cho tài khoản chính thức (ví dụ do Trường đứng tên). Khi nối dữ liệu tuyển sinh thật, chỉ nhà có trusted được dùng.",
+  "Chạy scripts/check_providers.py để xem nhà nào có khóa, liệt kê model của từng nhà và (--ping) thử một lời gọi ngắn."
+ ],
+ "strategy": "failover",
+ "providers": [
+  {"name": "aigw", "base_url_env": "AIGW_BASE_URL", "key_env": "AIGW_OPENAI_KEY"},
+  {"name": "openai", "base_url": "https://api.openai.com/v1", "key_env": "OPENAI_API_KEY", "trusted": false,
+   "models": {"gpt-6-sol": "gpt-6-sol", "gpt-5.6-sol": "gpt-5.6-sol", "gpt-6-luna": "gpt-6-luna"}},
+  {"name": "proxyllm", "base_url_env": "PROXYLLM_BASE_URL", "key_env": "PROXYLLM_API_KEY"}
+ ]
+}

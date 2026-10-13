@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mở khóa cài đặt — Credere</title>
+<link rel="icon" type="image/png" href="/static/brand/favicon.png">
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/vendor/tabler-1.6.0/tabler.min.css">
+<link rel="stylesheet" href="/static/credere.css">
+<link rel="stylesheet" href="/static/settings-login.css">
+</head>
+<body class="settings-login">
+<aside class="sl-sidebar" aria-label="Điều hướng">
+  <a class="sl-brand" href="/" aria-label="Credere — về trang hỏi đáp">
+    <svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-stack-2"/></svg>
+    <span><strong>credere<span>.</span></strong><small>TRỢ LÝ ĐẠI HỌC</small></span>
+  </a>
+  <nav class="sl-nav" aria-label="Không gian làm việc">
+    <span class="sl-nav-label">KHÔNG GIAN LÀM VIỆC</span>
+    <a href="/"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-message-chatbot"/></svg>Trợ lý AI</a>
+    <a href="/cai-dat" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-settings"/></svg>Cài đặt hệ thống</a>
+  </nav>
+  <div class="sl-side-bottom">
+    <div class="sl-note"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-shield-lock"/></svg><span>Quản lý kết nối AI trong không gian được bảo vệ.</span></div>
+    <div class="sl-school"><img src="/static/brand/nau-logo-tron.png" alt="Logo NAU"><span>Trường Đại học Nghệ An<small>Không gian quản trị nội bộ</small></span></div>
+  </div>
+</aside>
+<div class="sl-workspace">
+  <header class="sl-header">
+    <nav class="sl-breadcrumb" aria-label="Đường dẫn"><a href="/">Không gian làm việc</a><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-chevron-right"/></svg><span>Cài đặt hệ thống</span></nav>
+    <span class="sl-locked"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-lock"/></svg>Đang khóa</span>
+  </header>
+  <main class="sl-main">
+    <div class="sl-card-wrap">
+      <section class="sl-card" aria-labelledby="settings-login-title">
+        <div class="sl-emblem" aria-hidden="true"><svg class="icon"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-shield-lock"/></svg></div>
+        <p class="sl-eyebrow">KHÔNG GIAN QUẢN TRỊ</p>
+        <h1 id="settings-login-title">Mở khóa cài đặt</h1>
+        <p class="sl-description" id="settings-login-description">Nhập mật khẩu để quản lý nhà cung cấp AI, model và khóa kết nối của hệ thống.</p>
+        <form id="settings-login-form" aria-describedby="settings-login-description">
+          <label for="settings-password">Mật khẩu cài đặt</label>
+          <div class="sl-password-field">
+            <svg class="icon sl-input-icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-key"/></svg>
+            <input id="settings-password" name="password" type="password" autocomplete="current-password" required autofocus spellcheck="false" aria-describedby="settings-login-error" placeholder="Nhập mật khẩu">
+            <button id="settings-password-toggle" type="button" aria-label="Hiện mật khẩu" aria-pressed="false" title="Hiện mật khẩu"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-eye"/></svg></button>
+          </div>
+          <p id="settings-login-error" class="sl-error" role="alert" aria-live="assertive" hidden></p>
+          <button id="settings-unlock" class="sl-submit" type="submit"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-lock"/></svg><span>Mở khóa cài đặt</span><svg class="icon sl-submit-arrow" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-arrow-right"/></svg></button>
+        </form>
+        <div class="sl-session-note"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-clock"/></svg><span>Phiên truy cập có hiệu lực trong 30 phút.</span></div>
+      </section>
+      <a class="sl-back" href="/"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-arrow-left"/></svg>Về trang trợ lý AI</a>
+    </div>
+  </main>
+</div>
+<script>
+const form = document.getElementById("settings-login-form");
+const password = document.getElementById("settings-password");
+const unlock = document.getElementById("settings-unlock");
+const error = document.getElementById("settings-login-error");
+const toggle = document.getElementById("settings-password-toggle");
+let submitting = false;
+
+function clearError() {
+  error.textContent = "";
+  error.hidden = true;
+  password.removeAttribute("aria-invalid");
+}
+password.addEventListener("input", clearError);
+toggle.addEventListener("click", () => {
+  const visible = password.type === "password";
+  password.type = visible ? "text" : "password";
+  toggle.setAttribute("aria-pressed", String(visible));
+  toggle.setAttribute("aria-label", visible ? "Ẩn mật khẩu" : "Hiện mật khẩu");
+  toggle.title = visible ? "Ẩn mật khẩu" : "Hiện mật khẩu";
+  password.focus({ preventScroll: true });
+});
+
+form.addEventListener("submit", async event => {
+  event.preventDefault();
+  if (submitting || !form.reportValidity()) return;
+  submitting = true;
+  clearError();
+  unlock.disabled = true;
+  unlock.querySelector("span").textContent = "Đang mở khóa…";
+  form.setAttribute("aria-busy", "true");
+  try {
+    const response = await fetch("/api/settings/login", {
+      method: "POST",
+      credentials: "same-origin",
+      cache: "no-store",
+      headers: { "Content-Type": "application/json", "X-Credere-Admin": "1" },
+      body: JSON.stringify({ password: password.value })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (response.ok && data.ok === true) {
+      password.value = "";
+      window.location.replace("/cai-dat");
+      return;
+    }
+    const messages = {
+      401: "Mật khẩu chưa đúng. Vui lòng thử lại.",
+      429: "Bạn đã thử quá nhiều lần. Vui lòng đợi vài phút rồi thử lại.",
+      503: "Hệ thống chưa được đặt mật khẩu cài đặt. Vui lòng liên hệ người quản trị."
+    };
+    error.textContent = messages[response.status] || "Chưa thể mở khóa cài đặt. Vui lòng thử lại.";
+    if (response.status === 401) password.setAttribute("aria-invalid", "true");
+    password.value = "";
+    error.hidden = false;
+    password.focus({ preventScroll: true });
+  } catch {
+    error.textContent = "Không kết nối được với máy chủ. Vui lòng thử lại.";
+    error.hidden = false;
+  } finally {
+    submitting = false;
+    unlock.disabled = false;
+    unlock.querySelector("span").textContent = "Mở khóa cài đặt";
+    form.removeAttribute("aria-busy");
+  }
+});
+</script>
+</body>
+</html>

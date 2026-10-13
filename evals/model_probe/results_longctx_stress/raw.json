@@ -1,0 +1,878 @@
+[
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "dau_tai_lieu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ vừa làm vừa học được đăng ký tối đa **23 tín chỉ** trong mỗi học kỳ chính theo quy chế áp dụng cho khóa tuyển sinh từ năm 2025. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 103511,
+  "out_tokens": 51,
+  "latency": 16.91,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "dau_tai_lieu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ vừa làm vừa học được đăng ký tối đa **23 tín chỉ mỗi học kỳ chính**. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 103511,
+  "out_tokens": 36,
+  "latency": 17.01,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "cuoi_tai_lieu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Mức thưởng là **12.345.000 đồng cho mỗi bài báo** đăng trên tạp chí thuộc danh mục Q1. [QĐ-NCKH-7, Điều 33]",
+  "error": null,
+  "in_tokens": 103506,
+  "out_tokens": 44,
+  "latency": 19.02,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "cuoi_tai_lieu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Mức thưởng là **12.345.000 đồng cho mỗi bài báo** đăng trên tạp chí thuộc danh mục Q1. [QĐ-NCKH-7, Điều 33]",
+  "error": null,
+  "in_tokens": 103506,
+  "out_tokens": 44,
+  "latency": 27.17,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ chính quy là **20.000 đồng mỗi học phần**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 47,
+  "latency": 16.65,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ chính quy là **20.000 đồng mỗi học phần**. [QĐ-620, Điều 3] [QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 48,
+  "latency": 17.05,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_nam",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Đối với sinh viên hệ liên thông, thời gian đào tạo tối đa hiện nay là **8 năm**. [QĐ-620, Điều 5; QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 103504,
+  "out_tokens": 46,
+  "latency": 3.94,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_nam",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ liên thông hiện nay là **8 năm**. [QĐ-620, Điều 5; QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 103504,
+  "out_tokens": 45,
+  "latency": 10.35,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "quy_che_cu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên khóa 2025 hệ chất lượng cao được vắng tối đa **25%** tổng số tiết của học phần để được dự thi. [QĐ-620, Điều 4]",
+  "error": null,
+  "in_tokens": 103513,
+  "out_tokens": 44,
+  "latency": 4.41,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "quy_che_cu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên khóa 2025 hệ chất lượng cao được vắng tối đa **25%** tổng số tiết của học phần để được dự thi. [QĐ-620, Điều 4]",
+  "error": null,
+  "in_tokens": 103513,
+  "out_tokens": 44,
+  "latency": 4.5,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "dien_dan",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời hạn nộp đơn đề nghị phúc khảo là **10 ngày làm việc** kể từ ngày công bố điểm. [QĐ-620, Điều 21]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 40,
+  "latency": 16.34,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "dien_dan",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời hạn nộp đơn đề nghị phúc khảo là **10 ngày làm việc** kể từ ngày công bố điểm. [QĐ-620, Điều 21]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 40,
+  "latency": 14.74,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "thieu_nguon",
+  "rep": 0,
+  "checks": {
+   "tu_choi": true,
+   "khong_bia_so": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Tài liệu không nêu mức đăng ký tín chỉ riêng cho sinh viên hệ đào tạo từ xa; chưa đủ căn cứ để xác định. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 103504,
+  "out_tokens": 43,
+  "latency": 13.32,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "thieu_nguon",
+  "rep": 1,
+  "checks": {
+   "tu_choi": true,
+   "khong_bia_so": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Tài liệu không nêu mức đăng ký tín chỉ tối đa cho sinh viên hệ đào tạo từ xa; chưa đủ căn cứ để xác định. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 103504,
+  "out_tokens": 44,
+  "latency": 13.54,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "tong_hop",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ văn bằng hai được đăng ký tối đa:\n\n**29 × 2 + 11 = 69 tín chỉ/năm học.**\n\nTrong đó, mỗi học kỳ chính tối đa 29 tín chỉ và học kỳ phụ tối đa 11 tín chỉ. [QĐ-620, Điều 1; QĐ-620, Điều 2]\n\nCác mức này không bị QĐ-712 sửa đổi. [QĐ-712, Điều 3]",
+  "error": null,
+  "in_tokens": 103523,
+  "out_tokens": 242,
+  "latency": 27.87,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "tong_hop",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Theo quy chế hiện hành, sinh viên hệ văn bằng hai được đăng ký tối đa **29 tín chỉ mỗi học kỳ chính** và **11 tín chỉ trong học kỳ phụ**. [QĐ-620, Điều 1; QĐ-620, Điều 2]\n\nTrong một năm học gồm 2 học kỳ chính và 1 học kỳ phụ:\n\n**29 × 2 + 11 = 69 tín chỉ.**\n\nVậy tổng cộng tối đa là **69 tín chỉ**. [QĐ-620, Điều 1; QĐ-620, Điều 2]",
+  "error": null,
+  "in_tokens": 103523,
+  "out_tokens": 269,
+  "latency": 28.74,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_bay",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 38,
+  "latency": 19.18,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "sua_doi_bay",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông hiện nay là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 103508,
+  "out_tokens": 49,
+  "latency": 15.08,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "nhan_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo hệ chính quy hiện là 20.000 đồng mỗi học phần. Với 3 học phần, tổng lệ phí là **60.000 đồng**. [QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 103517,
+  "out_tokens": 51,
+  "latency": 15.04,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "nhan_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ chính quy nộp phúc khảo 3 học phần phải nộp **60.000 đồng** (20.000 đồng mỗi học phần). [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 103517,
+  "out_tokens": 57,
+  "latency": 14.62,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "nam_khac",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao là **6 năm**. [QĐ-620, Điều 5]",
+  "error": null,
+  "in_tokens": 103505,
+  "out_tokens": 35,
+  "latency": 3.37,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 330000,
+  "q": "nam_khac",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Đối với sinh viên hệ chất lượng cao thuộc khóa tuyển sinh từ năm 2025, thời gian đào tạo tối đa là **6 năm**. [QĐ-620, Điều 5]\n\nLưu ý: QĐ-620 áp dụng cho khóa 2025 trở đi; tài liệu không nêu quy định hiện hành cho sinh viên các khóa trước đó.",
+  "error": null,
+  "in_tokens": 103505,
+  "out_tokens": 80,
+  "latency": 4.42,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "dau_tai_lieu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ vừa làm vừa học được đăng ký tối đa **23 tín chỉ** trong mỗi học kỳ chính. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 202223,
+  "out_tokens": 37,
+  "latency": 5.06,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "dau_tai_lieu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ vừa làm vừa học được đăng ký tối đa **23 tín chỉ** trong mỗi học kỳ chính theo quy chế hiện hành. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 202223,
+  "out_tokens": 42,
+  "latency": 16.27,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "cuoi_tai_lieu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Mức thưởng là **12.345.000 đồng cho mỗi bài báo khoa học** đăng trên tạp chí thuộc danh mục Q1. [QĐ-HTQT-13, Điều 33]",
+  "error": null,
+  "in_tokens": 202218,
+  "out_tokens": 83,
+  "latency": 33.73,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "cuoi_tai_lieu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Mức thưởng là **12.345.000 đồng cho mỗi bài báo khoa học** đăng trên tạp chí thuộc danh mục Q1. [QĐ-HTQT-13, Điều 33]",
+  "error": null,
+  "in_tokens": 202218,
+  "out_tokens": 46,
+  "latency": 39.76,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ chính quy hiện nay là **20.000 đồng mỗi học phần**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 49,
+  "latency": 20.79,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ chính quy hiện là **20.000 đồng mỗi học phần** [QĐ-620, Điều 3; QĐ-712, Điều 1].",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 47,
+  "latency": 18.21,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_nam",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ liên thông là **8 năm**. [QĐ-620, Điều 5; QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 202216,
+  "out_tokens": 43,
+  "latency": 17.6,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_nam",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ liên thông là **8 năm**. [QĐ-620, Điều 5; QĐ-712, Điều 2]",
+  "error": null,
+  "in_tokens": 202216,
+  "out_tokens": 43,
+  "latency": 18.46,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "quy_che_cu",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên khóa 2025 hệ chất lượng cao được vắng tối đa **25%** tổng số tiết của học phần để được dự thi. [QĐ-620, Điều 4]",
+  "error": null,
+  "in_tokens": 202225,
+  "out_tokens": 44,
+  "latency": 5.19,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "quy_che_cu",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên khóa 2025 hệ chất lượng cao được vắng tối đa **25%** tổng số tiết của học phần để được dự thi. [QĐ-620, Điều 4]",
+  "error": null,
+  "in_tokens": 202225,
+  "out_tokens": 44,
+  "latency": 5.94,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "dien_dan",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời hạn nộp đơn đề nghị phúc khảo là **10 ngày làm việc** kể từ ngày công bố điểm. [QĐ-620, Điều 21]",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 40,
+  "latency": 4.96,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "dien_dan",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời hạn nộp đơn đề nghị phúc khảo là **10 ngày làm việc kể từ ngày công bố điểm**. [QĐ-620, Điều 21]",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 40,
+  "latency": 10.02,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "thieu_nguon",
+  "rep": 0,
+  "checks": {
+   "tu_choi": true,
+   "khong_bia_so": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Tài liệu được cung cấp không nêu mức tín chỉ tối đa cho sinh viên hệ đào tạo từ xa; chưa đủ căn cứ để xác định. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 202216,
+  "out_tokens": 45,
+  "latency": 7.29,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "thieu_nguon",
+  "rep": 1,
+  "checks": {
+   "tu_choi": true,
+   "khong_bia_so": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Tài liệu hiện có **chưa đủ căn cứ** để xác định mức tối đa cho sinh viên hệ đào tạo từ xa; QĐ-620 không nêu hệ này trong các nhóm được quy định. [QĐ-620, Điều 1]",
+  "error": null,
+  "in_tokens": 202216,
+  "out_tokens": 103,
+  "latency": 8.19,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "tong_hop",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ văn bằng hai được đăng ký tối đa **69 tín chỉ** trong năm học: 29 tín chỉ ở mỗi học kỳ chính và 11 tín chỉ ở học kỳ phụ (2 × 29 + 11). [QĐ-620, Điều 1; QĐ-620, Điều 2]\n\nLưu ý: QĐ-620 áp dụng cho sinh viên tuyển sinh từ khóa 2025. [QĐ-620]",
+  "error": null,
+  "in_tokens": 202235,
+  "out_tokens": 198,
+  "latency": 14.72,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "tong_hop",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ văn bằng hai được đăng ký tối đa **69 tín chỉ** trong năm học: 29 tín chỉ mỗi học kỳ chính × 2, cộng 11 tín chỉ học kỳ phụ. [QĐ-620, Điều 1; QĐ-620, Điều 2]\n\nCác mức này không bị thay đổi bởi QĐ-712. [QĐ-712, Điều 3]",
+  "error": null,
+  "in_tokens": 202235,
+  "out_tokens": 147,
+  "latency": 16.21,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_bay",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3]",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 38,
+  "latency": 10.35,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "sua_doi_bay",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo đối với sinh viên hệ liên thông là **25.000 đồng mỗi học phần**. [QĐ-620, Điều 3]",
+  "error": null,
+  "in_tokens": 202220,
+  "out_tokens": 38,
+  "latency": 10.64,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "nhan_phi",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí phúc khảo hệ chính quy hiện hành là **20.000 đồng mỗi học phần**. Nộp 3 học phần, tổng lệ phí là **60.000 đồng**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 202229,
+  "out_tokens": 64,
+  "latency": 9.52,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "nhan_phi",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Lệ phí hiện hành là 20.000 đồng mỗi học phần đối với sinh viên hệ chính quy. Nộp phúc khảo 3 học phần thì tổng lệ phí là **60.000 đồng**. [QĐ-620, Điều 3; QĐ-712, Điều 1]",
+  "error": null,
+  "in_tokens": 202229,
+  "out_tokens": 67,
+  "latency": 6.17,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "nam_khac",
+  "rep": 0,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Sinh viên hệ chất lượng cao được đào tạo tối đa **6 năm** để hoàn thành chương trình. [QĐ-620, Điều 5]",
+  "error": null,
+  "in_tokens": 202217,
+  "out_tokens": 35,
+  "latency": 13.78,
+  "reported_model": "gpt-6-luna"
+ },
+ {
+  "model": "gpt-6-luna",
+  "size": 650000,
+  "q": "nam_khac",
+  "rep": 1,
+  "checks": {
+   "dung_dap_an": true,
+   "trich_dung_nguon": true,
+   "khong_dung_so_sai": true
+  },
+  "tries": 1,
+  "score": 1.0,
+  "ok": true,
+  "text": "Thời gian đào tạo tối đa đối với sinh viên hệ chất lượng cao là **6 năm**. [QĐ-620, Điều 5]",
+  "error": null,
+  "in_tokens": 202217,
+  "out_tokens": 35,
+  "latency": 10.71,
+  "reported_model": "gpt-6-luna"
+ }
+]

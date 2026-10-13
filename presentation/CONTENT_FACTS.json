@@ -1,0 +1,191 @@
+{
+  "verified_on": "2026-09-29",
+  "purpose": "Căn cứ nội dung cho bài trình bày 15 phút với Ban Giám hiệu Trường Đại học Nghệ An.",
+  "method": "Đọc mã nguồn hiện tại, khởi tạo build_apps() chỉ đọc dữ liệu và kiểm tra metadata các bản ghi đã lưu. Không gọi API AI; không chạy lại bộ đánh giá có phí.",
+  "runtime": {
+    "verification": "Đã gọi backend.app.apps.build_apps() bằng môi trường Python của dự án.",
+    "source": "backend/app/apps.py:117",
+    "applications": [
+      {
+        "key": "tuyen_sinh",
+        "name": "AI Tuyển sinh",
+        "public_documents": 70,
+        "approved_queries": 19,
+        "has_database": true,
+        "database_is_synthetic": true,
+        "snapshot_label": "17:00 ngày 18/08/2026",
+        "workers": ["tuyen_sinh", "du_lieu", "analysis"]
+      },
+      {
+        "key": "dao_tao",
+        "name": "AI Đào tạo",
+        "public_documents": 36,
+        "approved_queries": 17,
+        "has_database": true,
+        "database_is_synthetic": true,
+        "snapshot_label": "17:00 ngày 18/08/2026",
+        "workers": ["dao_tao", "du_lieu", "analysis"]
+      },
+      {
+        "key": "hieu_truong",
+        "name": "AI Tổng hợp",
+        "own_documents": 0,
+        "own_queries": 0,
+        "has_database": false,
+        "workers": ["analysis"],
+        "delegates": ["tuyen_sinh", "dao_tao"],
+        "note": "Các số 106 văn bản và 36 truy vấn trên giao diện Tổng hợp là tổng khả năng của AI con, không phải kho dữ liệu trực tiếp của AI Tổng hợp."
+      }
+    ],
+    "slide_wording": "Hai AI lĩnh vực làm việc với 106 văn bản công khai và 36 truy vấn định sẵn; AI Tổng hợp giao việc, đối chiếu và tổng hợp kết quả.",
+    "data_label_required": "Văn bản công khai; số liệu nghiệp vụ nội bộ đang là dữ liệu giả lập."
+  },
+  "implemented_flow": [
+    {
+      "claim": "AI Tổng hợp giao yêu cầu cho các AI lĩnh vực, mỗi AI con có một lượt lập kế hoạch, thực thi và nghiệm thu riêng.",
+      "provenance": ["backend/app/apps.py:89", "backend/app/workers.py:234", "backend/app/web.py:238"]
+    },
+    {
+      "claim": "Nhiệm vụ độc lập có thể chạy cùng đợt; nhiệm vụ phụ thuộc chỉ chạy sau khi đầu vào được nghiệm thu.",
+      "provenance": ["backend/app/graph.py:132", "backend/app/graph.py:166"]
+    },
+    {
+      "claim": "Worker dữ liệu chọn truy vấn và tham số trong catalog; code chạy SQLite chỉ đọc. Worker phân tích đề xuất biểu thức để code tính.",
+      "provenance": ["backend/app/workers.py:162", "backend/app/workers.py:187", "backend/app/tools/data.py:113"]
+    },
+    {
+      "claim": "Kết quả trải qua kiểm tra bằng code và lượt nghiệm thu bằng model; lỗi có thể được yêu cầu sửa trong giới hạn.",
+      "provenance": ["backend/app/workers.py:277", "backend/app/workers.py:329", "backend/app/graph.py:183"]
+    },
+    {
+      "claim": "Giao diện hiển thị tiến độ qua SSE; câu hỏi nhập tay và câu gợi ý mặc định chạy mới. Lựa chọn phát lại đã được ẩn khỏi giao diện chính. Khi máy chủ dùng kết quả đã lưu để dự phòng, giao diện vẫn ghi rõ nguồn gốc.",
+      "provenance": ["backend/app/web.py:220", "backend/app/pages/index.html"]
+    }
+  ],
+  "principal_example": {
+    "source": "C:/Users/laqdv/.credere/runs/demo-tuyen-sinh/hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+    "recorded_at": "2026-09-29T02:51:07",
+    "question": "Ngành nào đang thiếu nhiều chỉ tiêu tuyển sinh năm 2026 nhất? Với các ngành đó, tỷ lệ sinh viên bị cảnh báo học vụ và rời trường ở các khóa trước ra sao?",
+    "tasks": [
+      {"id": "T1", "worker": "ai_tuyen_sinh", "depends_on": [], "status": "accepted"},
+      {"id": "T2", "worker": "ai_dao_tao", "depends_on": [], "status": "accepted"},
+      {"id": "T3", "worker": "analysis", "depends_on": ["T1", "T2"], "status": "accepted"}
+    ],
+    "dispatches": [
+      {"elapsed_s": 39.55, "tasks": ["T1", "T2"]},
+      {"elapsed_s": 253.28, "tasks": ["T3"]}
+    ],
+    "child_plans": [
+      {"app": "dao_tao", "elapsed_s": 48.3, "workers": ["du_lieu"]},
+      {"app": "tuyen_sinh", "elapsed_s": 63.21, "workers": ["tuyen_sinh", "du_lieu", "analysis"]}
+    ],
+    "total_elapsed_s": 287.2,
+    "display_time": "4 phút 47 giây",
+    "model_calls": 18,
+    "call_breakdown": {"tuyen_sinh": 8, "dao_tao": 4, "parent_including_analysis": 6},
+    "input_tokens": 125425,
+    "output_tokens": 13550,
+    "cost_usd_recorded_estimate": 0.264609,
+    "cost_qualification": "Ước tính ghi trong ledger của đúng lượt chạy này, không phải báo giá hiện tại hoặc chi phí cố định mỗi câu hỏi.",
+    "evidence_qualification": "Bản ghi đã lưu cho thấy luồng giao việc; chưa chạy lại câu hỏi trong lần kiểm tra này. Trạng thái accepted là nghiệm thu trong hệ thống, không đồng nghĩa kiểm chứng độc lập toàn bộ nội dung.",
+    "slide_wording": "Một yêu cầu, hai AI lĩnh vực cùng làm; bước phân tích chờ đủ kết quả rồi AI Tổng hợp trả lời. Bản ghi: 18 lượt gọi AI, 4 phút 47 giây."
+  },
+  "limited_evaluations": {
+    "intro_required": "Kết quả trên các bộ thử nội bộ đã có đáp án; chưa phải đánh giá độc lập hoặc cam kết độ chính xác khi triển khai.",
+    "verified_sets": [
+      {
+        "label": "Tra cứu và xử lý văn bản tuyển sinh",
+        "passed": 30,
+        "total": 30,
+        "gateway_errors": 0,
+        "source": "C:/Users/laqdv/credere-data/06_ket-qua/tuyen-sinh/eval-20260929-0149.json",
+        "grader": "backend/scripts/run_eval.py:76",
+        "checks": "Có số liệu/nguồn mong đợi, tên ngành cần nêu, tránh số bị cấm hoặc có lời báo thiếu căn cứ.",
+        "mean_cost_usd_recorded_estimate": 0.070228,
+        "median_seconds": 61.5,
+        "recommendation": "Có thể dùng 30/30, kèm nhãn bộ thử nội bộ; không ghi chính xác 100% trong sử dụng thực tế."
+      },
+      {
+        "label": "Truy vấn dữ liệu tuyển sinh giả lập",
+        "passed": 14,
+        "total": 14,
+        "gateway_errors": 0,
+        "source": "C:/Users/laqdv/credere-data/06_ket-qua/tuyen-sinh/du-lieu-20260929-0138.json",
+        "grader": "backend/scripts/run_eval_du_lieu.py:110",
+        "checks": "Số mong đợi xuất hiện, dẫn cơ sở dữ liệu, không xuất hiện các giá trị cá nhân kiểm tra trong phần báo cáo; thêm kiểm tra kênh khi phù hợp.",
+        "mean_cost_usd_recorded_estimate": 0.025681,
+        "median_seconds": 42.8,
+        "recommendation": "Có thể dùng 14/14, ghi rõ dữ liệu giả lập."
+      },
+      {
+        "label": "Học vụ và tổng hợp liên lĩnh vực trên dữ liệu giả lập",
+        "groups": [
+          {"label": "Đào tạo", "passed": 10, "total": 10},
+          {"label": "Tổng hợp", "passed": 4, "total": 4}
+        ],
+        "gateway_errors": 0,
+        "source": "C:/Users/laqdv/credere-data/06_ket-qua/tong-hop/tong-hop-20260929-0156.json",
+        "grader": "backend/scripts/run_eval_tong_hop.py:112",
+        "checks": "Số mong đợi xuất hiện, có mã dẫn cơ sở dữ liệu phù hợp, không xuất hiện các giá trị cá nhân được kiểm tra trong báo cáo.",
+        "recommendation": "Có thể dùng Đào tạo 10/10 và Tổng hợp 4/4; đây là bộ nhỏ, cùng quy trình phát triển."
+      }
+    ],
+    "grader_limitations": "Đối chiếu sự xuất hiện của số và mã nguồn chưa bảo đảm số gắn đúng đại lượng, câu diễn giải không suy sai, hoặc mọi nhận định đều có căn cứ. Các bộ thử đã được dùng lặp lại trong quá trình sửa hệ thống; không coi là bộ kiểm tra mù độc lập.",
+    "unverified_old_claim": {
+      "claim": "10/10 tình huống cán bộ tuyển sinh đạt, chấm tay",
+      "old_deck_source": "presentation/deck_numbers.json",
+      "finding": "Chưa tìm thấy bảng chấm tay cuối cùng đủ 10 tình huống để xác nhận. Tệp kịch bản mới nhất chỉ chứa CB-01 và CB-04, không có passed/checks. Một báo cáo cũ có tổng hợp 7 đạt, 3 đạt một phần.",
+      "provenance": [
+        "C:/Users/laqdv/credere-data/06_ket-qua/tuyen-sinh/kich-ban-20260929-0124.json",
+        "C:/Users/laqdv/credere-data/06_ket-qua/tuyen-sinh/kich-ban-20260928-0027.md:6"
+      ],
+      "recommendation": "Bỏ khẳng định 10/10 tình huống cán bộ khỏi slide chính nếu chưa có bảng chấm bổ sung; không nhầm với Đào tạo 10/10 đã xác nhận."
+    }
+  },
+  "software_verification": {
+    "pytest_passed": 159,
+    "verified_on": "2026-09-29",
+    "provenance": "Kết quả chạy toàn bộ pytest do agent chính xác nhận trong phiên làm việc trước; không chạy lại ở lần kiểm tra nội dung này.",
+    "slide_wording": "159 kiểm thử phần mềm đạt (kiểm tra cục bộ ngày 29/9/2026).",
+    "qualification": "Kiểm tra luồng xử lý và các ràng buộc phần mềm, không phải 159 câu hỏi nghiệp vụ với model thật."
+  },
+  "current_boundaries": [
+    {
+      "label": "Phân quyền",
+      "fact": "Trang Cài đặt có mật khẩu, phiên máy chủ 30 phút và chỉ cho phép truy cập từ máy chạy hệ thống. Chưa có đăng nhập/phân quyền người dùng nghiệp vụ cho từng phòng ban; lựa chọn AI trên giao diện chưa phải RBAC.",
+      "provenance": ["backend/app/settings_auth.py:13", "backend/app/web.py:146", "backend/app/web.py:220"]
+    },
+    {
+      "label": "Dữ liệu cá nhân",
+      "fact": "Luồng truy vấn danh sách tách hàng dữ liệu cá nhân ra khỏi dữ liệu gửi model, đưa bảng tới giao diện. Đây là thiết kế cho luồng hiện có, chưa thay thế phân quyền và kiểm tra bảo vệ dữ liệu khi dùng thật.",
+      "provenance": ["backend/app/tools/data.py:64", "backend/app/workers.py:187", "backend/app/web.py:280"]
+    },
+    {
+      "label": "Khôi phục và hủy",
+      "fact": "Graph chưa cấu hình checkpoint để phục hồi giữa chừng; luồng hỏi chạy bằng thread, chưa có API hủy tác vụ. Bản ghi phục vụ phát lại không phải phục hồi thực thi.",
+      "provenance": ["backend/app/graph.py:279", "backend/app/web.py:220", "backend/app/web.py:246"]
+    },
+    {
+      "label": "Kiểm chứng câu trả lời",
+      "fact": "Báo cáo cuối được kiểm mã nguồn đã dẫn, không có bộ chứng minh tự động mọi nhận định đúng. Cán bộ cần đối chiếu nguồn trước khi dùng kết quả.",
+      "provenance": ["backend/app/graph.py:251", "backend/app/workers.py:329"]
+    },
+    {
+      "label": "Phạm vi đang chạy",
+      "fact": "Hiện có AI Tuyển sinh, AI Đào tạo và AI Tổng hợp. NCKH/HTQT có tên worker tổng quát trong lõi nhưng chưa được build_apps đưa thành ứng dụng nghiệp vụ riêng.",
+      "provenance": ["backend/app/planning.py:6", "backend/app/apps.py:117"]
+    },
+    {
+      "label": "Tra cứu và cơ sở dữ liệu",
+      "fact": "Hiện xếp hạng văn bản bằng BM25 đơn giản khi vượt ngân sách nguồn và dùng SQLite chỉ đọc cho số liệu giả lập; chưa nên giới thiệu như hệ thống đã nối dữ liệu nghiệp vụ thật toàn trường.",
+      "provenance": ["backend/app/retrieval.py:24", "backend/app/retrieval.py:45", "backend/app/tools/data.py:113"]
+    }
+  ],
+  "presentation_guardrails": [
+    "Mở đầu bằng bài toán cán bộ và lãnh đạo; dùng một yêu cầu liên lĩnh vực để chứng minh giá trị phối hợp.",
+    "Ghi rõ demo trên dữ liệu giả lập; hình ảnh số liệu không phải báo cáo tình hình thật của Trường.",
+    "Gắn kết quả thử với tên bộ, số lượng câu và giới hạn; tránh khẩu hiệu đúng tuyệt đối hoặc thay thế quyết định của cán bộ.",
+    "Chi phí chỉ dùng như ước tính trong bản ghi có ngày, không suy ra báo giá hiện tại hoặc kinh phí cả mùa tuyển sinh.",
+    "Đề nghị pilot có người phụ trách dữ liệu, phạm vi truy vấn được duyệt và nghiệm thu trên câu hỏi mới; đó là bước tiếp theo đề xuất, chưa phải năng lực đã hoàn thành."
+  ]
+}

@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Tuyển sinh — Trợ lý nghiệp vụ, Trường Đại học Nghệ An</title>
+<link rel="icon" type="image/png" href="/static/brand/favicon.png">
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/vendor/be-vietnam-pro/be-vietnam-pro-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/vendor/tabler-1.6.0/tabler.min.css">
+<link rel="stylesheet" href="/static/credere.css">
+<link rel="stylesheet" href="/static/workspace.css">
+</head>
+<body class="cr-demo">
+<a class="skip-link" href="#q">Đi đến ô nhập yêu cầu</a>
+<button class="cr-scrim" id="nav-scrim" type="button" aria-label="Đóng điều hướng" hidden></button>
+<aside class="workspace-nav" id="workspace-nav" aria-label="Điều hướng chính">
+  <a class="workspace-brand" href="/" aria-label="Credere — trang chủ"><span class="brand-symbol"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-stack-2"/></svg></span><span>credere<span class="brand-period">.</span><small>TRỢ LÝ ĐẠI HỌC</small></span></a>
+  <button class="new-conversation" id="reset" type="button"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-plus"/></svg>Cuộc trò chuyện mới<span class="new-shortcut">↗</span></button>
+  <div class="nav-section-label">KHÔNG GIAN LÀM VIỆC</div>
+  <nav class="cr-roles" id="apps" role="tablist" aria-label="Chọn trợ lý AI" aria-orientation="vertical"></nav>
+  <div class="nav-separator"></div>
+  <button class="workspace-nav-link" id="library-btn" type="button"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-book"/></svg>Kho tài liệu<span id="library-count" class="nav-count">—</span></button>
+  <a class="workspace-nav-link" href="/cai-dat"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-settings"/></svg>Cài đặt kết nối</a>
+  <div class="nav-recent"><div class="nav-section-label">TRONG CUỘC TRÒ CHUYỆN</div><div id="recent-requests"><p class="nav-empty">Các yêu cầu của bạn sẽ hiện ở đây.</p></div></div>
+  <div class="nav-bottom"><div class="nav-note"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-shield-lock"/></svg><span>Có nguồn để kiểm chứng.<br>Có căn cứ để quyết định.</span></div><div class="nav-school"><img src="/static/brand/nau-logo-tron.png" alt="Logo NAU"><span>Trường Đại học Nghệ An<small>Không gian demo nội bộ</small></span></div></div>
+</aside>
+<div class="workspace-main">
+  <header class="workspace-header">
+    <div class="header-context"><button class="icon-button mobile-menu" id="menu-toggle" type="button" aria-label="Mở điều hướng" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-list-details"/></svg></button><div><div class="workspace-breadcrumb">Không gian làm việc <span>/</span> <span id="breadcrumb-app">Trợ lý AI</span></div><div class="workspace-heading"><h1 id="app-title">AI Tuyển sinh</h1><span class="workspace-heading-dot"></span><span id="app-sub">Trợ lý nghiệp vụ</span></div></div></div>
+    <div class="header-actions"><span class="cr-pill cr-pill--synthetic" id="sim-badge" hidden><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-flask"/></svg>Dữ liệu giả lập</span><button class="icon-button" id="present" type="button" aria-label="Chế độ trình chiếu" title="Chế độ trình chiếu" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-maximize"/></svg></button><button class="icon-button inspector-toggle" id="inspector-toggle" type="button" aria-label="Mở quy trình xử lý" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-sitemap"/></svg></button></div>
+  </header>
+  <main class="cr-shell">
+    <section class="cr-col conversation" aria-label="Hỏi đáp với trợ lý">
+      <div class="conversation-top"><span><span class="workspace-heading-dot"></span>HỎI ĐÁP & PHÂN TÍCH</span><span id="context-label">Dựa trên nguồn của nhà trường</span></div>
+      <div class="cr-messages" id="messages" aria-label="Nội dung cuộc trò chuyện"><div class="loading-state"><span class="spinner-border spinner-border-sm"></span>Đang mở không gian làm việc…</div></div>
+      <div class="cr-composer">
+        <div class="card cr-samples" id="chips" hidden></div>
+        <form class="composer-surface" id="composer">
+          <label class="visually-hidden" for="q">Yêu cầu dành cho trợ lý</label><textarea id="q" rows="2" maxlength="500" placeholder="Bạn cần hỗ trợ công việc gì hôm nay?" title="Enter để gửi · Shift+Enter để xuống dòng"></textarea>
+          <div class="composer-toolbar"><button class="composer-samples" id="samples-btn" type="button" aria-expanded="false" aria-controls="chips"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-bulb"/></svg><span>Gợi ý công việc</span></button><span class="composer-shortcut">Enter ↵</span><button class="send-button" id="send" type="submit" aria-label="Gửi yêu cầu"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-arrow-up"/></svg></button></div>
+        </form>
+        <div class="composer-under"><span class="cr-mode-note" id="mode-note">Yêu cầu phức tạp có thể cần vài phút để xử lý.</span><span id="hint">Shift + Enter để xuống dòng</span></div><div id="footer" class="composer-disclaimer"></div>
+      </div>
+    </section>
+    <aside class="cr-col cr-process" id="inspector" aria-label="Quy trình và nguồn tham khảo">
+      <div class="inspector-header"><div><span class="eyebrow">THEO DÕI CÔNG VIỆC</span><h2>Đằng sau câu trả lời</h2></div><button class="icon-button inspector-close" id="inspector-close" type="button" aria-label="Đóng quy trình"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-x"/></svg></button></div>
+      <div class="inspector-status"><span class="cr-pill cr-pill--muted" id="run-state" role="status">Chờ câu hỏi</span><span class="inspector-status-note">Từng bước, minh bạch</span></div>
+      <div id="flow-overview" class="flow-overview"></div>
+      <div class="cr-ptabs" role="tablist" aria-label="Chi tiết công việc"><button type="button" class="active" id="tab-steps" role="tab" aria-selected="true" aria-controls="panel">Hoạt động</button><button type="button" id="tab-src" role="tab" aria-selected="false" aria-controls="sources" disabled>Nguồn đã dẫn</button></div>
+      <div class="cr-legend" id="legend"></div><div class="cr-panel" id="panel" role="tabpanel" aria-labelledby="tab-steps"></div><div class="cr-panel" id="sources" role="tabpanel" aria-labelledby="tab-src" hidden><ul class="cr-sources" id="srclist"></ul></div>
+      <div class="inspector-foot"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-info-circle"/></svg>Đối chiếu nguồn trước khi sử dụng kết quả.</div>
+    </aside>
+  </main>
+</div>
+<dialog class="library-dialog" id="library-dialog" aria-labelledby="library-title"><div class="library-header"><div><span class="eyebrow">CĂN CỨ CHO CÂU TRẢ LỜI</span><h2 id="library-title">Kho tài liệu</h2><p id="library-subtitle"></p></div><button class="icon-button" id="library-close" type="button" aria-label="Đóng kho tài liệu"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-x"/></svg></button></div><label class="library-search"><svg class="icon" aria-hidden="true"><use href="/static/vendor/tabler-icons-3.48.0/sprite.svg#i-search"/></svg><input id="library-search" type="search" placeholder="Tìm tên văn bản hoặc mã nguồn…" aria-label="Tìm tài liệu"></label><div id="library-results" class="library-results"></div></dialog>
+<div class="workspace-toast" id="workspace-toast" role="status" hidden></div>
+<script>
+const WHO = { master: "Tác tử điều phối", tong_hop: "AI Tổng hợp", tuyen_sinh: "Tác tử Tuyển sinh", dao_tao: "Tác tử Đào tạo",
+              analysis: "Tác tử Phân tích", du_lieu: "Tác tử Dữ liệu", ai_tuyen_sinh: "AI Tuyển sinh", ai_dao_tao: "AI Đào tạo", sys: "Hệ thống" };
+const SHORT = { master: "ĐP", tong_hop: "TH", tuyen_sinh: "TS", dao_tao: "ĐT", analysis: "PT", du_lieu: "DL", ai_tuyen_sinh: "TS", ai_dao_tao: "ĐT", sys: "!" };
+const ROLE = { tuyen_sinh: "Cán bộ Tuyển sinh", dao_tao: "Phòng Đào tạo · Giảng viên", hieu_truong: "Hiệu trưởng" };
+const APP_ICON = { tuyen_sinh: "users", dao_tao: "book", hieu_truong: "user-star" };
+const INTRO = {
+  tuyen_sinh: ["Trợ lý nghiệp vụ cho Trung tâm Tuyển sinh và Truyền thông",
+    "Tra cứu điểm chuẩn, chỉ tiêu, tổ hợp, học phí, học bổng, lịch xét tuyển; soạn tin trả lời thí sinh, phụ huynh; lập bảng, báo cáo; rà soát các văn bản tuyển sinh có khớp nhau không."],
+  dao_tao: ["Trợ lý nghiệp vụ cho Phòng Đào tạo và giảng viên",
+    "Tra cứu quy chế đào tạo của Bộ và quy định của Trường, chương trình đào tạo, tín chỉ, đăng ký học phần, thang điểm, cảnh báo học vụ, xét tốt nghiệp, lịch thi."],
+  hieu_truong: ["AI Tổng hợp cho Hiệu trưởng",
+    "Hỏi việc của cả Trường. AI Tổng hợp không tự tra cứu mà giao việc cho từng AI lĩnh vực, nhận báo cáo đã nghiệm thu, ghép số liệu các lĩnh vực rồi mới trả lời."],
+};
+const PLANNED = ["AI Nghiên cứu khoa học", "AI Hợp tác quốc tế", "AI Nhân sự", "AI Hành chính"];  // theo đề cương; chưa triển khai
+const STAGES = ["Lập kế hoạch", "Giao việc", "Thực hiện", "Nghiệm thu", "Tổng hợp"];
+const COLS = { ma_ts: "Mã thí sinh", ho_ten: "Họ và tên", sdt: "Số điện thoại", email: "Email", ten_nganh: "Ngành", ma_nganh: "Mã ngành",
+               phuong_thuc: "Phương thức", diem_xet: "Điểm xét", ma_can_bo_tu_van: "Mã cán bộ tư vấn", can_bo_tu_van: "Cán bộ tư vấn",
+               thoi_diem_xac_nhan: "Thời điểm xác nhận", ma_sv: "Mã sinh viên", hoc_ky: "Học kỳ", chi_tiet: "Chi tiết", loi: "Nội dung cần kiểm tra",
+               ma_lhp: "Lớp học phần", ten_hp: "Học phần", dtb_tich_luy: "ĐTB tích lũy", muc_canh_bao: "Mức cảnh báo", ma_co_van: "Cố vấn học tập",
+               ma_ho_so: "Mã hồ sơ", kenh_nop: "Kênh nộp", ngay_dau_buu_cuc: "Ngày dấu bưu cục", trang_thai: "Trạng thái", thieu: "Còn thiếu",
+               khoa: "Khóa", lop: "Lớp", so_tin_chi_tich_luy: "Tín chỉ tích lũy" };
+const PARAMS = { ma_xet_tuyen: "ngành", ma_nganh: "ngành", hoc_ky: "học kỳ", ma_gv: "giảng viên", phuong_thuc: "phương thức", khoa: "khóa" };
+const VND_PER_USD = 26180;
+const SPRITE = "/static/vendor/tabler-icons-3.48.0/sprite.svg";
+let catalog = {}, samples = [], info = {}, apps = [], appKey = null, source = null, current = null, active = null, timer = null;
+const mode = "live";  // Mọi yêu cầu từ giao diện được xử lý mới; không dùng tùy chọn cũ trong localStorage.
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const ic = (name, cls = "") => `<svg class="icon ${cls}" aria-hidden="true"><use href="${SPRITE}#i-${name}"/></svg>`;
+const mark = (agent, cls = "") => `<span class="cr-mark ${cls} cr-agent--${agent}" title="${esc(WHO[agent] || agent)}">${agent === "sys" ? ic("alert-triangle") : esc(SHORT[agent] || "·")}</span>`;
+const principal = () => !!info.delegates?.length;
+const fmtSecs = s => { s = Math.max(0, Math.round(s || 0)); return s < 60 ? `${s} giây` : `${Math.floor(s / 60)} phút ${String(s % 60).padStart(2, "0")} giây`; };
+const clockOf = s => { s = Math.max(0, Math.round(s || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+const colName = c => COLS[c] || c.replace(/_/g, " ").replace(/^./, x => x.toUpperCase());
+const prettyTitle = t => String(t).replace(/\(([^()]*=[^()]*)\)/g, (m, inner) =>
+  "(" + inner.split(/,\s*/).map(p => { const [k, v] = p.split(/\s*=\s*/); return `${PARAMS[k] || k.replace(/_/g, " ")} ${v ?? ""}`.trim(); }).join(", ") + ")");
+const publicURL = value => { try { const u = new URL(value); return ["http:", "https:"].includes(u.protocol) ? u.href : ""; } catch { return ""; } };
+
+function cite(text, run) {  // [TS-101] -> liên kết tới văn bản gốc; [T2] -> mã nhiệm vụ; [TS-1, TS-2] -> nhiều liên kết
+  return text.replace(/\[([^\[\]\n]{1,120})\]/g, (m, inner) => inner.split(/[,;]\s*/).map(id => {
+    const key = id.trim();
+    if (catalog[key]) { run.cited.add(key); const url = publicURL(catalog[key].url); return url ? `<a class="cr-cite" href="${esc(url)}" target="_blank" rel="noopener" title="${esc(catalog[key].title)}">${esc(key)}</a>` : `<span class="cr-cite cr-cite--db" title="${esc(catalog[key].title)}">${esc(key)}</span>`; }
+    if (run.plan[key]) return `<span class="cr-task" title="${esc(run.plan[key].goal)}">${esc(key)}</span>`;
+    return m;
+  }).join(""));
+}
+
+function render(md, run) {  // markdown tối giản; ESCAPE trước rồi mới dựng HTML
+  const out = []; let list = null, table = null, para = [];
+  const plain = s => s.replace(/<\/?[bi]>|<\/?code>/g, "").replace(/\[[^\]]*\]/g, "").trim();
+  const numeric = s => /^[\d.,%\s+\-–−/=≈×:()]+$/.test(s) && /\d/.test(s);
+  const flushPara = () => { if (para.length) { out.push(`<p>${para.join("<br>")}</p>`); para = []; } };
+  const flushTable = () => {
+    if (!table) return;
+    const [head, ...body] = table.rows;
+    const align = head.map((_, i) => table.align[i] || (body.length && body.every(r => !plain(r[i] || "") || numeric(plain(r[i] || ""))) ? "end" : ""));
+    const cell = (tag, c, i) => `<${tag}${align[i] ? ` class="text-${align[i]}"` : ""}>${cite(c, run)}</${tag}>`;
+    out.push(`<div class="cr-table-wrap"><table class="table table-sm cr-md-table"><thead><tr>${head.map((c, i) => cell("th", c, i)).join("")}</tr></thead><tbody>`
+      + body.map(r => `<tr${/^<b>\s*(tổng|cộng)/i.test(r[0] || "") ? ' class="cr-total"' : ""}>${r.map((c, i) => cell("td", c, i)).join("")}</tr>`).join("")
+      + `</tbody></table></div>`);
+    table = null;
+  };
+  const closeList = () => { if (list) { out.push(`</${list}>`); list = null; } };
+  for (const raw of esc(md).split("\n")) {
+    const line = raw.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/(^|\s)\*([^*\n]+)\*(?=\s|$|[.,;:])/g, "$1<i>$2</i>").replace(/`([^`\n]+)`/g, "<code>$1</code>");
+    if (/^\s*\|.*\|\s*$/.test(line)) {
+      flushPara(); closeList();
+      const cells = line.trim().slice(1, -1).split("|").map(c => c.trim());
+      if (/^\s*\|[\s:|-]+\|\s*$/.test(line)) {  // dòng phân cách: đọc căn lề ---: / :---:
+        if (table) table.align = cells.map(c => c.endsWith(":") ? (c.startsWith(":") ? "center" : "end") : "");
+        continue;
+      }
+      table = table || { rows: [], align: [] };
+      table.rows.push(cells);
+      continue;
+    }
+    flushTable();
+    const ul = line.match(/^\s*[-*•]\s+(.*)/), ol = line.match(/^\s*\d+[.)]\s+(.*)/);
+    const kind = ul ? "ul" : ol ? "ol" : null;
+    if (kind) { flushPara(); if (kind !== list) { closeList(); out.push(`<${kind}>`); list = kind; } out.push(`<li>${cite((ul || ol)[1], run)}</li>`); continue; }
+    closeList();
+    const h = line.match(/^(#{1,4})\s+(.*)/);
+    if (h) { flushPara(); const tag = h[1].length <= 2 ? "h3" : "h4"; out.push(`<${tag}>${cite(h[2], run)}</${tag}>`); }
+    else if (/^\s*(-{3,}|\*{3,})\s*$/.test(line)) { flushPara(); out.push("<hr>"); }
+    else if (!line.trim()) flushPara();
+    else para.push(cite(line, run));
+  }
+  flushPara(); flushTable(); closeList();
+  return out.join("");
+}
+
+function scrollDown() { const m = $("messages"); m.scrollTop = m.scrollHeight; }
+
+// ---------- Màn hình chào ----------
+function treeHtml() {  // sơ đồ chủ – tớ: cấp 0 AI Tổng hợp, cấp 1 các AI lĩnh vực (AI chưa triển khai vẽ nét đứt, ghi rõ)
+  const kids = principal() ? info.delegates.map(d => [APP_ICON[d.key] || "book", d.ten])
+    : [["book", "Tra cứu tài liệu"], [info.data ? "database" : "calculator", info.data ? "Phân tích dữ liệu" : "Tính toán"]];
+  return `<div class="flow-root">${mark(principal() ? "tong_hop" : "master")}<span><strong>${principal() ? "AI Tổng hợp" : "Tác tử điều phối"}</strong><small>Lập kế hoạch · giao việc · kiểm tra</small></span></div>
+    <div class="flow-branches">${kids.map(([icon, name]) => `<div class="flow-leaf">${ic(icon)}<span>${esc(name)}</span></div>`).join("")}</div>
+    <p class="flow-caption">${principal() ? "Các AI lĩnh vực phối hợp theo từng yêu cầu." : "Chọn công cụ phù hợp với câu hỏi của bạn."}</p>`;
+}
+
+function welcome() {
+  const titles = { tuyen_sinh: "Cùng xử lý công việc<br><span>tuyển sinh hôm nay.</span>", dao_tao: "Hiểu rõ dữ liệu.<br><span>Chủ động công tác đào tạo.</span>", hieu_truong: "Một góc nhìn tổng thể.<br><span>Nhiều căn cứ để quyết định.</span>" };
+  const descriptions = { tuyen_sinh: "Từ tra cứu quy định đến phân tích số liệu, soạn thảo báo cáo. Đặt câu hỏi, đội ngũ AI sẽ tìm căn cứ và cùng bạn xử lý.", dao_tao: "Tra cứu quy chế, theo dõi học vụ và phân tích kết quả học tập. Mỗi yêu cầu được giao cho công cụ phù hợp, kèm nguồn để đối chiếu.", hieu_truong: "Kết nối thông tin tuyển sinh và đào tạo trong một câu trả lời. AI Tổng hợp giao việc cho từng lĩnh vực, đối chiếu rồi tổng hợp kết quả." };
+  sessionRuns = []; renderRecent();
+  $("flow-overview").innerHTML = treeHtml();
+  $("messages").innerHTML = `<div class="cr-welcome" id="welcome">
+    <div class="welcome-kicker">${ic("sparkles")} Một trợ lý, nhiều cách hỗ trợ</div>
+    <h2 class="welcome-title">${titles[info.key] || esc(info.ten)}</h2><p class="welcome-copy">${esc(descriptions[info.key] || info.linh_vuc)}</p>
+    <div class="welcome-stats">
+      <div class="welcome-stat"><span class="stat-icon">${ic("file-text")}</span><span><strong>${info.source_count ?? "—"}</strong><small>Văn bản công khai</small></span></div>
+      <div class="welcome-stat"><span class="stat-icon">${ic("database")}</span><span><strong>${info.query_count ?? "—"}</strong><small>Truy vấn có sẵn</small></span></div>
+      <div class="welcome-stat"><span class="stat-icon">${ic("bulb")}</span><span><strong>${samples.length}</strong><small>Gợi ý công việc</small></span></div>
+    </div>
+    <div class="suggestion-heading"><h2>Bắt đầu từ một việc cụ thể</h2><button class="text-button" id="all-samples" type="button">Tất cả gợi ý ${ic("arrow-right")}</button></div>
+    <div class="cr-grid">${samples.slice(0,4).map((s, i) => `<button type="button" class="cr-suggest" data-i="${i}" title="${esc(s.q)}">
+      <span class="subheader"><span class="suggest-icon">${ic(["file-search", "chart-bar", "report", "calculator"][i])}</span><span class="k">${esc(s.kind || "Gợi ý")}</span></span>
+      <span class="q">${esc(s.q)}</span>${ic("arrow-right", "suggest-arrow")}</button>`).join("")}</div>
+    <div class="welcome-footnote">${ic("shield-lock")}${info.synthetic ? "Văn bản công khai thật · Số liệu nội bộ giả lập để trình diễn." : "Câu trả lời kèm nguồn để bạn đối chiếu và kiểm chứng."}</div>
+  </div>`;
+  $("all-samples").onclick = () => { $("samples-btn").click(); };
+  document.querySelectorAll(".cr-suggest").forEach(b => b.onclick = () => ask(samples[+b.dataset.i].q));
+  $("panel").innerHTML = EMPTY; $("sources").hidden = true; showTab("steps"); $("tab-src").disabled = true; $("tab-src").textContent = "Nguồn đã dẫn";
+  $("messages").scrollTop = 0;
+  setState("Chờ câu hỏi", "muted");
+}
+const EMPTY = `<div class="idle-steps">${[["sitemap", "Lên kế hoạch", "Chia yêu cầu thành các công việc phù hợp."], ["file-search", "Tra cứu & phân tích", "Tìm nguồn, truy vấn dữ liệu và thực hiện phép tính."], ["clipboard-check", "Đối chiếu & tổng hợp", "Kiểm tra kết quả trước khi viết câu trả lời."]].map(([i,t,d])=>`<div class="idle-step"><span>${ic(i)}</span><div><strong>${t}</strong><p>${d}</p></div></div>`).join("")}</div>`;
+
+let sessionRuns = [];
+function renderRecent() {
+  $("recent-requests").innerHTML = sessionRuns.length ? sessionRuns.map((r,i) => `<button class="recent-item" type="button" data-run="${i}" title="${esc(r.q)}">${ic("message-chatbot")}<span>${esc(r.q)}</span></button>`).reverse().join("") : '<p class="nav-empty">Các yêu cầu của bạn sẽ hiện ở đây.</p>';
+  document.querySelectorAll("[data-run]").forEach(b => b.onclick = () => { const r = sessionRuns[+b.dataset.run]; showRun(r); r.card.scrollIntoView({block:"start",behavior:"smooth"}); toggleNav(false); });
+}
+function renderOverview(run) {
+  const tasks = Object.values(run.plan), done = tasks.filter(t => run.tstate[t.task_id] === "ok").length;
+  $("flow-overview").innerHTML = !tasks.length ? treeHtml() : `<div class="work-summary"><strong>${done} / ${tasks.length} nhiệm vụ đạt</strong><span>${run.replayed ? "Lần chạy đã lưu" : "Tiến độ lượt chạy"}</span></div><div class="work-meter" role="progressbar" aria-label="Nhiệm vụ đã đạt" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="${tasks.length}"><span style="width:${100*done/tasks.length}%"></span></div><div class="work-nodes">${tasks.map(t=>`<span class="work-node is-${run.tstate[t.task_id] || "wait"}" title="${esc(t.goal)}${t.depends_on.length ? ' · Sau '+esc(t.depends_on.join(', ')) : ''}">${ic(run.tstate[t.task_id] === "ok" ? "check" : run.tstate[t.task_id] === "run" ? "loader-2" : "circle-dot")}${esc(t.task_id)} · ${esc((WHO[t.worker_type] || t.worker_type).replace("Tác tử ", ""))}</span>`).join("")}</div>`;
+}
+
+// ---------- Khung quy trình ----------
+const PILL = { muted: "cr-pill--muted", running: "cr-pill--run", done: "cr-pill--ok", replay: "cr-pill--replay", error: "cr-pill--bad" };
+const PILL_ICON = { running: "loader-2", done: "circle-check", replay: "history", error: "circle-x" };
+function setState(text, cls = "muted") {
+  const p = $("run-state");
+  p.className = "cr-pill " + (PILL[cls] || PILL.muted);
+  p.innerHTML = (PILL_ICON[cls] ? ic(PILL_ICON[cls]) : "") + esc(text);
+}
+
+function showTab(which) {
+  $("tab-steps").classList.toggle("active", which === "steps"); $("tab-src").classList.toggle("active", which === "src");
+  $("tab-steps").setAttribute("aria-selected", String(which === "steps")); $("tab-src").setAttribute("aria-selected", String(which === "src"));
+  $("panel").hidden = which !== "steps"; $("sources").hidden = which !== "src"; $("legend").hidden = which !== "steps";
+}
+
+function laneHtml(l) {  // một AI con: đầu làn (tên, việc nhận, trạng thái) và các bước bên trong nó
+  return `<li class="cr-lane cr-agent--${l.agent}"><div class="cr-lane-head">${mark(l.agent, "cr-mark-sm")}
+    <span class="t"><b>${esc(l.ten)}</b><small>nhận việc ${esc(l.task)} từ AI Tổng hợp${l.attempt > 1 ? ` · giao lại lần ${l.attempt}` : ""}</small></span>
+    <span class="cr-pill ${l.pill}">${esc(l.status)}</span></div>
+    ${l.steps.length ? `<ol class="cr-steps">${l.steps.join("")}</ol>` : `<div class="cr-lane-empty">Đang lập kế hoạch…</div>`}</li>`;
+}
+
+function renderPanel(run, force = false) {
+  renderOverview(run);
+  const panel = $("panel");
+  const atEnd = panel.scrollHeight - panel.scrollTop - panel.clientHeight < 80;
+  panel.innerHTML = run.items.length ? `<ol class="cr-steps">${run.items.map(it => it.lane ? laneHtml(run.lanes[it.lane]) : it.html).join("")}</ol>`
+    : `<div class="cr-empty">${ic("loader-2")}<div>Đang chờ ${principal() ? "AI Tổng hợp" : "tác tử điều phối"} lập kế hoạch…</div></div>`;
+  if (atEnd || force) panel.scrollTop = panel.scrollHeight;  // người xem đang cuộn lên đọc thì không kéo xuống
+}
+
+function showRun(run) {
+  active = run;
+  document.querySelectorAll(".cr-answer").forEach(c => c.classList.toggle("active", c === run.card));
+  renderPanel(run, true);
+  const ids = [...run.cited].sort();
+  $("tab-src").disabled = !ids.length;
+  $("tab-src").textContent = ids.length ? `Nguồn đã dẫn (${ids.length})` : "Nguồn đã dẫn";
+  if (!ids.length) showTab("steps");
+  $("srclist").innerHTML = ids.map(id => { const url = publicURL(catalog[id].url); return `<li>${url ? `<a class="cr-cite" href="${esc(url)}" target="_blank" rel="noopener">${esc(id)} ${ic("external-link")}</a>` : `<span class="cr-cite cr-cite--db">${esc(id)}</span>`}<span>${esc(catalog[id].title)}</span></li>`; }).join("");
+  setState(...run.state);
+}
+
+function addStep(run, agent, who, detail, extra = "", lane = null) {
+  const secs = run.eventTime ?? (performance.now() - run.t0) / 1000;
+  const html = `<li class="cr-step">${mark(agent)}<div class="cr-step-body">
+    <div class="cr-step-top"><b>${esc(who)}</b><span class="cr-when" title="Thời điểm tính từ lúc bắt đầu${run.replayed ? " của lần chạy gốc" : ""}">${clockOf(secs)}</span></div>
+    ${detail ? `<div class="cr-step-detail">${detail}</div>` : ""}${extra}</div></li>`;
+  if (lane) run.lanes[lane].steps.push(html); else run.items.push({ html });
+  if (run === active) renderPanel(run);
+}
+
+// ---------- Tiến độ trong thẻ trả lời (đọc được từ xa khi trình chiếu) ----------
+const TASK_STATE = { wait: "chờ", run: "đang làm", review: "chờ nghiệm thu", ok: "đạt", revise: "làm lại", bad: "không đạt" };
+function renderProgress(run) {
+  const box = run.card.querySelector(".cr-progress");
+  if (!box) return;
+  const tasks = Object.values(run.plan);
+  box.querySelector(".cr-stages").innerHTML = STAGES.map((s, i) => `<li class="cr-stage ${i < run.stage ? "done" : i === run.stage ? "active" : ""}">${s}</li>`).join("");
+  box.querySelector(".cr-tasks").innerHTML = tasks.map(t => {
+    const st = run.tstate[t.task_id] || "wait", sub = run.subs[t.worker_type.replace(/^ai_/, "")];
+    const inner = sub && st === "run" ? ` ${sub.done.size}/${Object.keys(sub.plan).length || "?"} việc` : "";
+    return `<span class="cr-tchip cr-agent--${esc(t.worker_type)} is-${st}" title="${esc(t.goal)}">${esc(t.task_id)} · ${esc((WHO[t.worker_type] || t.worker_type).replace("Tác tử ", ""))}`
+      + `<span class="st">${TASK_STATE[st]}${inner}</span></span>`;
+  }).join("");
+}
+
+function now(run, text) { const el = run.card.querySelector(".cr-now-text"); if (el) el.textContent = text; }
+
+function onEvent(run, e, ctx = null) {
+  // ctx: ngữ cảnh một AI con (kế hoạch riêng, làn riêng); null là lượt chạy chính
+  const top = !ctx;
+  ctx = ctx || { plan: run.plan, done: run.done, lane: null, master: principal() ? "tong_hop" : "master" };
+  const d = e.detail || {};
+  const agentOf = id => ctx.plan[id]?.worker_type || "master";
+  const color = a => a === "master" ? ctx.master : a;
+  const step = (agent, who, detail, extra = "") => addStep(run, color(agent), who, detail, extra, ctx.lane);
+  const say = text => { if (top) now(run, text); };  // dòng "đang làm" chỉ theo lượt chính; AI con hiện ở chip và làn
+  const lane = run.lanes[ctx.lane];
+  switch (e.event_type) {
+    case "sub_event": {
+      const key = d.app;
+      let sub = run.subs[key];
+      if (!sub) {
+        sub = run.subs[key] = { plan: {}, done: new Set(), lane: key, master: e.actor, ten: d.ten };
+        run.lanes[key] = { ten: d.ten, agent: e.actor, task: e.task_id, attempt: d.attempt || 1, steps: [], status: "Đang làm", pill: "cr-pill--run" };
+        run.items.push({ lane: key });
+      } else if ((d.attempt || 1) !== run.lanes[key].attempt) {  // AI Tổng hợp giao lại: kế hoạch mới của AI con
+        run.lanes[key].attempt = d.attempt; sub.done = new Set();
+        Object.assign(run.lanes[key], { status: "Đang làm", pill: "cr-pill--run" });
+      }
+      onEvent(run, d.event, sub);
+      renderProgress(run);
+      if (run === active) renderPanel(run);
+      break;
+    }
+    case "plan_saved":
+      ctx.plan = Object.fromEntries(d.tasks.map(t => [t.task_id, t]));
+      if (top) { run.plan = ctx.plan; run.stage = 1; d.tasks.forEach(t => run.tstate[t.task_id] = "wait"); renderProgress(run); }
+      step("master", "Lập kế hoạch", `${d.tasks.length} nhiệm vụ, lập xong trước khi giao việc:`,
+        `<ul class="cr-plan">${d.tasks.map(t => `<li><b>${esc(t.task_id)}</b><span class="cr-chip cr-agent--${esc(t.worker_type)}">${esc(WHO[t.worker_type] || t.worker_type)}</span>${esc(t.goal)}`
+          + (t.depends_on.length ? ` <i>(sau ${esc(t.depends_on.join(", "))})</i>` : "") + `</li>`).join("")}</ul>`);
+      say(`Đã lập kế hoạch ${d.tasks.length} nhiệm vụ, đang giao việc…`);
+      break;
+    case "plan_rejected": step("master", "Không lập được kế hoạch", esc(d.errors.join("; "))); break;
+    case "wave_dispatched":
+      step("master", "Giao việc", d.tasks.map(id => `${esc(id)} → ${esc(WHO[agentOf(id)] || agentOf(id))}`).join("<br>"));
+      if (top) { run.stage = 2; d.tasks.forEach(id => run.tstate[id] = "run"); renderProgress(run); }
+      say("Đang làm: " + d.tasks.map(id => `${id} (${WHO[agentOf(id)] || agentOf(id)})`).join(", ") + "…");
+      break;
+    case "wave_trimmed": step("sys", "Hoãn giao việc", "Để sau vì chạm trần lời gọi của lượt chạy: " + esc((d.deferred || []).join(", "))); break;
+    case "task_executed":
+      step(e.actor, `${WHO[e.actor] || e.actor} · ${e.task_id}` + (d.attempt > 1 ? ` (lần ${d.attempt})` : ""),
+        d.status === "ok" ? ({ analysis: "Viết phép tính; máy tính thực hiện và trả kết quả.",
+                               du_lieu: "Chọn truy vấn đã duyệt; cơ sở dữ liệu tính và trả số tổng hợp.",
+                               ai_tuyen_sinh: "Đã báo cáo lại, kèm số liệu đã tự nghiệm thu.", ai_dao_tao: "Đã báo cáo lại, kèm số liệu đã tự nghiệm thu." }[e.actor]
+                            || "Đọc tài liệu, trả kết quả kèm nguồn.")
+                          : `<span class="cr-error">Lỗi: ${esc(d.error)}</span>`);
+      if (top) {
+        run.stage = 3; run.tstate[e.task_id] = "review";
+        const l = run.lanes[e.actor.replace(/^ai_/, "")];
+        if (l) Object.assign(l, d.status === "ok" ? { status: "Đã báo cáo", pill: "cr-pill--replay" } : { status: "Lỗi", pill: "cr-pill--bad" });
+        renderProgress(run);
+      }
+      say(`${WHO[e.actor] || e.actor} xong ${e.task_id}, chờ nghiệm thu…`);
+      break;
+    case "task_reviewed": {
+      const [label, cls] = { accepted: ["Đạt", "ok"], revise: ["Yêu cầu sửa", "warn"], failed: ["Không đạt", "bad"] }[d.next] || [d.next, ""];
+      const why = d.next === "accepted" ? "Kiểm tra nguồn và nội dung." : esc([d.feedback, ...(d.required_changes || [])].filter(Boolean).join("; "));
+      step("master", `Nghiệm thu ${e.task_id}`, `<span class="cr-verdict ${cls}">${label}</span>${why}`);
+      if (d.next !== "revise") ctx.done.add(e.task_id);
+      const open = Object.keys(ctx.plan).length - ctx.done.size;
+      if (top) {
+        run.tstate[e.task_id] = { accepted: "ok", revise: "revise", failed: "bad" }[d.next] || "review";
+        run.stage = open > 0 ? 2 : 4;
+        const l = run.lanes[(run.plan[e.task_id]?.worker_type || "").replace(/^ai_/, "")];
+        if (l) Object.assign(l, { accepted: { status: "AI Tổng hợp: Đạt", pill: "cr-pill--ok" }, revise: { status: "Phải sửa", pill: "cr-pill--warn" },
+                                  failed: { status: "Không đạt", pill: "cr-pill--bad" } }[d.next] || {});
+        renderProgress(run);
+      }
+      say(d.next === "revise" ? `${e.task_id} chưa đạt, đang làm lại…` : open > 0 ? `Đã nghiệm thu ${e.task_id}, các nhiệm vụ khác đang chạy…` : "Đang viết câu trả lời…");
+      break;
+    }
+    case "task_blocked": step("sys", `${e.task_id} tạm dừng`, "Nhiệm vụ phụ thuộc chưa đạt: " + esc(d.blocked_by.join(", "))); break;
+    case "budget_exceeded": step("sys", "Dừng giao việc", "Chạm trần số lời gọi hoặc chi phí của lượt chạy."); break;
+    case "report_checked": step("master", "Đối chiếu trích dẫn",
+        d.ok ? `<span class="cr-verdict ok">Khớp</span>Mọi mã nguồn trong câu trả lời đều có trong kết quả đã nghiệm thu.`
+             : `<span class="cr-verdict warn">Lưu ý</span>Mã không khớp: ${esc(d.unknown_ids.join(", "))}`); break;
+    case "data_table":
+      run.tables.push(d);
+      step("du_lieu", `Danh sách chi tiết · ${e.task_id}`, `${d.total} dòng, lấy thẳng từ cơ sở dữ liệu tới màn hình này; không gửi cho dịch vụ AI.`);
+      break;
+    case "report_published":
+      step("master", top ? "Tổng hợp câu trả lời" : "Viết báo cáo gửi AI Tổng hợp", "");
+      if (top) { run.stage = 5; renderProgress(run); }
+      break;
+    case "report_failed":
+      step("master", top ? "Chưa viết được câu trả lời" : "Chưa viết được báo cáo", `<span class="cr-verdict bad">Lỗi</span>${esc(d.error || "")}`);
+      break;
+  }
+}
+
+// ---------- Hỏi đáp ----------
+function ask(q, runMode = mode) {
+  q = (q || "").trim();
+  if (q.length < 3 || source) return;
+  $("welcome")?.remove(); closeSamples(); toggleNav(false);
+  const agent = principal() ? "tong_hop" : info.key;
+  $("messages").insertAdjacentHTML("beforeend", `<div class="cr-msg cr-msg--user"><div class="cr-bubble">${esc(q)}</div></div>`);
+  $("messages").insertAdjacentHTML("beforeend", `<div class="cr-msg">${mark(agent, "cr-mark-lg")}<div class="card cr-answer">
+    <div class="card-status-top" style="background:var(--cr-c-${principal() ? "tong_hop" : "master"})"></div>
+    <div class="card-header"><h3 class="card-title">${esc(info.ten)}</h3><div class="card-actions cr-tags"></div></div>
+    <div class="cr-progress"><ol class="cr-stages"></ol><div class="cr-tasks"></div>
+      <div class="cr-now"><span class="spinner-border spinner-border-sm" role="status"></span><span class="cr-now-text">${principal() ? "AI Tổng hợp" : "Tác tử điều phối"} đang lập kế hoạch…</span><span class="cr-clock"></span></div></div>
+    <div class="card-body cr-md" hidden></div><div class="card-footer cr-foot" hidden></div></div></div>`);
+  const cards = document.querySelectorAll(".cr-answer");
+  const run = { q, mode: runMode, plan: {}, subs: {}, items: [], lanes: {}, tables: [], cited: new Set(), done: new Set(), tstate: {}, stage: 0,
+                card: cards[cards.length - 1], t0: performance.now(), eventTime: null, replayed: false, state: ["Đang xử lý", "running"] };
+  sessionRuns.push(run); renderRecent(); $("reset").disabled = true;
+  run.card.onclick = ev => { if (!ev.target.closest("a, button")) showRun(run); };
+  current = run; renderProgress(run); showRun(run); scrollDown();
+  $("q").value = ""; autosize(); $("send").disabled = true;
+  timer = setInterval(() => {
+    const c = run.card.querySelector(".cr-clock");
+    if (c) c.textContent = run.replayed ? `lần chạy gốc: ${fmtSecs(run.eventTime)}` : fmtSecs((performance.now() - run.t0) / 1000);
+  }, 500);
+
+  source = new EventSource(`/api/ask?q=${encodeURIComponent(q)}&mode=${runMode}&app=${encodeURIComponent(appKey)}`);
+  document.querySelectorAll("#apps .nav-link").forEach(b => b.disabled = true);  // đang chạy: không đổi AI giữa chừng
+  source.addEventListener("event", m => { const e = JSON.parse(m.data); run.eventTime = e._t ?? null; onEvent(run, e); });
+  source.addEventListener("replay", m => {
+    const d = JSON.parse(m.data);
+    const [date, time] = d.recorded_at.split("T");
+    run.replayed = true;
+    run.card.querySelector(".cr-tags").insertAdjacentHTML("beforeend", `<span class="cr-pill cr-pill--replay" title="${esc(d.reason)}">${ic("history")}`
+      + `Phát lại · chạy thật lúc ${esc(time.slice(0, 5))} ngày ${esc(date.split("-").reverse().join("/"))}</span>`);
+    run.state = ["Phát lại bản ghi", "replay"]; if (run === active) setState(...run.state);
+  });
+  source.addEventListener("done", m => finish(run, JSON.parse(m.data)));
+  source.onerror = () => { if (source) finish(run, { report: "", error: "Mất kết nối tới máy chủ demo." }); };
+}
+
+function finish(run, d) {
+  if (source) { source.close(); source = null; }
+  document.querySelectorAll("#apps .nav-link").forEach(b => b.disabled = false);
+  clearInterval(timer); $("send").disabled = false; $("reset").disabled = false;
+  run.report = d.report || "";
+  run.card.querySelector(".cr-progress")?.remove();
+  const body = run.card.querySelector(".cr-md");
+  const noRecord = d.replayed && !d.usage && /^Chưa có bản ghi/.test(d.report || "");
+  body.innerHTML = d.error ? `<p class="cr-error">${esc(d.error)}</p>`
+    : noRecord ? `<p>${ic("info-circle")} Chưa có bản ghi chạy thật cho câu hỏi này.</p>
+        <button type="button" class="btn btn-sm btn-primary cr-run-live">${ic("bolt")}Chạy trực tiếp câu này</button>
+        <span class="text-secondary small ms-2">mất 1–7 phút, có tốn phí</span>`
+    : render(d.report || "", run) + run.tables.map(dataTable).join("");
+  body.hidden = false;
+  body.querySelector(".cr-run-live")?.addEventListener("click", () => ask(run.q, "live"));
+  body.querySelectorAll(".cr-dt-head button").forEach((b, i) => b.onclick = () => downloadCsv(run.tables[i]));
+  const parts = [];
+  const secs = d.elapsed_s || run.eventTime;
+  if (secs && !noRecord) parts.push([run.replayed ? "history" : "clock", `${fmtSecs(secs)}${run.replayed ? " (lần chạy gốc)" : ""}`]);
+  const via = Object.keys(d.usage?.providers || {});
+  if (d.usage) parts.push(["robot", `${d.usage.calls} lượt gọi AI`],
+                          ["coin", `khoảng ${Math.round(d.usage.cost_usd * VND_PER_USD).toLocaleString("vi-VN")} đồng`, via.length ? `qua ${via.join(", ")}` : ""]);
+  const tasks = Object.values(run.tstate);
+  if (tasks.length) parts.push(["checklist", `${tasks.filter(s => s === "ok").length}/${tasks.length} nhiệm vụ đạt`]);
+  if (run.cited.size) parts.push(["file-text", `${run.cited.size} nguồn`]);
+  const foot = run.card.querySelector(".cr-foot");
+  foot.innerHTML = parts.map(([i, t, tip]) => `<span class="cr-metric"${tip ? ` title="${esc(tip)}"` : ""}>${ic(i)}${esc(t)}</span>`).join("")
+    + `<span class="ms-auto">${run.report && !noRecord ? `<button type="button" class="btn btn-sm cr-copy" title="Sao chép câu trả lời">${ic("copy")}Sao chép</button>` : ""}<button type="button" class="btn btn-sm cr-see">${ic("sitemap")}Quy trình</button></span>`;
+  foot.hidden = false;
+  foot.querySelector(".cr-see").onclick = () => { showRun(run); showTab("steps"); toggleInspector(true); };
+  const copy = foot.querySelector(".cr-copy");
+  if (copy) copy.onclick = async () => { try { await navigator.clipboard.writeText(run.report); toast("Đã sao chép câu trả lời."); } catch { toast("Không sao chép được. Bạn có thể chọn nội dung và nhấn Ctrl+C."); } };
+  if (!run.replayed) run.state = d.error ? ["Lỗi", "error"] : !Object.values(d.status || {}).some(s => s === "accepted") ? ["Chưa có kết quả đạt", "error"] : Object.values(d.status || {}).some(s => s !== "accepted") ? ["Hoàn tất một phần", "muted"] : ["Hoàn tất", "done"];
+  else if (!d.error) run.state = ["Phát lại xong", "replay"];
+  showRun(run); $("q").focus({ preventScroll: true });
+  run.card.closest(".cr-msg").previousElementSibling.scrollIntoView({ block: "start" });  // câu trả lời dài: hiện từ câu hỏi trở xuống
+}
+
+function dataTable(t) {  // danh sách từng người: chỉ hiện trên màn hình cán bộ, không có trong câu trả lời của AI
+  const head = t.columns.map(c => `<th>${esc(colName(c))}</th>`).join("");
+  const rows = t.rows.map(r => `<tr>${r.map(v => `<td>${esc(v ?? "")}</td>`).join("")}</tr>`).join("");
+  return `<div class="cr-dt"><div class="cr-dt-head">${ic("database")}<b>${esc(prettyTitle(t.title))}</b><small>${t.total} dòng · từ cơ sở dữ liệu, không qua AI</small>`
+    + `<button type="button" class="btn btn-sm"${t.rows.length ? "" : " disabled"}>${ic("download")}Tải CSV</button></div>`
+    + (t.rows.length ? `<div class="cr-dt-scroll"><table class="table table-sm table-striped"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
+                     : `<div class="cr-dt-empty">Bản ghi không lưu danh sách từng người; danh sách chỉ hiện khi chạy trên dữ liệu thật.</div>`) + `</div>`;
+}
+
+function downloadCsv(t) {
+  const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const csv = "\ufeff" + [t.columns.map(colName), ...t.rows].map(r => r.map(cell).join(",")).join("\r\n");  // BOM để Excel đọc đúng tiếng Việt
+  const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "danh-sach.csv" });
+  a.click(); URL.revokeObjectURL(a.href);
+}
+
+// ---------- Ô nhập, chế độ chạy, câu hỏi mẫu, phím tắt ----------
+function autosize() { const t = $("q"); t.style.height = "auto"; t.style.height = Math.min(t.scrollHeight, 136) + "px"; }
+$("q").addEventListener("input", autosize);
+$("q").addEventListener("keydown", ev => { if (ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); ask($("q").value); } });
+$("composer").addEventListener("submit", ev => { ev.preventDefault(); ask($("q").value); });
+$("reset").onclick = () => { if (!source) { active = current = null; welcome(); } };
+$("tab-steps").onclick = () => showTab("steps");
+$("tab-src").onclick = () => showTab("src");
+document.addEventListener("keydown", ev => {
+  if (ev.key === "Escape") closeSamples();
+});
+
+function closeSamples() { $("chips").hidden = true; $("samples-btn").setAttribute("aria-expanded", "false"); }
+$("samples-btn").onclick = () => { const open = $("chips").hidden; $("chips").hidden = !open; $("samples-btn").setAttribute("aria-expanded", String(open)); };
+document.addEventListener("click", ev => { if (!ev.target.closest("#chips, #samples-btn, #all-samples")) closeSamples(); });
+
+function present(on) {  // chế độ trình chiếu: phóng toàn trang cho máy chiếu (credere.css, html[data-trinh-chieu])
+  document.documentElement.toggleAttribute("data-trinh-chieu", on);
+  localStorage.setItem("credere-trinh-chieu", on ? "1" : "");
+  $("present").classList.toggle("active", on);
+  $("present").setAttribute("aria-pressed", String(on));
+}
+$("present").onclick = () => present(!document.documentElement.hasAttribute("data-trinh-chieu"));
+
+function legend() {
+  const items = principal()
+    ? [["tong_hop", "AI Tổng hợp"], ...info.delegates.map(d => [`ai_${d.key}`, d.ten]), ["analysis", "Phân tích"]]
+    : [["master", "Điều phối"], [info.key, (WHO[info.key] || "").replace("Tác tử ", "")], ["analysis", "Phân tích"], ...(info.data ? [["du_lieu", "Dữ liệu"]] : [])];
+  $("legend").innerHTML = items.map(([a, name]) => `<span>${mark(a, "cr-mark-sm")}${esc(name)}</span>`).join("")
+    + (principal() ? `<span class="text-secondary">Bước bên trong mỗi AI con nằm trong khung của AI đó</span>` : "");
+}
+
+async function setApp(key) {
+  if (source) return;
+  info = apps.find(a => a.key === key) || apps[0];
+  appKey = info.key;
+  localStorage.setItem("credere-app", appKey);
+  samples = await fetch(`/api/samples?app=${encodeURIComponent(appKey)}`).then(r => r.json());
+  document.title = `${info.ten} — Trường Đại học Nghệ An`;
+  $("app-title").textContent = info.ten;
+  $("app-sub").textContent = ROLE[appKey] || info.nguoi_dung;
+  $("breadcrumb-app").textContent = info.ten.replace("AI ", "");
+  $("context-label").textContent = `${info.source_count ?? "—"} văn bản · ${info.query_count ?? "—"} truy vấn`;
+  $("sim-badge").hidden = !info.synthetic;
+  $("hint").textContent = "Shift + Enter để xuống dòng";
+  $("hint").title = $("hint").textContent;
+  $("footer").textContent = info.synthetic ? "Số liệu nội bộ đang dùng dữ liệu giả lập. Kiểm tra nguồn trước khi sử dụng kết quả." : "Kiểm tra nguồn và số liệu trước khi sử dụng kết quả.";
+  $("footer").title = $("footer").textContent;
+  $("q").placeholder = { tuyen_sinh: "Hỏi về tuyển sinh, phân tích số liệu hoặc soạn một báo cáo…",
+                         dao_tao: "Tra cứu quy chế, kiểm tra học vụ hoặc phân tích kết quả học tập…",
+                         hieu_truong: "Đặt câu hỏi cần góc nhìn từ nhiều lĩnh vực…" }[appKey] || "Bạn cần hỗ trợ công việc gì hôm nay?";
+  $("apps").innerHTML = apps.map(a => `<button type="button" role="tab" data-k="${esc(a.key)}" class="nav-link${a.key === appKey ? " active" : ""}"
+    aria-selected="${a.key === appKey}" title="${esc(a.ten)}: ${esc(a.linh_vuc)}">${ic(APP_ICON[a.key] || "sparkles")}<span class="cr-role-text">`
+    + `<span class="cr-role-name">${esc(a.ten)}</span><span class="cr-role-who">${esc(ROLE[a.key] || a.nguoi_dung)}</span></span></button>`).join("");
+  document.querySelectorAll("#apps .nav-link").forEach(b => b.onclick = () => { toggleNav(false); setApp(b.dataset.k).catch(showLoadError); });
+  legend();
+  $("chips").innerHTML = samples.map((s, i) => `<button type="button" data-i="${i}" title="${esc(s.q)}"><b>${esc(s.kind || "Gợi ý")}</b>${esc(s.q.length > 110 ? s.q.slice(0, 108) + "…" : s.q)}</button>`).join("");
+  document.querySelectorAll("#chips button").forEach(b => b.onclick = () => ask(samples[+b.dataset.i].q));
+  active = current = null;
+  welcome();
+}
+
+function toggleNav(open) {
+  document.body.classList.toggle("nav-open", open);
+  $("menu-toggle").setAttribute("aria-expanded", String(open));
+  $("nav-scrim").hidden = !open && !$("inspector").classList.contains("is-open");
+}
+function toggleInspector(open) {
+  open = open && window.matchMedia("(max-width:1000px)").matches;
+  $("inspector").classList.toggle("is-open", open);
+  $("inspector-toggle").setAttribute("aria-expanded", String(open));
+  $("nav-scrim").hidden = !open && !document.body.classList.contains("nav-open");
+}
+$("menu-toggle").onclick = () => { toggleInspector(false); toggleNav(!document.body.classList.contains("nav-open")); };
+$("nav-scrim").onclick = () => { toggleNav(false); toggleInspector(false); };
+$("inspector-toggle").onclick = () => { toggleNav(false); toggleInspector(!$("inspector").classList.contains("is-open")); };
+$("inspector-close").onclick = () => { toggleInspector(false); $("inspector-toggle").focus(); };
+window.addEventListener("resize", () => { if (innerWidth > 700) toggleNav(false); if (innerWidth > 1000) toggleInspector(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") { toggleNav(false); toggleInspector(false); } });
+
+let toastTimer;
+function toast(message) { clearTimeout(toastTimer); $("workspace-toast").textContent = message; $("workspace-toast").hidden = false; toastTimer = setTimeout(() => $("workspace-toast").hidden = true, 3200); }
+function libraryEntries() { return Object.entries(catalog).filter(([id]) => !id.startsWith("CSDL-")); }
+const foldSearch = s => s.toLocaleLowerCase("vi").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g,"d");
+function renderLibrary() {
+  const q = foldSearch($("library-search").value.trim()), rows = libraryEntries().filter(([id,s]) => foldSearch(id+" "+s.title).includes(q));
+  $("library-results").innerHTML = rows.map(([id,s]) => { const url = publicURL(s.url); return `<${url ? `a href="${esc(url)}" target="_blank" rel="noopener"` : "div"} class="library-item">${ic("file-text")}<span><span class="source-id">${esc(id)}</span>${esc(s.title)}<small>${url ? new URL(url).hostname : "Nguồn lưu trong hệ thống"}</small></span>${url ? ic("external-link") : ""}</${url ? "a" : "div"}>`; }).join("") || '<div class="library-empty">Không tìm thấy tài liệu phù hợp. Thử tên hoặc mã văn bản khác.</div>';
+  $("library-subtitle").textContent = `${rows.length} / ${libraryEntries().length} văn bản công khai trong toàn bộ không gian.`;
+}
+$("library-btn").onclick = () => { toggleNav(false); renderLibrary(); $("library-dialog").showModal(); $("library-search").focus(); };
+$("library-close").onclick = () => $("library-dialog").close();
+$("library-search").addEventListener("input", renderLibrary);
+$("library-dialog").addEventListener("click", e => { if (e.target === $("library-dialog")) { const r = e.target.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) e.target.close(); } });
+function showLoadError() {
+  $("messages").innerHTML = '<div class="loading-state">Không tải được không gian làm việc. <button class="text-button" id="reload-workspace" type="button">Thử lại</button></div>';
+  $("reload-workspace").onclick = () => location.reload();
+}
+
+present(new URLSearchParams(location.search).has("trinh-chieu") || localStorage.getItem("credere-trinh-chieu") === "1");
+Promise.all(["/api/sources", "/api/apps"].map(u => fetch(u).then(r => r.json()))).then(async ([c, a]) => {
+  catalog = c; apps = a;
+  if (!apps.length) throw new Error("Không có trợ lý được cấu hình");
+  $("library-count").textContent = libraryEntries().length;
+  const params = new URLSearchParams(location.search);  // ?app=...&q=...&mode=...: tự hỏi khi mở trang (dùng khi chụp màn hình)
+  await setApp(params.get("app") || localStorage.getItem("credere-app") || apps[0].key);
+  if (params.get("q")) ask(params.get("q"), params.get("mode") || mode);
+}).catch(showLoadError);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿ID,Muc_uu_tien,Cong_viec,Nguoi_phu_trach_de_xuat,Phu_thuoc,Dieu_kien_hoan_thanh,Trang_thai
+P0-01,P0,"Xác định VPS từ chối kết nối, kiểm VM/firewall/gia hạn và backup",CNTT + chủ hosting,,Biên bản nguyên nhân; backup/snapshot trước khôi phục,Chưa làm
+P0-02,P0,"Chốt use case, chủ dữ liệu và ma trận quyền pilot",Người bảo trợ + đầu mối TS/ĐT,,"6–8 use case, 5–10 người, scope/route/owner rõ",Chờ trường xác nhận
+P0-03,P0,"Private Git, loại secrets khỏi source, pin deps, staging và rollback",Nhóm + CNTT,P0-01,Build tái lập và test nền đạt trên Linux,Chưa làm
+P0-04,P0,"SSO/OIDC, principal, quyền theo đơn vị/phạm vi/hành động",Backend + CNTT,"P0-02,P0-03",Test sai quyền/tài khoản/thu hồi đạt,Chưa làm
+P0-05,P0,"POST Run + UUID/owner, bỏ replay fallback production",Backend,"P0-03,P0-04",Không câu hỏi trong URL; lịch sử khác người cách ly,Chưa làm
+P0-06,P0,Security envelope kế thừa xuống AI con/công cụ,Backend,P0-04,Constraints không bị bỏ; ma_gv lấy từ quyền server,Chưa làm
+P0-07,P0,Cổng kiểm payload/API routes trước planner và mọi model,Backend + phụ trách dữ liệu,"P0-02,P0-06",Nguồn chưa phân loại cách ly; local-only không ra cloud,Chưa làm
+D-01,P0,Hợp đồng dataset và dictionary KPI TS/ĐT/liên phòng,Đầu mối dữ liệu + data engineer,P0-02,"Chủ dữ liệu duyệt schema, mốc, định nghĩa, quyền",Chờ trường xác nhận
+D-02,P1,"Snapshot/adapter chỉ đọc, staging đối soát và rollback",Data/backend,"D-01,P0-07",KPI khớp báo cáo chính thức cùng snapshot,Chưa làm
+D-03,P1,Bỏ hardcode năm/kỳ/khóa/40:60/70; version hóa quy tắc,Đầu mối ĐT + backend,D-01,"Dùng dữ liệu kỳ mới, đúng quy chế từng khóa",Chưa làm
+D-04,P1,Nguồn có owner/scope/version/hiệu lực/trang-mục; publish sau duyệt,Data/backend,D-01,Nguồn chưa duyệt không được truy xuất; recall giữ sửa đổi,Chưa làm
+R-01,P0,Postgres Run/state/events và checkpointer + queue worker,Backend,"P0-03,P0-05","Kill/restart, hai worker trùng, retry không publish trùng",Chưa làm
+R-02,P1,Hủy/resume và SSE reconnect kiểm quyền,Backend + frontend,"R-01,P0-06",Ngắt trình duyệt không mất Run; cancel chặn bước chưa gọi,Chưa làm
+Q-01,P1,Hợp đồng kết quả completeness/assumptions/evidence,Backend + nghiệp vụ,"D-02,P0-06",Không cắt JSON; giữ cảnh báo; query lỗi báo partial,Chưa làm
+Q-02,P1,Final evidence và phê duyệt đầu ra ảnh hưởng con người,Backend + nghiệp vụ,"Q-01,D-04",Sai mã/số/kỳ không gắn verified; có người duyệt,Chưa làm
+Q-03,P1,"Server export phân trang, đủ dòng, chống công thức CSV",Backend + frontend,"P0-04,D-02","Xuất >1000 dòng đúng quyền/số lượng, có audit",Chưa làm
+L-01,P1,"Latency/cost từng attempt, deadline, connection pooling",Backend,P0-03,Ghi cả lỗi/retry; số liệu cost chưa biết hiển thị đúng,Chưa làm
+L-02,P1,Router hỏi lại/ngoài phạm vi và đường nhanh có evidence,Backend,"Q-01,L-01",Không chạy fullgraph cho lời chào; case mơ hồ hỏi lại,Chưa làm
+L-03,P1,"Chia đoạn/giảm payload, bỏ tổng hợp hoặc review trùng có điều kiện",Backend + QA,"D-04,Q-02,L-01",A/B chất lượng không giảm; đo Run wallclock,Chưa làm
+E-01,P0,Bộ nghiệm thu mới; sửa grader và mẫu số tính lỗi,QA + người thẩm định,"P0-02,D-01",Đáp án sai có số đúng bị trượt; lỗi gateway tính reliability,Chưa làm
+O-01,P0,"Tài khoản dịch vụ, secrets, giám sát, backup/restore",CNTT + backend,"P0-03,R-01",Restore thử; cảnh báo/owner/rollback rõ,Chưa làm
+M-01,P1,Gói NCKH: nguồn bài/case/DOI/định mức và worker,KH + tài chính + nhóm,"D-01,P0-07",Kịch bản 3 case có bằng chứng; thiếu thì báo thiếu,Chờ dữ liệu
+M-02,P1,Gói HTQT: đối tác/thỏa thuận/chương trình/hiệu lực/quyền,HTQT + nhóm,"D-01,P0-07",Truy vấn có nguồn/hiệu lực và bộ test riêng,Chờ dữ liệu
+PILOT,P0,Shadow rồi pilot có người duyệt 5–10 cán bộ,Nhà trường + nhóm,"P0-04,P0-07,R-02,Q-02,Q-03,E-01,O-01",Qua cổng A–F trong kế hoạch; không lỗi nghiêm trọng mở,Chưa làm
+EXPAND,P2,Hành chính/Nhân sự/self-service và báo cáo sáu lĩnh vực,Chủ lĩnh vực + CNTT + nhóm,"PILOT,M-01,M-02",Từng nghiệp vụ có dữ liệu/quyền/test/chuyển giao riêng,Chưa làm

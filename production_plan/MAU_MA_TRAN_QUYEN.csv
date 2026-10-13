@@ -1,0 +1,6 @@
+﻿role,resource,scope,action,allowed_fields,external_processing_allowed,approval_owner,status
+Chuyên viên Tuyển sinh,Snapshot Tuyển sinh,Phạm vi được giao,read/aggregate,,,Chủ dữ liệu Tuyển sinh,Đề xuất - chưa cấp quyền
+Chuyên viên Tuyển sinh,Danh sách liên hệ,Phạm vi được giao,export,,,Chủ dữ liệu Tuyển sinh,Đề xuất - chưa cấp quyền
+Giảng viên,Lớp học phần,Lớp có phân công giảng dạy,read/aggregate,,,Chủ dữ liệu Đào tạo,Đề xuất - chưa cấp quyền
+Đại diện lãnh đạo,Báo cáo liên phòng,Tập nguồn được cấp riêng,aggregate/read,,,Chủ dữ liệu từng lĩnh vực,Đề xuất - chưa cấp quyền
+Quản trị kỹ thuật,Cấu hình model/hạ tầng,Chỉ cấu hình được giao,administer,,,CNTT,Không mặc định được đọc hồ sơ nghiệp vụ

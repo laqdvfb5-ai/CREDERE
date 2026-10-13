@@ -1,0 +1,2593 @@
+{
+  "slides": 18,
+  "main_slides": 15,
+  "backup_slides": 3,
+  "speaker_seconds": 900,
+  "shape_bounds_errors": [],
+  "all_slides_have_notes": true,
+  "text_boxes": [
+    {
+      "slide": 1,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 1,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 1,
+      "text": "BẢN DEMO CẬP NHẬT",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 1,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 1,
+      "text": "01",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 1,
+      "text": "Một câu hỏi.\nNhiều AI cùng làm.",
+      "font": 45,
+      "x": 0.72,
+      "y": 1.76,
+      "w": 7.3,
+      "h": 2.6
+    },
+    {
+      "slide": 1,
+      "text": "Trợ lý nghiệp vụ cho tuyển sinh,\nđào tạo và điều hành nhà trường.",
+      "font": 24,
+      "x": 0.76,
+      "y": 4.15,
+      "w": 6.5,
+      "h": 1.12
+    },
+    {
+      "slide": 1,
+      "text": "BẢN THỬ · VĂN BẢN CÔNG KHAI + SỐ LIỆU GIẢ LẬP",
+      "font": 10,
+      "x": 0.89,
+      "y": 5.9350000000000005,
+      "w": 4.2700000000000005,
+      "h": 0.25
+    },
+    {
+      "slide": 1,
+      "text": "AI Tổng hợp",
+      "font": 19,
+      "x": 8.68,
+      "y": 2.0,
+      "w": 3.44,
+      "h": 0.42
+    },
+    {
+      "slide": 1,
+      "text": "Giao việc · đối chiếu · tổng hợp",
+      "font": 14,
+      "x": 8.68,
+      "y": 2.52,
+      "w": 3.44,
+      "h": 0.52
+    },
+    {
+      "slide": 1,
+      "text": "AI Tuyển sinh",
+      "font": 19,
+      "x": 8.68,
+      "y": 3.75,
+      "w": 3.44,
+      "h": 0.42
+    },
+    {
+      "slide": 1,
+      "text": "Văn bản và số liệu tuyển sinh",
+      "font": 14,
+      "x": 8.68,
+      "y": 4.27,
+      "w": 3.44,
+      "h": 0.42999999999999994
+    },
+    {
+      "slide": 1,
+      "text": "AI Đào tạo",
+      "font": 19,
+      "x": 8.68,
+      "y": 5.18,
+      "w": 3.44,
+      "h": 0.42
+    },
+    {
+      "slide": 1,
+      "text": "Quy chế và số liệu học vụ",
+      "font": 14,
+      "x": 8.68,
+      "y": 5.699999999999999,
+      "w": 3.44,
+      "h": 0.42999999999999994
+    },
+    {
+      "slide": 2,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 2,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 2,
+      "text": "BÀI TOÁN XUẤT PHÁT",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 2,
+      "text": "Một câu hỏi cần nhiều đầu mối",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 2,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 2,
+      "text": "02",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 2,
+      "text": "“Ngành nào thiếu chỉ tiêu tuyển sinh nhất?\nỞ những ngành đó, cảnh báo học vụ và rời trường ra sao?”",
+      "font": 27,
+      "x": 1.0,
+      "y": 2.7,
+      "w": 11.3,
+      "h": 1.45
+    },
+    {
+      "slide": 2,
+      "text": "01",
+      "font": 13,
+      "x": 0.8799999999999999,
+      "y": 5.04,
+      "w": 0.42,
+      "h": 0.42
+    },
+    {
+      "slide": 2,
+      "text": "Tuyển sinh",
+      "font": 18,
+      "x": 1.48,
+      "y": 5.0,
+      "w": 2.81,
+      "h": 0.45
+    },
+    {
+      "slide": 2,
+      "text": "Chỉ tiêu · số xác nhận · phần còn thiếu",
+      "font": 14,
+      "x": 1.48,
+      "y": 5.529999999999999,
+      "w": 2.81,
+      "h": 0.77
+    },
+    {
+      "slide": 2,
+      "text": "02",
+      "font": 13,
+      "x": 4.949999999999999,
+      "y": 5.04,
+      "w": 0.42,
+      "h": 0.42
+    },
+    {
+      "slide": 2,
+      "text": "Đào tạo",
+      "font": 18,
+      "x": 5.55,
+      "y": 5.0,
+      "w": 2.81,
+      "h": 0.45
+    },
+    {
+      "slide": 2,
+      "text": "Cảnh báo · rời trường · ngành và khóa",
+      "font": 14,
+      "x": 5.55,
+      "y": 5.529999999999999,
+      "w": 2.81,
+      "h": 0.77
+    },
+    {
+      "slide": 2,
+      "text": "03",
+      "font": 13,
+      "x": 9.02,
+      "y": 5.04,
+      "w": 0.42,
+      "h": 0.42
+    },
+    {
+      "slide": 2,
+      "text": "Lãnh đạo",
+      "font": 18,
+      "x": 9.62,
+      "y": 5.0,
+      "w": 2.81,
+      "h": 0.45
+    },
+    {
+      "slide": 2,
+      "text": "So sánh · nhận diện điểm cần kiểm tra",
+      "font": 14,
+      "x": 9.62,
+      "y": 5.529999999999999,
+      "w": 2.81,
+      "h": 0.77
+    },
+    {
+      "slide": 3,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 3,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 3,
+      "text": "NHỮNG GÌ ĐÃ CÓ",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 3,
+      "text": "Ba trợ lý, ba phạm vi công việc",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 3,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 3,
+      "text": "03",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 3,
+      "text": "Cán bộ tuyển sinh",
+      "font": 11,
+      "x": 1.01,
+      "y": 2.745,
+      "w": 3.17,
+      "h": 0.25
+    },
+    {
+      "slide": 3,
+      "text": "AI Tuyển sinh",
+      "font": 25,
+      "x": 0.9299999999999999,
+      "y": 3.33,
+      "w": 3.32,
+      "h": 0.5
+    },
+    {
+      "slide": 3,
+      "text": "70 văn bản  /  19 truy vấn",
+      "font": 17,
+      "x": 0.9299999999999999,
+      "y": 4.04,
+      "w": 3.32,
+      "h": 0.52
+    },
+    {
+      "slide": 3,
+      "text": "Tra cứu, soạn nháp\nTheo dõi xác nhận nhập học\nRà soát hồ sơ và số liệu",
+      "font": 16,
+      "x": 0.9299999999999999,
+      "y": 5.0,
+      "w": 3.32,
+      "h": 1.07
+    },
+    {
+      "slide": 3,
+      "text": "Phòng Đào tạo · Giảng viên",
+      "font": 11,
+      "x": 5.08,
+      "y": 2.745,
+      "w": 3.17,
+      "h": 0.25
+    },
+    {
+      "slide": 3,
+      "text": "AI Đào tạo",
+      "font": 25,
+      "x": 5.000000000000001,
+      "y": 3.33,
+      "w": 3.32,
+      "h": 0.5
+    },
+    {
+      "slide": 3,
+      "text": "36 văn bản  /  17 truy vấn",
+      "font": 17,
+      "x": 5.000000000000001,
+      "y": 4.04,
+      "w": 3.32,
+      "h": 0.52
+    },
+    {
+      "slide": 3,
+      "text": "Quy chế và chương trình\nCảnh báo, kết quả học tập\nLớp học phần, lịch thi",
+      "font": 16,
+      "x": 5.000000000000001,
+      "y": 5.0,
+      "w": 3.32,
+      "h": 1.07
+    },
+    {
+      "slide": 3,
+      "text": "Hiệu trưởng",
+      "font": 11,
+      "x": 9.15,
+      "y": 2.745,
+      "w": 3.17,
+      "h": 0.25
+    },
+    {
+      "slide": 3,
+      "text": "AI Tổng hợp",
+      "font": 25,
+      "x": 9.07,
+      "y": 3.33,
+      "w": 3.32,
+      "h": 0.5
+    },
+    {
+      "slide": 3,
+      "text": "Giao việc cho 2 AI lĩnh vực",
+      "font": 17,
+      "x": 9.07,
+      "y": 4.04,
+      "w": 3.32,
+      "h": 0.52
+    },
+    {
+      "slide": 3,
+      "text": "Lập kế hoạch liên lĩnh vực\nĐối chiếu kết quả trả về\nTổng hợp cho lãnh đạo",
+      "font": 16,
+      "x": 9.07,
+      "y": 5.0,
+      "w": 3.32,
+      "h": 1.07
+    },
+    {
+      "slide": 4,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 4,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 4,
+      "text": "CƠ CHẾ PHỐI HỢP",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 4,
+      "text": "AI Hiệu trưởng thực sự giao việc",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 4,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 4,
+      "text": "04",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 4,
+      "text": "AI Tổng hợp",
+      "font": 19,
+      "x": 4.93,
+      "y": 2.44,
+      "w": 3.47,
+      "h": 0.42
+    },
+    {
+      "slide": 4,
+      "text": "Nhận câu hỏi và lập kế hoạch",
+      "font": 14,
+      "x": 4.93,
+      "y": 2.96,
+      "w": 3.47,
+      "h": 0.32000000000000006
+    },
+    {
+      "slide": 4,
+      "text": "AI Tuyển sinh",
+      "font": 19,
+      "x": 1.53,
+      "y": 3.99,
+      "w": 4.14,
+      "h": 0.42
+    },
+    {
+      "slide": 4,
+      "text": "Lập kế hoạch → thực hiện → nghiệm thu",
+      "font": 14,
+      "x": 1.53,
+      "y": 4.51,
+      "w": 4.14,
+      "h": 0.53
+    },
+    {
+      "slide": 4,
+      "text": "AI Đào tạo",
+      "font": 19,
+      "x": 7.6499999999999995,
+      "y": 3.99,
+      "w": 4.14,
+      "h": 0.42
+    },
+    {
+      "slide": 4,
+      "text": "Lập kế hoạch → thực hiện → nghiệm thu",
+      "font": 14,
+      "x": 7.6499999999999995,
+      "y": 4.51,
+      "w": 4.14,
+      "h": 0.53
+    },
+    {
+      "slide": 4,
+      "text": "Phân tích khi cần → AI Tổng hợp kiểm tra và trả lời",
+      "font": 19,
+      "x": 3.25,
+      "y": 5.82,
+      "w": 6.83,
+      "h": 0.35
+    },
+    {
+      "slide": 4,
+      "text": "Cấp Tổng hợp: 0 tài liệu trực tiếp · Không có kết nối CSDL riêng · Nhận kết quả do AI con trả về",
+      "font": 12,
+      "x": 0.79,
+      "y": 6.57,
+      "w": 11.8,
+      "h": 0.28
+    },
+    {
+      "slide": 5,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 5,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 5,
+      "text": "MINH CHỨNG THỰC THI · 29/09/2026",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 5,
+      "text": "Có bằng chứng từ một lượt chạy cụ thể",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 5,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 5,
+      "text": "05",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 5,
+      "text": "T1",
+      "font": 14,
+      "x": 0.9,
+      "y": 2.69,
+      "w": 0.5,
+      "h": 0.5
+    },
+    {
+      "slide": 5,
+      "text": "AI Tuyển sinh",
+      "font": 19,
+      "x": 1.65,
+      "y": 2.7,
+      "w": 3.25,
+      "h": 0.35
+    },
+    {
+      "slide": 5,
+      "text": "Cùng đợt với T2",
+      "font": 14,
+      "x": 5.12,
+      "y": 2.67,
+      "w": 3.7,
+      "h": 0.28
+    },
+    {
+      "slide": 5,
+      "text": "8 lượt gọi",
+      "font": 11,
+      "x": 5.12,
+      "y": 3.0300000000000002,
+      "w": 3.7,
+      "h": 0.22
+    },
+    {
+      "slide": 5,
+      "text": "T2",
+      "font": 14,
+      "x": 0.9,
+      "y": 3.7399999999999998,
+      "w": 0.5,
+      "h": 0.5
+    },
+    {
+      "slide": 5,
+      "text": "AI Đào tạo",
+      "font": 19,
+      "x": 1.65,
+      "y": 3.75,
+      "w": 3.25,
+      "h": 0.35
+    },
+    {
+      "slide": 5,
+      "text": "Cùng đợt với T1",
+      "font": 14,
+      "x": 5.12,
+      "y": 3.7199999999999998,
+      "w": 3.7,
+      "h": 0.28
+    },
+    {
+      "slide": 5,
+      "text": "4 lượt gọi",
+      "font": 11,
+      "x": 5.12,
+      "y": 4.08,
+      "w": 3.7,
+      "h": 0.22
+    },
+    {
+      "slide": 5,
+      "text": "T3",
+      "font": 14,
+      "x": 0.9,
+      "y": 4.790000000000001,
+      "w": 0.5,
+      "h": 0.5
+    },
+    {
+      "slide": 5,
+      "text": "Tác tử Phân tích",
+      "font": 19,
+      "x": 1.65,
+      "y": 4.800000000000001,
+      "w": 3.25,
+      "h": 0.35
+    },
+    {
+      "slide": 5,
+      "text": "Đợi T1 và T2 đạt",
+      "font": 14,
+      "x": 5.12,
+      "y": 4.7700000000000005,
+      "w": 3.7,
+      "h": 0.28
+    },
+    {
+      "slide": 5,
+      "text": "2 lượt gồm thực hiện và nghiệm thu",
+      "font": 11,
+      "x": 5.12,
+      "y": 5.130000000000001,
+      "w": 3.7,
+      "h": 0.22
+    },
+    {
+      "slide": 5,
+      "text": "18",
+      "font": 28,
+      "x": 9.62,
+      "y": 2.67,
+      "w": 2.8000000000000003,
+      "h": 0.55
+    },
+    {
+      "slide": 5,
+      "text": "Lượt gọi AI trong bản ghi",
+      "font": 12,
+      "x": 9.62,
+      "y": 3.31,
+      "w": 2.8000000000000003,
+      "h": 0.32
+    },
+    {
+      "slide": 5,
+      "text": "4 phút 47",
+      "font": 28,
+      "x": 9.62,
+      "y": 4.12,
+      "w": 2.8000000000000003,
+      "h": 0.55
+    },
+    {
+      "slide": 5,
+      "text": "Thời gian của riêng lượt này",
+      "font": 12,
+      "x": 9.62,
+      "y": 4.76,
+      "w": 2.8000000000000003,
+      "h": 0.32
+    },
+    {
+      "slide": 5,
+      "text": "18 lượt = 8 Tuyển sinh + 4 Đào tạo + 6 cấp điều phối; trong 6 lượt có 2 lượt của bước Phân tích.",
+      "font": 11,
+      "x": 0.82,
+      "y": 5.67,
+      "w": 11.73,
+      "h": 0.24
+    },
+    {
+      "slide": 5,
+      "text": "~00:40  Giao hai AI con     →     ~04:13  Bắt đầu phân tích     →     ~04:47  Trả kết quả",
+      "font": 17,
+      "x": 0.91,
+      "y": 6.14,
+      "w": 11.5,
+      "h": 0.31
+    },
+    {
+      "slide": 6,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 6,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 6,
+      "text": "KHÔNG GIAN LÀM VIỆC MỚI",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 6,
+      "text": "Hỏi việc, thấy tiến độ, mở được nguồn",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 6,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 6,
+      "text": "06",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 6,
+      "text": "01",
+      "font": 13,
+      "x": 0.74,
+      "y": 2.57,
+      "w": 0.43,
+      "h": 0.43
+    },
+    {
+      "slide": 6,
+      "text": "Chọn đúng trợ lý",
+      "font": 18,
+      "x": 1.33,
+      "y": 2.55,
+      "w": 2.54,
+      "h": 0.45
+    },
+    {
+      "slide": 6,
+      "text": "Tuyển sinh · Đào tạo · Tổng hợp",
+      "font": 14,
+      "x": 1.33,
+      "y": 3.08,
+      "w": 2.54,
+      "h": 0.64
+    },
+    {
+      "slide": 6,
+      "text": "02",
+      "font": 13,
+      "x": 0.74,
+      "y": 3.98,
+      "w": 0.43,
+      "h": 0.43
+    },
+    {
+      "slide": 6,
+      "text": "Nêu một công việc",
+      "font": 18,
+      "x": 1.33,
+      "y": 3.96,
+      "w": 2.54,
+      "h": 0.45
+    },
+    {
+      "slide": 6,
+      "text": "Tra cứu, phân tích, soạn báo cáo",
+      "font": 14,
+      "x": 1.33,
+      "y": 4.49,
+      "w": 2.54,
+      "h": 0.64
+    },
+    {
+      "slide": 6,
+      "text": "03",
+      "font": 13,
+      "x": 0.74,
+      "y": 5.39,
+      "w": 0.43,
+      "h": 0.43
+    },
+    {
+      "slide": 6,
+      "text": "Kiểm tra căn cứ",
+      "font": 18,
+      "x": 1.33,
+      "y": 5.37,
+      "w": 2.54,
+      "h": 0.45
+    },
+    {
+      "slide": 6,
+      "text": "Tiến độ, nguồn dẫn và bảng số liệu",
+      "font": 14,
+      "x": 1.33,
+      "y": 5.8999999999999995,
+      "w": 2.54,
+      "h": 0.64
+    },
+    {
+      "slide": 7,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 7,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 7,
+      "text": "DEMO TRỰC TIẾP · DỰ KIẾN 5 PHÚT",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 7,
+      "text": "Trình diễn một yêu cầu liên lĩnh vực",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 7,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 7,
+      "text": "07",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 7,
+      "text": "CHỌN AI TỔNG HỢP",
+      "font": 12,
+      "x": 1.06,
+      "y": 2.755,
+      "w": 2.2399999999999998,
+      "h": 0.25
+    },
+    {
+      "slide": 7,
+      "text": "Ngành nào đang thiếu nhiều chỉ tiêu tuyển sinh năm 2026 nhất? Với các ngành đó, tỷ lệ sinh viên bị cảnh báo học vụ và rời trường ở các khóa trước ra sao?",
+      "font": 23,
+      "x": 0.97,
+      "y": 3.28,
+      "w": 11.37,
+      "h": 1.06
+    },
+    {
+      "slide": 7,
+      "text": "1. Xem kế hoạch",
+      "font": 19,
+      "x": 0.73,
+      "y": 5.06,
+      "w": 3.7,
+      "h": 0.44
+    },
+    {
+      "slide": 7,
+      "text": "Công việc được chia cho AI nào?",
+      "font": 16,
+      "x": 0.73,
+      "y": 5.64,
+      "w": 3.7,
+      "h": 0.65
+    },
+    {
+      "slide": 7,
+      "text": "2. Theo dõi phối hợp",
+      "font": 19,
+      "x": 4.800000000000001,
+      "y": 5.06,
+      "w": 3.7,
+      "h": 0.44
+    },
+    {
+      "slide": 7,
+      "text": "AI con làm gì, kết quả nào đã đạt?",
+      "font": 16,
+      "x": 4.800000000000001,
+      "y": 5.64,
+      "w": 3.7,
+      "h": 0.65
+    },
+    {
+      "slide": 7,
+      "text": "3. Mở căn cứ",
+      "font": 19,
+      "x": 8.870000000000001,
+      "y": 5.06,
+      "w": 3.7,
+      "h": 0.44
+    },
+    {
+      "slide": 7,
+      "text": "Nguồn, thời điểm dữ liệu, giới hạn",
+      "font": 16,
+      "x": 8.870000000000001,
+      "y": 5.64,
+      "w": 3.7,
+      "h": 0.65
+    },
+    {
+      "slide": 7,
+      "text": "Nếu cần dự phòng: phụ lục B1 là ảnh kết quả đã lưu, không phải một lần chạy mới.",
+      "font": 12,
+      "x": 0.76,
+      "y": 6.53,
+      "w": 11.85,
+      "h": 0.25
+    },
+    {
+      "slide": 8,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 8,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 8,
+      "text": "MỘT AI LĨNH VỰC",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 8,
+      "text": "Tuyển sinh: nhìn rõ số liệu cần xử lý",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 8,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 8,
+      "text": "08",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 8,
+      "text": "Ảnh từ lượt chạy đã lưu · Số liệu nghiệp vụ giả lập",
+      "font": 10,
+      "x": 0.73,
+      "y": 6.779999999999999,
+      "w": 8.28,
+      "h": 0.45
+    },
+    {
+      "slide": 8,
+      "text": "Từ câu hỏi\nđến đầu việc",
+      "font": 23,
+      "x": 9.37,
+      "y": 2.72,
+      "w": 3.1,
+      "h": 1.1
+    },
+    {
+      "slide": 8,
+      "text": "Số xác nhận theo ngành\nPhần chỉ tiêu còn lại\nMốc dữ liệu rõ ràng\nNguồn để kiểm tra",
+      "font": 18,
+      "x": 9.37,
+      "y": 4.04,
+      "w": 3.1,
+      "h": 1.76
+    },
+    {
+      "slide": 9,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 9,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 9,
+      "text": "MỘT AI LĨNH VỰC",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 9,
+      "text": "Đào tạo: đặt số liệu trong đúng bối cảnh",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 9,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 9,
+      "text": "09",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 9,
+      "text": "Ảnh từ lượt chạy đã lưu · Số liệu nghiệp vụ giả lập",
+      "font": 10,
+      "x": 0.73,
+      "y": 6.779999999999999,
+      "w": 8.28,
+      "h": 0.45
+    },
+    {
+      "slide": 9,
+      "text": "Đúng ngành.\nĐúng khóa.\nĐúng học kỳ.",
+      "font": 23,
+      "x": 9.37,
+      "y": 2.72,
+      "w": 3.1,
+      "h": 1.5
+    },
+    {
+      "slide": 9,
+      "text": "Cảnh báo học vụ\nKết quả học tập\nLớp học phần, lịch thi",
+      "font": 18,
+      "x": 9.37,
+      "y": 4.46,
+      "w": 3.1,
+      "h": 1.6
+    },
+    {
+      "slide": 10,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 10,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 10,
+      "text": "THIẾT KẾ LUỒNG DỮ LIỆU",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 10,
+      "text": "Tách số tổng hợp khỏi danh sách cá nhân",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 10,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 10,
+      "text": "10",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 10,
+      "text": "CSDL giả lập",
+      "font": 19,
+      "x": 0.96,
+      "y": 3.37,
+      "w": 2.8400000000000003,
+      "h": 0.42
+    },
+    {
+      "slide": 10,
+      "text": "Kết nối chỉ đọc\nTruy vấn được định sẵn",
+      "font": 14,
+      "x": 0.96,
+      "y": 3.89,
+      "w": 2.8400000000000003,
+      "h": 0.8300000000000001
+    },
+    {
+      "slide": 10,
+      "text": "Số lượng và thống kê → AI",
+      "font": 19,
+      "x": 6.279999999999999,
+      "y": 2.6100000000000003,
+      "w": 6.06,
+      "h": 0.42
+    },
+    {
+      "slide": 10,
+      "text": "Phân tích, giải thích, soạn báo cáo",
+      "font": 14,
+      "x": 6.279999999999999,
+      "y": 3.1300000000000003,
+      "w": 6.06,
+      "h": 0.6799999999999999
+    },
+    {
+      "slide": 10,
+      "text": "Danh sách từng người → Giao diện",
+      "font": 19,
+      "x": 6.279999999999999,
+      "y": 4.8,
+      "w": 6.06,
+      "h": 0.42
+    },
+    {
+      "slide": 10,
+      "text": "Xem bảng và tải CSV; không đưa các hàng này vào prompt",
+      "font": 14,
+      "x": 6.279999999999999,
+      "y": 5.319999999999999,
+      "w": 6.06,
+      "h": 0.6799999999999999
+    },
+    {
+      "slide": 10,
+      "text": "Cần bổ sung phân quyền người dùng trước khi đưa dữ liệu cá nhân thật vào vận hành.",
+      "font": 15,
+      "x": 0.81,
+      "y": 6.48,
+      "w": 11.76,
+      "h": 0.31
+    },
+    {
+      "slide": 11,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 11,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 11,
+      "text": "KẾT QUẢ VÀ GIỚI HẠN",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 11,
+      "text": "Đã kiểm tra — nhưng chưa phải nghiệm thu độc lập",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 11,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 11,
+      "text": "11",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 11,
+      "text": "159",
+      "font": 58,
+      "x": 1.04,
+      "y": 2.83,
+      "w": 2.89,
+      "h": 1.08
+    },
+    {
+      "slide": 11,
+      "text": "Kiểm thử\nphần mềm đạt",
+      "font": 24,
+      "x": 1.04,
+      "y": 4.11,
+      "w": 2.89,
+      "h": 0.87
+    },
+    {
+      "slide": 11,
+      "text": "Xác minh cục bộ 29/9/2026",
+      "font": 12,
+      "x": 1.04,
+      "y": 5.4,
+      "w": 2.89,
+      "h": 0.5
+    },
+    {
+      "slide": 11,
+      "text": "Văn bản tuyển sinh",
+      "font": 19,
+      "x": 4.74,
+      "y": 2.56,
+      "w": 5.38,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "30 / 30",
+      "font": 23,
+      "x": 10.65,
+      "y": 2.56,
+      "w": 1.56,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "Dữ liệu tuyển sinh giả lập",
+      "font": 19,
+      "x": 4.74,
+      "y": 3.34,
+      "w": 5.38,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "14 / 14",
+      "font": 23,
+      "x": 10.65,
+      "y": 3.34,
+      "w": 1.56,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "Đào tạo giả lập",
+      "font": 19,
+      "x": 4.74,
+      "y": 4.12,
+      "w": 5.38,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "10 / 10",
+      "font": 23,
+      "x": 10.65,
+      "y": 4.12,
+      "w": 1.56,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "Tổng hợp giả lập",
+      "font": 19,
+      "x": 4.74,
+      "y": 4.9,
+      "w": 5.38,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "4 / 4",
+      "font": 23,
+      "x": 10.65,
+      "y": 4.9,
+      "w": 1.56,
+      "h": 0.41
+    },
+    {
+      "slide": 11,
+      "text": "Bộ thử nội bộ đã có đáp án; chưa phải cam kết chất lượng trên dữ liệu thật.",
+      "font": 15,
+      "x": 4.75,
+      "y": 5.97,
+      "w": 7.45,
+      "h": 0.56
+    },
+    {
+      "slide": 12,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 12,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 12,
+      "text": "PHẠM VI HIỆN TẠI",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 12,
+      "text": "Bản thử đã chạy; điều kiện dùng thật còn phải hoàn thiện",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 12,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 12,
+      "text": "12",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 12,
+      "text": "ĐÃ CÓ TRONG CODE",
+      "font": 12,
+      "x": 1.11,
+      "y": 2.775,
+      "w": 2.4499999999999997,
+      "h": 0.25
+    },
+    {
+      "slide": 12,
+      "text": "TRƯỚC KHI THỬ DỮ LIỆU THẬT",
+      "font": 12,
+      "x": 7.16,
+      "y": 2.775,
+      "w": 3.67,
+      "h": 0.25
+    },
+    {
+      "slide": 12,
+      "text": "Ba trợ lý và cơ chế giao việc\nTra nguồn, truy vấn, bảng kết quả\nNhật ký và chi phí lượt chạy\nMật khẩu cho trang cài đặt",
+      "font": 20,
+      "x": 1.04,
+      "y": 3.46,
+      "w": 5.13,
+      "h": 2.37
+    },
+    {
+      "slide": 12,
+      "text": "Đăng nhập, phân quyền nghiệp vụ\nDữ liệu được đơn vị duyệt\nPhục hồi, hủy và vận hành bền\nNghiệm thu bằng câu hỏi mới",
+      "font": 20,
+      "x": 7.09,
+      "y": 3.46,
+      "w": 5.13,
+      "h": 2.37
+    },
+    {
+      "slide": 12,
+      "text": "Mật khẩu cài đặt ≠ phân quyền dữ liệu theo phòng ban.",
+      "font": 14,
+      "x": 1.04,
+      "y": 6.0,
+      "w": 10.95,
+      "h": 0.27
+    },
+    {
+      "slide": 13,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 13,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 13,
+      "text": "ƯỚC TÍNH TRONG HỒ SƠ CHẠY",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 13,
+      "text": "Chi phí phụ thuộc độ phức tạp của yêu cầu",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 13,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 13,
+      "text": "13",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 13,
+      "text": "14 CÂU DỮ LIỆU TUYỂN SINH",
+      "font": 12,
+      "x": 1.04,
+      "y": 2.81,
+      "w": 5.17,
+      "h": 0.31
+    },
+    {
+      "slide": 13,
+      "text": "~700 đ / câu",
+      "font": 37,
+      "x": 1.02,
+      "y": 3.5,
+      "w": 5.2,
+      "h": 0.79
+    },
+    {
+      "slide": 13,
+      "text": "Trung vị ~43 giây",
+      "font": 20,
+      "x": 1.04,
+      "y": 4.49,
+      "w": 5.17,
+      "h": 0.49
+    },
+    {
+      "slide": 13,
+      "text": "Trung bình ước tính $0,026\nBộ thử nội bộ trên dữ liệu giả lập",
+      "font": 15,
+      "x": 1.04,
+      "y": 5.16,
+      "w": 5.17,
+      "h": 0.66
+    },
+    {
+      "slide": 13,
+      "text": "1 CÂU TỔNG HỢP LIÊN LĨNH VỰC",
+      "font": 12,
+      "x": 7.09,
+      "y": 2.81,
+      "w": 5.17,
+      "h": 0.31
+    },
+    {
+      "slide": 13,
+      "text": "~6.900 đ",
+      "font": 37,
+      "x": 7.07,
+      "y": 3.5,
+      "w": 5.2,
+      "h": 0.79
+    },
+    {
+      "slide": 13,
+      "text": "4 phút 47 giây",
+      "font": 20,
+      "x": 7.09,
+      "y": 4.49,
+      "w": 5.17,
+      "h": 0.49
+    },
+    {
+      "slide": 13,
+      "text": "Ước tính $0,265 · 18 lượt gọi AI\nRiêng bản ghi minh chứng đã trình bày",
+      "font": 15,
+      "x": 7.09,
+      "y": 5.16,
+      "w": 5.17,
+      "h": 0.66
+    },
+    {
+      "slide": 13,
+      "text": "Quy đổi minh họa: 26.180 đ/USD theo cấu hình demo. Số liệu là ước tính đã ghi ngày 29/9, không phải báo giá hiện tại.",
+      "font": 12,
+      "x": 0.81,
+      "y": 6.29,
+      "w": 11.78,
+      "h": 0.45
+    },
+    {
+      "slide": 14,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 14,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 14,
+      "text": "LỘ TRÌNH ĐỀ XUẤT",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 14,
+      "text": "Bước tiếp theo: thử nhỏ, đo thật, rồi mới mở rộng",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 14,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 14,
+      "text": "14",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 14,
+      "text": "01",
+      "font": 40,
+      "x": 0.99,
+      "y": 2.82,
+      "w": 3.16,
+      "h": 0.8
+    },
+    {
+      "slide": 14,
+      "text": "Chốt công việc",
+      "font": 23,
+      "x": 0.99,
+      "y": 3.8,
+      "w": 3.16,
+      "h": 0.52
+    },
+    {
+      "slide": 14,
+      "text": "Chọn tình huống ưu tiên\nCử người phụ trách nguồn\nXác định quyền sử dụng",
+      "font": 17,
+      "x": 0.99,
+      "y": 4.54,
+      "w": 3.16,
+      "h": 1.25
+    },
+    {
+      "slide": 14,
+      "text": "Đầu vào có người xác nhận",
+      "font": 10,
+      "x": 1.06,
+      "y": 5.955,
+      "w": 3.0799999999999996,
+      "h": 0.25
+    },
+    {
+      "slide": 14,
+      "text": "02",
+      "font": 40,
+      "x": 5.03,
+      "y": 2.82,
+      "w": 3.16,
+      "h": 0.8
+    },
+    {
+      "slide": 14,
+      "text": "Hoàn thiện nền tảng",
+      "font": 23,
+      "x": 5.03,
+      "y": 3.8,
+      "w": 3.16,
+      "h": 0.52
+    },
+    {
+      "slide": 14,
+      "text": "Đăng nhập và phân quyền\nBản sao dữ liệu chỉ đọc\nPhục hồi và vận hành",
+      "font": 17,
+      "x": 5.03,
+      "y": 4.54,
+      "w": 3.16,
+      "h": 1.25
+    },
+    {
+      "slide": 14,
+      "text": "Qua kiểm tra quyền, lỗi",
+      "font": 10,
+      "x": 5.1,
+      "y": 5.955,
+      "w": 3.0799999999999996,
+      "h": 0.25
+    },
+    {
+      "slide": 14,
+      "text": "03",
+      "font": 40,
+      "x": 9.07,
+      "y": 2.82,
+      "w": 3.16,
+      "h": 0.8
+    },
+    {
+      "slide": 14,
+      "text": "Nghiệm thu thử",
+      "font": 23,
+      "x": 9.07,
+      "y": 3.8,
+      "w": 3.16,
+      "h": 0.52
+    },
+    {
+      "slide": 14,
+      "text": "Câu hỏi mới, chấm độc lập\nĐo chất lượng, thời gian, phí\nGhi nhận phản hồi thực tế",
+      "font": 17,
+      "x": 9.07,
+      "y": 4.54,
+      "w": 3.16,
+      "h": 1.25
+    },
+    {
+      "slide": 14,
+      "text": "Đạt tiêu chí mới mở rộng",
+      "font": 10,
+      "x": 9.14,
+      "y": 5.955,
+      "w": 3.0799999999999996,
+      "h": 0.25
+    },
+    {
+      "slide": 15,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 15,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 15,
+      "text": "ĐỀ NGHỊ NHÀ TRƯỜNG",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 15,
+      "text": "Để bắt đầu, nhóm cần ba sự phối hợp",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 15,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 15,
+      "text": "15",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 15,
+      "text": "01",
+      "font": 18,
+      "x": 0.79,
+      "y": 2.53,
+      "w": 0.57,
+      "h": 0.57
+    },
+    {
+      "slide": 15,
+      "text": "Hai đầu mối nghiệp vụ",
+      "font": 25,
+      "x": 1.65,
+      "y": 2.5,
+      "w": 10.46,
+      "h": 0.53
+    },
+    {
+      "slide": 15,
+      "text": "Tuyển sinh và Đào tạo cùng chọn việc, xác nhận nguồn.",
+      "font": 18,
+      "x": 1.65,
+      "y": 3.1399999999999997,
+      "w": 10.46,
+      "h": 0.42
+    },
+    {
+      "slide": 15,
+      "text": "02",
+      "font": 18,
+      "x": 0.79,
+      "y": 3.76,
+      "w": 0.57,
+      "h": 0.57
+    },
+    {
+      "slide": 15,
+      "text": "Một phạm vi dữ liệu được duyệt",
+      "font": 25,
+      "x": 1.65,
+      "y": 3.73,
+      "w": 10.46,
+      "h": 0.53
+    },
+    {
+      "slide": 15,
+      "text": "Bản sao chỉ đọc, quyền sử dụng và tài khoản dịch vụ rõ ràng.",
+      "font": 18,
+      "x": 1.65,
+      "y": 4.37,
+      "w": 10.46,
+      "h": 0.42
+    },
+    {
+      "slide": 15,
+      "text": "03",
+      "font": 18,
+      "x": 0.79,
+      "y": 4.99,
+      "w": 0.57,
+      "h": 0.57
+    },
+    {
+      "slide": 15,
+      "text": "Một bộ câu hỏi nghiệm thu mới",
+      "font": 25,
+      "x": 1.65,
+      "y": 4.96,
+      "w": 10.46,
+      "h": 0.53
+    },
+    {
+      "slide": 15,
+      "text": "Có đáp án hoặc tiêu chí do cán bộ chuyên môn xác nhận.",
+      "font": 18,
+      "x": 1.65,
+      "y": 5.6000000000000005,
+      "w": 10.46,
+      "h": 0.42
+    },
+    {
+      "slide": 15,
+      "text": "Bắt đầu từ công việc cụ thể. Đo được giá trị trước khi mở rộng.",
+      "font": 21,
+      "x": 0.82,
+      "y": 6.46,
+      "w": 11.75,
+      "h": 0.35
+    },
+    {
+      "slide": 16,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 16,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 16,
+      "text": "ẢNH MINH CHỨNG",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 16,
+      "text": "B1 · Kết quả Tổng hợp đã lưu để dự phòng",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 16,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ · PHỤ LỤC DỰ PHÒNG",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 16,
+      "text": "16",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 16,
+      "text": "Ảnh kết quả từ hồ sơ 29/9/2026 · Văn bản công khai + số liệu nghiệp vụ giả lập",
+      "font": 10,
+      "x": 0.8,
+      "y": 6.779999999999999,
+      "w": 11.74,
+      "h": 0.45
+    },
+    {
+      "slide": 17,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 17,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 17,
+      "text": "GIẢI ĐÁP VỀ KIẾN TRÚC",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 17,
+      "text": "B2 · AI Tổng hợp nhận gì và không nhận gì?",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 17,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ · PHỤ LỤC DỰ PHÒNG",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 17,
+      "text": "17",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 17,
+      "text": "Lập kế hoạch",
+      "font": 18,
+      "x": 1.04,
+      "y": 2.66,
+      "w": 3.71,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Yêu cầu + mô tả năng lực các AI con",
+      "font": 18,
+      "x": 5.05,
+      "y": 2.66,
+      "w": 7.1,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "AI con trả về",
+      "font": 18,
+      "x": 1.04,
+      "y": 3.5700000000000003,
+      "w": 3.71,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Báo cáo + nguồn dẫn + số liệu đã nghiệm thu",
+      "font": 18,
+      "x": 5.05,
+      "y": 3.5700000000000003,
+      "w": 7.1,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Phân tích",
+      "font": 18,
+      "x": 1.04,
+      "y": 4.48,
+      "w": 3.71,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Kết quả tác vụ trước; phép tính do code thực hiện",
+      "font": 18,
+      "x": 5.05,
+      "y": 4.48,
+      "w": 7.1,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Kho trực tiếp của Tổng hợp",
+      "font": 18,
+      "x": 1.04,
+      "y": 5.390000000000001,
+      "w": 3.71,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "0 tài liệu · không gắn DataStore",
+      "font": 18,
+      "x": 5.05,
+      "y": 5.390000000000001,
+      "w": 7.1,
+      "h": 0.42
+    },
+    {
+      "slide": 17,
+      "text": "Bằng chứng có trong mã nguồn, kế hoạch tác vụ, sự kiện AI con và sổ ghi lời gọi.",
+      "font": 15,
+      "x": 0.87,
+      "y": 6.44,
+      "w": 11.64,
+      "h": 0.34
+    },
+    {
+      "slide": 18,
+      "text": "credere.",
+      "font": 20,
+      "x": 0.6,
+      "y": 0.22,
+      "w": 2.2,
+      "h": 0.38
+    },
+    {
+      "slide": 18,
+      "text": "TRƯỜNG ĐẠI HỌC NGHỆ AN  /  29.09.2026",
+      "font": 10,
+      "x": 7.8,
+      "y": 0.29,
+      "w": 4.9,
+      "h": 0.23
+    },
+    {
+      "slide": 18,
+      "text": "PHỤ LỤC CHO NGƯỜI XEM KỸ THUẬT",
+      "font": 11,
+      "x": 0.64,
+      "y": 1.03,
+      "w": 12,
+      "h": 0.28
+    },
+    {
+      "slide": 18,
+      "text": "B3 · Căn cứ nội dung và cách kiểm chứng",
+      "font": 31,
+      "x": 0.62,
+      "y": 1.43,
+      "w": 12.1,
+      "h": 0.73
+    },
+    {
+      "slide": 18,
+      "text": "Credere · Bản thử nghiệm nghiệp vụ · PHỤ LỤC DỰ PHÒNG",
+      "font": 10,
+      "x": 0.64,
+      "y": 7.02,
+      "w": 10.9,
+      "h": 0.24
+    },
+    {
+      "slide": 18,
+      "text": "18",
+      "font": 12,
+      "x": 12.05,
+      "y": 6.98,
+      "w": 0.65,
+      "h": 0.3
+    },
+    {
+      "slide": 18,
+      "text": "Cơ chế giao việc",
+      "font": 18,
+      "x": 0.84,
+      "y": 2.54,
+      "w": 3.4,
+      "h": 0.45
+    },
+    {
+      "slide": 18,
+      "text": "backend/app/apps.py · workers.py · graph.py",
+      "font": 16,
+      "x": 4.1,
+      "y": 2.54,
+      "w": 8.4,
+      "h": 0.54
+    },
+    {
+      "slide": 18,
+      "text": "Dữ liệu và truy vấn",
+      "font": 18,
+      "x": 0.84,
+      "y": 3.4,
+      "w": 3.4,
+      "h": 0.45
+    },
+    {
+      "slide": 18,
+      "text": "backend/app/domains/ · tools/data.py",
+      "font": 16,
+      "x": 4.1,
+      "y": 3.4,
+      "w": 8.4,
+      "h": 0.54
+    },
+    {
+      "slide": 18,
+      "text": "Kết quả đã lưu",
+      "font": 18,
+      "x": 0.84,
+      "y": 4.26,
+      "w": 3.4,
+      "h": 0.45
+    },
+    {
+      "slide": 18,
+      "text": "eval-20260929-0149 · du-lieu-20260929-0138 · tong-hop-20260929-0156",
+      "font": 16,
+      "x": 4.1,
+      "y": 4.26,
+      "w": 8.4,
+      "h": 0.54
+    },
+    {
+      "slide": 18,
+      "text": "Hồ sơ bài trình bày",
+      "font": 18,
+      "x": 0.84,
+      "y": 5.12,
+      "w": 3.4,
+      "h": 0.45
+    },
+    {
+      "slide": 18,
+      "text": "CONTENT_FACTS.json · shots/current/screenshots.json · Notes của từng slide",
+      "font": 16,
+      "x": 4.1,
+      "y": 5.12,
+      "w": 8.4,
+      "h": 0.54
+    },
+    {
+      "slide": 18,
+      "text": "Cập nhật theo code và dữ liệu đang có ngày 29/9/2026. Không chứa mật khẩu hoặc khóa kết nối.",
+      "font": 13,
+      "x": 0.85,
+      "y": 6.26,
+      "w": 11.5,
+      "h": 0.4
+    }
+  ],
+  "index": [
+    {
+      "slide": 1,
+      "title": "Credere — trợ lý AI phối hợp",
+      "section": "Bản demo cập nhật",
+      "seconds": 30,
+      "notes": "Kính thưa quý thầy cô, nhóm em xin trình bày Credere: bản thử trợ lý AI cho tuyển sinh, đào tạo và công việc tổng hợp của lãnh đạo. Điểm nhóm muốn chứng minh hôm nay là một yêu cầu có thể được giao cho các AI lĩnh vực, kiểm tra rồi ghép thành kết quả có căn cứ. Văn bản trong kho là tài liệu công khai; số liệu nội bộ dùng trong demo là dữ liệu giả lập.",
+      "sources": [
+        "backend/app/apps.py:117",
+        "CONTENT_FACTS.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 2,
+      "title": "Một câu hỏi cần nhiều đầu mối",
+      "section": "Bài toán xuất phát",
+      "seconds": 45,
+      "notes": "Ví dụ, Hiệu trưởng muốn biết ngành nào đang thiếu chỉ tiêu và ở những ngành đó sinh viên các khóa trước học tập ra sao. Một phần dữ liệu nằm ở Tuyển sinh, phần khác ở Đào tạo. Muốn ghép được phải thống nhất ngành, khóa, thời điểm và cách tính. Đây là tình huống đã có trong hồ sơ chạy của bản thử, không phải số liệu tình hình thật của Trường.",
+      "sources": [
+        "C:/Users/laqdv/.credere/runs/demo-tuyen-sinh/hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 3,
+      "title": "Ba trợ lý, ba phạm vi công việc",
+      "section": "Những gì đã có",
+      "seconds": 50,
+      "notes": "AI Tuyển sinh có 70 văn bản công khai và 19 truy vấn dữ liệu định sẵn. AI Đào tạo có 36 văn bản và 17 truy vấn. Cả hai cơ sở dữ liệu nghiệp vụ hiện đều giả lập. AI Tổng hợp phục vụ Hiệu trưởng, biết năng lực của các AI con để giao việc và kiểm tra báo cáo. Con số 106 văn bản, 36 truy vấn trên giao diện Tổng hợp là tổng năng lực của hai AI con, không phải toàn bộ kho được đưa vào AI Tổng hợp.",
+      "sources": [
+        "backend/app/apps.py:117",
+        "backend/app/web.py:97",
+        "CONTENT_FACTS.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 4,
+      "title": "AI Hiệu trưởng thực sự giao việc",
+      "section": "Cơ chế phối hợp",
+      "seconds": 70,
+      "notes": "Trong code hiện tại, AI Tổng hợp có danh sách tài liệu rỗng, không gắn cơ sở dữ liệu trực tiếp. Nó được giới thiệu năng lực của các AI con, rồi giao yêu cầu cho từng AI. Mỗi AI con tự lập kế hoạch, tra cứu hoặc truy vấn và nghiệm thu riêng. Cấp trên nhận báo cáo cùng số liệu đã nghiệm thu, có thể giao tác tử Phân tích tính tiếp, rồi đối chiếu và tổng hợp. Các agent có luồng và ngữ cảnh riêng, có thể dùng cùng họ model; không cần hiểu là ba mô hình được huấn luyện riêng. Câu hỏi một lĩnh vực có thể chỉ gọi một AI con; bước Phân tích riêng chỉ xuất hiện khi cần.",
+      "sources": [
+        "backend/app/apps.py:128",
+        "backend/app/apps.py:89",
+        "backend/app/workers.py:234",
+        "backend/app/graph.py:223"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 5,
+      "title": "Có bằng chứng từ một lượt chạy cụ thể",
+      "section": "Minh chứng thực thi · 29/09/2026",
+      "seconds": 50,
+      "notes": "Bản ghi lúc 02 giờ 51 ngày 29 tháng 9 cho thấy T1 Tuyển sinh và T2 Đào tạo được giao trong cùng một đợt, khoảng giây 40. Cả hai có kế hoạch riêng. T3 Phân tích khai báo phụ thuộc T1 và T2, chỉ được giao khi hai kết quả đã đạt, khoảng phút 4 giây 13. Sau đó AI Tổng hợp viết câu trả lời. Tổng 18 lượt gọi dịch vụ AI: Tuyển sinh 8, Đào tạo 4, cấp trên gồm phân tích và tổng hợp 6. Đây là minh chứng luồng phối hợp, không phải chứng nhận toàn bộ nội dung luôn chính xác.",
+      "sources": [
+        "C:/Users/laqdv/.credere/runs/demo-tuyen-sinh/hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 6,
+      "title": "Hỏi việc, thấy tiến độ, mở được nguồn",
+      "section": "Không gian làm việc mới",
+      "seconds": 35,
+      "notes": "Đây là giao diện hiện tại. Bên trái chọn trợ lý, ở giữa nhập yêu cầu, bên phải theo dõi các bước. Kho tài liệu cho tìm theo tên hoặc mã. Nguồn trong câu trả lời mở được văn bản gốc khi có đường dẫn; bảng dữ liệu có thể tải CSV. Câu nhập tay và gợi ý đều chạy mới, giao diện chính không còn lựa chọn phát lại. Việc đổi trợ lý ở đây chưa phải đăng nhập hay phân quyền người dùng.",
+      "sources": [
+        "backend/app/pages/index.html",
+        "shots/current/welcome-principal.png"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 7,
+      "title": "Trình diễn một yêu cầu liên lĩnh vực",
+      "section": "Demo trực tiếp · Dự kiến 5 phút",
+      "seconds": 300,
+      "notes": "Chuyển sang trình duyệt tại http://127.0.0.1:8001, chọn AI Tổng hợp. Nhập đúng câu hỏi trên slide. Đây là chạy mới nên có sử dụng dịch vụ AI, thời gian thay đổi; lượt mẫu đã lưu mất khoảng 4 phút 47 giây. Trong lúc chờ, giải thích kế hoạch và chỉ rõ việc giao cho Tuyển sinh, Đào tạo, bước phân tích sau khi các đầu vào đạt. Khi có kết quả, mở tab Nguồn đã dẫn và nhắc số liệu nghiệp vụ là giả lập. Không đọc số liệu như báo cáo thật của Trường. Nếu dịch vụ lỗi hoặc quá thời gian, chuyển phụ lục B1 và nói rõ đó là ảnh của lượt chạy đã lưu. Nếu trang tự dùng kết quả đã lưu, thông báo đó phải được nói rõ; không giới thiệu là kết quả vừa tính. Không dùng thao tác Shift+bấm hay tìm nút Bản ghi: các thao tác chọn chế độ này đã bỏ.",
+      "sources": [
+        "C:/Users/laqdv/.credere/runs/demo-tuyen-sinh/hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+        "backend/app/pages/index.html"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 8,
+      "title": "Tuyển sinh: nhìn rõ số liệu cần xử lý",
+      "section": "Một AI lĩnh vực",
+      "seconds": 30,
+      "notes": "Ảnh này lấy từ lượt chạy đã lưu trên bộ dữ liệu giả lập. AI Tuyển sinh truy vấn số xác nhận nhập học và phần chỉ tiêu còn lại theo ngành. Cán bộ nhận bảng tổng hợp cùng mốc dữ liệu để tiếp tục đối chiếu. Truy vấn được chọn từ danh mục có sẵn, số đếm do cơ sở dữ liệu thực hiện. Giá trị ở đây là gom một công việc nghiệp vụ thành một luồng kiểm tra được; chưa có số đo độc lập về phần trăm thời gian tiết kiệm.",
+      "sources": [
+        "backend/app/domains/tuyen_sinh_queries.py",
+        "shots/current/screenshots.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 9,
+      "title": "Đào tạo: đặt số liệu trong đúng bối cảnh",
+      "section": "Một AI lĩnh vực",
+      "seconds": 30,
+      "notes": "AI Đào tạo có quy chế, chương trình và bộ dữ liệu học vụ giả lập riêng. Ví dụ này tổng hợp cảnh báo theo ngành và khóa. Một tỷ lệ chỉ có ý nghĩa khi nêu đúng mẫu số, đúng học kỳ và phạm vi. Vì vậy cán bộ cần kiểm tra cả bảng và nguồn, không chỉ nhìn một con số lớn. Các truy vấn hiện còn giả định và mốc cố định của bản thử; trước khi nối dữ liệu thật cần hiệu chỉnh với Phòng Đào tạo.",
+      "sources": [
+        "backend/app/domains/dao_tao_queries.py",
+        "shots/current/screenshots.json"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 10,
+      "title": "Tách số tổng hợp khỏi danh sách cá nhân",
+      "section": "Thiết kế luồng dữ liệu",
+      "seconds": 50,
+      "notes": "Trong luồng truy vấn hiện tại, model chọn tên truy vấn và tham số; nó không được tự viết SQL để chạy. Cơ sở dữ liệu mở chỉ đọc. Với truy vấn danh sách cá nhân, phần gửi model là số lượng và thống kê; bảng chi tiết đi tới giao diện. Điều này chưa phải lời đảm bảo mọi dữ liệu cá nhân không thể ra ngoài: hệ thống vẫn cần đăng nhập, phân quyền nghiệp vụ và kiểm tra từng luồng khi nối dữ liệu thật. Demo hôm nay chỉ dùng người và hồ sơ giả lập.",
+      "sources": [
+        "backend/app/tools/data.py:64",
+        "backend/app/tools/data.py:113",
+        "backend/app/contracts.py:64",
+        "backend/app/workers.py:187"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 11,
+      "title": "Đã kiểm tra — nhưng chưa phải nghiệm thu độc lập",
+      "section": "Kết quả và giới hạn",
+      "seconds": 45,
+      "notes": "159 kiểm thử phần mềm đã qua trong lần kiểm tra cục bộ ngày 29 tháng 9, bao gồm luồng điều phối, lỗi, truy vấn và khóa cài đặt. Đó không phải 159 câu hỏi nghiệp vụ với model thật. Các tệp kết quả đã lưu cho thấy 30 trên 30 câu văn bản tuyển sinh, 14 trên 14 câu dữ liệu tuyển sinh giả lập, 10 trên 10 câu Đào tạo và 4 trên 4 câu Tổng hợp đạt bộ chấm nội bộ. Các bộ này đã dùng trong quá trình phát triển; bộ chấm còn thiên về số và mã nguồn xuất hiện. Vì vậy không suy thành độ chính xác 100% khi dùng thật. Bước tiếp theo phải có câu hỏi mới và người nghiệp vụ chấm độc lập.",
+      "sources": [
+        "CONTENT_FACTS.json:software_verification",
+        "CONTENT_FACTS.json:limited_evaluations"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 12,
+      "title": "Bản thử đã chạy; điều kiện dùng thật còn phải hoàn thiện",
+      "section": "Phạm vi hiện tại",
+      "seconds": 45,
+      "notes": "Nhóm đã có giao diện, ba trợ lý, nguồn dẫn, truy vấn chỉ đọc, theo dõi công việc và mật khẩu cho trang cài đặt. Mật khẩu cài đặt chỉ bảo vệ cấu hình kết nối; nó không thay thế đăng nhập và phân quyền cho từng phòng ban. Hiện chưa nối cơ sở dữ liệu nghiệp vụ thật, chưa phục hồi công việc đang chạy sau khi tiến trình sập và chưa có cơ chế hủy hoàn chỉnh. Vì vậy đề nghị bước thử nghiệm nhỏ có kiểm soát, chưa đề nghị mở dùng toàn trường.",
+      "sources": [
+        "CONTENT_FACTS.json:current_boundaries"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 13,
+      "title": "Chi phí phụ thuộc độ phức tạp của yêu cầu",
+      "section": "Ước tính trong hồ sơ chạy",
+      "seconds": 40,
+      "notes": "Chi phí đang nói là ước tính từ mức dùng và bảng giá cấu hình tại thời điểm chạy, không phải báo giá dịch vụ hiện tại. Trong bộ 14 câu dữ liệu tuyển sinh đã lưu, trung bình khoảng 0,026 đô la, xấp xỉ 700 đồng; thời gian trung vị khoảng 43 giây. Riêng câu Tổng hợp liên lĩnh vực đã trình bày, ước tính 0,265 đô la, khoảng 6.900 đồng và mất 4 phút 47 giây. Không lấy hai con số này để cam kết chi phí mỗi câu hay suy ra kinh phí toàn trường. Khi pilot cần đo trên công việc thật, theo dõi cả chất lượng và chi phí.",
+      "sources": [
+        "CONTENT_FACTS.json:limited_evaluations",
+        "CONTENT_FACTS.json:principal_example",
+        "backend/app/config.py:PRICE_DATE"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 14,
+      "title": "Bước tiếp theo: thử nhỏ, đo thật, rồi mới mở rộng",
+      "section": "Lộ trình đề xuất",
+      "seconds": 40,
+      "notes": "Nhóm đề nghị đi theo ba bước có điều kiện hoàn thành. Trước hết chọn một số công việc và đầu mối nghiệp vụ, xác định dữ liệu được phép dùng. Sau đó bổ sung phân quyền, phục hồi và nối bản sao chỉ đọc trong phạm vi được duyệt. Cuối cùng dùng câu hỏi mới, so với đáp án cán bộ, đo thời gian và chi phí. Chỉ mở rộng khi đạt các tiêu chí đã thống nhất. Đây là trình tự đề xuất; thời gian cụ thể phụ thuộc dữ liệu, hạ tầng và người nghiệm thu.",
+      "sources": [
+        "PLAN.md",
+        "DATA_PLAN.md",
+        "CONTENT_FACTS.json:current_boundaries"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 15,
+      "title": "Để bắt đầu, nhóm cần ba sự phối hợp",
+      "section": "Đề nghị Nhà trường",
+      "seconds": 40,
+      "notes": "Nhóm xin đề nghị ba việc. Một, cử đầu mối Tuyển sinh và Đào tạo để chọn công việc đáng làm và kiểm tra kết quả. Hai, thống nhất một tập dữ liệu được phép dùng và cách tạo bản sao chỉ đọc; chuẩn bị tài khoản dịch vụ AI do Trường quản lý trước khi dùng dữ liệu thật. Ba, cung cấp một bộ câu hỏi mới cùng đáp án hoặc tiêu chí để nghiệm thu độc lập. Nhóm sẽ báo lại những gì làm được, những gì chưa đạt, thời gian và chi phí đo thực tế. Em xin cảm ơn quý thầy cô. Công việc nào của đơn vị nên được chọn để thử đầu tiên?",
+      "sources": [
+        "DATA_PLAN.md",
+        "PLAN.md"
+      ],
+      "backup": false
+    },
+    {
+      "slide": 16,
+      "title": "B1 · Kết quả Tổng hợp đã lưu để dự phòng",
+      "section": "Ảnh minh chứng",
+      "seconds": 0,
+      "notes": "Chỉ dùng khi không chạy được demo hoặc cần xem lại kết quả. Đây là ảnh giao diện hiện tại đang hiển thị kết quả của lượt chạy đã lưu lúc 02:51 ngày 29/9/2026. Số liệu nội bộ là giả lập; không trình bày đây là báo cáo thật hay kết quả vừa chạy. Bản ghi nêu ngành Kế toán và có các giới hạn về mẫu số, phạm vi dữ liệu. Chỉ vào cả phần bảng lẫn phần lưu ý, không chỉ đọc kết luận.",
+      "sources": [
+        "C:/Users/laqdv/.credere/runs/demo-tuyen-sinh/hieu_truong--nganh-nao-dang-thieu-nhieu-chi-tieu-tuyen-sinh-nam-2026-nhat-voi-cac-nganh-do-ty-le-sinh-vien-bi-canh-bao-hoc-vu-va-roi-.json",
+        "shots/current/answer-principal.png"
+      ],
+      "backup": true
+    },
+    {
+      "slide": 17,
+      "title": "B2 · AI Tổng hợp nhận gì và không nhận gì?",
+      "section": "Giải đáp về kiến trúc",
+      "seconds": 0,
+      "notes": "AI Tổng hợp lúc lập kế hoạch chỉ biết yêu cầu và mô tả năng lực AI con, gồm loại số liệu có thể truy vấn. Khi AI con làm xong, nó nhận báo cáo, nhận định có mã nguồn và các kết quả có cấu trúc đã nghiệm thu. Nó không được truyền toàn bộ nội dung tài liệu hay cơ sở dữ liệu của hai AI con. Tác tử phân tích tính trên các đầu vào đã được trả về. Đây là cách nối dữ liệu trong luồng ứng dụng, chưa phải ranh giới cách ly hạ tầng hay phân quyền người dùng hoàn chỉnh. Cùng một model có thể đóng nhiều vai với các ngữ cảnh và lời gọi riêng.",
+      "sources": [
+        "backend/app/apps.py:82",
+        "backend/app/apps.py:128",
+        "backend/app/workers.py:234",
+        "backend/app/graph.py:223"
+      ],
+      "backup": true
+    },
+    {
+      "slide": 18,
+      "title": "B3 · Căn cứ nội dung và cách kiểm chứng",
+      "section": "Phụ lục cho người xem kỹ thuật",
+      "seconds": 0,
+      "notes": "Các số liệu và giới hạn trong bài được tổng hợp trong CONTENT_FACTS.json, có đường dẫn nguồn cho từng nhận định. Ảnh chụp và metadata nằm trong shots/current. Bản ghi minh chứng có kế hoạch riêng của hai AI con, thứ tự giao việc và 18 lời gọi AI. Kết quả bộ thử nghiệp vụ là tệp đã lưu; lượt làm lại slide này không gọi model thật hoặc chạy lại bộ đánh giá có phí. File PowerPoint chứa lời nói và nguồn trong phần Notes. Kịch bản Markdown đi kèm ghi rõ cách demo và xử lý tình huống dự phòng.",
+      "sources": [
+        "CONTENT_FACTS.json",
+        "shots/current/screenshots.json",
+        "KICH_BAN_TRINH_BAY.md"
+      ],
+      "backup": true
+    }
+  ]
+}

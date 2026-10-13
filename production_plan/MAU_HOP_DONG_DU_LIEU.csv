@@ -1,0 +1,5 @@
+﻿dataset_id,owner_unit,steward,approved_by,schema_version,source_system,record_key,snapshot_id,snapshot_at,effective_from,effective_to,classification,allowed_roles,allowed_actions,allowed_fields,allowed_model_routes,retention_policy,quality_checks,checksum,status
+TS-SNAPSHOT,Đơn vị Tuyển sinh,,,,,,,,,,,,,,,,,,Chờ duyệt
+DT-SNAPSHOT,Đơn vị Đào tạo,,,,,,,,,,,,,,,,,,Chờ duyệt
+NC-SOURCES,Đơn vị Khoa học,,,,,,,,,,,,,,,,,,Chờ duyệt
+HTQT-SOURCES,Đơn vị HTQT,,,,,,,,,,,,,,,,,,Chờ duyệt

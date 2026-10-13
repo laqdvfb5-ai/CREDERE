@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-29",
+  "fx_vnd_per_usd": 27000,
+  "fx_is_budget_assumption": true,
+  "api_standard_short_context_per_million": {
+    "gpt-6-sol": {
+      "input": 2,
+      "output": 10
+    },
+    "gpt-6-luna": {
+      "input": 0.1,
+      "output": 0.5
+    }
+  },
+  "hypothetical_run": {
+    "master_input": 20000,
+    "master_output": 2000,
+    "worker_input": 30000,
+    "worker_output": 2000
+  },
+  "local_hypothesis": {
+    "capital_vnd": 150000000,
+    "months": 36,
+    "monthly_labor_vnd": 2000000,
+    "monthly_power_cooling_vnd": 500000,
+    "monthly_maintenance_vnd": 500000
+  },
+  "caveat": "No hardware quotation or equivalent local throughput/quality measured. Excludes common app/data/security/development, taxes and additional API tools/retries. Local cost must scale if capacity is insufficient.",
+  "price_source": "https://developers.openai.com/api/docs/pricing",
+  "api_cost_per_run_usd": 0.064,
+  "api_cost_per_run_vnd": 1728.0,
+  "local_monthly_vnd": 7166666.666666666,
+  "monthly_scenarios": [
+    {
+      "requests": 1000,
+      "api_vnd": 1728000.0,
+      "local_vnd": 7166666.666666666
+    },
+    {
+      "requests": 5000,
+      "api_vnd": 8640000.0,
+      "local_vnd": 7166666.666666666
+    },
+    {
+      "requests": 20000,
+      "api_vnd": 34560000.0,
+      "local_vnd": 7166666.666666666
+    }
+  ],
+  "equal_cost_requests_not_proven_breakeven": 4147.376543209876,
+  "gpu_cloud_example": {
+    "source": "https://www.runpod.io/pricing",
+    "gpu": "A40 48GB",
+    "hour_usd": 0.49,
+    "monthly_hours": 176,
+    "monthly_vnd": 2328480.0,
+    "exclusions": "storage, taxes, operations; cloud processing is outside school"
+  }
+}
