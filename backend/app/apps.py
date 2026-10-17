@@ -55,10 +55,10 @@ class AppRuntime:
     delegates: list[str] = field(default_factory=list)
 
     def run(self, request: str, llm: LLMClient, on_event=None, subagents: dict | None = None, extra_synth: str = "",
-            limits: Limits | None = None) -> dict:
+            limits: Limits | None = None, structured_report: bool = False) -> dict:
         subagents = subagents or {}
         return graph.run(request, llm, self.sources, None, limits or self.limits, on_event, set(self.workers) | set(subagents),
-                         f"{self.synth_hint} {extra_synth}".strip(), self.plan_hint, self.data, subagents)
+                         f"{self.synth_hint} {extra_synth}".strip(), self.plan_hint, self.data, subagents, structured_report)
 
 
 @dataclass
@@ -92,7 +92,9 @@ class SubAgent:
             llm = self.make_client()
             # khi được giao việc, AI con chỉ sửa một lần: AI Tổng hợp còn nghiệm thu và có thể giao lại
             limits = replace(self.app.limits, max_revisions=min(1, self.app.limits.max_revisions))
-            return self.app.run(request, llm, emit, extra_synth=extra_synth, limits=limits), list(llm.ledger.calls), None
+            # báo cáo có cấu trúc: AI Tổng hợp tự viết câu trả lời cuối, AI con không viết thêm một bài văn
+            state = self.app.run(request, llm, emit, extra_synth=extra_synth, limits=limits, structured_report=True)
+            return state, list(llm.ledger.calls), None
         except Exception as e:  # lỗi của AI con chỉ làm hỏng nhiệm vụ được giao, không làm hỏng lượt chạy của AI Tổng hợp
             return {}, list(llm.ledger.calls) if llm else [], f"{type(e).__name__}: {e}"[:300]
 

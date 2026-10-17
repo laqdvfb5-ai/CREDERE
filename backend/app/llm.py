@@ -138,6 +138,19 @@ def provider_health() -> dict[str, dict]:
         return {f"{p}/{m}": {**h, "con_giay": round(h["until"] - now)} for (p, m), h in _health.items() if h["until"] > now}
 
 
+# Một kết nối HTTP dùng chung cho mọi lời gọi model trong tiến trình: không bắt tay TLS lại ở mỗi lời gọi (httpx.Client an toàn đa luồng)
+_http: httpx.Client | None = None
+_http_lock = threading.Lock()
+
+
+def _post(url: str, **kwargs) -> httpx.Response:
+    global _http
+    with _http_lock:
+        if _http is None:
+            _http = httpx.Client(limits=httpx.Limits(max_connections=20, max_keepalive_connections=10, keepalive_expiry=60))
+    return _http.post(url, **kwargs)
+
+
 def reset_health() -> None:
     with _health_lock:
         _health.clear()
@@ -202,7 +215,7 @@ class GatewayClient:
                         time.sleep(3 * attempt)
                     t0 = time.time()
                     try:
-                        r = httpx.post(p.url(), timeout=self.timeout, headers={"Authorization": f"Bearer {self._keys[p.name]}"},
+                        r = _post(p.url(), timeout=self.timeout, headers={"Authorization": f"Bearer {self._keys[p.name]}"},
                                        json={"model": p.model_id(model), "messages": messages, "max_tokens": max_tokens})
                     except httpx.HTTPError as e:
                         last = f"{p.name}/{model}: {type(e).__name__}"

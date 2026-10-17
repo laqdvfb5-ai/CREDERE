@@ -31,7 +31,7 @@ def gateway(monkeypatch):
         tried.append(json["model"])
         status, body = replies[json["model"]].pop(0)
         return httpx.Response(status, text=body if isinstance(body, str) else __import__("json").dumps(body))
-    monkeypatch.setattr(llm_mod.httpx, "post", post)
+    monkeypatch.setattr(llm_mod, "_post", post)
     monkeypatch.setattr(llm_mod.time, "sleep", lambda s: None)
     return tried, replies
 
@@ -48,7 +48,7 @@ def pool(monkeypatch):
         tried.append((name, json["model"], headers["Authorization"]))
         status, body = replies[(name, json["model"])].pop(0)
         return httpx.Response(status, text=body if isinstance(body, str) else __import__("json").dumps(body))
-    monkeypatch.setattr(llm_mod.httpx, "post", post)
+    monkeypatch.setattr(llm_mod, "_post", post)
     monkeypatch.setattr(llm_mod.time, "sleep", lambda s: None)
     return tried, replies
 

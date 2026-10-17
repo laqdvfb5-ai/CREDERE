@@ -1,4 +1,4 @@
-"""Tạo cơ sở dữ liệu học vụ GIẢ LẬP để trình diễn AI Đào tạo (Phòng Đào tạo, giảng viên), khi chưa được nối dữ liệu thật.
+"""Tạo cơ sở dữ liệu học vụ GIẢ LẬP để trình diễn AI Đào tạo (Phòng Quản lý đào tạo, giảng viên), khi chưa được nối dữ liệu thật.
 
     python scripts/make_gia_lap_dao_tao.py [--out <kho>/03_xu-ly/dao_tao/gia_lap/hoc_vu_gia_lap.sqlite] [--scale 1.0]
 

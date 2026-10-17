@@ -30,6 +30,7 @@ class Task(BaseModel):
 
 class Plan(BaseModel):
     tasks: list[Task]
+    reply: str = ""  # trả lời ngay khi không cần nhiệm vụ nào (lời chào, ngoài phạm vi, cần hỏi lại)
 
 
 class Source(BaseModel):

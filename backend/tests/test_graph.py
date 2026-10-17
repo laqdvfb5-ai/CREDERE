@@ -349,3 +349,26 @@ def test_arithmetic_is_routed_to_the_analysis_worker():
     go(llm)
     assert "mọi phép tính" in llm.transcript[0][2][0]["content"]  # quy tắc cho tác tử điều phối khi lập kế hoạch
     assert "Không tự tính toán" in next(m for _, lb, m in llm.transcript if base(lb) == "worker:T1")[0]["content"]
+
+
+# ---------- Tốc độ: đường ngắn không bỏ kiểm tra ----------
+
+def test_greeting_is_answered_from_the_plan_call_without_tasks():
+    llm = FakeClient(make_handler(plan=json.dumps({"tasks": [], "reply": "Chào thầy, tôi có thể giúp gì?"})))
+    state = go(llm)
+    assert state["report"] == "Chào thầy, tôi có thể giúp gì?" and state["plan"] == []
+    assert [lb for _, lb, _ in llm.transcript] == ["plan"] and events_of(state, "direct_reply")
+
+
+def test_empty_plan_without_reply_is_still_rejected():
+    llm = FakeClient(make_handler(plan=json.dumps({"tasks": []}), plan_repair=json.dumps({"tasks": []})))
+    state = go(llm)
+    assert state["report"].startswith("Không lập được kế hoạch")
+
+
+def test_structured_report_skips_the_synthesis_call_and_keeps_sources():
+    llm = FakeClient(make_handler())
+    state = go(llm, structured_report=True)
+    assert not prompts(llm, "synthesize")
+    assert "Tối đa 25 tín chỉ [QĐ-620]" in state["report"] and "tang_truong = 50.0 % [T3]" in state["report"]
+    assert next(e for e in state["events"] if e["event_type"] == "report_published")["detail"]["structured"]

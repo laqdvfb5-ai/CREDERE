@@ -27,6 +27,18 @@ def cited_ids(text: str) -> set[str]:
     return {part.strip() for inner in CITATION.findall(text) for part in re.split(r"[,;]", inner) if part.strip()}
 
 
+MAX_REPLY_CHARS = 800
+
+
+def plain_report(accepted: dict, kinds: dict[str, str], not_done_text: str) -> str:
+    """Báo cáo do code ghép từ kết quả đã nghiệm thu: mỗi nhận định kèm nguồn, mỗi phép tính kèm mã nhiệm vụ."""
+    lines = [f"- {c['text']} [{c['source_id']}]" for v in accepted.values() for c in v["claims"] if c.get("source_id")]
+    lines += [f"- {r['name']} = {r['value']} {r['unit']} [{k}]" for k, v in accepted.items() if kinds[k] == "analysis"
+              for r in v["data"]["calculations"]]  # hàng do code tạo, luôn đủ trường
+    return ("Các kết quả đã nghiệm thu:\n" + "\n".join(lines)
+            + (f"\n\nChưa hoàn thành:\n{not_done_text}" if not_done_text else ""))
+
+
 def merge(a: dict | None, b: dict | None) -> dict:
     return {**(a or {}), **(b or {})}
 
@@ -70,9 +82,14 @@ def plan_system(roles: dict[str, set[str]], max_tasks: int, notes: list[str] | N
                "tác tử chuyên môn chỉ trích số liệu kèm nguồn, không tự tính; " if "analysis" in roles else "") +
             "task_id chỉ gồm chữ, số, '_' hoặc '-'; context.refs chỉ chứa mã nguồn có trong danh sách nguồn; "
             "nguồn ghi 'đã có văn bản cập nhật' thì đưa cả mã văn bản cập nhật vào context.refs; "
-            "context.summary là bối cảnh ngắn mà tác tử thực thi cần biết.\n"
+            "context.summary là bối cảnh ngắn mà tác tử thực thi cần biết. "
+            "Viết kế hoạch gọn: goal tối đa 2 câu, summary tối đa 1 câu, constraints và acceptance_criteria mỗi loại tối đa 3 ý ngắn, "
+            "không chép lại nguyên văn yêu cầu. "
+            "Chỉ khi yêu cầu là lời chào, câu xã giao, nằm ngoài mọi lĩnh vực trên, hoặc quá mơ hồ để giao việc thì không lập nhiệm vụ "
+            "mà trả lời ngay trong reply (ngắn, không nêu số liệu hay quy định nào; mơ hồ thì hỏi lại một câu cụ thể); "
+            "mọi câu hỏi về quy định, số liệu, văn bản đều phải lập nhiệm vụ.\n"
             'Chỉ trả về JSON thuần: {"tasks": [{"task_id": "T1", "worker_type": "...", "task_type": "...", "goal": "...", '
-            '"context": {"refs": [], "summary": ""}, "constraints": [], "depends_on": [], "acceptance_criteria": []}]}')
+            '"context": {"refs": [], "summary": ""}, "constraints": [], "depends_on": [], "acceptance_criteria": []}], "reply": ""}')
 
 
 SYNTH_SYSTEM = ("Bạn là tác tử điều phối. Viết câu trả lời cuối bằng tiếng Việt từ các kết quả đã được nghiệm thu. Mỗi nhận định "
@@ -82,12 +99,14 @@ SYNTH_SYSTEM = ("Bạn là tác tử điều phối. Viết câu trả lời cu�
 
 def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None = None, limits: Limits = Limits(),
                 workers: set[str] | None = None, synth_hint: str = "", plan_hint: str = "", data: DataStore | None = None,
-                subagents: dict | None = None, emit: Callable[[dict], None] | None = None):
+                subagents: dict | None = None, emit: Callable[[dict], None] | None = None, structured_report: bool = False):
     """workers: chỉ dùng các tác tử này (ví dụ {"tuyen_sinh", "analysis"} cho trợ lý tuyển sinh); None là mọi tác tử.
     synth_hint, plan_hint: chỉ dẫn thêm của từng ứng dụng cho bước tổng hợp và bước lập kế hoạch;
     mã nguồn ghi trong synth_hint được phép dẫn trong câu trả lời.
     subagents: AI con được giao việc, khóa là worker_type ("ai_dao_tao"); mỗi AI con có key, ten, mo_ta(), call_budget, run().
-    emit: nhận ngay sự kiện bên trong AI con (sub_event) để trang web hiện tiến độ."""
+    emit: nhận ngay sự kiện bên trong AI con (sub_event) để trang web hiện tiến độ.
+    structured_report: lượt chạy của AI con được giao việc; không gọi model viết báo cáo văn mà gửi thẳng kết quả đã nghiệm thu
+    (nhận định kèm nguồn, phép tính) để AI Tổng hợp tự viết câu trả lời cuối, bớt một lượt viết dài trên đường găng."""
     subagents = subagents or {}
     start = len(llm.ledger.calls)  # sổ ghi của lượt chạy này bắt đầu từ đây
     public = [s for s in sources if s.access_scope == "public"]
@@ -115,6 +134,9 @@ def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None
                 break
             try:
                 plan = Plan.model_validate(parse_json(text))
+                if not plan.tasks and plan.reply.strip():  # lời chào, ngoài phạm vi, cần hỏi lại: không chạy cả đồ thị nhiệm vụ
+                    return {"plan": [], "status": {}, "report": plan.reply.strip()[:MAX_REPLY_CHARS],
+                            "events": [event("direct_reply"), event("report_published", accepted_tasks=0, direct=True)]}
                 errors = validate_plan(plan, limits, set(roles), {s.source_id for s in public}, roles)
             except Exception as e:
                 plan, errors = None, [f"Kế hoạch không đúng định dạng: {type(e).__name__}: {e}"[:400]]
@@ -233,6 +255,10 @@ def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None
         if not accepted:  # không có gì để tổng hợp thì không gọi model, tránh model tự bịa nội dung
             report = "Chưa có kết quả nào được nghiệm thu nên chưa lập được báo cáo.\n" + not_done_text
             return {"report": report, "events": [event("report_published", accepted_tasks=0, not_done=not_done)]}
+        if structured_report:  # AI con: AI Tổng hợp tự viết câu trả lời từ kết quả này, không cần một bài văn ở giữa
+            kinds = {t["task_id"]: t["worker_type"] for t in state["plan"]}
+            return {"report": plain_report(accepted, kinds, not_done_text),
+                    "events": [event("report_published", accepted_tasks=len(accepted), not_done=not_done, structured=True)]}
         body = (f"YÊU CẦU: {state['request']}\n\nKẾT QUẢ ĐÃ NGHIỆM THU:\n{json.dumps(accepted, ensure_ascii=False)}\n\n"
                 f"NHIỆM VỤ CHƯA HOÀN THÀNH:\n{not_done_text or 'không có'}")
         messages = [{"role": "system", "content": f"{SYNTH_SYSTEM} {synth_hint}".strip()}, {"role": "user", "content": body}]
@@ -241,11 +267,7 @@ def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None
         except Exception as e:  # vẫn trả về kết quả đã nghiệm thu thay vì mất cả lượt chạy
             msg = redact(f"{type(e).__name__}: {e}")[:300]
             kinds = {t["task_id"]: t["worker_type"] for t in state["plan"]}
-            lines = [f"- {c['text']} [{c['source_id']}]" for v in accepted.values() for c in v["claims"] if c.get("source_id")]
-            lines += [f"- {r['name']} = {r['value']} {r['unit']} [{k}]" for k, v in accepted.items() if kinds[k] == "analysis"
-                      for r in v["data"]["calculations"]]  # hàng do code tạo, luôn đủ trường
-            report = (f"Không tổng hợp được báo cáo do lỗi model ({msg}). Các kết quả đã nghiệm thu:\n" + "\n".join(lines)
-                      + (f"\n\nChưa hoàn thành:\n{not_done_text}" if not_done else ""))
+            report = f"Không tổng hợp được báo cáo do lỗi model ({msg}). " + plain_report(accepted, kinds, not_done_text)
             return {"report": report, "events": [event("report_failed", error=msg, accepted_tasks=len(accepted), not_done=not_done)]}
 
         # Kiểm tra dữ kiện: báo cáo chỉ được dẫn nguồn có trong kết quả đã nghiệm thu
@@ -272,7 +294,8 @@ def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None
     g.add_node("execute", execute_node)
     g.add_node("synthesize", synthesize_node)
     g.add_edge(START, "plan")
-    g.add_conditional_edges("plan", lambda s: "synthesize" if s.get("plan_errors") else "join", ["join", "synthesize"])
+    g.add_conditional_edges("plan", lambda s: END if s.get("report") else "synthesize" if s.get("plan_errors") else "join",
+                            ["join", "synthesize", END])
     g.add_conditional_edges("join", dispatch, ["execute", "synthesize"])
     g.add_edge("execute", "join")
     g.add_edge("synthesize", END)
@@ -281,11 +304,11 @@ def build_graph(llm: LLMClient, sources: list[Source], search: SearchTool | None
 
 def run(request: str, llm: LLMClient, sources: list[Source], search: SearchTool | None = None, limits: Limits = Limits(),
         on_event: Callable[[dict], None] | None = None, workers: set[str] | None = None, synth_hint: str = "",
-        plan_hint: str = "", data: DataStore | None = None, subagents: dict | None = None) -> dict:
+        plan_hint: str = "", data: DataStore | None = None, subagents: dict | None = None, structured_report: bool = False) -> dict:
     """Chạy một yêu cầu. on_event nhận từng sự kiện ngay khi một bước graph xong, nên kế hoạch được lưu và hiển thị
     trước khi tác tử thực thi đầu tiên chạy (FR1)."""
     start = len(llm.ledger.calls)
-    graph = build_graph(llm, sources, search, limits, workers, synth_hint, plan_hint, data, subagents, on_event)
+    graph = build_graph(llm, sources, search, limits, workers, synth_hint, plan_hint, data, subagents, on_event, structured_report)
     state: dict = {}
     for mode, chunk in graph.stream({"request": request, "events": [], "history": []},
                                     config={"max_concurrency": limits.max_parallel, "recursion_limit": limits.recursion_limit},

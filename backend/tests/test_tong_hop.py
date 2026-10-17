@@ -98,7 +98,7 @@ def apps_for(stores, principal_handler, ts_handler=None, dt_handler=None, princi
     w_ts, s_ts, p_ts = tuyen_sinh.app_config(ts)
     w_dt, s_dt, p_dt = dao_tao.app_config(dt)
     apps = {"tuyen_sinh": AppRuntime("tuyen_sinh", "AI Tuyển sinh", "TT Tuyển sinh", "cán bộ", "tuyển sinh", [], ts, w_ts, s_ts, p_ts),
-            "dao_tao": AppRuntime("dao_tao", "AI Đào tạo", "Phòng Đào tạo", "cán bộ", "đào tạo", [], dt, w_dt, s_dt, p_dt),
+            "dao_tao": AppRuntime("dao_tao", "AI Đào tạo", "Phòng Quản lý đào tạo", "cán bộ", "đào tạo", [], dt, w_dt, s_dt, p_dt),
             "hieu_truong": AppRuntime("hieu_truong", "AI Tổng hợp", "Ban Giám hiệu", "Hiệu trưởng", "điều phối", [], None, {"analysis"},
                                       "", "", [], principal_limits, delegates=["tuyen_sinh", "dao_tao"])}
     handlers = {"tuyen_sinh": ts_handler or child("tuyển sinh", "xac_nhan_theo_nganh", "Kế toán còn 265 chỉ tiêu [CSDL-TS] [T1]."),
@@ -115,11 +115,15 @@ def test_principal_delegates_to_two_sub_ais_then_joins(stores):
     assert state["status"] == {"T1": "accepted", "T2": "accepted", "T3": "accepted"}
     t1, t2 = state["results"]["T1"], state["results"]["T2"]
     assert t1["data"]["ai_con"] == "AI Tuyển sinh" and "[T1]" not in t1["data"]["bao_cao"] and "[CSDL-TS]" in t1["data"]["bao_cao"]
-    assert t2["data"]["bao_cao"] == "Kế toán rời trường 5,1% [CSDL-DT]."  # mã nhiệm vụ nội bộ bị bỏ, mã nguồn giữ lại
+    # AI con gửi thẳng kết quả đã nghiệm thu (code ghép, kèm nguồn), không gọi model viết báo cáo văn
+    assert t2["data"]["bao_cao"].startswith("Các kết quả đã nghiệm thu") and "[CSDL-DT]" in t2["data"]["bao_cao"]
     assert {c["source_id"] for c in t1["claims"]} == {"CSDL-TS"} and {c["source_id"] for c in t2["claims"]} == {"CSDL-DT"}
     # lời gọi của AI con được chép vào sổ của AI Tổng hợp, tính vào nhiệm vụ đã giao
     sub_calls = [c for c in llm.ledger.calls if c.label.startswith("sub:")]
     assert {c.label.split("/")[1] for c in sub_calls} == {"tuyen_sinh", "dao_tao"} and state["usage"]["calls"] == len(llm.ledger.calls)
+    assert not [c for c in sub_calls if "/synthesize" in c.label]
+    # AI con đã nghiệm thu đủ mọi nhiệm vụ: AI Tổng hợp kiểm bằng code, không gọi model nghiệm thu lại
+    assert not [c for c in llm.ledger.calls if c.label.startswith(("review:T1", "review:T2"))]
     assert t1["usage"]["calls"] == sum(1 for c in sub_calls if c.label.startswith("sub:T1#")) + 0
     # tiến độ bên trong AI con đi ra ngoài ngay (sub_event), có kế hoạch riêng của AI con
     inner = [e for e in events if e["event_type"] == "sub_event"]
@@ -139,7 +143,7 @@ def test_sub_ai_description_reaches_the_principal_planner(stores):
     llm = FakeClient(h)
     apps["hieu_truong"].run("Câu hỏi", llm, None, subs)
     system = next(m for _, label, m in llm.transcript if label == "plan")[0]["content"]
-    assert "ai_tuyen_sinh: giao_viec" in system and "AI Đào tạo (Phòng Đào tạo" in system and "Cơ sở dữ liệu học vụ" in system
+    assert "ai_tuyen_sinh: giao_viec" in system and "AI Đào tạo (Phòng Quản lý đào tạo" in system and "Cơ sở dữ liệu học vụ" in system
 
 
 def test_budget_check_counts_a_whole_sub_ai_run(stores):

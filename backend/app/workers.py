@@ -334,6 +334,12 @@ def review_task(task: Task, result: WorkerResult, inputs: dict[str, WorkerResult
         failed = [k for k, v in checks.items() if not v]
         return Review(task_id=task.task_id, accepted=False, checks=checks,
                       feedback=f"Kiểm tra tự động không đạt: {', '.join(failed)}.", required_changes=changes)
+    if task.worker_type.startswith("ai_") and result.claims and not result.data.get("nhiem_vu_chua_hoan_thanh"):
+        # AI con đã tự nghiệm thu đủ mọi nhiệm vụ, mỗi nhận định có nguồn: không gọi model nghiệm thu lần hai trên đường găng.
+        # Còn nhiệm vụ con chưa xong thì vẫn để model xét phần thiếu có làm sai câu trả lời không.
+        checks["ai_con_nghiem_thu_du"] = True
+        return Review(task_id=task.task_id, accepted=True, checks=checks,
+                      feedback="AI con đã nghiệm thu đủ mọi nhiệm vụ; mọi nhận định có nguồn (kiểm bằng code).")
     parts = [f"MỤC TIÊU: {task.goal}"]
     if task.context.summary:
         parts.append(f"BỐI CẢNH: {task.context.summary}")

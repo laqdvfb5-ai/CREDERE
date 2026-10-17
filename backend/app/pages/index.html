@@ -59,12 +59,12 @@
 const WHO = { master: "Tác tử điều phối", tong_hop: "AI Tổng hợp", tuyen_sinh: "Tác tử Tuyển sinh", dao_tao: "Tác tử Đào tạo",
               analysis: "Tác tử Phân tích", du_lieu: "Tác tử Dữ liệu", ai_tuyen_sinh: "AI Tuyển sinh", ai_dao_tao: "AI Đào tạo", sys: "Hệ thống" };
 const SHORT = { master: "ĐP", tong_hop: "TH", tuyen_sinh: "TS", dao_tao: "ĐT", analysis: "PT", du_lieu: "DL", ai_tuyen_sinh: "TS", ai_dao_tao: "ĐT", sys: "!" };
-const ROLE = { tuyen_sinh: "Cán bộ Tuyển sinh", dao_tao: "Phòng Đào tạo · Giảng viên", hieu_truong: "Hiệu trưởng" };
+const ROLE = { tuyen_sinh: "Cán bộ Tuyển sinh", dao_tao: "Phòng Quản lý đào tạo · Giảng viên", hieu_truong: "Hiệu trưởng" };
 const APP_ICON = { tuyen_sinh: "users", dao_tao: "book", hieu_truong: "user-star" };
 const INTRO = {
   tuyen_sinh: ["Trợ lý nghiệp vụ cho Trung tâm Tuyển sinh và Truyền thông",
     "Tra cứu điểm chuẩn, chỉ tiêu, tổ hợp, học phí, học bổng, lịch xét tuyển; soạn tin trả lời thí sinh, phụ huynh; lập bảng, báo cáo; rà soát các văn bản tuyển sinh có khớp nhau không."],
-  dao_tao: ["Trợ lý nghiệp vụ cho Phòng Đào tạo và giảng viên",
+  dao_tao: ["Trợ lý nghiệp vụ cho Phòng Quản lý đào tạo và giảng viên",
     "Tra cứu quy chế đào tạo của Bộ và quy định của Trường, chương trình đào tạo, tín chỉ, đăng ký học phần, thang điểm, cảnh báo học vụ, xét tốt nghiệp, lịch thi."],
   hieu_truong: ["AI Tổng hợp cho Hiệu trưởng",
     "Hỏi việc của cả Trường. AI Tổng hợp không tự tra cứu mà giao việc cho từng AI lĩnh vực, nhận báo cáo đã nghiệm thu, ghép số liệu các lĩnh vực rồi mới trả lời."],
@@ -324,7 +324,7 @@ function onEvent(run, e, ctx = null) {
       break;
     case "task_reviewed": {
       const [label, cls] = { accepted: ["Đạt", "ok"], revise: ["Yêu cầu sửa", "warn"], failed: ["Không đạt", "bad"] }[d.next] || [d.next, ""];
-      const why = d.next === "accepted" ? "Kiểm tra nguồn và nội dung." : esc([d.feedback, ...(d.required_changes || [])].filter(Boolean).join("; "));
+      const why = d.next === "accepted" ? (d.checks?.ai_con_nghiem_thu_du ? "AI con đã nghiệm thu đủ mọi nhiệm vụ, mọi nhận định có nguồn (kiểm bằng code)." : "Kiểm tra nguồn và nội dung.") : esc([d.feedback, ...(d.required_changes || [])].filter(Boolean).join("; "));
       step("master", `Nghiệm thu ${e.task_id}`, `<span class="cr-verdict ${cls}">${label}</span>${why}`);
       if (d.next !== "revise") ctx.done.add(e.task_id);
       const open = Object.keys(ctx.plan).length - ctx.done.size;
@@ -348,8 +348,14 @@ function onEvent(run, e, ctx = null) {
       run.tables.push(d);
       step("du_lieu", `Danh sách chi tiết · ${e.task_id}`, `${d.total} dòng, lấy thẳng từ cơ sở dữ liệu tới màn hình này; không gửi cho dịch vụ AI.`);
       break;
+    case "direct_reply":
+      step("master", "Trả lời ngay", "Câu này không cần tra tài liệu hay dữ liệu nên không lập nhiệm vụ.");
+      if (top) { run.stage = 5; renderProgress(run); }
+      break;
     case "report_published":
-      step("master", top ? "Tổng hợp câu trả lời" : "Viết báo cáo gửi AI Tổng hợp", "");
+      if (d.direct) break;
+      step("master", top ? "Tổng hợp câu trả lời" : d.structured ? "Gửi kết quả đã nghiệm thu cho AI Tổng hợp" : "Viết báo cáo gửi AI Tổng hợp",
+        d.structured ? "Gửi thẳng nhận định kèm nguồn; AI Tổng hợp tự viết câu trả lời." : "");
       if (top) { run.stage = 5; renderProgress(run); }
       break;
     case "report_failed":

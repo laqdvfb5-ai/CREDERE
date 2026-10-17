@@ -1,12 +1,12 @@
-"""AI Đào tạo: trợ lý cho cán bộ Phòng Đào tạo và giảng viên (quy chế, chương trình, tín chỉ, lịch thi; dữ liệu học vụ ở giai đoạn 2)."""
+"""AI Đào tạo: trợ lý cho cán bộ Phòng Quản lý đào tạo và giảng viên (quy chế, chương trình, tín chỉ, lịch thi; dữ liệu học vụ ở giai đoạn 2)."""
 from ..config import DATA_ROOT
 from ..tools.data import DataStore
 from .dao_tao_queries import QUERIES
 
 KEY = "dao_tao"
 TEN = "AI Đào tạo"
-DON_VI = "Phòng Đào tạo"
-NGUOI_DUNG = "cán bộ Phòng Đào tạo và giảng viên"
+DON_VI = "Phòng Quản lý đào tạo"
+NGUOI_DUNG = "cán bộ Phòng Quản lý đào tạo và giảng viên"
 LINH_VUC = ("đào tạo: quy chế đào tạo của Bộ và quy định của Trường, chương trình đào tạo, tín chỉ, đăng ký học phần, thang điểm, "
             "cảnh báo học vụ, xét tốt nghiệp, lịch thi; số liệu học vụ các khóa K10–K12 (nhập học 2023–2025): sĩ số, rời trường, "
             "kết quả học tập theo ngành và theo phương thức trúng tuyển, cảnh báo, lớp học phần, dự kiến số lớp cần mở")
@@ -20,12 +20,12 @@ def open_store(path) -> DataStore:
     return DataStore(path, QUERIES, SOURCE_ID, "học vụ", person="sinh viên", majors_sql="SELECT ma_nganh, ten_nganh FROM nganh ORDER BY 1")
 
 
-SYNTH_HINT = ("Người hỏi là cán bộ Phòng Đào tạo hoặc giảng viên của Trường Đại học Nghệ An. Trả lời như trợ lý nghiệp vụ, ngắn gọn: "
+SYNTH_HINT = ("Người hỏi là cán bộ Phòng Quản lý đào tạo hoặc giảng viên của Trường Đại học Nghệ An. Trả lời như trợ lý nghiệp vụ, ngắn gọn: "
               "quy định thì nêu văn bản và điều, khoản; số liệu thì kèm nguồn. Khi quy chế của Bộ và quy định của Trường khác nhau, nêu cả hai "
               "và nói rõ văn bản nào áp dụng cho khóa nào. Phần nào không có trong tài liệu thì nói rõ và gợi ý nơi kiểm tra "
               "(văn bản gốc, phần mềm quản lý đào tạo, khoa quản lý ngành). Không kết luận xử lý học vụ cho một sinh viên cụ thể; "
               "chỉ nêu căn cứ và số liệu để cán bộ quyết định. Không tự viết ra dữ liệu cá nhân của sinh viên (tên, điểm từng người, số điện thoại).")
-PLAN_HINT = ("Người yêu cầu là cán bộ Phòng Đào tạo hoặc giảng viên. Câu về quy chế, quy định, chương trình đào tạo giao cho dao_tao, "
+PLAN_HINT = ("Người yêu cầu là cán bộ Phòng Quản lý đào tạo hoặc giảng viên. Câu về quy chế, quy định, chương trình đào tạo giao cho dao_tao, "
              "đưa vào context.refs cả quy chế của Bộ và quy định của Trường liên quan để đối chiếu. Phép tính (tổng tín chỉ, số học kỳ, "
              "điểm trung bình theo công thức) giao cho analysis phụ thuộc nhiệm vụ lấy số liệu.")
 DATA_PLAN_HINT = ("Tác tử du_lieu đọc cơ sở dữ liệu học vụ ({title}): sinh viên các khóa K10–K12, chương trình đào tạo, lớp học phần, "
