@@ -43,7 +43,6 @@
   --cr-c-analysis:#6D28D9;             /* Tác tử Phân tích (tính toán bằng máy) */
   --cr-c-du_lieu:#0D6B63;              /* Tác tử Dữ liệu (truy vấn cơ sở dữ liệu) */
   --cr-c-sys:#475569;                  /* Hệ thống (tạm dừng, chạm trần chi phí, lỗi kết nối) */
-  --cr-c-replay:#4338CA;               /* Phát lại bản ghi */
 }
 
 /* ===== 3. Ánh xạ lên biến của Tabler =====
@@ -148,7 +147,7 @@ body { -webkit-font-smoothing:antialiased; }
 .cr-topbar .cr-roles .nav-link.active { color:var(--nau-blue); background:#fff; border-color:#fff; box-shadow:0 1px 3px rgba(0, 0, 0, .2); }
 
 /* ===== 6. Huy hiệu trạng thái (.cr-pill) =====
-   Dùng cho: Đang hoạt động, Dùng nội bộ, Dữ liệu giả lập (thanh trên); Chờ câu hỏi / Đang xử lý / Phát lại bản ghi /
+   Dùng cho: Đang hoạt động, Dùng nội bộ, Dữ liệu giả lập (thanh trên); Chờ câu hỏi / Đang xử lý /
    Hoàn tất / Lỗi (khung quy trình); Đang dùng / Chưa có khóa / Chưa lưu / Đã tắt (trang Cài đặt).
    Mẫu: <span class="cr-pill cr-pill--ok"><svg class="icon"><use href="…#i-circle-check"/></svg>Hoàn tất</span> */
 .cr-pill { --cr-pill:var(--cr-muted); display:inline-flex; align-items:center; gap:.375rem; padding:.25rem .625rem; border-radius:var(--tblr-border-radius-pill);
@@ -159,7 +158,6 @@ body { -webkit-font-smoothing:antialiased; }
 .cr-pill--warn { --cr-pill:var(--tblr-yellow); }
 .cr-pill--bad { --cr-pill:var(--tblr-red); }
 .cr-pill--run { --cr-pill:var(--nau-blue); }
-.cr-pill--replay { --cr-pill:var(--cr-c-replay); }
 .cr-pill--muted { --cr-pill:var(--cr-muted); }
 .cr-pill--live { --cr-pill:var(--tblr-green); }
 .cr-pill--internal { --cr-pill:var(--nau-blue); }

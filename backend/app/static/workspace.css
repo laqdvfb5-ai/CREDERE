@@ -105,7 +105,6 @@
   .cr-suggest .subheader { display:flex; align-items:center; gap:.375rem; width:100%; color:var(--nau-blue); white-space:nowrap;
                            text-transform:none; letter-spacing:0; font-size:.8125rem; font-weight:700; }
   .cr-suggest .subheader .k { min-width:0; overflow:hidden; text-overflow:ellipsis; }
-  .cr-suggest .subheader .cr-has-rec { flex:none; margin-left:auto; color:var(--cr-c-replay); display:inline-flex; }
   .cr-suggest .q { font-size:.9375rem; line-height:1.45; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 
   /* Sơ đồ mô hình chủ – tớ (tab Hiệu trưởng, nằm ở cột quy trình khi chưa có câu hỏi) */
@@ -133,7 +132,6 @@
   .cr-tools .btn { flex:none; }
   .cr-mode { --tblr-nav-height:2rem; }
   .cr-mode .nav-link { font-size:.8125rem; gap:.375rem; padding-inline:.625rem; }
-  .cr-mode .nav-link.active[data-mode=replay] { color:var(--cr-c-replay); }
   .cr-mode .nav-link.active[data-mode=live] { color:var(--tblr-green); }
   .cr-mode { flex:none; }
   .cr-mode-note { flex:1; min-width:0; font-size:.8125rem; color:var(--cr-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }

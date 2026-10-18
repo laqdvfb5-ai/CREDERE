@@ -161,24 +161,24 @@ def test_data_worker_is_not_offered_without_a_database():
     assert state["plan_errors"] and "du_lieu" in state["plan_errors"][0]
 
 
-def test_replay_on_disk_keeps_no_rows_for_real_data(db_path, tmp_path):
+def test_run_record_on_disk_keeps_no_rows_for_real_data(db_path, tmp_path):
     real = tmp_path / "that.sqlite"
     real.write_bytes(db_path.read_bytes())
     with sqlite3.connect(real) as conn:  # giả như dữ liệu thật: bỏ nhãn GIẢ LẬP
         conn.execute("UPDATE meta SET gia_tri = 'Dữ liệu tuyển sinh' WHERE khoa = 'ghi_chu'")
     store = open_store(real)
     assert not store.synthetic
-    replays = tmp_path / "replays"
-    body = TestClient(create_app(SOURCES, client_factory=lambda: FakeClient(handler()), replay_dir=replays, data=store)).get(
+    records = tmp_path / "records"
+    body = TestClient(create_app(SOURCES, client_factory=lambda: FakeClient(handler()), record_dir=records, data=store)).get(
         "/api/ask", params={"q": "Ai chưa xác nhận?"}).text
     assert '"rows": [["TS' in body  # màn hình cán bộ vẫn có danh sách
-    saved = json.loads(next(replays.glob("*.json")).read_text(encoding="utf-8"))
+    saved = json.loads(next(records.glob("*.json")).read_text(encoding="utf-8"))
     tables = [r["event"]["detail"] for r in saved["events"] if r["event"]["event_type"] == "data_table"]
     assert tables and all(t["rows"] == [] and t["total"] > 0 for t in tables)
 
 
 def test_web_data_mode_streams_the_table_to_the_screen(store, tmp_path):
-    app = create_app(SOURCES, client_factory=lambda: FakeClient(handler()), replay_dir=tmp_path, data=store,
+    app = create_app(SOURCES, client_factory=lambda: FakeClient(handler()), record_dir=tmp_path, data=store,
                      samples=[{"kind": "Số liệu", "q": "Ai chưa xác nhận?"}])
     client = TestClient(app)
     info = client.get("/api/info").json()

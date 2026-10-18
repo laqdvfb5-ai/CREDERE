@@ -32,7 +32,7 @@ def setup(tmp_path, monkeypatch, password_record):
     prov = tmp_path / "providers.json"
     prov.write_text(json.dumps({"providers": [{"name": "aigw", "base_url_env": "AIGW_BASE_URL", "key_env": "AIGW_OPENAI_KEY"}]}), encoding="utf-8")
     env_file.with_name("settings-auth.json").write_text(json.dumps(password_record), encoding="utf-8")
-    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), replay_dir=tmp_path / "r",
+    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), record_dir=tmp_path / "r",
                      providers_file=prov, env_file=env_file)
     client = TestClient(app)
     assert client.post("/api/settings/login", json={"password": TEST_PASSWORD}, headers=ADMIN).status_code == 200
@@ -118,7 +118,7 @@ def test_writes_need_the_admin_header(setup):
 
 def test_settings_are_refused_from_other_machines(setup, tmp_path):
     _, prov, env_file = setup
-    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), replay_dir=tmp_path / "r2",
+    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), record_dir=tmp_path / "r2",
                      providers_file=prov, env_file=env_file)
     remote = TestClient(app, client=("203.0.113.5", 50000))
     assert remote.get("/api/providers").status_code == 403 and remote.get("/cai-dat").status_code == 403
@@ -227,7 +227,7 @@ def test_settings_page_and_credentials_have_no_public_file_bypass(setup, path):
 
 
 def test_login_fails_closed_when_credentials_have_not_been_configured(tmp_path):
-    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), replay_dir=tmp_path / "r",
+    app = create_app(SOURCES, client_factory=lambda: FakeClient(lambda *a: ""), record_dir=tmp_path / "r",
                      providers_file=tmp_path / "providers.json", env_file=tmp_path / ".env")
     client = TestClient(app)
     response = client.post("/api/settings/login", json={"password": TEST_PASSWORD}, headers=ADMIN)

@@ -93,7 +93,7 @@ def sse_events(body: str) -> list[tuple[str, dict]]:
 
 
 def test_web_streams_plan_progress_and_cited_answer(tmp_path):
-    app = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler()), replay_dir=tmp_path, samples=["Câu mẫu"])
+    app = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler()), record_dir=tmp_path, samples=["Câu mẫu"])
     client = TestClient(app)
     assert client.get("/api/samples").json() == [{"kind": "", "q": "Câu mẫu"}]  # tệp cũ chỉ có câu hỏi: nhãn trống
     info = client.get("/api/info").json()
@@ -106,31 +106,33 @@ def test_web_streams_plan_progress_and_cited_answer(tmp_path):
     kinds = [e["event_type"] for k, e in events if k == "event"]
     assert kinds[0] == "plan_saved" and "task_reviewed" in kinds
     done = events[-1]
-    assert done[0] == "done" and "[TS-101]" in done[1]["report"] and done[1]["replayed"] is False
-    assert (tmp_path / f"{question_key('Điểm chuẩn Kế toán tăng bao nhiêu?')}.json").exists()
-    assert client.get("/api/replays").json() == []  # câu mẫu chưa có bản ghi
-    client.get("/api/ask", params={"q": "Câu mẫu"})
-    assert client.get("/api/replays").json() == ["Câu mẫu"]
+    assert done[0] == "done" and "[TS-101]" in done[1]["report"] and "replayed" not in done[1]
+    key = question_key("Điểm chuẩn Kế toán tăng bao nhiêu?")
+    assert (tmp_path / done[1]["record"]).exists() and done[1]["record"].endswith(f"--{key}.json")
+    second = sse_events(client.get("/api/ask", params={"q": "Điểm chuẩn Kế toán tăng bao nhiêu?"}).text)[-1][1]
+    assert second["record"] != done[1]["record"] and len(list(tmp_path.glob(f"*--{key}.json"))) == 2  # không ghi đè lượt trước
+    assert client.get("/api/replays").status_code == 404  # không còn chế độ phát lại
 
 
-def test_web_replays_recording_when_gateway_fails(tmp_path):
+def test_gateway_failure_is_never_covered_by_an_old_record(tmp_path):
     q = "Điểm chuẩn Kế toán tăng bao nhiêu?"
-    TestClient(create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler()), replay_dir=tmp_path)).get("/api/ask", params={"q": q})
+    TestClient(create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler()), record_dir=tmp_path)).get("/api/ask", params={"q": q})
 
     def down():
         raise LLMError("gpt-6-sol: HTTP 502")
-    broken = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler({"plan": down})), replay_dir=tmp_path, replay_pace_s=0)
-    events = sse_events(TestClient(broken).get("/api/ask", params={"q": q}).text)
-    assert any(k == "replay" and "Cổng API đang lỗi" in e["reason"] for k, e in events)
-    assert events[-1][0] == "done" and events[-1][1]["replayed"] is True and "[TS-101]" in events[-1][1]["report"]
+    broken = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler({"plan": down})), record_dir=tmp_path)
+    events = sse_events(TestClient(broken).get("/api/ask", params={"q": q, "mode": "replay"}).text)
+    assert not [k for k, _ in events if k == "replay"]
+    assert events[-1][0] == "done" and "Không lập được kế hoạch" in events[-1][1]["report"]
+    assert "[TS-101]" not in events[-1][1]["report"] and len(list(tmp_path.iterdir())) == 1  # lượt lỗi không thành hồ sơ
 
 
 def test_web_reports_failure_honestly_without_recording(tmp_path):
     def down():
         raise LLMError("gpt-6-sol: HTTP 502")
-    app = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler({"plan": down})), replay_dir=tmp_path, replay_pace_s=0)
+    app = create_app(TS_SOURCES, client_factory=lambda: FakeClient(handler({"plan": down})), record_dir=tmp_path)
     events = sse_events(TestClient(app).get("/api/ask", params={"q": "Câu chưa có bản ghi"}).text)
-    assert events[-1][0] == "done" and events[-1][1]["replayed"] is False
+    assert events[-1][0] == "done" and "record" not in events[-1][1]
     assert "Không lập được kế hoạch" in events[-1][1]["report"]
     assert not list(tmp_path.iterdir())
 

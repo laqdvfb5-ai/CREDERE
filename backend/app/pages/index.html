@@ -81,7 +81,6 @@ const PARAMS = { ma_xet_tuyen: "ngành", ma_nganh: "ngành", hoc_ky: "học kỳ
 const VND_PER_USD = 26180;
 const SPRITE = "/static/vendor/tabler-icons-3.48.0/sprite.svg";
 let catalog = {}, samples = [], info = {}, apps = [], appKey = null, source = null, current = null, active = null, timer = null;
-const mode = "live";  // Mọi yêu cầu từ giao diện được xử lý mới; không dùng tùy chọn cũ trong localStorage.
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -193,12 +192,12 @@ function renderRecent() {
 }
 function renderOverview(run) {
   const tasks = Object.values(run.plan), done = tasks.filter(t => run.tstate[t.task_id] === "ok").length;
-  $("flow-overview").innerHTML = !tasks.length ? treeHtml() : `<div class="work-summary"><strong>${done} / ${tasks.length} nhiệm vụ đạt</strong><span>${run.replayed ? "Lần chạy đã lưu" : "Tiến độ lượt chạy"}</span></div><div class="work-meter" role="progressbar" aria-label="Nhiệm vụ đã đạt" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="${tasks.length}"><span style="width:${100*done/tasks.length}%"></span></div><div class="work-nodes">${tasks.map(t=>`<span class="work-node is-${run.tstate[t.task_id] || "wait"}" title="${esc(t.goal)}${t.depends_on.length ? ' · Sau '+esc(t.depends_on.join(', ')) : ''}">${ic(run.tstate[t.task_id] === "ok" ? "check" : run.tstate[t.task_id] === "run" ? "loader-2" : "circle-dot")}${esc(t.task_id)} · ${esc((WHO[t.worker_type] || t.worker_type).replace("Tác tử ", ""))}</span>`).join("")}</div>`;
+  $("flow-overview").innerHTML = !tasks.length ? treeHtml() : `<div class="work-summary"><strong>${done} / ${tasks.length} nhiệm vụ đạt</strong><span>Tiến độ lượt chạy</span></div><div class="work-meter" role="progressbar" aria-label="Nhiệm vụ đã đạt" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="${tasks.length}"><span style="width:${100*done/tasks.length}%"></span></div><div class="work-nodes">${tasks.map(t=>`<span class="work-node is-${run.tstate[t.task_id] || "wait"}" title="${esc(t.goal)}${t.depends_on.length ? ' · Sau '+esc(t.depends_on.join(', ')) : ''}">${ic(run.tstate[t.task_id] === "ok" ? "check" : run.tstate[t.task_id] === "run" ? "loader-2" : "circle-dot")}${esc(t.task_id)} · ${esc((WHO[t.worker_type] || t.worker_type).replace("Tác tử ", ""))}</span>`).join("")}</div>`;
 }
 
 // ---------- Khung quy trình ----------
-const PILL = { muted: "cr-pill--muted", running: "cr-pill--run", done: "cr-pill--ok", replay: "cr-pill--replay", error: "cr-pill--bad" };
-const PILL_ICON = { running: "loader-2", done: "circle-check", replay: "history", error: "circle-x" };
+const PILL = { muted: "cr-pill--muted", running: "cr-pill--run", done: "cr-pill--ok", error: "cr-pill--bad" };
+const PILL_ICON = { running: "loader-2", done: "circle-check", error: "circle-x" };
 function setState(text, cls = "muted") {
   const p = $("run-state");
   p.className = "cr-pill " + (PILL[cls] || PILL.muted);
@@ -242,7 +241,7 @@ function showRun(run) {
 function addStep(run, agent, who, detail, extra = "", lane = null) {
   const secs = run.eventTime ?? (performance.now() - run.t0) / 1000;
   const html = `<li class="cr-step">${mark(agent)}<div class="cr-step-body">
-    <div class="cr-step-top"><b>${esc(who)}</b><span class="cr-when" title="Thời điểm tính từ lúc bắt đầu${run.replayed ? " của lần chạy gốc" : ""}">${clockOf(secs)}</span></div>
+    <div class="cr-step-top"><b>${esc(who)}</b><span class="cr-when" title="Thời điểm tính từ lúc bắt đầu">${clockOf(secs)}</span></div>
     ${detail ? `<div class="cr-step-detail">${detail}</div>` : ""}${extra}</div></li>`;
   if (lane) run.lanes[lane].steps.push(html); else run.items.push({ html });
   if (run === active) renderPanel(run);
@@ -317,7 +316,7 @@ function onEvent(run, e, ctx = null) {
       if (top) {
         run.stage = 3; run.tstate[e.task_id] = "review";
         const l = run.lanes[e.actor.replace(/^ai_/, "")];
-        if (l) Object.assign(l, d.status === "ok" ? { status: "Đã báo cáo", pill: "cr-pill--replay" } : { status: "Lỗi", pill: "cr-pill--bad" });
+        if (l) Object.assign(l, d.status === "ok" ? { status: "Đã báo cáo", pill: "cr-pill--run" } : { status: "Lỗi", pill: "cr-pill--bad" });
         renderProgress(run);
       }
       say(`${WHO[e.actor] || e.actor} xong ${e.task_id}, chờ nghiệm thu…`);
@@ -365,7 +364,7 @@ function onEvent(run, e, ctx = null) {
 }
 
 // ---------- Hỏi đáp ----------
-function ask(q, runMode = mode) {
+function ask(q) {
   q = (q || "").trim();
   if (q.length < 3 || source) return;
   $("welcome")?.remove(); closeSamples(); toggleNav(false);
@@ -378,28 +377,20 @@ function ask(q, runMode = mode) {
       <div class="cr-now"><span class="spinner-border spinner-border-sm" role="status"></span><span class="cr-now-text">${principal() ? "AI Tổng hợp" : "Tác tử điều phối"} đang lập kế hoạch…</span><span class="cr-clock"></span></div></div>
     <div class="card-body cr-md" hidden></div><div class="card-footer cr-foot" hidden></div></div></div>`);
   const cards = document.querySelectorAll(".cr-answer");
-  const run = { q, mode: runMode, plan: {}, subs: {}, items: [], lanes: {}, tables: [], cited: new Set(), done: new Set(), tstate: {}, stage: 0,
-                card: cards[cards.length - 1], t0: performance.now(), eventTime: null, replayed: false, state: ["Đang xử lý", "running"] };
+  const run = { q, plan: {}, subs: {}, items: [], lanes: {}, tables: [], cited: new Set(), done: new Set(), tstate: {}, stage: 0,
+                card: cards[cards.length - 1], t0: performance.now(), state: ["Đang xử lý", "running"] };
   sessionRuns.push(run); renderRecent(); $("reset").disabled = true;
   run.card.onclick = ev => { if (!ev.target.closest("a, button")) showRun(run); };
   current = run; renderProgress(run); showRun(run); scrollDown();
   $("q").value = ""; autosize(); $("send").disabled = true;
   timer = setInterval(() => {
     const c = run.card.querySelector(".cr-clock");
-    if (c) c.textContent = run.replayed ? `lần chạy gốc: ${fmtSecs(run.eventTime)}` : fmtSecs((performance.now() - run.t0) / 1000);
+    if (c) c.textContent = fmtSecs((performance.now() - run.t0) / 1000);
   }, 500);
 
-  source = new EventSource(`/api/ask?q=${encodeURIComponent(q)}&mode=${runMode}&app=${encodeURIComponent(appKey)}`);
+  source = new EventSource(`/api/ask?q=${encodeURIComponent(q)}&app=${encodeURIComponent(appKey)}`);
   document.querySelectorAll("#apps .nav-link").forEach(b => b.disabled = true);  // đang chạy: không đổi AI giữa chừng
-  source.addEventListener("event", m => { const e = JSON.parse(m.data); run.eventTime = e._t ?? null; onEvent(run, e); });
-  source.addEventListener("replay", m => {
-    const d = JSON.parse(m.data);
-    const [date, time] = d.recorded_at.split("T");
-    run.replayed = true;
-    run.card.querySelector(".cr-tags").insertAdjacentHTML("beforeend", `<span class="cr-pill cr-pill--replay" title="${esc(d.reason)}">${ic("history")}`
-      + `Phát lại · chạy thật lúc ${esc(time.slice(0, 5))} ngày ${esc(date.split("-").reverse().join("/"))}</span>`);
-    run.state = ["Phát lại bản ghi", "replay"]; if (run === active) setState(...run.state);
-  });
+  source.addEventListener("event", m => onEvent(run, JSON.parse(m.data)));
   source.addEventListener("done", m => finish(run, JSON.parse(m.data)));
   source.onerror = () => { if (source) finish(run, { report: "", error: "Mất kết nối tới máy chủ demo." }); };
 }
@@ -411,18 +402,11 @@ function finish(run, d) {
   run.report = d.report || "";
   run.card.querySelector(".cr-progress")?.remove();
   const body = run.card.querySelector(".cr-md");
-  const noRecord = d.replayed && !d.usage && /^Chưa có bản ghi/.test(d.report || "");
-  body.innerHTML = d.error ? `<p class="cr-error">${esc(d.error)}</p>`
-    : noRecord ? `<p>${ic("info-circle")} Chưa có bản ghi chạy thật cho câu hỏi này.</p>
-        <button type="button" class="btn btn-sm btn-primary cr-run-live">${ic("bolt")}Chạy trực tiếp câu này</button>
-        <span class="text-secondary small ms-2">mất 1–7 phút, có tốn phí</span>`
-    : render(d.report || "", run) + run.tables.map(dataTable).join("");
+  body.innerHTML = d.error ? `<p class="cr-error">${esc(d.error)}</p>` : render(d.report || "", run) + run.tables.map(dataTable).join("");
   body.hidden = false;
-  body.querySelector(".cr-run-live")?.addEventListener("click", () => ask(run.q, "live"));
   body.querySelectorAll(".cr-dt-head button").forEach((b, i) => b.onclick = () => downloadCsv(run.tables[i]));
   const parts = [];
-  const secs = d.elapsed_s || run.eventTime;
-  if (secs && !noRecord) parts.push([run.replayed ? "history" : "clock", `${fmtSecs(secs)}${run.replayed ? " (lần chạy gốc)" : ""}`]);
+  if (d.elapsed_s) parts.push(["clock", fmtSecs(d.elapsed_s)]);
   const via = Object.keys(d.usage?.providers || {});
   if (d.usage) parts.push(["robot", `${d.usage.calls} lượt gọi AI`],
                           ["coin", `khoảng ${Math.round(d.usage.cost_usd * VND_PER_USD).toLocaleString("vi-VN")} đồng`, via.length ? `qua ${via.join(", ")}` : ""]);
@@ -431,13 +415,12 @@ function finish(run, d) {
   if (run.cited.size) parts.push(["file-text", `${run.cited.size} nguồn`]);
   const foot = run.card.querySelector(".cr-foot");
   foot.innerHTML = parts.map(([i, t, tip]) => `<span class="cr-metric"${tip ? ` title="${esc(tip)}"` : ""}>${ic(i)}${esc(t)}</span>`).join("")
-    + `<span class="ms-auto">${run.report && !noRecord ? `<button type="button" class="btn btn-sm cr-copy" title="Sao chép câu trả lời">${ic("copy")}Sao chép</button>` : ""}<button type="button" class="btn btn-sm cr-see">${ic("sitemap")}Quy trình</button></span>`;
+    + `<span class="ms-auto">${run.report ? `<button type="button" class="btn btn-sm cr-copy" title="Sao chép câu trả lời">${ic("copy")}Sao chép</button>` : ""}<button type="button" class="btn btn-sm cr-see">${ic("sitemap")}Quy trình</button></span>`;
   foot.hidden = false;
   foot.querySelector(".cr-see").onclick = () => { showRun(run); showTab("steps"); toggleInspector(true); };
   const copy = foot.querySelector(".cr-copy");
   if (copy) copy.onclick = async () => { try { await navigator.clipboard.writeText(run.report); toast("Đã sao chép câu trả lời."); } catch { toast("Không sao chép được. Bạn có thể chọn nội dung và nhấn Ctrl+C."); } };
-  if (!run.replayed) run.state = d.error ? ["Lỗi", "error"] : !Object.values(d.status || {}).some(s => s === "accepted") ? ["Chưa có kết quả đạt", "error"] : Object.values(d.status || {}).some(s => s !== "accepted") ? ["Hoàn tất một phần", "muted"] : ["Hoàn tất", "done"];
-  else if (!d.error) run.state = ["Phát lại xong", "replay"];
+  run.state = d.error ? ["Lỗi", "error"] : !Object.values(d.status || {}).some(s => s === "accepted") ? ["Chưa có kết quả đạt", "error"] : Object.values(d.status || {}).some(s => s !== "accepted") ? ["Hoàn tất một phần", "muted"] : ["Hoàn tất", "done"];
   showRun(run); $("q").focus({ preventScroll: true });
   run.card.closest(".cr-msg").previousElementSibling.scrollIntoView({ block: "start" });  // câu trả lời dài: hiện từ câu hỏi trở xuống
 }
@@ -448,7 +431,7 @@ function dataTable(t) {  // danh sách từng người: chỉ hiện trên màn 
   return `<div class="cr-dt"><div class="cr-dt-head">${ic("database")}<b>${esc(prettyTitle(t.title))}</b><small>${t.total} dòng · từ cơ sở dữ liệu, không qua AI</small>`
     + `<button type="button" class="btn btn-sm"${t.rows.length ? "" : " disabled"}>${ic("download")}Tải CSV</button></div>`
     + (t.rows.length ? `<div class="cr-dt-scroll"><table class="table table-sm table-striped"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
-                     : `<div class="cr-dt-empty">Bản ghi không lưu danh sách từng người; danh sách chỉ hiện khi chạy trên dữ liệu thật.</div>`) + `</div>`;
+                     : `<div class="cr-dt-empty">Không có dòng nào để hiện.</div>`) + `</div>`;
 }
 
 function downloadCsv(t) {
@@ -561,9 +544,9 @@ Promise.all(["/api/sources", "/api/apps"].map(u => fetch(u).then(r => r.json()))
   catalog = c; apps = a;
   if (!apps.length) throw new Error("Không có trợ lý được cấu hình");
   $("library-count").textContent = libraryEntries().length;
-  const params = new URLSearchParams(location.search);  // ?app=...&q=...&mode=...: tự hỏi khi mở trang (dùng khi chụp màn hình)
+  const params = new URLSearchParams(location.search);  // ?app=...&q=...: tự hỏi khi mở trang
   await setApp(params.get("app") || localStorage.getItem("credere-app") || apps[0].key);
-  if (params.get("q")) ask(params.get("q"), params.get("mode") || mode);
+  if (params.get("q")) ask(params.get("q"));
 }).catch(showLoadError);
 </script>
 </body>

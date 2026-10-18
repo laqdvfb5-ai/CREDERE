@@ -3,8 +3,8 @@ hiện kế hoạch và tiến độ các tác tử theo thời gian thực (SSE
 
     python -m app.web [--port 8000] [--no-data]
 
-Mỗi câu hỏi chạy với một client riêng (sổ ghi lời gọi nằm trên client). Lượt chạy thành công được lưu làm bản ghi;
-nếu cổng API lỗi, trang phát lại bản ghi của đúng câu hỏi đó và ghi rõ là bản ghi, không giả làm chạy thật.
+Mỗi câu hỏi chạy với một client riêng (sổ ghi lời gọi nằm trên client). Mỗi lượt chạy có kết quả được lưu thành một hồ sơ
+riêng (sự kiện, lịch sử thực thi, sổ lời gọi) để ghi vết; trang luôn chạy thật, không phát lại hồ sơ cũ.
 """
 import argparse
 import json
@@ -17,6 +17,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import Callable
+from uuid import uuid4
 
 from fastapi import Body, FastAPI, HTTPException, Query, Request
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
@@ -35,7 +36,7 @@ from .domains.tuyen_sinh import (DEFAULT_DATA, DEFAULT_SOURCES, PLAN_HINT, SYNTH
 from .tools.data import DataStore
 from .settings_auth import SESSION_TTL, AuthError, SettingsAuth
 
-REPLAY_DIR = RUNS_DIR / "demo-tuyen-sinh"
+RECORD_DIR = RUNS_DIR / "web"  # hồ sơ lượt chạy của trang, mỗi lượt một tệp
 LOCAL_HOSTS = {"127.0.0.1", "::1", "localhost", "testclient"}  # testclient: TestClient của FastAPI khi kiểm thử
 STATIC = Path(__file__).parent / "static"  # công khai: CSS, font, icon, logo
 PAGES = Path(__file__).parent / "pages"    # HTML của trang, chỉ qua route (trang Cài đặt phải qua admin_only)
@@ -59,7 +60,7 @@ def samples_of(items: list) -> list[dict]:
 
 
 def create_app(sources: list[Source] | None = None, client_factory: Callable[[], LLMClient] | None = None,
-               replay_dir: Path = REPLAY_DIR, limits: Limits = Limits(max_llm_calls=24), replay_pace_s: float = 1.2,
+               record_dir: Path = RECORD_DIR, limits: Limits = Limits(max_llm_calls=24),
                samples: list | None = None, data: DataStore | None = None,
                providers_file: Path = PROVIDERS_FILE, env_file: Path = ENV_FILE, apps: dict[str, AppRuntime] | None = None,
                settings_auth_file: Path | None = None) -> FastAPI:
@@ -132,12 +133,6 @@ def create_app(sources: list[Source] | None = None, client_factory: Callable[[],
     @app.get("/api/samples")
     def list_samples(app_key: str | None = Query(None, alias="app")) -> list[dict]:
         return pick(app_key).samples
-
-    @app.get("/api/replays")
-    def list_replays(app_key: str | None = Query(None, alias="app")) -> list[str]:
-        """Câu mẫu nào đã có bản ghi: trang đánh dấu để người trình bày biết câu nào phát lại được."""
-        a = pick(app_key)
-        return [s["q"] for s in a.samples if replay_path(a, s["q"]).exists()]
 
     @app.get("/api/info")
     def info(app_key: str | None = Query(None, alias="app")) -> dict:
@@ -218,14 +213,10 @@ def create_app(sources: list[Source] | None = None, client_factory: Callable[[],
         return {"health": provider_health()}
 
     @app.get("/api/ask")
-    def ask(q: str = Query(..., min_length=3, max_length=500), mode: str = "live",
+    def ask(q: str = Query(..., min_length=3, max_length=500),
             app_key: str | None = Query(None, alias="app")) -> StreamingResponse:
-        a = pick(app_key)
-        gen = replay(a, q, "Người trình bày chọn phát lại bản ghi.") if mode == "replay" else live(a, q)
-        return StreamingResponse(gen, media_type="text/event-stream", headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
-
-    def replay_path(a: AppRuntime, q: str) -> Path:
-        return replay_dir / f"{'' if a.key == tuyen_sinh.KEY else a.key + '--'}{question_key(q)}.json"
+        return StreamingResponse(live(pick(app_key), q), media_type="text/event-stream",
+                                 headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
     def live(a: AppRuntime, q: str):
         events: queue.Queue = queue.Queue()
@@ -257,13 +248,10 @@ def create_app(sources: list[Source] | None = None, client_factory: Callable[[],
             yield sse("event", e)
         state = box.get("state") or {}
         gateway_down = bool(box.get("error")) or any("Lỗi gọi model" in x for x in state.get("plan_errors") or [])
-        if gateway_down and replay_path(a, q).exists():
-            yield from replay(a, q, f"Cổng API đang lỗi ({box.get('error') or state['plan_errors'][0]}).")
-            return
         done = {"report": redact(state.get("report") or f"Không chạy được: {box.get('error')}", env),
-                "usage": state.get("usage"), "status": state.get("status"), "elapsed_s": round(time.time() - t0, 1), "replayed": False}
+                "usage": state.get("usage"), "status": state.get("status"), "elapsed_s": round(time.time() - t0, 1)}
         if state.get("report") and not gateway_down:
-            save(a, q, recorded, done, box.get("llm"), state)
+            done["record"] = save(a, q, recorded, done, box.get("llm"), state)
         yield sse("done", done)
 
     def strip_rows(e: dict) -> dict:
@@ -274,27 +262,17 @@ def create_app(sources: list[Source] | None = None, client_factory: Callable[[],
             return {**e, "detail": {**e["detail"], "event": strip_rows(e["detail"]["event"])}}
         return e
 
-    def save(a: AppRuntime, q: str, recorded: list, done: dict, llm, state: dict) -> None:
+    def save(a: AppRuntime, q: str, recorded: list, done: dict, llm, state: dict) -> str:
+        """Hồ sơ lượt chạy (ghi vết); tên tệp có thời điểm và mã ngẫu nhiên nên hai lượt cùng câu hỏi không ghi đè nhau."""
         if real_data(a):
             recorded = [{**r, "event": strip_rows(r["event"])} for r in recorded]
-        replay_dir.mkdir(parents=True, exist_ok=True)
-        record = {"app": a.key, "question": q, "recorded_at": datetime.now().isoformat(timespec="seconds"), "events": recorded, "done": done,
+        record_dir.mkdir(parents=True, exist_ok=True)
+        now = datetime.now()
+        record = {"app": a.key, "question": q, "recorded_at": now.isoformat(timespec="seconds"), "events": recorded, "done": done,
                   "history": state.get("history"), "ledger": [c.__dict__ for c in llm.ledger.calls] if llm else []}
-        replay_path(a, q).write_text(redact(json.dumps(record, ensure_ascii=False, indent=1), env), encoding="utf-8")
-
-    def replay(a: AppRuntime, q: str, reason: str):
-        path = replay_path(a, q)
-        if not path.exists():
-            yield sse("done", {"report": "Chưa có bản ghi cho câu hỏi này.", "usage": None, "status": None, "replayed": True})
-            return
-        rec = json.loads(path.read_text(encoding="utf-8"))
-        yield sse("replay", {"recorded_at": rec["recorded_at"], "reason": reason})
-        last = 0.0
-        for item in rec["events"]:
-            time.sleep(min(max(item["t"] - last, 0), replay_pace_s))  # giữ nhịp như lúc chạy thật nhưng không chờ quá lâu
-            last = item["t"]
-            yield sse("event", {**item["event"], "_t": item["t"]})  # thời điểm lúc chạy thật
-        yield sse("done", {**rec["done"], "replayed": True, "recorded_at": rec["recorded_at"]})
+        name = f"{a.key}--{now:%Y%m%d-%H%M%S}-{uuid4().hex[:6]}--{question_key(q)[:60]}.json"
+        (record_dir / name).write_text(redact(json.dumps(record, ensure_ascii=False, indent=1), env), encoding="utf-8")
+        return name
 
     return app
 

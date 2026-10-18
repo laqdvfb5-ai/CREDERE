@@ -174,7 +174,7 @@ def test_web_lists_apps_and_streams_sub_events(stores, tmp_path):
     handlers = {"hieu_truong": h, "tuyen_sinh": child("tuyển sinh", "xac_nhan_theo_nganh", "Kế toán còn 265 [CSDL-TS]."),
                 "dao_tao": child("học vụ", "si_so_theo_nganh_khoa", "Rời trường [CSDL-DT].")}
     order = ["hieu_truong", "tuyen_sinh", "dao_tao"]  # client tạo theo thứ tự: AI Tổng hợp trước, rồi từng AI con khi được giao việc
-    client = TestClient(create_app(apps=apps, client_factory=lambda: FakeClient(handlers[order.pop(0)]), replay_dir=tmp_path))
+    client = TestClient(create_app(apps=apps, client_factory=lambda: FakeClient(handlers[order.pop(0)]), record_dir=tmp_path))
     listed = client.get("/api/apps").json()
     assert [a["key"] for a in listed] == ["tuyen_sinh", "dao_tao", "hieu_truong"]
     assert listed[2]["delegates"] == [{"key": "tuyen_sinh", "ten": "AI Tuyển sinh"}, {"key": "dao_tao", "ten": "AI Đào tạo"}]
@@ -188,4 +188,4 @@ def test_web_lists_apps_and_streams_sub_events(stores, tmp_path):
     assert client.get("/api/info", params={"app": "khong-co"}).status_code == 404
     body = client.get("/api/ask", params={"q": "Ngành nào thiếu chỉ tiêu?", "app": "hieu_truong"}).text
     assert '"event_type": "sub_event"' in body and "event: done" in body
-    assert (tmp_path / "hieu_truong--nganh-nao-thieu-chi-tieu.json").exists()
+    assert len(list(tmp_path.glob("hieu_truong--*--nganh-nao-thieu-chi-tieu.json"))) == 1  # hồ sơ lượt chạy
