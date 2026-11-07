@@ -45,3 +45,19 @@ desktop.ini
 ~$*
 *.tmp
 *.swp
+
+# Local planning, research, and progress artifacts
+/COST_ESTIMATE.md
+/DATA_PLAN.md
+/EFFORT_BENCHMARK.md
+/KE_HOACH_VAN_HANH_THAT.md
+/LATENCY_OPTIMIZATION_PLAN.md
+/LOCAL_HOSTING.md
+/NGHIEN_CUU_NGUOI_DUNG_TUYEN_SINH.md
+/OSS_REVIEW.md
+/PLAN*.md
+/TECHNICAL_REVIEW.md
+/DOI_CHIEU_KE_HOACH_TRUONG.md
+/PROGRESS_MAP.*
+/OSS_MAP*
+/progress_map.py
