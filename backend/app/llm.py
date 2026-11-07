@@ -16,7 +16,7 @@ from typing import Callable, Literal, Protocol
 
 import httpx
 
-from .config import PRICES, PROVIDERS_FILE, ModelConfig, load_env, redact
+from .config import PRICES, CACHED_INPUT_PRICES, PRICE_DATE, PROVIDERS_FILE, ModelConfig, cost_usd, load_env, redact
 
 Role = Literal["master", "worker", "domain_worker"]
 
@@ -32,6 +32,12 @@ class LLMCall:
     label: str = ""
     ts: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat(timespec="milliseconds"))
     provider: str = ""
+    reasoning_effort: str | None = None
+    reasoning_tokens: int = 0
+    cached_input_tokens: int | None = None
+    pricing_basis: str = "openai_standard"
+    pricing_verified: bool = False
+    price_date: str = PRICE_DATE
 
 
 @dataclass
@@ -47,6 +53,10 @@ class Ledger:
         return {"calls": len(calls),
                 "input_tokens": sum(c.input_tokens for c in calls),
                 "output_tokens": sum(c.output_tokens for c in calls),
+                "cached_input_tokens": sum(c.cached_input_tokens or 0 for c in calls),
+                "cache_usage_missing_calls": sum(c.cached_input_tokens is None for c in calls),
+                "unverified_pricing_calls": sum(not c.pricing_verified for c in calls),
+                "pricing_basis": "openai_standard",
                 "cost_usd": round(sum(c.cost_usd for c in calls), 6),
                 "providers": providers}
 
@@ -161,8 +171,12 @@ class GatewayClient:
     còn chuyển sang model dự phòng khi mọi nhà đều lỗi. trusted_only: chỉ dùng nhà có trusted (khi nối dữ liệu thật)."""
 
     def __init__(self, models: ModelConfig = ModelConfig(), env: dict[str, str] | None = None, timeout: float = 240,
-                 providers: list[Provider] | None = None, strategy: str | None = None, trusted_only: bool = False):
+                 providers: list[Provider] | None = None, strategy: str | None = None, trusted_only: bool = False,
+                 reasoning_effort: str | None = None):
         env = env if env is not None else load_env()
+        self.reasoning_effort = reasoning_effort or env.get("CREDERE_REASONING_EFFORT", "default")
+        if self.reasoning_effort not in {"default", "auto", "low", "medium", "high"}:
+            raise LLMError("CREDERE_REASONING_EFFORT must be default, auto, low, medium or high")
         missing = sorted({models.master, models.master_fallback, models.worker, models.domain_worker} - PRICES.keys())
         if missing:
             raise LLMError(f"Chưa có giá cho model {', '.join(missing)} trong config.PRICES")
@@ -202,6 +216,12 @@ class GatewayClient:
         return ok + cooling  # nhà lỗi khóa hoặc không có model thì bỏ qua đến khi hết hạn ngắt
 
     def complete(self, role: Role, messages: list[dict], max_tokens: int = 2000, label: str = "") -> str:
+        effort = self.reasoning_effort
+        if effort == "auto":
+            effort = "medium" if label.split(":", 1)[0] in {"plan", "plan_repair", "review", "review_repair"} else "low"
+        payload = {"messages": messages, "max_tokens": max_tokens}
+        if effort != "default":
+            payload["reasoning_effort"] = effort
         candidates = {"master": [self.models.master, self.models.master_fallback],
                       "domain_worker": [self.models.domain_worker]}.get(role, [self.models.worker])
         errors = []
@@ -216,7 +236,7 @@ class GatewayClient:
                     t0 = time.time()
                     try:
                         r = _post(p.url(), timeout=self.timeout, headers={"Authorization": f"Bearer {self._keys[p.name]}"},
-                                       json={"model": p.model_id(model), "messages": messages, "max_tokens": max_tokens})
+                                       json={"model": p.model_id(model), **payload})
                     except httpx.HTTPError as e:
                         last = f"{p.name}/{model}: {type(e).__name__}"
                         continue
@@ -242,9 +262,16 @@ class GatewayClient:
                         last = f"{p.name}/{model}: phản hồi không đúng định dạng"
                         continue
                     _clear(p.name, model)
-                    price_in, price_out = p.prices.get(model) or PRICES[model]
-                    self.ledger.calls.append(LLMCall(role, model, tin, tout, (tin * price_in + tout * price_out) / 1_000_000,
-                                                     round(time.time() - t0, 2), label, provider=p.name))
+                    cached_raw = (usage.get("prompt_tokens_details") or {}).get("cached_tokens")
+                    try:
+                        cached = None if cached_raw is None else max(0, min(tin, int(cached_raw)))
+                    except (ValueError, TypeError, OverflowError):
+                        cached = None
+                    self.ledger.calls.append(LLMCall(role, model, tin, tout, cost_usd(model, tin, tout, cached or 0),
+                                                     round(time.time() - t0, 2), label, provider=p.name,
+                                                     reasoning_effort=None if effort == "default" else effort,
+                                                     reasoning_tokens=int((usage.get("completion_tokens_details") or {}).get("reasoning_tokens") or 0),
+                                                     cached_input_tokens=cached, pricing_verified=model in CACHED_INPUT_PRICES))
                     return text
                 if not gave_up:
                     _mark(p.name, "*", "transient", last)

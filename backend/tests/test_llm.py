@@ -69,7 +69,7 @@ def test_master_falls_back_when_primary_model_is_removed(gateway):
     assert client.complete("master", [], label="plan") == "Chào"
     assert tried == ["gpt-6-sol", "gpt-5.6-sol"]
     call = client.ledger.calls[0]
-    assert call.model == "gpt-5.6-sol" and call.cost_usd == pytest.approx((1000 * 2 + 100 * 10) / 1e6)
+    assert call.model == "gpt-5.6-sol" and call.cost_usd == pytest.approx((1000 * 4 + 100 * 20) / 1e6)
 
 
 def test_retries_transient_errors_then_succeeds(gateway):
@@ -131,7 +131,31 @@ def test_model_name_mapping_and_provider_prices(pool):
     client.complete("worker", [])
     assert tried[0][:2] == ("c", "openai/gpt-6-luna")
     call = client.ledger.calls[0]
-    assert call.model == "gpt-6-luna" and call.cost_usd == pytest.approx(1100 / 1e6)
+    assert call.model == "gpt-6-luna" and call.cost_usd == pytest.approx(150 / 1e6)
+
+
+@pytest.mark.parametrize("raw,expected", [(800, 800), (0, 0), (2000, 1000), (-1, 0), (None, None), ("bad", None)])
+def test_cached_input_uses_openai_prices(gateway, raw, expected):
+    _, replies = gateway
+    body = {**OK, "usage": {**OK["usage"], "prompt_tokens_details": {"cached_tokens": raw}}}
+    replies["gpt-6-luna"] = [(200, body)]
+    client = GatewayClient(env=ENV)
+    client.complete("worker", [])
+    call = client.ledger.calls[0]
+    cached = expected or 0
+    assert call.cached_input_tokens == expected
+    assert call.cost_usd == pytest.approx(((1000 - cached) * .1 + cached * .01 + 100 * .5) / 1e6)
+    assert call.pricing_verified
+    assert client.ledger.totals()["cache_usage_missing_calls"] == int(expected is None)
+
+
+def test_unverified_model_price_is_explicit(gateway):
+    _, replies = gateway
+    replies["gpt-6-sol"] = [(200, OK)]
+    client = GatewayClient(env=ENV)
+    client.complete("master", [])
+    assert not client.ledger.calls[0].pricing_verified
+    assert client.ledger.totals()["unverified_pricing_calls"] == 1
 
 
 def test_round_robin_spreads_calls(pool):

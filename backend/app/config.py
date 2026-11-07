@@ -40,17 +40,25 @@ class Limits:
 
 
 # Giá niêm yết OpenRouter, USD cho mỗi 1 triệu token (vào, ra)
-PRICE_DATE = "2026-09-26"
+# OpenAI standard rates checked on PRICE_DATE; gpt-6-sol remains an
+# unverified legacy estimate (2/10), not an official quoted rate.
+PRICE_DATE = "2026-11-07"
 PRICES = {
     "gpt-6-sol": (2.0, 10.0),
-    "gpt-5.6-sol": (2.0, 10.0),
+    "gpt-5.6-sol": (4.0, 20.0),
     "gpt-6-luna": (0.10, 0.50),
 }
 
 
-def cost_usd(model: str, input_tokens: int, output_tokens: int) -> float:
+CACHED_INPUT_PRICES = {"gpt-6-luna": 0.01, "gpt-5.6-sol": 0.40}
+PRICE_SOURCE = "https://developers.openai.com/api/docs/pricing"
+
+
+def cost_usd(model: str, input_tokens: int, output_tokens: int, cached_tokens: int = 0) -> float:
     price_in, price_out = PRICES[model]
-    return (input_tokens * price_in + output_tokens * price_out) / 1_000_000
+    cached = max(0, min(input_tokens, cached_tokens))
+    price_cached = CACHED_INPUT_PRICES.get(model, price_in)
+    return ((input_tokens - cached) * price_in + cached * price_cached + output_tokens * price_out) / 1_000_000
 
 
 def load_env(path: Path = ENV_FILE) -> dict[str, str]:

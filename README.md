@@ -79,6 +79,16 @@ python -m app.web --host 127.0.0.1 --port 8000
 
 `--no-data` chỉ bỏ kết nối SQLite, vẫn cần nguồn văn bản. Giao diện gửi câu hỏi mới sẽ gọi dịch vụ AI và có thể phát sinh phí.
 
+### Reasoning effort
+
+Set `CREDERE_REASONING_EFFORT` in the runtime `.env` (under `CREDERE_HOME`), then restart the server:
+
+- `default` (default): omit the parameter and preserve provider behavior.
+- `auto`: medium for planning/review, low for workers and synthesis.
+- `low`, `medium`, `high`: explicitly set every request.
+
+The ledger records the requested effort and reasoning tokens when returned. Completion tokens already include reasoning tokens; these are not billed twice. A gateway accepting the parameter does not prove that it honors it. Run `python scripts/bench_effort.py` from `backend` for a four-request paid compatibility smoke test. This is not an end-to-end quality benchmark. Unsupported effort is not silently removed.
+
 ### Mật khẩu trang cài đặt
 
 `/cai-dat` sử dụng mật khẩu băm trong `CREDERE_HOME/settings-auth.json`. Tạo trên máy chạy, từ thư mục `backend`, bằng Python của môi trường vừa cài:
