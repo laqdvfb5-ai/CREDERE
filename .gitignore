@@ -61,3 +61,14 @@ desktop.ini
 /PROGRESS_MAP.*
 /OSS_MAP*
 /progress_map.py
+
+# Internal presentations, proposals, and exploratory model runs
+/presentation/
+/production_plan/
+/evals/
+/*.docx
+/*.pptx
+/*.pdf
+/*.jpg
+/write_production_plan_artifacts.py
+/backend/scripts/check_deployed_health.py

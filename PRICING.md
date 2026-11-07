@@ -15,4 +15,4 @@ Provider-specific prices are ignored for this OpenAI-equivalent estimate. This i
 
 The ledger preserves cached_input_tokens (null when absent), pricing_basis, pricing_verified and price_date. Totals expose missing cache metadata and unverified pricing counts. Missing cache usage is conservatively charged at full input price, not represented as a verified zero-cache hit.
 
-Existing saved reports and EFFORT_BENCHMARK.md are historical estimates and are not rewritten. They cannot be retroactively cache-adjusted without the original cache usage. No official gpt-6-sol price or model mapping is assumed.
+Existing local reports are historical estimates and are not rewritten. They cannot be retroactively cache-adjusted without the original cache usage. No official gpt-6-sol price or model mapping is assumed.

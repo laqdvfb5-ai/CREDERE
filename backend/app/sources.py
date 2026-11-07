@@ -1,4 +1,4 @@
-"""Đọc kho nguồn từ tệp JSON (danh sách tài liệu đã trích), theo định dạng của DATA_PLAN.md và bộ thu thập tuyển sinh."""
+"""Đọc kho nguồn JSON theo SourceDoc; ví dụ tại backend/examples/nguon_mau.json."""
 import json
 from pathlib import Path
 

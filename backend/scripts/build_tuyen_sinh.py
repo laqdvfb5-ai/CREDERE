@@ -1,4 +1,4 @@
-"""Gộp các tệp nguồn đã kiểm chứng của một lĩnh vực thành kho cho AI con và ghi danh mục tài liệu (DATA_PLAN.md).
+"""Gộp các tệp nguồn đã kiểm chứng của một lĩnh vực thành kho cho AI con và ghi danh mục tài liệu.
 
     python scripts/build_tuyen_sinh.py [--domain tuyen_sinh|dao_tao] [--root ~/credere-data]
 

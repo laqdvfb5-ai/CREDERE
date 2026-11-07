@@ -1,4 +1,4 @@
-"""Cấu hình model, giới hạn lượt chạy và bảng giá. Cấu hình A được chốt ngày 26/09/2026 (xem PLAN.md)."""
+"""Cấu hình model, giới hạn lượt chạy và bảng giá tham chiếu (xem PRICING.md)."""
 import os
 import re
 from dataclasses import dataclass
@@ -8,7 +8,7 @@ CREDERE_HOME = Path(os.environ.get("CREDERE_HOME", Path.home() / ".credere"))  #
 ENV_FILE = CREDERE_HOME / ".env"
 PROVIDERS_FILE = CREDERE_HOME / "providers.json"  # danh sách nhà cung cấp; khóa vẫn nằm trong .env
 RUNS_DIR = CREDERE_HOME / "runs"
-DATA_ROOT = Path(os.environ.get("CREDERE_DATA", Path.home() / "credere-data"))  # kho tài liệu theo DATA_PLAN.md, ngoài OneDrive
+DATA_ROOT = Path(os.environ.get("CREDERE_DATA", Path.home() / "credere-data"))  # kho tài liệu ngoài repository
 
 
 @dataclass(frozen=True)

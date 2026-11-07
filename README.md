@@ -9,10 +9,7 @@ Bản code hiện tại có AI Tuyển sinh, AI Đào tạo và AI Tổng hợp,
 - `backend/app/`: API, giao diện, điều phối, provider, công cụ và AI lĩnh vực.
 - `backend/tests/`: kiểm thử cơ chế, dữ liệu và cổng mật khẩu cài đặt.
 - `backend/scripts/`: tạo dữ liệu giả lập, nhập nguồn và đánh giá.
-- `evals/`: mã và kết quả thử nghiệm model đã lưu.
 - `deploy/`: cấu hình triển khai tham khảo, cần đối chiếu môi trường trước khi áp dụng.
-- `presentation/`: slide, lời nói, nguồn và script dựng bài trình bày.
-- `production_plan/`: backlog và mẫu hợp đồng dữ liệu/ma trận quyền.
 
 ## Cài đặt
 
@@ -69,7 +66,7 @@ credere-data/
     tong_hop/demo_questions.json
 ```
 
-`sources.json` là danh sách nguồn có `source_id`, `title`, `text`, URL và mức truy cập. Script `build_tuyen_sinh.py` gộp nguồn đã xử lý; các script `make_gia_lap*.py` tạo CSDL mẫu khi có đủ đầu vào. Dữ liệu runtime đầy đủ không được đóng kèm Git; clone repository không tự tạo kho nghiệp vụ. Xem `DATA_PLAN.md` và kế hoạch vận hành để chuẩn bị dữ liệu được phép dùng.
+`sources.json` là danh sách nguồn có `source_id`, `title`, `text`, URL và mức truy cập. Script `build_tuyen_sinh.py` gộp nguồn đã xử lý; các script `make_gia_lap*.py` tạo CSDL mẫu khi có đủ đầu vào. Dữ liệu runtime đầy đủ không được đóng kèm Git; clone repository không tự tạo kho nghiệp vụ. Xem `backend/examples/nguon_mau.json` để chuẩn bị nguồn theo đúng định dạng và chỉ dùng dữ liệu được phép truy cập.
 
 Chạy web sau khi có kho nguồn và cấu hình:
 
@@ -109,11 +106,9 @@ Tệp có sẵn sẽ không bị ghi đè. Chỉ cài đặt được bảo vệ
 
 ## Tài liệu hiện hành
 
-- [Kế hoạch đưa vào vận hành thật](KE_HOACH_VAN_HANH_THAT.md): mốc triển khai, đầu vào và tiêu chí nghiệm thu.
-- [Phương án bảo mật](presentation/PHUONG_AN_BAO_MAT_CREDERE.md): thiết kế mục tiêu, phân biệt với code đã có.
-- [Kế hoạch tối ưu tốc độ](LATENCY_OPTIMIZATION_PLAN.md): hướng thử nghiệm, chưa phải mọi tối ưu đã triển khai.
-- [Nội dung bài trình bày 15 phút](presentation/NOI_DUNG_CHI_TIET_15P.md).
+- [Cách tính chi phí](PRICING.md): giá tham chiếu, token cache và giới hạn của số liệu ước tính.
+- [Triển khai](deploy/README.md): ghi chú cho cấu hình triển khai tham khảo.
 
-`PLAN.md`, sơ đồ, giá tham khảo và các bản trong `presentation/archive/` giữ để đối chiếu lịch sử; không lấy ngày của chúng làm hiện trạng triển khai. Cấu hình `deploy/` cũng là mẫu, không phải bản sao được đảm bảo khớp VPS đang chạy.
+Kế hoạch nội bộ, bài trình bày, bản lưu và kết quả thử nghiệm cục bộ không được đưa vào repository. Cấu hình `deploy/` là mẫu, không phải bản sao được đảm bảo khớp VPS đang chạy.
 
 Không đưa mật khẩu VPS, khóa API, tệp cấu hình thực, hồ sơ nội bộ hoặc log người dùng vào commit. Các thư viện/asset bên thứ ba giữ thông tin giấy phép đi kèm, gồm `backend/app/static/vendor/`.
